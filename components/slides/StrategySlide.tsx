@@ -28,19 +28,19 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { x: -70, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5, ease: "expo.out" }
+        { x: -60, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }
       );
 
       gsap.fromTo(
         gridRef.current?.children || [],
-        { x: -60, opacity: 0, scale: 0.96 },
+        { x: -50, opacity: 0, scale: 0.97 },
         {
           x: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.45,
-          stagger: 0.04,
+          duration: 0.4,
+          stagger: 0.035,
           ease: "expo.out",
         }
       );
@@ -98,55 +98,55 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-3 sm:gap-4 md:gap-6 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full max-w-6xl mx-auto p-4 sm:p-8 md:p-12 flex flex-col justify-between overflow-hidden"
       >
         <div className="absolute -top-12 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header Bar */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
-          <div className="flex items-center gap-2.5 md:gap-4">
-            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
+          <div className="flex items-center gap-2.5 sm:gap-3.5">
+            <div className="w-1.5 sm:w-2 h-6 sm:h-9 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+              <div className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#72e055]">
                 Competitive Edge
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
                 OUR STRATEGIC PILLARS
               </h2>
             </div>
           </div>
-          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 cyber-pill rounded-full text-xs md:text-sm text-slate-200 shadow-md">
+          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 cyber-pill rounded-full text-xs font-semibold text-slate-200 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#55c538]" />
             <span>Value Creation</span>
           </div>
         </div>
 
-        {/* Fluid 6 Cards Grid */}
+        {/* 6 Cards Grid (Proportional scale) */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6 min-h-0"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5 my-auto"
         >
           {strategies.map((s) => {
             const IconComponent = s.icon;
             return (
               <div
                 key={s.num}
-                className="group relative p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between h-full"
+                className="group relative p-3 sm:p-4 rounded-xl cyber-card flex flex-col justify-between"
               >
-                <div className="flex items-center gap-2 sm:gap-3 mb-1">
-                  <span className="text-xs sm:text-base md:text-xl font-black text-[#72e055]">
+                <div className="flex items-center gap-2 sm:gap-2.5 mb-1.5">
+                  <span className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055]">
                     {s.num}
                   </span>
-                  <div className={`p-1.5 sm:p-2 rounded-lg border ${s.bgAccent}`}>
-                    <IconComponent className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                  <div className={`p-1.5 rounded-lg border ${s.bgAccent}`}>
+                    <IconComponent className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </div>
 
-                <div className="my-auto">
-                  <h3 className="text-xs sm:text-base md:text-lg lg:text-xl font-bold text-white mb-1 group-hover:text-[#72e055] transition-colors leading-tight">
+                <div>
+                  <h3 className="text-xs sm:text-sm md:text-base font-bold text-white mb-1 group-hover:text-[#72e055] transition-colors leading-snug">
                     {s.title}
                   </h3>
-                  <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-slate-300 leading-tight sm:leading-relaxed font-normal">
+                  <p className="text-[10px] sm:text-xs text-slate-300 leading-tight sm:leading-relaxed font-normal">
                     {s.desc}
                   </p>
                 </div>

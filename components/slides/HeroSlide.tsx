@@ -27,32 +27,32 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
 
       tl.fromTo(
         badgeRef.current,
-        { x: -70, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5 }
+        { x: -60, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.45 }
       )
         .fromTo(
           subtitleRef.current,
-          { x: -50, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.45 },
-          "-=0.35"
+          { x: -40, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4 },
+          "-=0.3"
         )
         .fromTo(
           titleRef.current?.children || [],
-          { x: -80, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.55, stagger: 0.05 },
-          "-=0.35"
+          { x: -60, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, stagger: 0.04 },
+          "-=0.3"
         )
         .fromTo(
           descRef.current,
-          { x: -40, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.45 },
-          "-=0.3"
+          { x: -30, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.4 },
+          "-=0.25"
         )
         .fromTo(
           cardsRef.current?.children || [],
-          { x: -50, opacity: 0, scale: 0.96 },
-          { x: 0, opacity: 1, scale: 1, duration: 0.5, stagger: 0.05 },
-          "-=0.3"
+          { x: -40, opacity: 0, scale: 0.97 },
+          { x: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.04 },
+          "-=0.25"
         );
     }, containerRef);
 
@@ -61,123 +61,119 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
 
   return (
     <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden">
-      {/* Responsive Background Layer */}
-      <div className="absolute inset-0 z-0">
-        {/* Mobile View Image */}
+      {/* Background Images */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="block md:hidden absolute inset-0 w-full h-full">
           <Image
             src="/mobile-view.webp"
-            alt="Byzid Apparels Mobile Presentation"
+            alt="Byzid Apparels Mobile View"
             fill
             priority
             sizes="100vw"
             className="object-cover object-center brightness-70 contrast-105"
           />
         </div>
-
-        {/* Desktop View Image */}
         <div className="hidden md:block absolute inset-0 w-full h-full">
           <Image
             src="/baplprofile.webp"
-            alt="Byzid Apparels Headquarters and Production Facility"
+            alt="Byzid Apparels Headquarters"
             fill
             priority
             sizes="100vw"
             className="object-cover object-center brightness-70 contrast-105"
           />
         </div>
-
-        {/* Cinematic atmospheric tint */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/65 to-[#050811]/70" />
         <div className="absolute inset-0 bg-black/25" />
       </div>
 
+      {/* Main Content Container */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-3 sm:gap-6 overflow-hidden"
+        className="relative z-10 w-full h-full max-w-6xl mx-auto p-4 sm:p-8 md:p-12 flex flex-col justify-between overflow-hidden"
       >
-        {/* Top Metadata Badges */}
+        {/* Top Badges */}
         <div className="shrink-0 flex items-center justify-between">
           <div
             ref={badgeRef}
-            className="inline-flex items-center gap-2 md:gap-3 px-3.5 md:px-5 py-1.5 md:py-2 rounded-full cyber-pill shadow-xl"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full cyber-pill shadow-md"
           >
-            <span className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-[#55c538] animate-pulse" />
-            <span className="text-[10px] sm:text-xs md:text-sm font-bold tracking-widest text-slate-100 uppercase">
+            <span className="w-2 h-2 rounded-full bg-[#55c538] animate-pulse" />
+            <span className="text-[10px] sm:text-xs font-bold tracking-wider text-slate-100 uppercase">
               Corporate Profile
             </span>
           </div>
 
-          <div className="flex items-center gap-1.5 md:gap-2 px-3.5 md:px-5 py-1.5 md:py-2 rounded-full cyber-pill text-[10px] sm:text-xs md:text-sm text-slate-200 shadow-md">
-            <Award className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#55c538]" />
+          <div className="flex items-center gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full cyber-pill text-[10px] sm:text-xs text-slate-200 shadow-md">
+            <Award className="w-3.5 h-3.5 text-[#55c538]" />
             <span className="font-bold text-white">Since 1995</span>
-            <span className="hidden sm:inline text-slate-400">• 30+ Yrs Legacy</span>
+            <span className="hidden sm:inline text-slate-400">• 30+ Yrs Excellence</span>
           </div>
         </div>
 
-        {/* Center Hero Branding */}
-        <div className="flex-1 flex flex-col justify-center my-auto py-2">
+        {/* Center: Hero Branding (Refined, logical scale) */}
+        <div className="my-auto py-2 sm:py-4">
           <p
             ref={subtitleRef}
-            className="text-xs sm:text-lg md:text-2xl lg:text-3xl font-semibold tracking-wider sm:tracking-widest text-[#72e055] uppercase mb-2 sm:mb-4 flex items-center gap-2 drop-shadow-md"
+            className="text-xs sm:text-sm md:text-base font-semibold tracking-wider text-[#72e055] uppercase mb-1.5 sm:mb-2.5 flex items-center gap-2 drop-shadow-sm"
           >
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0" />
             <span>Delivering Quality Apparel Worldwide</span>
           </p>
 
           <h1
             ref={titleRef}
-            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight text-white leading-none mb-3 sm:mb-6 drop-shadow-lg"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-2 sm:mb-4 drop-shadow-md"
           >
-            <div className="flex items-center gap-2.5 md:gap-5">
-              <span className="w-2.5 md:w-4 h-9 sm:h-16 md:h-24 lg:h-28 bg-[#55c538] rounded-sm inline-block glow-bar" />
+            <div className="flex items-center gap-2 sm:gap-3.5">
+              <span className="w-1.5 sm:w-2.5 h-7 sm:h-11 md:h-14 bg-[#55c538] rounded-sm inline-block glow-bar" />
               <span>BYZID APPARELS</span>
             </div>
-            <div className="text-slate-300 font-light text-xl sm:text-3xl md:text-5xl lg:text-6xl ml-5 sm:ml-7 md:ml-9 mt-1">
+            <div className="text-slate-400 font-light text-lg sm:text-2xl md:text-3xl ml-3.5 sm:ml-6 mt-0.5">
               (PVT) LTD.
             </div>
           </h1>
 
           <p
             ref={descRef}
-            className="text-xs sm:text-base md:text-xl lg:text-2xl text-slate-200 max-w-4xl leading-relaxed ml-5 sm:ml-7 md:ml-9 font-normal drop-shadow-md"
+            className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl leading-relaxed ml-3.5 sm:ml-6 font-normal drop-shadow-sm"
           >
             Premier ready-made garments (RMG) manufacturing powerhouse delivering knit & woven excellence to iconic global fashion brands.
           </p>
         </div>
 
-        {/* Bottom Bento Feature Cards */}
+        {/* Bottom Feature Bento Cards (Sleek, refined proportions) */}
         <div
           ref={cardsRef}
-          className="shrink-0 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6 ml-0 sm:ml-7 md:ml-9 max-w-6xl"
+          className="shrink-0 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3.5 ml-0 sm:ml-6"
         >
-          <div className="p-3 sm:p-4 md:p-6 rounded-xl md:rounded-2xl cyber-card flex items-center gap-3.5">
-            <div className="p-2.5 md:p-3.5 rounded-lg md:rounded-xl bg-[#55c538]/20 text-[#72e055] shrink-0">
-              <Building2 className="w-4 h-4 sm:w-6 sm:h-6" />
+          <div className="p-2.5 sm:p-3.5 rounded-xl cyber-card flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
+              <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Headquarters & Unit</div>
-              <div className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white">Chattogram, Bangladesh</div>
+              <div className="text-[10px] sm:text-xs text-slate-400 font-medium">Headquarters & Unit</div>
+              <div className="text-xs sm:text-sm md:text-base font-bold text-white">Chattogram, Bangladesh</div>
             </div>
           </div>
 
-          <div className="p-3 sm:p-4 md:p-6 rounded-xl md:rounded-2xl cyber-card flex items-center gap-3.5">
-            <div className="p-2.5 md:p-3.5 rounded-lg md:rounded-xl bg-[#55c538]/20 text-[#72e055] shrink-0">
-              <Globe2 className="w-4 h-4 sm:w-6 sm:h-6" />
+          <div className="p-2.5 sm:p-3.5 rounded-xl cyber-card flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
+              <Globe2 className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Global Exports</div>
-              <div className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white">USA, EU & Global Markets</div>
+              <div className="text-[10px] sm:text-xs text-slate-400 font-medium">Global Exports</div>
+              <div className="text-xs sm:text-sm md:text-base font-bold text-white">USA, EU & Global Markets</div>
             </div>
           </div>
 
-          <div className="p-3 sm:p-4 md:p-6 rounded-xl md:rounded-2xl cyber-card flex items-center gap-3.5">
-            <div className="p-2.5 md:p-3.5 rounded-lg md:rounded-xl bg-[#55c538]/20 text-[#72e055] shrink-0">
-              <ShieldCheck className="w-4 h-4 sm:w-6 sm:h-6" />
+          <div className="p-2.5 sm:p-3.5 rounded-xl cyber-card flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Compliance & Ethics</div>
-              <div className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white">BSCI & OEKO-TEX Certified</div>
+              <div className="text-[10px] sm:text-xs text-slate-400 font-medium">Compliance & Ethics</div>
+              <div className="text-xs sm:text-sm md:text-base font-bold text-white">BSCI & OEKO-TEX Certified</div>
             </div>
           </div>
         </div>
