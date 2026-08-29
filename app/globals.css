@@ -38,7 +38,7 @@
   }
 }
 
-/* 100% Fullscreen Scroll-Snap Container - Zero Distractions */
+/* Default Mobile: Vertical Snap Container */
 .snap-container {
   height: 100vh;
   height: 100dvh;
@@ -50,12 +50,6 @@
   scrollbar-width: none !important;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-}
-
-.snap-container::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
 }
 
 .slide {
@@ -73,7 +67,28 @@
   background-color: #070b14;
 }
 
-/* 100% Full-Bleed Screen Fill on Desktop and Mobile - Zero Letterboxing */
+/* Desktop: Pure Horizontal Presentation Deck (Slides to Left/Right) */
+@media (min-width: 768px) {
+  .snap-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .slide {
+    flex-shrink: 0;
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+/* 100% Full-Bleed Viewport Fill on all screens */
 .slide-content-wrapper {
   width: 100vw !important;
   height: 100vh !important;

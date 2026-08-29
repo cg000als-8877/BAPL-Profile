@@ -19,7 +19,11 @@ export const DeckContainer: React.FC = () => {
     if (index < 0 || index >= TOTAL_SLIDES) return;
     const target = slideRefs.current[index];
     if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
     }
   }, []);
 
@@ -35,7 +39,7 @@ export const DeckContainer: React.FC = () => {
     }
   }, [currentSlide, scrollToSlide]);
 
-  // Intersection Observer to detect current slide accurately
+  // Intersection Observer to accurately detect the active slide in view
   useEffect(() => {
     const options = {
       root: containerRef.current,
@@ -60,6 +64,35 @@ export const DeckContainer: React.FC = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  // Desktop Mouse Wheel translation: scrolling mouse wheel slides horizontally to the left
+  useEffect(() => {
+    let isLocked = false;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (window.innerWidth < 768) return;
+
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      if (Math.abs(delta) > 15) {
+        e.preventDefault();
+        if (isLocked) return;
+        isLocked = true;
+
+        if (delta > 0) {
+          handleNext();
+        } else {
+          handlePrev();
+        }
+
+        setTimeout(() => {
+          isLocked = false;
+        }, 650);
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [handleNext, handlePrev]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -92,14 +125,6 @@ export const DeckContainer: React.FC = () => {
         case "End":
           e.preventDefault();
           scrollToSlide(TOTAL_SLIDES - 1);
-          break;
-        case "f":
-        case "F":
-          if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(() => {});
-          } else if (document.exitFullscreen) {
-            document.exitFullscreen().catch(() => {});
-          }
           break;
       }
     };
