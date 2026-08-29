@@ -37,20 +37,20 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { x: -60, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }
+        { x: -70, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.5, ease: "expo.out" }
       );
 
       gsap.fromTo(
         leftColRef.current,
-        { x: -50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.4, ease: "expo.out", delay: 0.05 }
+        { x: -60, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.45, ease: "expo.out", delay: 0.05 }
       );
 
       gsap.fromTo(
         rightColRef.current,
-        { x: 50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.4, ease: "expo.out", delay: 0.05 }
+        { x: 60, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.45, ease: "expo.out", delay: 0.05 }
       );
     }, containerRef);
 
@@ -61,165 +61,167 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full max-w-6xl mx-auto p-4 sm:p-8 md:p-12 flex flex-col justify-between overflow-hidden"
+        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-4 sm:gap-6 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
-          <div className="flex items-center gap-2.5 sm:gap-3.5">
-            <div className="w-1.5 sm:w-2 h-6 sm:h-9 bg-[#55c538] rounded-full glow-bar" />
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="w-2 md:w-2.5 h-8 md:h-12 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#72e055]">
+              <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Get In Touch
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
                 CONTACT & OPERATIONS
               </h2>
             </div>
           </div>
-          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 cyber-pill rounded-full text-xs font-semibold text-slate-200 shadow-sm">
-            <UserCheck className="w-3.5 h-3.5 text-[#55c538]" />
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
+            <UserCheck className="w-4 h-4 text-[#55c538]" />
             <span>Direct Communication</span>
           </div>
         </div>
 
-        {/* Split Screen Layout (Refined scale) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5 my-auto">
+        {/* Split Screen Layout (Bold, Space-Filling Panels) */}
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 min-h-0">
           {/* Left Column */}
-          <div ref={leftColRef} className="flex flex-col gap-2.5 sm:gap-3.5">
+          <div ref={leftColRef} className="flex flex-col justify-between gap-3 sm:gap-5 h-full">
             {/* Factory Address Card */}
-            <div className="p-3 sm:p-4.5 rounded-xl cyber-card">
-              <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-[#72e055] uppercase tracking-wider mb-1">
-                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                <span>Headquarters & Factory</span>
+            <div className="p-4 sm:p-6 md:p-8 rounded-2xl cyber-card flex flex-col justify-between flex-1">
+              <div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#72e055] uppercase tracking-wider mb-2">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Headquarters & Factory</span>
+                </div>
+                <h3 className="text-base sm:text-xl md:text-2xl font-black text-white mb-1.5">
+                  Byzid Apparels (Pvt) Ltd.
+                </h3>
+                <p className="text-xs sm:text-base text-slate-200 leading-relaxed mb-3">
+                  ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
+                </p>
               </div>
-              <h3 className="text-sm sm:text-base md:text-lg font-bold text-white mb-0.5">
-                Byzid Apparels (Pvt) Ltd.
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-2.5">
-                ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
-              </p>
 
-              <div className="pt-2 border-t border-slate-800">
+              <div className="pt-3 border-t border-slate-800">
                 <a
                   href="tel:008802334451856"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/10 transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-base font-bold border border-white/10 transition-all shadow-md"
                 >
-                  <Phone className="w-3 h-3 text-[#72e055]" />
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#72e055]" />
                   <span>0088-02334451856</span>
                 </a>
               </div>
             </div>
 
             {/* Regulatory Credentials */}
-            <div className="p-3 sm:p-4 rounded-xl cyber-card">
-              <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
-                <FileCheck2 className="w-3.5 h-3.5 text-[#55c538]" />
+            <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between flex-1">
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-300 uppercase tracking-wider mb-2">
+                <FileCheck2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#55c538]" />
                 <span>Regulatory Credentials</span>
               </div>
-              <div className="grid grid-cols-2 gap-1.5 text-xs">
-                <div className="p-1.5 sm:p-2 rounded-md bg-slate-900/60 border border-slate-800">
-                  <span className="text-slate-400 block text-[9px]">BIN</span>
-                  <span className="font-bold text-white text-[11px] sm:text-xs">001287924-0505</span>
+              <div className="grid grid-cols-2 gap-2.5 text-xs sm:text-sm">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                  <span className="text-slate-400 block text-[10px] sm:text-xs">BIN</span>
+                  <span className="font-bold text-white text-xs sm:text-base">001287924-0505</span>
                 </div>
-                <div className="p-1.5 sm:p-2 rounded-md bg-slate-900/60 border border-slate-800">
-                  <span className="text-slate-400 block text-[9px]">BGMEA Reg.</span>
-                  <span className="font-bold text-white text-[11px] sm:text-xs">No. 2673</span>
+                <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                  <span className="text-slate-400 block text-[10px] sm:text-xs">BGMEA Reg.</span>
+                  <span className="font-bold text-white text-xs sm:text-base">No. 2673</span>
                 </div>
-                <div className="p-1.5 sm:p-2 rounded-md bg-slate-900/60 border border-slate-800">
-                  <span className="text-slate-400 block text-[9px]">IRC / ERC</span>
-                  <span className="font-bold text-white text-[11px] sm:text-xs truncate block">260315120087920</span>
+                <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                  <span className="text-slate-400 block text-[10px] sm:text-xs">IRC / ERC</span>
+                  <span className="font-bold text-white text-xs sm:text-base truncate block">260315120087920</span>
                 </div>
-                <div className="p-1.5 sm:p-2 rounded-md bg-slate-900/60 border border-slate-800">
-                  <span className="text-slate-400 block text-[9px]">Fire License</span>
-                  <span className="font-bold text-white text-[11px] sm:text-xs">CHATTA-6961</span>
+                <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+                  <span className="text-slate-400 block text-[10px] sm:text-xs">Fire License</span>
+                  <span className="font-bold text-white text-xs sm:text-base">CHATTA-6961</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Column */}
-          <div ref={rightColRef} className="flex flex-col gap-2.5 sm:gap-3.5">
+          <div ref={rightColRef} className="flex flex-col justify-between gap-3 sm:gap-5 h-full">
             {/* Key Executives */}
-            <div className="p-3 sm:p-4 rounded-xl cyber-card">
-              <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-[#72e055] uppercase tracking-wider mb-2">
-                <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                <span>Executive Contacts</span>
+            <div className="p-4 sm:p-6 md:p-8 rounded-2xl cyber-card flex flex-col justify-between flex-1">
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#72e055] uppercase tracking-wider mb-2.5">
+                <UserCheck className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span>Executive Leadership Contacts</span>
               </div>
 
               {/* MD */}
-              <div className="p-2 sm:p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 mb-1.5 flex items-center justify-between">
+              <div className="p-3 sm:p-4 rounded-xl bg-slate-900/70 border border-slate-800 mb-2.5 flex items-center justify-between">
                 <div>
-                  <div className="text-xs sm:text-sm font-bold text-white">
+                  <div className="text-sm sm:text-lg font-bold text-white">
                     Mr. Abdur Rahaman
                   </div>
-                  <div className="text-[10px] text-[#72e055] font-medium">
+                  <div className="text-xs sm:text-sm text-[#72e055] font-semibold">
                     Managing Director
                   </div>
-                  <div className="text-[10px] text-slate-400">
+                  <div className="text-xs sm:text-sm text-slate-400">
                     info@byzidapparels.com
                   </div>
                 </div>
                 <button
                   onClick={() => handleCopy("info@byzidapparels.com", "md")}
-                  className="p-1.5 rounded-md bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white transition-all"
+                  className="p-2.5 sm:p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white transition-all shadow-sm"
                   title="Copy Email"
                 >
                   {copiedEmail === "md" ? (
-                    <Check className="w-3.5 h-3.5 text-[#55c538]" />
+                    <Check className="w-4 h-4 text-[#55c538]" />
                   ) : (
-                    <Copy className="w-3.5 h-3.5" />
+                    <Copy className="w-4 h-4" />
                   )}
                 </button>
               </div>
 
               {/* Operations Director */}
-              <div className="p-2 sm:p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+              <div className="p-3 sm:p-4 rounded-xl bg-slate-900/70 border border-slate-800 flex items-center justify-between">
                 <div>
-                  <div className="text-xs sm:text-sm font-bold text-white">
+                  <div className="text-sm sm:text-lg font-bold text-white">
                     Mrs. Susan Rebeiro
                   </div>
-                  <div className="text-[10px] text-[#72e055] font-medium">
+                  <div className="text-xs sm:text-sm text-[#72e055] font-semibold">
                     Director of Operations
                   </div>
-                  <div className="text-[10px] text-slate-400">
+                  <div className="text-xs sm:text-sm text-slate-400">
                     susan@byzidapparels.com
                   </div>
                 </div>
                 <button
                   onClick={() => handleCopy("susan@byzidapparels.com", "ops")}
-                  className="p-1.5 rounded-md bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white transition-all"
+                  className="p-2.5 sm:p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white transition-all shadow-sm"
                   title="Copy Email"
                 >
                   {copiedEmail === "ops" ? (
-                    <Check className="w-3.5 h-3.5 text-[#55c538]" />
+                    <Check className="w-4 h-4 text-[#55c538]" />
                   ) : (
-                    <Copy className="w-3.5 h-3.5" />
+                    <Copy className="w-4 h-4" />
                   )}
                 </button>
               </div>
             </div>
 
             {/* Banking */}
-            <div className="p-3 sm:p-4 rounded-xl cyber-card">
-              <div className="flex items-center justify-between mb-1">
-                <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-[#72e055] uppercase tracking-wider">
-                  <CreditCard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between flex-1">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#72e055] uppercase tracking-wider">
+                  <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Banking Information</span>
                 </div>
-                <span className="text-[10px] text-slate-400">Rupali Bank Ltd.</span>
+                <span className="text-xs sm:text-sm text-slate-400 font-semibold">Rupali Bank Ltd.</span>
               </div>
-              <div className="text-[11px] sm:text-xs text-slate-300 space-y-1">
+              <div className="text-xs sm:text-sm md:text-base text-slate-200 space-y-2">
                 <div className="flex justify-between">
                   <span className="text-slate-400">Branch:</span>
-                  <span className="font-semibold text-right text-slate-200">
+                  <span className="font-bold text-right text-slate-100">
                     RUPALI SADAN, CHATTOGRAM
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">A/C No:</span>
-                  <span className="font-bold text-[#72e055]">1271020012021</span>
+                  <span className="font-extrabold text-[#72e055]">1271020012021</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">SWIFT:</span>
