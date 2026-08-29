@@ -23,19 +23,19 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { x: -80, opacity: 0 },
+        { x: -70, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.5, ease: "expo.out" }
       );
 
       gsap.fromTo(
         filterRef.current,
-        { x: -60, opacity: 0 },
+        { x: -50, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.45, delay: 0.05, ease: "expo.out" }
       );
 
       gsap.fromTo(
         gridRef.current?.children || [],
-        { x: -70, opacity: 0, scale: 0.96 },
+        { x: -60, opacity: 0, scale: 0.96 },
         {
           x: 0,
           opacity: 1,
@@ -58,8 +58,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
       tags: ["Jeans", "Shorts", "Cargo & Jogger"],
       description: "Rigid & stretch denim with advanced enzyme, stone, and tint wash finishes.",
       badge: "Flagship",
-      color: "border-blue-200 bg-gradient-to-br from-blue-50/90 to-white",
-      iconColor: "text-blue-600 bg-blue-100",
+      iconColor: "text-blue-400 bg-blue-500/20",
     },
     {
       id: 2,
@@ -68,8 +67,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
       tags: ["Polo Shirts", "Jersey", "Camo Tops"],
       description: "Combed cotton, CVC, TC single jersey & pique fabrics.",
       badge: "Volume",
-      color: "border-emerald-200 bg-gradient-to-br from-emerald-50/90 to-white",
-      iconColor: "text-emerald-600 bg-emerald-100",
+      iconColor: "text-[#72e055] bg-[#55c538]/20",
     },
     {
       id: 3,
@@ -78,8 +76,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
       tags: ["Jogger Pants", "Hoodies", "Tracksuits"],
       description: "Brushed fleece, French terry, and athletic silhouettes.",
       badge: "Winter",
-      color: "border-purple-200 bg-gradient-to-br from-purple-50/90 to-white",
-      iconColor: "text-purple-600 bg-purple-100",
+      iconColor: "text-purple-400 bg-purple-500/20",
     },
     {
       id: 4,
@@ -88,8 +85,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
       tags: ["Flannel Plaid", "Casual Shirts", "Blouse"],
       description: "Precision yarn-dyed checks, poplin, and smocked styling.",
       badge: "Woven",
-      color: "border-amber-200 bg-gradient-to-br from-amber-50/90 to-white",
-      iconColor: "text-amber-600 bg-amber-100",
+      iconColor: "text-amber-400 bg-amber-500/20",
     },
     {
       id: 5,
@@ -98,8 +94,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
       tags: ["Board Shorts", "Trunks", "Beachwear"],
       description: "Hydrophobic quick-dry fabrics and contrast drawstrings.",
       badge: "Active",
-      color: "border-cyan-200 bg-gradient-to-br from-cyan-50/90 to-white",
-      iconColor: "text-cyan-600 bg-cyan-100",
+      iconColor: "text-cyan-400 bg-cyan-500/20",
     },
     {
       id: 6,
@@ -108,8 +103,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
       tags: ["Onesies", "Frocks", "Dungarees", "Jump Suits"],
       description: "Skin-safe OEKO-TEX fabrics with safety snap buttons.",
       badge: "Safety",
-      color: "border-rose-200 bg-gradient-to-br from-rose-50/90 to-white",
-      iconColor: "text-rose-600 bg-rose-100",
+      iconColor: "text-rose-400 bg-rose-500/20",
     },
   ];
 
@@ -119,34 +113,34 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
       : productCards.filter((c) => c.category === activeCategory);
 
   return (
-    <AspectWrapper className="bg-slate-50 text-slate-900">
+    <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-2.5 sm:gap-4 md:gap-6 overflow-hidden bg-gradient-to-br from-white via-slate-50 to-slate-100"
+        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-2.5 sm:gap-4 md:gap-6 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
-        <div className="absolute top-1/4 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#69b23f]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header */}
-        <div ref={headerRef} className="shrink-0 relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-3">
+        <div ref={headerRef} className="shrink-0 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-3">
           <div className="flex items-center gap-2.5 md:gap-4">
-            <div className="w-1.5 md:w-2.5 h-7 md:h-12 bg-[#69b23f] rounded-full" />
+            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full" />
             <div>
-              <div className="text-[10px] sm:text-xs md:text-sm lg:text-base font-extrabold uppercase tracking-widest text-[#69b23f]">
+              <div className="text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Manufacturing Scope
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight font-sans">
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
                 PRODUCT VERTICALS
               </h2>
             </div>
           </div>
 
-          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-slate-700 font-bold border border-slate-200 shadow-sm text-xs md:text-sm">
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-slate-200 font-semibold shadow-sm text-xs md:text-sm">
             Mens • Ladies • Boys • Girls • Kids
           </div>
         </div>
 
         {/* Filter Pills */}
-        <div ref={filterRef} className="shrink-0 relative z-10 flex items-center gap-1.5 sm:gap-2.5 my-1 overflow-x-auto pb-0.5">
+        <div ref={filterRef} className="shrink-0 flex items-center gap-1.5 sm:gap-2.5 my-1 overflow-x-auto pb-0.5">
           {[
             { id: "all", label: "All Lines" },
             { id: "denim", label: "Denim & Bottoms" },
@@ -159,8 +153,8 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
               onClick={() => setActiveCategory(cat.id as any)}
               className={`px-3 sm:px-5 py-1 sm:py-2 rounded-lg sm:rounded-xl text-[10px] sm:text-sm md:text-base font-bold transition-all whitespace-nowrap ${
                 activeCategory === cat.id
-                  ? "bg-[#69b23f] text-white shadow-sm shadow-[#69b23f]/30"
-                  : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-100"
+                  ? "bg-[#55c538] text-slate-950 shadow-md shadow-[#55c538]/30 font-bold"
+                  : "glass-pill text-slate-300 hover:text-white"
               }`}
             >
               {cat.label}
@@ -168,7 +162,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           ))}
         </div>
 
-        {/* 6 Cards Grid - Expands fluidly to fill height */}
+        {/* 6 Cards Grid */}
         <div
           ref={gridRef}
           className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6 min-h-0"
@@ -176,34 +170,34 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           {filteredCards.map((p) => (
             <div
               key={p.id}
-              className={`p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl border ${p.color} shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full`}
+              className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between h-full transition-all"
             >
               <div>
                 <div className="flex items-center justify-between mb-1.5 sm:mb-2">
-                  <span className="text-[9px] sm:text-xs md:text-sm font-bold px-2 py-0.5 rounded-md bg-white text-slate-800 border border-slate-200">
+                  <span className="text-[9px] sm:text-xs font-bold px-2 py-0.5 rounded-md bg-white/10 text-slate-200 border border-white/10">
                     {p.badge}
                   </span>
-                  <div className={`p-1 sm:p-2 rounded-lg ${p.iconColor}`}>
+                  <div className={`p-1.5 sm:p-2 rounded-lg ${p.iconColor}`}>
                     <Layers className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                   </div>
                 </div>
 
-                <h3 className="text-xs sm:text-base md:text-xl font-bold text-slate-900 mb-1 leading-snug font-sans">
+                <h3 className="text-xs sm:text-base md:text-lg lg:text-xl font-bold text-white mb-1 leading-snug">
                   {p.title}
                 </h3>
-                <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-slate-600 leading-tight sm:leading-relaxed mb-2">
+                <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-slate-300 leading-tight sm:leading-relaxed mb-2">
                   {p.description}
                 </p>
               </div>
 
               {/* Tags Cloud */}
-              <div className="flex flex-wrap gap-1 pt-2 border-t border-slate-200/80">
+              <div className="flex flex-wrap gap-1 pt-2 border-t border-slate-800">
                 {p.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-1 text-[9px] sm:text-xs font-semibold px-2 py-0.5 rounded-full bg-white text-slate-800 border border-slate-200"
+                    className="inline-flex items-center gap-1 text-[9px] sm:text-xs font-medium px-2 py-0.5 rounded-full bg-white/5 text-slate-200 border border-white/10"
                   >
-                    <CheckCircle2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[#69b23f]" />
+                    <CheckCircle2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[#55c538]" />
                     {tag}
                   </span>
                 ))}
