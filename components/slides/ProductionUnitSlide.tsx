@@ -95,7 +95,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. TOP: Floor Details & Facility Specifications Cards (Brought to Top & Bigger for Mobile) */}
+        {/* 2. TOP: Floor Details & Facility Specifications Cards */}
         <div
           ref={specsRef}
           className="shrink-0 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3.5"
@@ -177,19 +177,34 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 3. CENTER: Blueprint Image Clean in Center Space (Without any text or frame stroke) */}
+        {/* 3. CENTER: Blueprint Transparent Image (Separated for Desktop & Mobile, without text or frame stroke) */}
         <div
           ref={blueprintRef}
-          className="flex-1 relative w-full rounded-2xl overflow-hidden min-h-[140px] sm:min-h-[220px] md:min-h-[280px]"
+          className="flex-1 relative w-full overflow-hidden min-h-[140px] sm:min-h-[220px] md:min-h-[280px]"
         >
-          <Image
-            src="/blueprint.jpg"
-            alt="Byzid Apparels Architectural Blueprint"
-            fill
-            priority
-            sizes="100vw"
-            className="object-contain object-center"
-          />
+          {/* Mobile Transparent Blueprint Image */}
+          <div className="block md:hidden absolute inset-0 w-full h-full">
+            <Image
+              src="/mobile-bp.png"
+              alt="Byzid Apparels Architectural Blueprint Mobile View"
+              fill
+              priority
+              sizes="100vw"
+              className="object-contain object-center"
+            />
+          </div>
+
+          {/* Desktop Transparent Blueprint Image */}
+          <div className="hidden md:block absolute inset-0 w-full h-full">
+            <Image
+              src="/desktop-bp.png"
+              alt="Byzid Apparels Architectural Blueprint Desktop View"
+              fill
+              priority
+              sizes="100vw"
+              className="object-contain object-center"
+            />
+          </div>
         </div>
 
         {/* 4. BOTTOM: Address of Production Unit */}
