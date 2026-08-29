@@ -73,7 +73,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="text-[10px] sm:text-xs md:text-sm lg:text-base font-extrabold uppercase tracking-widest text-[#69b23f]">
                 Get In Touch
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight font-sans">
                 CONTACT & OPERATIONS
               </h2>
             </div>
@@ -121,19 +121,19 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="grid grid-cols-2 gap-1.5 sm:gap-2.5 text-[10px] sm:text-xs md:text-sm">
                 <div className="p-1.5 sm:p-2.5 rounded-lg bg-slate-50 border border-slate-100">
                   <span className="text-slate-400 block text-[9px]">BIN</span>
-                  <span className="font-mono font-bold text-slate-800">001287924-0505</span>
+                  <span className="font-bold text-slate-800 font-sans">001287924-0505</span>
                 </div>
                 <div className="p-1.5 sm:p-2.5 rounded-lg bg-slate-50 border border-slate-100">
                   <span className="text-slate-400 block text-[9px]">BGMEA Reg.</span>
-                  <span className="font-mono font-bold text-slate-800">No. 2673</span>
+                  <span className="font-bold text-slate-800 font-sans">No. 2673</span>
                 </div>
                 <div className="p-1.5 sm:p-2.5 rounded-lg bg-slate-50 border border-slate-100">
                   <span className="text-slate-400 block text-[9px]">IRC / ERC</span>
-                  <span className="font-mono font-bold text-slate-800 truncate block">260315120087920</span>
+                  <span className="font-bold text-slate-800 font-sans truncate block">260315120087920</span>
                 </div>
                 <div className="p-1.5 sm:p-2.5 rounded-lg bg-slate-50 border border-slate-100">
                   <span className="text-slate-400 block text-[9px]">Fire License</span>
-                  <span className="font-mono font-bold text-slate-800">CHATTA-6961</span>
+                  <span className="font-bold text-slate-800 font-sans">CHATTA-6961</span>
                 </div>
               </div>
             </div>
@@ -157,7 +157,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                   <div className="text-[10px] sm:text-xs text-[#4e8c2c] font-semibold">
                     Managing Director
                   </div>
-                  <div className="text-[10px] sm:text-xs text-slate-500 font-mono">
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-sans">
                     info@byzidapparels.com
                   </div>
                 </div>
@@ -183,7 +183,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                   <div className="text-[10px] sm:text-xs text-[#4e8c2c] font-semibold">
                     Director of Operations
                   </div>
-                  <div className="text-[10px] sm:text-xs text-slate-500 font-mono">
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-sans">
                     susan@byzidapparels.com
                   </div>
                 </div>
@@ -217,11 +217,11 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                     RUPALI SADAN, CHATTOGRAM
                   </span>
                 </div>
-                <div className="flex justify-between font-mono">
+                <div className="flex justify-between font-sans">
                   <span className="text-slate-400">A/C No:</span>
                   <span className="font-bold text-[#88cb5c]">1271020012021</span>
                 </div>
-                <div className="flex justify-between font-mono">
+                <div className="flex justify-between font-sans">
                   <span className="text-slate-400">SWIFT:</span>
                   <span className="font-bold text-white">RUPBBDDHRSC</span>
                 </div>
