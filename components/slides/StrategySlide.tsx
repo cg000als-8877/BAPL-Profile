@@ -27,22 +27,23 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
     if (!isActive) return;
 
     const ctx = gsap.context(() => {
+      // Magnetic Flash Entrance from Side
       gsap.fromTo(
         headerRef.current,
-        { y: -20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }
+        { x: -100, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.55, ease: "expo.out" }
       );
 
       gsap.fromTo(
         gridRef.current?.children || [],
-        { y: 35, opacity: 0, scale: 0.95 },
+        { x: -90, opacity: 0, scale: 0.96 },
         {
-          y: 0,
+          x: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.7,
-          stagger: 0.09,
-          ease: "power2.out",
+          duration: 0.5,
+          stagger: 0.06,
+          ease: "expo.out",
         }
       );
     }, containerRef);
@@ -54,122 +55,115 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
     {
       num: "01",
       title: "Customer Service Excellence",
-      desc: "Continuously looking for opportunities to improve customer service and exceed global apparel delivery benchmarks.",
+      desc: "Continuously identifying opportunities to elevate customer experience and surpass global garment manufacturing benchmarks.",
       icon: HeartHandshake,
-      color: "from-emerald-500/10 to-transparent",
-      accent: "text-emerald-600",
-      bgAccent: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
+      color: "from-emerald-500/20 to-transparent",
+      bgAccent: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
     },
     {
       num: "02",
       title: "Infrastructure Alignment",
-      desc: "Align directly with customer’s business needs, scaling dedicated production lines and specialized resources around them.",
+      desc: "Directly aligning production capabilities with each client's business growth, dedicating specialized lines and technical resources.",
       icon: Network,
-      color: "from-blue-500/10 to-transparent",
-      accent: "text-blue-600",
-      bgAccent: "bg-blue-50 text-blue-600 border-blue-200/60",
+      color: "from-blue-500/20 to-transparent",
+      bgAccent: "bg-blue-500/10 text-blue-400 border-blue-500/30",
     },
     {
       num: "03",
       title: "Proactive Partnership",
-      desc: "Work closely with our global brand partners to foresee dynamic market trends and evolving seasonal business cycles.",
+      desc: "Collaborating closely with world-leading fashion brands to anticipate fast-shifting consumer trends and dynamic seasonal cycles.",
       icon: Handshake,
-      color: "from-indigo-500/10 to-transparent",
-      accent: "text-indigo-600",
-      bgAccent: "bg-indigo-50 text-indigo-600 border-indigo-200/60",
+      color: "from-indigo-500/20 to-transparent",
+      bgAccent: "bg-indigo-500/10 text-indigo-400 border-indigo-500/30",
     },
     {
       num: "04",
       title: "Supply Chain Optimization",
-      desc: "Optimize supply chain and production to achieve lower costs at consistent premium quality. We share benefits with strategic partners.",
+      desc: "Streamlining end-to-end yarn, fabric, and accessory procurement to reduce lead time and cost while guaranteeing premium quality.",
       icon: Truck,
-      color: "from-amber-500/10 to-transparent",
-      accent: "text-amber-600",
-      bgAccent: "bg-amber-50 text-amber-600 border-amber-200/60",
+      color: "from-amber-500/20 to-transparent",
+      bgAccent: "bg-amber-500/10 text-amber-400 border-amber-500/30",
     },
     {
       num: "05",
       title: "Product Development & Design",
-      desc: "Support our customers by setting up in-house design and R&D capabilities rooted deeply in each brand's unique design DNA.",
+      desc: "In-house design studio and R&D sample rooms custom-tailored to embody each brand's distinct aesthetic identity and DNA.",
       icon: Palette,
-      color: "from-purple-500/10 to-transparent",
-      accent: "text-purple-600",
-      bgAccent: "bg-purple-50 text-purple-600 border-purple-200/60",
+      color: "from-purple-500/20 to-transparent",
+      bgAccent: "bg-purple-500/10 text-purple-400 border-purple-500/30",
     },
     {
       num: "06",
       title: "Value-Added Savings",
-      desc: "Offer specialized “Fast Sale” programs to our global customers to maximize commercial agility and duty savings.",
+      desc: "Exclusive “Fast Sale” programs providing strategic buyers with substantial duty savings, commercial agility, and cost reduction.",
       icon: BadgePercent,
-      color: "from-[#69b23f]/15 to-transparent",
-      accent: "text-[#69b23f]",
-      bgAccent: "bg-[#69b23f]/10 text-[#4e8c2c] border-[#69b23f]/30",
+      color: "from-[#69b23f]/20 to-transparent",
+      bgAccent: "bg-[#69b23f]/15 text-[#88cb5c] border-[#69b23f]/40",
     },
   ];
 
   return (
-    <AspectWrapper className="bg-slate-900 text-white">
+    <AspectWrapper className="bg-slate-950 text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-6 md:p-10 flex flex-col justify-between overflow-hidden bg-gradient-to-br from-[#0c1324] via-[#0f172a] to-[#090d18]"
+        className="relative w-full h-full p-6 sm:p-10 md:p-14 lg:p-20 flex flex-col justify-between overflow-hidden bg-gradient-to-br from-[#080e1d] via-[#0f172a] to-[#050812]"
       >
-        {/* Ambient Glows */}
-        <div className="absolute -top-12 right-1/4 w-96 h-96 bg-[#69b23f]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-12 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Glows */}
+        <div className="absolute -top-12 right-1/4 w-[500px] h-[500px] bg-[#69b23f]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-12 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header Bar */}
         <div ref={headerRef} className="relative z-10 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-1.5 h-8 bg-[#69b23f] rounded-full" />
+          <div className="flex items-center gap-4">
+            <div className="w-2 md:w-2.5 h-10 md:h-14 bg-[#69b23f] rounded-full" />
             <div>
-              <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#88cb5c]">
-                Competitive Advantage
+              <div className="text-xs md:text-sm lg:text-base font-extrabold uppercase tracking-widest text-[#88cb5c]">
+                Competitive Edge
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
                 OUR STRATEGIC PILLARS
               </h2>
             </div>
           </div>
-          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 bg-slate-800/80 rounded-full border border-slate-700 text-xs text-slate-300">
-            <Sparkles className="w-3.5 h-3.5 text-[#88cb5c]" />
+          <div className="hidden sm:inline-flex items-center gap-2 px-5 py-2 bg-slate-900/90 rounded-full border border-slate-700 text-xs md:text-sm lg:text-base text-slate-200 shadow-md">
+            <Sparkles className="w-4 h-4 text-[#88cb5c]" />
             <span>Customer-Centric Value Creation</span>
           </div>
         </div>
 
-        {/* 6 Strategic Pillars Grid (2 cols x 3 rows on desktop / scrollable on mobile) */}
+        {/* 6 Strategic Pillars Grid */}
         <div
           ref={gridRef}
-          className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3.5 my-auto max-h-[70vh] overflow-y-auto sm:overflow-visible py-1"
+          className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 my-auto"
         >
           {strategies.map((s) => {
             const IconComponent = s.icon;
             return (
               <div
                 key={s.num}
-                className="group relative p-3.5 sm:p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 backdrop-blur-md hover:bg-slate-800 hover:border-[#69b23f]/60 hover:shadow-lg hover:shadow-[#69b23f]/10 transition-all duration-300 flex flex-col justify-between"
+                className="group relative p-5 md:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 backdrop-blur-md hover:bg-slate-900 hover:border-[#69b23f] hover:shadow-2xl hover:shadow-[#69b23f]/10 transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Subtle top edge gradient highlight */}
                 <div
-                  className={`absolute inset-x-0 top-0 h-1 rounded-t-xl bg-gradient-to-r ${s.color} opacity-0 group-hover:opacity-100 transition-opacity`}
+                  className={`absolute inset-x-0 top-0 h-1.5 rounded-t-2xl bg-gradient-to-r ${s.color} opacity-0 group-hover:opacity-100 transition-opacity`}
                 />
 
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-2.5">
-                    <span className="font-mono text-sm sm:text-base font-extrabold text-[#88cb5c]">
+                <div className="flex items-start justify-between gap-3 mb-3 md:mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-base sm:text-lg md:text-xl lg:text-2xl font-black text-[#88cb5c]">
                       {s.num}
                     </span>
-                    <div className={`p-1.5 rounded-lg border ${s.bgAccent}`}>
-                      <IconComponent className="w-4 h-4" />
+                    <div className={`p-2 md:p-2.5 rounded-xl border ${s.bgAccent}`}>
+                      <IconComponent className="w-5 h-5 md:w-6 md:h-6" />
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-[#88cb5c] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <ArrowUpRight className="w-5 h-5 text-slate-600 group-hover:text-[#88cb5c] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
 
                 <div>
-                  <h3 className="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-[#88cb5c] transition-colors leading-tight">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2 group-hover:text-[#88cb5c] transition-colors leading-snug">
                     {s.title}
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed font-normal">
                     {s.desc}
                   </p>
                 </div>
@@ -179,9 +173,9 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
         </div>
 
         {/* Footer */}
-        <div className="relative z-10 flex items-center justify-between text-xs text-slate-400 pt-1 border-t border-slate-800">
+        <div className="relative z-10 flex items-center justify-between text-xs md:text-sm text-slate-400 pt-3 border-t border-slate-800">
           <span>Byzid Apparels — Value Acceleration & Strategic Partnership</span>
-          <span className="font-mono font-semibold text-[#88cb5c]">Slide 03 / 06</span>
+          <span className="font-mono font-bold text-[#88cb5c]">Slide 03 / 06</span>
         </div>
       </div>
     </AspectWrapper>

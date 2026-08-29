@@ -15,42 +15,50 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive, onNext }) => {
   const badgeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const descRef = useRef<HTMLParagraphElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isActive) return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
+      // Magnetic Side Flash Animation
       tl.fromTo(
         badgeRef.current,
-        { y: -30, opacity: 0, scale: 0.9 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.8 }
+        { x: -100, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.55 }
       )
         .fromTo(
-          titleRef.current?.children || [],
-          { y: 40, opacity: 0, skewY: 2 },
-          { y: 0, opacity: 1, skewY: 0, duration: 0.9, stagger: 0.1 },
-          "-=0.5"
+          subtitleRef.current,
+          { x: -80, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5 },
+          "-=0.35"
         )
         .fromTo(
-          subtitleRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7 },
-          "-=0.4"
+          titleRef.current?.children || [],
+          { x: -120, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.6, stagger: 0.08 },
+          "-=0.35"
+        )
+        .fromTo(
+          descRef.current,
+          { x: -60, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5 },
+          "-=0.3"
         )
         .fromTo(
           cardsRef.current?.children || [],
-          { y: 30, opacity: 0, scale: 0.95 },
-          { y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.12 },
-          "-=0.4"
+          { x: -80, opacity: 0, scale: 0.96 },
+          { x: 0, opacity: 1, scale: 1, duration: 0.55, stagger: 0.08 },
+          "-=0.3"
         )
         .fromTo(
-          ctaRef.current,
-          { opacity: 0, y: 15 },
-          { opacity: 1, y: 0, duration: 0.6 },
+          footerRef.current,
+          { opacity: 0, x: -40 },
+          { opacity: 1, x: 0, duration: 0.45 },
           "-=0.2"
         );
     }, containerRef);
@@ -59,118 +67,118 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive, onNext }) => {
   }, [isActive]);
 
   return (
-    <AspectWrapper className="bg-gradient-to-br from-[#0a0f1d] via-[#0f172a] to-[#080d1a] text-white">
+    <AspectWrapper className="bg-gradient-to-br from-[#070c18] via-[#0f172a] to-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-6 md:p-12 flex flex-col justify-between overflow-hidden"
+        className="relative w-full h-full p-6 sm:p-10 md:p-14 lg:p-20 flex flex-col justify-between overflow-hidden"
       >
         {/* Background Visual Effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(105,178,63,0.2),rgba(255,255,255,0))] pointer-events-none" />
-        <div className="absolute right-0 bottom-0 w-96 h-96 bg-[#69b23f]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute left-0 top-1/3 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-        
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_90%_at_40%_-20%,rgba(105,178,63,0.25),rgba(255,255,255,0))] pointer-events-none" />
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-[#69b23f]/12 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute left-1/4 top-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Top Bar: Company Badge & Year */}
+        {/* Top Bar: Company Badge & Established Year */}
         <div className="relative z-10 flex items-center justify-between">
           <div
             ref={badgeRef}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-[#69b23f]/40 backdrop-blur-md shadow-lg shadow-black/40"
+            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-slate-900/90 border border-[#69b23f]/50 backdrop-blur-md shadow-xl"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-[#69b23f] animate-pulse" />
-            <span className="text-xs md:text-sm font-semibold tracking-wider text-slate-200 uppercase">
-              Company Profile
+            <span className="w-3 h-3 rounded-full bg-[#69b23f] animate-pulse" />
+            <span className="text-xs md:text-sm lg:text-base font-bold tracking-widest text-slate-100 uppercase">
+              Corporate Profile
             </span>
           </div>
 
-          <div className="flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-800/60 border border-slate-700/60 text-xs text-slate-300">
-            <Award className="w-3.5 h-3.5 text-[#69b23f]" />
-            <span className="font-semibold text-white">Since 1995</span>
-            <span className="text-slate-400">• 30+ Yrs Legacy</span>
+          <div className="flex items-center gap-2.5 px-5 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-xs md:text-sm lg:text-base text-slate-200 shadow-md">
+            <Award className="w-4 h-4 text-[#69b23f]" />
+            <span className="font-bold text-white">Since 1995</span>
+            <span className="text-slate-400">• 30+ Years Global Legacy</span>
           </div>
         </div>
 
         {/* Main Hero Typography & Brand Name */}
-        <div className="relative z-10 my-auto py-2">
+        <div className="relative z-10 my-auto py-4">
           <p
             ref={subtitleRef}
-            className="text-sm md:text-xl font-medium tracking-widest text-[#88cb5c] uppercase mb-2 flex items-center gap-2"
+            className="text-sm md:text-2xl lg:text-3xl font-semibold tracking-widest text-[#88cb5c] uppercase mb-3 flex items-center gap-2.5"
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-5 h-5" />
             Delivering Quality Apparel Worldwide
           </p>
 
           <h1
             ref={titleRef}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-none mb-4"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight text-white leading-none mb-6"
           >
-            <div className="flex items-center gap-3">
-              <span className="w-3 md:w-4 h-12 md:h-20 bg-[#69b23f] rounded-sm inline-block shadow-lg shadow-[#69b23f]/50" />
+            <div className="flex items-center gap-3 md:gap-5">
+              <span className="w-3.5 md:w-5 h-14 sm:h-20 md:h-24 lg:h-32 bg-[#69b23f] rounded-sm inline-block shadow-xl shadow-[#69b23f]/50" />
               <span>BYZID APPARELS</span>
             </div>
-            <div className="text-slate-400 font-light text-2xl sm:text-3xl md:text-5xl ml-6 md:ml-8 mt-1">
+            <div className="text-slate-400 font-light text-2xl sm:text-4xl md:text-5xl lg:text-6xl ml-7 md:ml-10 mt-1">
               (PVT) LTD.
             </div>
           </h1>
 
-          <p className="text-xs md:text-base text-slate-300 max-w-2xl leading-relaxed ml-6 md:ml-8 font-light">
-            Premier ready-made garments (RMG) manufacturing powerhouse delivering knit & woven excellence to iconic global fashion brands.
+          <p
+            ref={descRef}
+            className="text-sm sm:text-base md:text-xl lg:text-2xl text-slate-300 max-w-4xl leading-relaxed ml-7 md:ml-10 font-normal"
+          >
+            Premier ready-made garments (RMG) manufacturing powerhouse delivering woven & knit excellence to iconic global fashion brands.
           </p>
 
-          {/* Quick Highlight Feature Pills */}
+          {/* Quick Highlight Feature Bento Cards */}
           <div
             ref={cardsRef}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mt-6 md:mt-8 ml-0 md:ml-8"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12 ml-0 md:ml-10 max-w-6xl"
           >
-            <div className="p-3 md:p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md flex items-center gap-3 hover:border-[#69b23f]/50 transition-colors">
-              <div className="p-2 rounded-lg bg-[#69b23f]/15 text-[#88cb5c]">
-                <Building2 className="w-5 h-5" />
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md flex items-center gap-4 hover:border-[#69b23f] transition-all hover:scale-[1.02] shadow-lg">
+              <div className="p-3 md:p-3.5 rounded-xl bg-[#69b23f]/20 text-[#88cb5c]">
+                <Building2 className="w-6 h-6 md:w-7 md:h-7" />
               </div>
               <div>
-                <div className="text-xs text-slate-400">Headquarters & Unit</div>
-                <div className="text-xs md:text-sm font-semibold text-white">Chattogram, Bangladesh</div>
+                <div className="text-xs md:text-sm text-slate-400 font-medium">Headquarters & Unit</div>
+                <div className="text-sm md:text-lg lg:text-xl font-bold text-white">Chattogram, Bangladesh</div>
               </div>
             </div>
 
-            <div className="p-3 md:p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md flex items-center gap-3 hover:border-[#69b23f]/50 transition-colors">
-              <div className="p-2 rounded-lg bg-[#69b23f]/15 text-[#88cb5c]">
-                <Globe2 className="w-5 h-5" />
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md flex items-center gap-4 hover:border-[#69b23f] transition-all hover:scale-[1.02] shadow-lg">
+              <div className="p-3 md:p-3.5 rounded-xl bg-[#69b23f]/20 text-[#88cb5c]">
+                <Globe2 className="w-6 h-6 md:w-7 md:h-7" />
               </div>
               <div>
-                <div className="text-xs text-slate-400">Global Reach</div>
-                <div className="text-xs md:text-sm font-semibold text-white">USA, EU & Global Markets</div>
+                <div className="text-xs md:text-sm text-slate-400 font-medium">Global Exports</div>
+                <div className="text-sm md:text-lg lg:text-xl font-bold text-white">USA, EU & Global Markets</div>
               </div>
             </div>
 
-            <div className="p-3 md:p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md flex items-center gap-3 hover:border-[#69b23f]/50 transition-colors">
-              <div className="p-2 rounded-lg bg-[#69b23f]/15 text-[#88cb5c]">
-                <ShieldCheck className="w-5 h-5" />
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md flex items-center gap-4 hover:border-[#69b23f] transition-all hover:scale-[1.02] shadow-lg">
+              <div className="p-3 md:p-3.5 rounded-xl bg-[#69b23f]/20 text-[#88cb5c]">
+                <ShieldCheck className="w-6 h-6 md:w-7 md:h-7" />
               </div>
               <div>
-                <div className="text-xs text-slate-400">Compliance & Ethics</div>
-                <div className="text-xs md:text-sm font-semibold text-white">BSCI & OEKO-TEX Certified</div>
+                <div className="text-xs md:text-sm text-slate-400 font-medium">Compliance & Ethics</div>
+                <div className="text-sm md:text-lg lg:text-xl font-bold text-white">BSCI & OEKO-TEX Certified</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom CTA / Scroll cue */}
+        {/* Bottom Bar */}
         <div
-          ref={ctaRef}
-          className="relative z-10 flex items-center justify-between pt-2 border-t border-slate-800/60 text-xs md:text-sm text-slate-400"
+          ref={footerRef}
+          className="relative z-10 flex items-center justify-between pt-4 border-t border-slate-800 text-xs md:text-sm lg:text-base text-slate-400"
         >
-          <div className="flex items-center gap-2">
-            <span className="text-[#69b23f] font-mono font-bold">01</span>
-            <span className="text-slate-500">/</span>
-            <span>06 Slide Overview</span>
+          <div className="flex items-center gap-3">
+            <span className="text-[#69b23f] font-mono font-extrabold text-sm md:text-lg">01</span>
+            <span className="text-slate-600 font-bold">/</span>
+            <span className="font-medium text-slate-300">06 Presentation Deck</span>
           </div>
 
           <button
             onClick={onNext}
-            className="group flex items-center gap-2 px-4 py-2 rounded-full bg-[#69b23f] hover:bg-[#5aa034] text-white font-medium shadow-lg shadow-[#69b23f]/30 transition-all hover:scale-105 active:scale-95"
+            className="group flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-[#69b23f] hover:bg-[#5aa034] text-white font-semibold shadow-lg shadow-[#69b23f]/30 transition-all hover:scale-105 active:scale-95"
           >
-            <span>Explore Deck</span>
+            <span>Scroll or Click Next</span>
             <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
           </button>
         </div>
