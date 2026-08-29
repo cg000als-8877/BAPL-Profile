@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { HeroSlide } from "./slides/HeroSlide";
-import { CapacitySlide } from "./slides/CapacitySlide";
+import { ContactSlide } from "./slides/ContactSlide";
 import { StrategySlide } from "./slides/StrategySlide";
+import { ProductionUnitSlide } from "./slides/ProductionUnitSlide";
+import { MachinerySlide } from "./slides/MachinerySlide";
 import { ProductsSlide } from "./slides/ProductsSlide";
 import { TrustSlide } from "./slides/TrustSlide";
-import { ContactSlide } from "./slides/ContactSlide";
 
-const TOTAL_SLIDES = 6;
+const TOTAL_SLIDES = 7;
 
 export const DeckContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -134,7 +135,7 @@ export const DeckContainer: React.FC = () => {
   }, [handleNext, handlePrev, scrollToSlide]);
 
   return (
-    <main ref={containerRef} className="snap-container bg-[#070b14]">
+    <main ref={containerRef} className="snap-container bg-[#050811]">
       {/* Slide 1: Hero Section */}
       <section
         ref={(el) => { slideRefs.current[0] = el; }}
@@ -144,16 +145,16 @@ export const DeckContainer: React.FC = () => {
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>
 
-      {/* Slide 2: Capacity & Scale */}
+      {/* Slide 2: Contact & Operations (Moved to 2nd Page) */}
       <section
         ref={(el) => { slideRefs.current[1] = el; }}
         id="slide-2"
         className="slide slide-2"
       >
-        <CapacitySlide isActive={currentSlide === 1} onNext={handleNext} />
+        <ContactSlide isActive={currentSlide === 1} />
       </section>
 
-      {/* Slide 3: Strategic Edge */}
+      {/* Slide 3: Strategic Pillars */}
       <section
         ref={(el) => { slideRefs.current[2] = el; }}
         id="slide-3"
@@ -162,31 +163,40 @@ export const DeckContainer: React.FC = () => {
         <StrategySlide isActive={currentSlide === 2} />
       </section>
 
-      {/* Slide 4: Product Verticals */}
+      {/* Slide 4: Production Unit & Factory Facility (NEW Slide with Blueprint Background) */}
       <section
         ref={(el) => { slideRefs.current[3] = el; }}
         id="slide-4"
         className="slide slide-4"
       >
-        <ProductsSlide isActive={currentSlide === 3} />
+        <ProductionUnitSlide isActive={currentSlide === 3} onNext={handleNext} />
       </section>
 
-      {/* Slide 5: Global Trust */}
+      {/* Slide 5: Dedicated Machine Summary & Fleet */}
       <section
         ref={(el) => { slideRefs.current[4] = el; }}
         id="slide-5"
         className="slide slide-5"
       >
-        <TrustSlide isActive={currentSlide === 4} />
+        <MachinerySlide isActive={currentSlide === 4} onNext={handleNext} />
       </section>
 
-      {/* Slide 6: Contact & Operations */}
+      {/* Slide 6: Product Verticals */}
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
         id="slide-6"
         className="slide slide-6"
       >
-        <ContactSlide isActive={currentSlide === 5} />
+        <ProductsSlide isActive={currentSlide === 5} />
+      </section>
+
+      {/* Slide 7: Global Trust & Compliance */}
+      <section
+        ref={(el) => { slideRefs.current[6] = el; }}
+        id="slide-7"
+        className="slide slide-7"
+      >
+        <TrustSlide isActive={currentSlide === 6} />
       </section>
     </main>
   );
