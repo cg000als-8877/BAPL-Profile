@@ -39,19 +39,19 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { x: -80, opacity: 0 },
+        { x: -70, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.5, ease: "expo.out" }
       );
 
       gsap.fromTo(
         gridRef.current?.children || [],
-        { x: -70, opacity: 0, scale: 0.96 },
+        { x: -60, opacity: 0, scale: 0.96 },
         { x: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.05, ease: "expo.out" }
       );
 
       gsap.fromTo(
         machineryRef.current,
-        { x: -60, opacity: 0 },
+        { x: -50, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.5, delay: 0.1, ease: "expo.out" }
       );
 
@@ -110,14 +110,14 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
         <div className="absolute top-0 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#69b23f]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header */}
-        <div ref={headerRef} className="shrink-0 relative z-10 flex items-center justify-between">
+        <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-2.5 md:gap-4">
-            <div className="w-1.5 md:w-2.5 h-7 md:h-12 bg-[#69b23f] rounded-full" />
+            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#69b23f] rounded-full" />
             <div>
-              <div className="text-[10px] sm:text-xs md:text-sm lg:text-base font-extrabold uppercase tracking-widest text-[#69b23f]">
+              <div className="text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest text-[#69b23f]">
                 Operational Benchmark
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight font-sans">
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">
                 FACTORY CAPACITY & SCALE
               </h2>
             </div>
@@ -128,34 +128,34 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 4 Stats Grid - Takes flex-1 so it expands and fills the screen height */}
+        {/* 4 Stats Grid (Flex-1 for natural height filling) */}
         <div
           ref={gridRef}
           className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 md:gap-6 min-h-0"
         >
           {/* Card 1: Production Capacity */}
-          <div className="p-3 sm:p-5 md:p-7 rounded-xl md:rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
             <div className="flex items-center justify-between">
               <span className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
-                Capacity
+                Monthly Output
               </span>
               <div className="p-1.5 sm:p-2 rounded-lg bg-[#69b23f]/15 text-[#69b23f]">
                 <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </div>
             <div className="my-auto py-1">
-              <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans tracking-tight leading-tight">
+              <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
                 {counterPieces.toLocaleString()}
               </div>
               <div className="text-[11px] sm:text-sm md:text-base font-bold text-[#69b23f] mt-0.5">
                 Pieces / Month
               </div>
             </div>
-            <div className="text-[9px] sm:text-xs text-slate-400">High Volume Output</div>
+            <div className="text-[9px] sm:text-xs text-slate-400">High Volume Ready</div>
           </div>
 
           {/* Card 2: Factory Space */}
-          <div className="p-3 sm:p-5 md:p-7 rounded-xl md:rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
             <div className="flex items-center justify-between">
               <span className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
                 Factory Space
@@ -165,7 +165,7 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
               </div>
             </div>
             <div className="my-auto py-1">
-              <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans tracking-tight leading-tight">
+              <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
                 {counterSpace.toLocaleString()}{" "}
                 <span className="text-xs sm:text-lg font-bold text-slate-500">SQ. FT</span>
               </div>
@@ -173,11 +173,11 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
                 320,000 SFT Total Campus
               </div>
             </div>
-            <div className="text-[9px] sm:text-xs text-slate-400">Modern Architecture</div>
+            <div className="text-[9px] sm:text-xs text-slate-400">Multi-Story Unit</div>
           </div>
 
           {/* Card 3: Annual Turnover */}
-          <div className="p-3 sm:p-5 md:p-7 rounded-xl md:rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
             <div className="flex items-center justify-between">
               <span className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
                 Annual Turnover
@@ -187,39 +187,39 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
               </div>
             </div>
             <div className="my-auto py-1">
-              <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans tracking-tight leading-tight">
+              <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
                 ${counterTurnover.toFixed(2)}M
               </div>
               <div className="text-[11px] sm:text-sm text-emerald-600 font-bold mt-0.5">
                 USD / Annual Revenue
               </div>
             </div>
-            <div className="text-[9px] sm:text-xs text-slate-400">Consistent Growth</div>
+            <div className="text-[9px] sm:text-xs text-slate-400">Consistent Trajectory</div>
           </div>
 
           {/* Card 4: Total Manpower */}
-          <div className="p-3 sm:p-5 md:p-7 rounded-xl md:rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
             <div className="flex items-center justify-between">
               <span className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 uppercase tracking-wider">
-                Total Manpower
+                Total Workforce
               </span>
               <div className="p-1.5 sm:p-2 rounded-lg bg-purple-50 text-purple-600">
                 <Users className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </div>
             <div className="my-auto py-1">
-              <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 font-sans tracking-tight leading-tight">
+              <div className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
                 {counterManpower}
               </div>
               <div className="text-[11px] sm:text-sm text-slate-600 font-medium mt-0.5">
-                + 35 Management Personnel
+                + 35 Key Management Staff
               </div>
             </div>
             <div className="text-[9px] sm:text-xs text-slate-400">Skilled RMG Artisans</div>
           </div>
         </div>
 
-        {/* Machinery Fleet Section - Clean height containment */}
+        {/* Machinery Fleet Section */}
         <div
           ref={machineryRef}
           className="shrink-0 p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl bg-white border border-slate-200 shadow-sm"
@@ -228,7 +228,7 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg bg-[#69b23f] text-white flex items-center gap-1.5 shadow-sm shadow-[#69b23f]/30">
                 <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                <span className="text-xs sm:text-base md:text-lg font-black font-sans">
+                <span className="text-xs sm:text-base md:text-lg font-black">
                   {counterMachines} SETS
                 </span>
               </div>
@@ -284,7 +284,7 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
           </div>
 
-          {/* Machinery Tags Grid */}
+          {/* Machinery Tag Cloud */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-1.5 max-h-24 sm:max-h-32 overflow-hidden">
             {(activeMachineryTab === "all" || activeMachineryTab === "sewing") &&
               machineryCategories.sewing.map((m, i) => (
