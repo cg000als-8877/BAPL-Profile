@@ -63,8 +63,8 @@ export const PresentationControls: React.FC<PresentationControlsProps> = ({
         />
       </div>
 
-      {/* Floating Bottom Control Deck */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 p-1.5 px-3 rounded-full bg-slate-900/80 backdrop-blur-xl border border-slate-800/90 shadow-2xl text-slate-200">
+      {/* Floating Bottom Control Deck - Hidden on mobile for clean full-bleed presentation */}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-2 p-1.5 px-3 rounded-full bg-slate-900/80 backdrop-blur-xl border border-slate-800/90 shadow-2xl text-slate-200">
         {/* Prev Slide */}
         <button
           onClick={onPrev}

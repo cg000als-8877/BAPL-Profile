@@ -16,7 +16,7 @@ export const NavigationDots: React.FC<NavigationDotsProps> = ({
   slideLabels = ["Hero", "Capacity", "Strategy", "Products", "Trust", "Contact"],
 }) => {
   return (
-    <div className="fixed right-3 md:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-2.5 p-2 rounded-full bg-slate-900/60 backdrop-blur-md border border-slate-800/80 shadow-2xl">
+    <div className="fixed right-3 md:right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-2.5 p-2 rounded-full bg-slate-900/60 backdrop-blur-md border border-slate-800/80 shadow-2xl">
       {Array.from({ length: totalSlides }).map((_, index) => {
         const isActive = currentSlide === index;
         const label = slideLabels[index] || `Slide ${index + 1}`;
