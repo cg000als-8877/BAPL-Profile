@@ -122,19 +122,19 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-slate-50 text-slate-900">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-8 md:p-14 lg:p-20 flex flex-col justify-between overflow-hidden bg-gradient-to-br from-white via-slate-50 to-slate-100"
+        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-2.5 sm:gap-4 md:gap-6 overflow-hidden bg-gradient-to-br from-white via-slate-50 to-slate-100"
       >
         <div className="absolute top-1/4 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#69b23f]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header */}
-        <div ref={headerRef} className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-3">
+        <div ref={headerRef} className="shrink-0 relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-3">
           <div className="flex items-center gap-2.5 md:gap-4">
             <div className="w-1.5 md:w-2.5 h-7 md:h-12 bg-[#69b23f] rounded-full" />
             <div>
               <div className="text-[10px] sm:text-xs md:text-sm lg:text-base font-extrabold uppercase tracking-widest text-[#69b23f]">
                 Manufacturing Scope
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight font-sans">
                 PRODUCT VERTICALS
               </h2>
             </div>
@@ -146,7 +146,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
         </div>
 
         {/* Filter Pills */}
-        <div ref={filterRef} className="relative z-10 flex items-center gap-1.5 sm:gap-2.5 my-1.5 sm:my-3 overflow-x-auto pb-0.5">
+        <div ref={filterRef} className="shrink-0 relative z-10 flex items-center gap-1.5 sm:gap-2.5 my-1 overflow-x-auto pb-0.5">
           {[
             { id: "all", label: "All Lines" },
             { id: "denim", label: "Denim & Bottoms" },
@@ -168,18 +168,18 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           ))}
         </div>
 
-        {/* 6 Cards Grid (2 cols on mobile, 3 cols on desktop) */}
+        {/* 6 Cards Grid - Expands fluidly to fill height */}
         <div
           ref={gridRef}
-          className="relative z-10 grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 md:gap-6 my-auto"
+          className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6 min-h-0"
         >
           {filteredCards.map((p) => (
             <div
               key={p.id}
-              className={`p-2.5 sm:p-5 md:p-6 rounded-xl md:rounded-2xl border ${p.color} shadow-sm hover:shadow-md transition-all flex flex-col justify-between`}
+              className={`p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl border ${p.color} shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full`}
             >
               <div>
-                <div className="flex items-center justify-between mb-1.5 sm:mb-3">
+                <div className="flex items-center justify-between mb-1.5 sm:mb-2">
                   <span className="text-[9px] sm:text-xs md:text-sm font-bold px-2 py-0.5 rounded-md bg-white text-slate-800 border border-slate-200">
                     {p.badge}
                   </span>
@@ -188,20 +188,20 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                   </div>
                 </div>
 
-                <h3 className="text-xs sm:text-base md:text-xl font-bold text-slate-900 mb-1 leading-snug">
+                <h3 className="text-xs sm:text-base md:text-xl font-bold text-slate-900 mb-1 leading-snug font-sans">
                   {p.title}
                 </h3>
-                <p className="text-[10px] sm:text-xs md:text-base text-slate-600 leading-tight sm:leading-relaxed mb-2">
+                <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-slate-600 leading-tight sm:leading-relaxed mb-2">
                   {p.description}
                 </p>
               </div>
 
               {/* Tags Cloud */}
-              <div className="flex flex-wrap gap-1 pt-1.5 sm:pt-3 border-t border-slate-200/80">
+              <div className="flex flex-wrap gap-1 pt-2 border-t border-slate-200/80">
                 {p.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-1 text-[9px] sm:text-xs font-semibold px-1.5 sm:px-3 py-0.5 rounded-full bg-white text-slate-800 border border-slate-200"
+                    className="inline-flex items-center gap-1 text-[9px] sm:text-xs font-semibold px-2 py-0.5 rounded-full bg-white text-slate-800 border border-slate-200"
                   >
                     <CheckCircle2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[#69b23f]" />
                     {tag}

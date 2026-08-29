@@ -104,19 +104,19 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-slate-950 text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-8 md:p-14 lg:p-20 flex flex-col justify-between overflow-hidden bg-gradient-to-br from-[#080e1d] via-[#0f172a] to-[#050812]"
+        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-3 sm:gap-4 md:gap-6 overflow-hidden bg-gradient-to-br from-[#080e1d] via-[#0f172a] to-[#050812]"
       >
         <div className="absolute -top-12 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#69b23f]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header Bar */}
-        <div ref={headerRef} className="relative z-10 flex items-center justify-between">
+        <div ref={headerRef} className="shrink-0 relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-2.5 md:gap-4">
             <div className="w-1.5 md:w-2.5 h-7 md:h-12 bg-[#69b23f] rounded-full" />
             <div>
               <div className="text-[10px] sm:text-xs md:text-sm lg:text-base font-extrabold uppercase tracking-widest text-[#88cb5c]">
                 Competitive Edge
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight font-sans">
                 OUR STRATEGIC PILLARS
               </h2>
             </div>
@@ -127,20 +127,20 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 6 Strategic Pillars Grid (2 cols on mobile, 3 cols on desktop) */}
+        {/* Fluid 6 Cards Grid - Expands dynamically to fill available height on all screen sizes */}
         <div
           ref={gridRef}
-          className="relative z-10 grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 md:gap-6 my-auto"
+          className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6 min-h-0"
         >
           {strategies.map((s) => {
             const IconComponent = s.icon;
             return (
               <div
                 key={s.num}
-                className="group relative p-2.5 sm:p-5 md:p-7 rounded-xl md:rounded-2xl bg-slate-900/70 border border-slate-800 backdrop-blur-md hover:bg-slate-900 hover:border-[#69b23f] transition-all flex flex-col justify-between"
+                className="group relative p-3 sm:p-5 md:p-7 rounded-xl md:rounded-2xl bg-slate-900/70 border border-slate-800 backdrop-blur-md hover:bg-slate-900 hover:border-[#69b23f] transition-all flex flex-col justify-between h-full"
               >
-                <div className="flex items-center gap-1.5 sm:gap-3 mb-1.5 sm:mb-3">
-                  <span className="font-mono text-xs sm:text-base md:text-xl font-black text-[#88cb5c]">
+                <div className="flex items-center gap-2 sm:gap-3 mb-1">
+                  <span className="text-xs sm:text-base md:text-xl font-black text-[#88cb5c] font-sans">
                     {s.num}
                   </span>
                   <div className={`p-1 sm:p-2 rounded-lg border ${s.bgAccent}`}>
@@ -148,11 +148,11 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="text-xs sm:text-base md:text-xl font-bold text-white mb-1 group-hover:text-[#88cb5c] transition-colors leading-tight">
+                <div className="my-auto">
+                  <h3 className="text-xs sm:text-base md:text-xl font-bold text-white mb-1 group-hover:text-[#88cb5c] transition-colors leading-tight font-sans">
                     {s.title}
                   </h3>
-                  <p className="text-[10px] sm:text-xs md:text-base text-slate-300 leading-tight sm:leading-relaxed font-normal">
+                  <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-slate-300 leading-tight sm:leading-relaxed font-normal">
                     {s.desc}
                   </p>
                 </div>

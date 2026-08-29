@@ -61,7 +61,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
 
   return (
     <AspectWrapper className="relative bg-[#070c18] text-white overflow-hidden">
-      {/* Full-View Cinematic Background Image */}
+      {/* Full-View Background */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/baplprofile.webp"
@@ -71,17 +71,16 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           sizes="100vw"
           className="object-cover object-center brightness-75 contrast-105 transform scale-100"
         />
-        {/* Soft Vignette Overlay for maximum readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#070c18] via-[#070c18]/50 to-[#070c18]/60" />
         <div className="absolute inset-0 bg-black/25" />
       </div>
 
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full p-4 sm:p-8 md:p-14 lg:p-20 flex flex-col justify-between overflow-hidden"
+        className="relative z-10 w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-3 sm:gap-4 md:gap-6 overflow-hidden"
       >
-        {/* Top Bar: Company Badge & Established Year */}
-        <div className="relative z-10 flex items-center justify-between">
+        {/* Top Bar */}
+        <div className="shrink-0 relative z-10 flex items-center justify-between">
           <div
             ref={badgeRef}
             className="inline-flex items-center gap-2 md:gap-3 px-3 md:px-5 py-1.5 md:py-2 rounded-full bg-slate-950/80 border border-[#69b23f]/60 backdrop-blur-md shadow-xl"
@@ -99,8 +98,8 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* Main Hero Content */}
-        <div className="relative z-10 my-auto py-1 sm:py-4">
+        {/* Main Hero Content - Takes available space */}
+        <div className="flex-1 flex flex-col justify-center my-auto py-2">
           <p
             ref={subtitleRef}
             className="text-xs sm:text-lg md:text-2xl lg:text-3xl font-semibold tracking-wider sm:tracking-widest text-[#88cb5c] uppercase mb-1.5 sm:mb-3 flex items-center gap-2 drop-shadow-md"
@@ -111,13 +110,13 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
 
           <h1
             ref={titleRef}
-            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight text-white leading-none mb-2.5 sm:mb-6 drop-shadow-lg"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight text-white leading-none mb-2.5 sm:mb-4 drop-shadow-lg font-sans"
           >
             <div className="flex items-center gap-2 md:gap-5">
               <span className="w-2.5 md:w-5 h-8 sm:h-16 md:h-24 lg:h-32 bg-[#69b23f] rounded-sm inline-block shadow-xl shadow-[#69b23f]/50" />
               <span>BYZID APPARELS</span>
             </div>
-            <div className="text-slate-300 font-light text-xl sm:text-3xl md:text-5xl lg:text-6xl ml-4 sm:ml-7 md:ml-10 mt-0.5 sm:mt-1">
+            <div className="text-slate-300 font-light text-xl sm:text-3xl md:text-5xl lg:text-6xl ml-4 sm:ml-7 md:ml-10 mt-0.5 sm:mt-1 font-sans">
               (PVT) LTD.
             </div>
           </h1>
@@ -128,40 +127,40 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           >
             Premier ready-made garments (RMG) manufacturing powerhouse delivering knit & woven excellence to iconic global fashion brands.
           </p>
+        </div>
 
-          {/* Bento Feature Cards */}
-          <div
-            ref={cardsRef}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 md:gap-6 mt-3 sm:mt-8 md:mt-12 ml-0 sm:ml-7 md:ml-10 max-w-6xl"
-          >
-            <div className="p-2.5 sm:p-4 md:p-6 rounded-xl md:rounded-2xl bg-slate-950/80 border border-slate-800/90 backdrop-blur-md flex items-center gap-3 hover:border-[#69b23f] transition-all shadow-lg">
-              <div className="p-2 md:p-3.5 rounded-lg md:rounded-xl bg-[#69b23f]/25 text-[#88cb5c] shrink-0">
-                <Building2 className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
-              </div>
-              <div>
-                <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Headquarters & Unit</div>
-                <div className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white">Chattogram, Bangladesh</div>
-              </div>
+        {/* Bento Feature Cards - Takes bottom flex space cleanly */}
+        <div
+          ref={cardsRef}
+          className="shrink-0 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 md:gap-6 ml-0 sm:ml-7 md:ml-10 max-w-6xl"
+        >
+          <div className="p-3 sm:p-4 md:p-6 rounded-xl md:rounded-2xl bg-slate-950/80 border border-slate-800/90 backdrop-blur-md flex items-center gap-3 hover:border-[#69b23f] transition-all shadow-lg">
+            <div className="p-2 md:p-3.5 rounded-lg md:rounded-xl bg-[#69b23f]/25 text-[#88cb5c] shrink-0">
+              <Building2 className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
             </div>
-
-            <div className="p-2.5 sm:p-4 md:p-6 rounded-xl md:rounded-2xl bg-slate-950/80 border border-slate-800/90 backdrop-blur-md flex items-center gap-3 hover:border-[#69b23f] transition-all shadow-lg">
-              <div className="p-2 md:p-3.5 rounded-lg md:rounded-xl bg-[#69b23f]/25 text-[#88cb5c] shrink-0">
-                <Globe2 className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
-              </div>
-              <div>
-                <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Global Exports</div>
-                <div className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white">USA, EU & Global Markets</div>
-              </div>
+            <div>
+              <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Headquarters & Unit</div>
+              <div className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white font-sans">Chattogram, Bangladesh</div>
             </div>
+          </div>
 
-            <div className="p-2.5 sm:p-4 md:p-6 rounded-xl md:rounded-2xl bg-slate-950/80 border border-slate-800/90 backdrop-blur-md flex items-center gap-3 hover:border-[#69b23f] transition-all shadow-lg">
-              <div className="p-2 md:p-3.5 rounded-lg md:rounded-xl bg-[#69b23f]/25 text-[#88cb5c] shrink-0">
-                <ShieldCheck className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
-              </div>
-              <div>
-                <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Compliance & Ethics</div>
-                <div className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white">BSCI & OEKO-TEX Certified</div>
-              </div>
+          <div className="p-3 sm:p-4 md:p-6 rounded-xl md:rounded-2xl bg-slate-950/80 border border-slate-800/90 backdrop-blur-md flex items-center gap-3 hover:border-[#69b23f] transition-all shadow-lg">
+            <div className="p-2 md:p-3.5 rounded-lg md:rounded-xl bg-[#69b23f]/25 text-[#88cb5c] shrink-0">
+              <Globe2 className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+            </div>
+            <div>
+              <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Global Exports</div>
+              <div className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white font-sans">USA, EU & Global Markets</div>
+            </div>
+          </div>
+
+          <div className="p-3 sm:p-4 md:p-6 rounded-xl md:rounded-2xl bg-slate-950/80 border border-slate-800/90 backdrop-blur-md flex items-center gap-3 hover:border-[#69b23f] transition-all shadow-lg">
+            <div className="p-2 md:p-3.5 rounded-lg md:rounded-xl bg-[#69b23f]/25 text-[#88cb5c] shrink-0">
+              <ShieldCheck className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+            </div>
+            <div>
+              <div className="text-[10px] sm:text-xs md:text-sm text-slate-400 font-medium">Compliance & Ethics</div>
+              <div className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold text-white font-sans">BSCI & OEKO-TEX Certified</div>
             </div>
           </div>
         </div>
