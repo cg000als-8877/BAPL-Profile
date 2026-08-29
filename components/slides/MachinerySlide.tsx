@@ -8,7 +8,6 @@ import {
   Scissors,
   CheckCircle2,
   Sparkles,
-  Settings2,
   ShieldCheck,
   Zap,
 } from "lucide-react";
@@ -21,15 +20,10 @@ interface SlideProps {
 export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const fleetRef = useRef<HTMLDivElement>(null);
+  const badgeRef = useRef<HTMLDivElement>(null);
+  const columnsRef = useRef<HTMLDivElement>(null);
 
   const [counterMachines, setCounterMachines] = useState(0);
-  const [counterSewing, setCounterSewing] = useState(0);
-  const [counterSpecialty, setCounterSpecialty] = useState(0);
-  const [counterFinishing, setCounterFinishing] = useState(0);
-
-  const [activeTab, setActiveTab] = useState<"all" | "sewing" | "specialty" | "finishing">("all");
 
   useEffect(() => {
     if (!isActive) return;
@@ -37,35 +31,37 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { x: -70, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5, ease: "expo.out" }
+        { x: -60, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }
       );
 
       gsap.fromTo(
-        statsRef.current?.children || [],
-        { x: -60, opacity: 0, scale: 0.96 },
-        { x: 0, opacity: 1, scale: 1, duration: 0.45, stagger: 0.05, ease: "expo.out" }
+        badgeRef.current,
+        { x: -50, opacity: 0, scale: 0.96 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.45, delay: 0.05, ease: "expo.out" }
       );
 
       gsap.fromTo(
-        fleetRef.current,
-        { x: -50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5, delay: 0.1, ease: "expo.out" }
+        columnsRef.current?.children || [],
+        { x: -40, opacity: 0, scale: 0.97 },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.45,
+          stagger: 0.05,
+          ease: "expo.out",
+          delay: 0.1,
+        }
       );
 
-      const countObj = { total: 0, sewing: 0, specialty: 0, finishing: 0 };
+      const countObj = { total: 0 };
       gsap.to(countObj, {
         total: 250,
-        sewing: 140,
-        specialty: 65,
-        finishing: 45,
         duration: 1.2,
         ease: "power3.out",
         onUpdate: () => {
           setCounterMachines(Math.round(countObj.total));
-          setCounterSewing(Math.round(countObj.sewing));
-          setCounterSpecialty(Math.round(countObj.specialty));
-          setCounterFinishing(Math.round(countObj.finishing));
         },
       });
     }, containerRef);
@@ -73,28 +69,34 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
     return () => ctx.revert();
   }, [isActive]);
 
-  const machineDetails = [
-    { name: "Plain Machine", type: "sewing", role: "High-speed single needle straight stitching for knit & woven seams", count: "80 Sets" },
-    { name: "Overlock (4/5 Thread)", type: "sewing", role: "Safety edge finishing and seam reinforcement", count: "35 Sets" },
-    { name: "Interlock Machine", type: "sewing", role: "Dual-sided elastic fabric joining for activewear", count: "15 Sets" },
-    { name: "Flat Lock (4 Needle)", type: "sewing", role: "Seamless comfort stitching for sports & underwear", count: "10 Sets" },
-    { name: "Bartag Machine", type: "sewing", role: "Heavy-duty pocket and stress-point bar reinforcement", count: "8 Sets" },
-    { name: "Two Needle Machine", type: "specialty", role: "Parallel decorative & structural twin stitching", count: "20 Sets" },
-    { name: "2 Needle Chain Stitch", type: "specialty", role: "High-tension waistband and denim inseam stitching", count: "15 Sets" },
-    { name: "Feed Of The Arm", type: "specialty", role: "Lap seam closing for denim jeans & heavy workwear", count: "12 Sets" },
-    { name: "Cylinder Bed", type: "specialty", role: "Tubular sleeve, collar, and cuff edge binding", count: "10 Sets" },
-    { name: "PMD Kansai Special", type: "specialty", role: "Multi-needle elastic insertion and waistband construction", count: "8 Sets" },
-    { name: "Button Hole Machine", type: "finishing", role: "Computerized precision keyhole & eyelet cutting", count: "12 Sets" },
-    { name: "Button Attach Machine", type: "finishing", role: "Automated shank and 4-hole button fastening", count: "12 Sets" },
-    { name: "Snap Button Machine", type: "finishing", role: "Heavy pneumatic fastener for infant & denim snaps", count: "8 Sets" },
-    { name: "Fusing Machine", type: "finishing", role: "Continuous heat-press collar & placket fusing", count: "5 Sets" },
-    { name: "Needle Detector Unit", type: "finishing", role: "Ferrous metal safety scanning for export compliance", count: "4 Sets" },
+  const primarySewing = [
+    "Plain Machine",
+    "Overlock",
+    "Interlock",
+    "Interlock Machine",
+    "Flat Lock",
+    "Bartag Machine",
   ];
 
-  const filteredMachines =
-    activeTab === "all"
-      ? machineDetails
-      : machineDetails.filter((m) => m.type === activeTab);
+  const specialtyStitching = [
+    "Two Needle",
+    "2 Needle Chain stitch",
+    "Feed Of The Arm",
+    "Cylinder Bed",
+    "Pmd Kansai",
+    "Smooking Machine",
+    "Peaquoting & Zigzag",
+  ];
+
+  const finishingAssembly = [
+    "Button Hole",
+    "Button Attach",
+    "Snap Button Machine",
+    "Fusing Machine",
+    "Heat Seal Machine",
+    "Pull Test Machine",
+    "Needle Detector",
+  ];
 
   return (
     <AspectWrapper className="bg-[#050811] text-white">
@@ -104,149 +106,134 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
       >
         <div className="absolute top-0 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Header */}
+        {/* 1. Header (Cleaned, no extraneous claims) */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="w-2 md:w-2.5 h-8 md:h-12 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055] flex items-center gap-1.5">
-                <Settings2 className="w-3.5 h-3.5 text-[#55c538]" />
-                <span>Japanese & European Technology</span>
+              <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+                Plant & Equipment Summary
               </div>
               <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
-                MACHINE SUMMARY
+                MACHINERY SUMMARY
               </h2>
             </div>
           </div>
 
           <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
-            <Cpu className="w-4 h-4 text-[#55c538]" />
-            <span>250 Total Sets Fleet</span>
+            <Sparkles className="w-4 h-4 text-[#55c538]" />
+            <span>Industrial Equipment Fleet</span>
           </div>
         </div>
 
-        {/* 4 Machine Category KPI Cards */}
+        {/* 2. Headline Banner from PDF */}
         <div
-          ref={statsRef}
-          className="shrink-0 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4"
+          ref={badgeRef}
+          className="shrink-0 p-3.5 sm:p-5 md:p-6 rounded-2xl cyber-card border border-[#55c538]/30 flex items-center gap-3 sm:gap-5 bg-[#091426]/80"
         >
-          <div className="p-3 sm:p-4 rounded-xl cyber-card flex flex-col justify-between border-emerald-500/30">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase">Total Machine Fleet</span>
-              <Cpu className="w-4 h-4 text-[#55c538]" />
-            </div>
-            <div className="text-xl sm:text-3xl font-black text-white mt-1">
-              {counterMachines} <span className="text-xs sm:text-sm text-[#72e055] font-bold">SETS</span>
-            </div>
-            <div className="text-[10px] text-slate-400">Complete Production Capacity</div>
+          <div className="px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl bg-[#55c538] text-slate-950 flex flex-col items-center justify-center shrink-0 shadow-lg shadow-[#55c538]/30">
+            <span className="text-xl sm:text-3xl md:text-4xl font-black leading-none">
+              {counterMachines}
+            </span>
+            <span className="text-[10px] sm:text-xs font-black tracking-wider uppercase">
+              SETS
+            </span>
           </div>
 
-          <div className="p-3 sm:p-4 rounded-xl cyber-card flex flex-col justify-between border-blue-500/30">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase">Primary Sewing</span>
-              <Scissors className="w-4 h-4 text-blue-400" />
-            </div>
-            <div className="text-xl sm:text-3xl font-black text-white mt-1">
-              {counterSewing}+ <span className="text-xs sm:text-sm text-blue-400 font-bold">SETS</span>
-            </div>
-            <div className="text-[10px] text-slate-400">Plain, Overlock, Flatlock</div>
-          </div>
-
-          <div className="p-3 sm:p-4 rounded-xl cyber-card flex flex-col justify-between border-purple-500/30">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase">Specialty Stitching</span>
-              <Zap className="w-4 h-4 text-purple-400" />
-            </div>
-            <div className="text-xl sm:text-3xl font-black text-white mt-1">
-              {counterSpecialty}+ <span className="text-xs sm:text-sm text-purple-400 font-bold">SETS</span>
-            </div>
-            <div className="text-[10px] text-slate-400">Chain Stitch, Feed of Arm, Kansai</div>
-          </div>
-
-          <div className="p-3 sm:p-4 rounded-xl cyber-card flex flex-col justify-between border-amber-500/30">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase">Finishing & QA</span>
-              <ShieldCheck className="w-4 h-4 text-amber-400" />
-            </div>
-            <div className="text-xl sm:text-3xl font-black text-white mt-1">
-              {counterFinishing}+ <span className="text-xs sm:text-sm text-amber-400 font-bold">SETS</span>
-            </div>
-            <div className="text-[10px] text-slate-400">Button Hole, Fusing, Detector</div>
+          <div>
+            <h3 className="text-base sm:text-xl md:text-2xl font-black text-white">
+              Knit & Woven Machinery
+            </h3>
+            <p className="text-xs sm:text-sm md:text-base text-slate-300 font-medium">
+              Comprehensive Production Equipment Fleet
+            </p>
           </div>
         </div>
 
-        {/* Interactive Machinery Inventory Grid */}
+        {/* 3. Three Columns matching exact PDF Categories */}
         <div
-          ref={fleetRef}
-          className="flex-1 p-4 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between min-h-0"
+          ref={columnsRef}
+          className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5 min-h-0"
         >
-          {/* Category Filter Tabs */}
-          <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-800 overflow-x-auto">
-            <button
-              onClick={() => setActiveTab("all")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
-                activeTab === "all"
-                  ? "bg-[#55c538] text-slate-950 font-black"
-                  : "cyber-pill text-slate-300 hover:text-white"
-              }`}
-            >
-              All Machinery ({machineDetails.length} Models)
-            </button>
-            <button
-              onClick={() => setActiveTab("sewing")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
-                activeTab === "sewing"
-                  ? "bg-[#55c538] text-slate-950 font-black"
-                  : "cyber-pill text-slate-300 hover:text-white"
-              }`}
-            >
-              Primary Sewing
-            </button>
-            <button
-              onClick={() => setActiveTab("specialty")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
-                activeTab === "specialty"
-                  ? "bg-[#55c538] text-slate-950 font-black"
-                  : "cyber-pill text-slate-300 hover:text-white"
-              }`}
-            >
-              Specialty Lines
-            </button>
-            <button
-              onClick={() => setActiveTab("finishing")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
-                activeTab === "finishing"
-                  ? "bg-[#55c538] text-slate-950 font-black"
-                  : "cyber-pill text-slate-300 hover:text-white"
-              }`}
-            >
-              Finishing & Safety
-            </button>
-          </div>
-
-          {/* Machine Inventory Cards Grid */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 overflow-y-auto pr-1">
-            {filteredMachines.map((m, i) => (
-              <div
-                key={i}
-                className="p-2.5 sm:p-3.5 rounded-xl bg-slate-900/70 border border-slate-800 flex items-start justify-between gap-2 hover:border-[#55c538]/50 transition-all"
-              >
-                <div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#55c538] shrink-0" />
-                    <h5 className="text-xs sm:text-sm font-bold text-white leading-tight">
-                      {m.name}
-                    </h5>
-                  </div>
-                  <p className="text-[10px] sm:text-xs text-slate-400 mt-1 leading-snug">
-                    {m.role}
-                  </p>
-                </div>
-                <span className="shrink-0 text-[10px] sm:text-xs font-black px-2 py-0.5 rounded-md bg-[#55c538]/15 text-[#72e055] border border-[#55c538]/30">
-                  {m.count}
-                </span>
+          {/* Column 1: PRIMARY SEWING */}
+          <div className="p-4 sm:p-5 rounded-2xl cyber-card flex flex-col justify-between h-full border-blue-500/25">
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <Scissors className="w-4 h-4 text-blue-400" />
+                <h4 className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wider text-blue-400">
+                  Primary Sewing
+                </h4>
               </div>
-            ))}
+              <span className="text-[10px] sm:text-xs font-bold text-slate-400">
+                {primarySewing.length} Types
+              </span>
+            </div>
+
+            <div className="flex-1 space-y-1.5 overflow-y-auto pr-1">
+              {primarySewing.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-slate-800/80 text-xs sm:text-sm font-semibold text-slate-200"
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#55c538] shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Column 2: SPECIALTY STITCHING */}
+          <div className="p-4 sm:p-5 rounded-2xl cyber-card flex flex-col justify-between h-full border-purple-500/25">
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <Zap className="w-4 h-4 text-purple-400" />
+                <h4 className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wider text-purple-400">
+                  Specialty Stitching
+                </h4>
+              </div>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-400">
+                {specialtyStitching.length} Types
+              </span>
+            </div>
+
+            <div className="flex-1 space-y-1.5 overflow-y-auto pr-1">
+              {specialtyStitching.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-slate-800/80 text-xs sm:text-sm font-semibold text-slate-200"
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#55c538] shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Column 3: FINISHING & ASSEMBLY */}
+          <div className="p-4 sm:p-5 rounded-2xl cyber-card flex flex-col justify-between h-full border-amber-500/25">
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-amber-400" />
+                <h4 className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wider text-amber-400">
+                  Finishing & Assembly
+                </h4>
+              </div>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-400">
+                {finishingAssembly.length} Types
+              </span>
+            </div>
+
+            <div className="flex-1 space-y-1.5 overflow-y-auto pr-1">
+              {finishingAssembly.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-slate-800/80 text-xs sm:text-sm font-semibold text-slate-200"
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#55c538] shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
