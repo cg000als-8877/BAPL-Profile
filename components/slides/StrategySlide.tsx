@@ -105,7 +105,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* Header Bar */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-2.5 md:gap-4">
-            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full" />
+            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Competitive Edge
@@ -115,7 +115,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
               </h2>
             </div>
           </div>
-          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 glass-pill rounded-full text-xs md:text-sm text-slate-200 shadow-md">
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 cyber-pill rounded-full text-xs md:text-sm text-slate-200 shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-[#55c538]" />
             <span>Value Creation</span>
           </div>
@@ -131,7 +131,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
             return (
               <div
                 key={s.num}
-                className="group relative p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between h-full transition-all"
+                className="group relative p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between h-full"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-1">
                   <span className="text-xs sm:text-base md:text-xl font-black text-[#72e055]">

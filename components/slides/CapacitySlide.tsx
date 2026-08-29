@@ -112,7 +112,7 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-2.5 md:gap-4">
-            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full" />
+            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Operational Benchmark
@@ -122,7 +122,7 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
               </h2>
             </div>
           </div>
-          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 glass-pill rounded-full text-xs md:text-sm font-semibold text-slate-200">
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 cyber-pill rounded-full text-xs md:text-sm font-semibold text-slate-200 shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-[#55c538]" />
             <span>Industrial Strength</span>
           </div>
@@ -134,7 +134,7 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
           className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 md:gap-6 min-h-0"
         >
           {/* Card 1: Production Capacity */}
-          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between h-full group hover:border-[#55c538]/50 transition-all">
+          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between h-full group">
             <div className="flex items-center justify-between">
               <span className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">
                 Monthly Output
@@ -155,7 +155,7 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
 
           {/* Card 2: Factory Space */}
-          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between h-full group hover:border-[#55c538]/50 transition-all">
+          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between h-full group">
             <div className="flex items-center justify-between">
               <span className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">
                 Factory Space
@@ -177,7 +177,7 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
 
           {/* Card 3: Annual Turnover */}
-          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between h-full group hover:border-[#55c538]/50 transition-all">
+          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between h-full group">
             <div className="flex items-center justify-between">
               <span className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">
                 Annual Turnover
@@ -198,7 +198,7 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
 
           {/* Card 4: Total Manpower */}
-          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between h-full group hover:border-[#55c538]/50 transition-all">
+          <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between h-full group">
             <div className="flex items-center justify-between">
               <span className="text-[10px] sm:text-xs md:text-sm font-bold text-slate-400 uppercase tracking-wider">
                 Total Workforce
@@ -222,11 +222,11 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* Machinery Fleet Section */}
         <div
           ref={machineryRef}
-          className="shrink-0 p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card"
+          className="shrink-0 p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card"
         >
           <div className="flex flex-wrap items-center justify-between gap-2 mb-2 sm:mb-3 pb-2 border-b border-slate-800">
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg bg-[#55c538] text-slate-950 flex items-center gap-1.5 shadow-sm shadow-[#55c538]/40 font-bold">
+              <div className="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg bg-[#55c538] text-slate-950 flex items-center gap-1.5 glow-emerald font-bold">
                 <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span className="text-xs sm:text-base md:text-lg font-black">
                   {counterMachines} SETS
@@ -245,8 +245,8 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
                 onClick={() => setActiveMachineryTab("all")}
                 className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
                   activeMachineryTab === "all"
-                    ? "bg-[#55c538] text-slate-950 shadow-md"
-                    : "glass-pill text-slate-300 hover:text-white"
+                    ? "bg-[#55c538] text-slate-950 shadow-md font-bold"
+                    : "cyber-pill text-slate-300 hover:text-white"
                 }`}
               >
                 All
@@ -255,8 +255,8 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
                 onClick={() => setActiveMachineryTab("sewing")}
                 className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
                   activeMachineryTab === "sewing"
-                    ? "bg-[#55c538] text-slate-950 shadow-md"
-                    : "glass-pill text-slate-300 hover:text-white"
+                    ? "bg-[#55c538] text-slate-950 shadow-md font-bold"
+                    : "cyber-pill text-slate-300 hover:text-white"
                 }`}
               >
                 Sewing
@@ -265,8 +265,8 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
                 onClick={() => setActiveMachineryTab("specialty")}
                 className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
                   activeMachineryTab === "specialty"
-                    ? "bg-[#55c538] text-slate-950 shadow-md"
-                    : "glass-pill text-slate-300 hover:text-white"
+                    ? "bg-[#55c538] text-slate-950 shadow-md font-bold"
+                    : "cyber-pill text-slate-300 hover:text-white"
                 }`}
               >
                 Specialty
@@ -275,8 +275,8 @@ export const CapacitySlide: React.FC<SlideProps> = ({ isActive }) => {
                 onClick={() => setActiveMachineryTab("finishing")}
                 className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
                   activeMachineryTab === "finishing"
-                    ? "bg-[#55c538] text-slate-950 shadow-md"
-                    : "glass-pill text-slate-300 hover:text-white"
+                    ? "bg-[#55c538] text-slate-950 shadow-md font-bold"
+                    : "cyber-pill text-slate-300 hover:text-white"
                 }`}
               >
                 Finishing

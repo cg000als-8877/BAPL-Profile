@@ -79,7 +79,7 @@ export const TrustSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-2.5 md:gap-4">
-            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full" />
+            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Reputation & Credentials
@@ -89,7 +89,7 @@ export const TrustSlide: React.FC<SlideProps> = ({ isActive }) => {
               </h2>
             </div>
           </div>
-          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 glass-pill rounded-full text-xs md:text-sm text-slate-200 shadow-md">
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 cyber-pill rounded-full text-xs md:text-sm text-slate-200 shadow-md">
             <ShieldCheck className="w-3.5 h-3.5 text-[#55c538]" />
             <span>Ethical Audits</span>
           </div>
@@ -107,7 +107,7 @@ export const TrustSlide: React.FC<SlideProps> = ({ isActive }) => {
             className="flex-1 grid grid-cols-3 gap-2.5 sm:gap-4 md:gap-6 min-h-0"
           >
             {/* BSCI */}
-            <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex items-center gap-2.5 sm:gap-4 h-full">
+            <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex items-center gap-2.5 sm:gap-4 h-full">
               <div className="p-2 sm:p-3 rounded-lg md:rounded-xl bg-indigo-500/20 text-indigo-400 shrink-0">
                 <ShieldCheck className="w-5 h-5 sm:w-7 sm:h-7" />
               </div>
@@ -122,7 +122,7 @@ export const TrustSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
 
             {/* OEKO-TEX */}
-            <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex items-center gap-2.5 sm:gap-4 h-full">
+            <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex items-center gap-2.5 sm:gap-4 h-full">
               <div className="p-2 sm:p-3 rounded-lg md:rounded-xl bg-[#55c538]/20 text-[#72e055] shrink-0">
                 <Award className="w-5 h-5 sm:w-7 sm:h-7" />
               </div>
@@ -137,7 +137,7 @@ export const TrustSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
 
             {/* BGMEA & Fire Safety */}
-            <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex items-center gap-2.5 sm:gap-4 h-full">
+            <div className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex items-center gap-2.5 sm:gap-4 h-full">
               <div className="p-2 sm:p-3 rounded-lg md:rounded-xl bg-amber-500/20 text-amber-400 shrink-0">
                 <Building className="w-5 h-5 sm:w-7 sm:h-7" />
               </div>
@@ -170,7 +170,7 @@ export const TrustSlide: React.FC<SlideProps> = ({ isActive }) => {
             {buyers.map((b, i) => (
               <div
                 key={i}
-                className="group relative p-2 sm:p-3 md:p-4 rounded-xl md:rounded-2xl glass-deck-card text-center flex flex-col items-center justify-center h-full transition-all"
+                className="group relative p-2 sm:p-3 md:p-4 rounded-xl md:rounded-2xl cyber-card text-center flex flex-col items-center justify-center h-full"
               >
                 <div className={`leading-tight ${b.color}`}>
                   {b.name}

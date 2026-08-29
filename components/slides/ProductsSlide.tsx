@@ -123,7 +123,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* Header */}
         <div ref={headerRef} className="shrink-0 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-3">
           <div className="flex items-center gap-2.5 md:gap-4">
-            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full" />
+            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Manufacturing Scope
@@ -134,7 +134,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
           </div>
 
-          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-slate-200 font-semibold shadow-sm text-xs md:text-sm">
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full cyber-pill text-slate-200 font-semibold shadow-sm text-xs md:text-sm">
             Mens • Ladies • Boys • Girls • Kids
           </div>
         </div>
@@ -154,7 +154,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
               className={`px-3 sm:px-5 py-1 sm:py-2 rounded-lg sm:rounded-xl text-[10px] sm:text-sm md:text-base font-bold transition-all whitespace-nowrap ${
                 activeCategory === cat.id
                   ? "bg-[#55c538] text-slate-950 shadow-md shadow-[#55c538]/30 font-bold"
-                  : "glass-pill text-slate-300 hover:text-white"
+                  : "cyber-pill text-slate-300 hover:text-white"
               }`}
             >
               {cat.label}
@@ -170,7 +170,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           {filteredCards.map((p) => (
             <div
               key={p.id}
-              className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between h-full transition-all"
+              className="p-3 sm:p-5 md:p-6 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between h-full"
             >
               <div>
                 <div className="flex items-center justify-between mb-1.5 sm:mb-2">

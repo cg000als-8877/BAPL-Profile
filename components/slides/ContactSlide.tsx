@@ -68,7 +68,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-2.5 md:gap-4">
-            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full" />
+            <div className="w-1.5 md:w-2 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Get In Touch
@@ -78,7 +78,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
               </h2>
             </div>
           </div>
-          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 glass-pill rounded-full text-xs md:text-sm font-semibold text-slate-200">
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 cyber-pill rounded-full text-xs md:text-sm font-semibold text-slate-200 shadow-md">
             <UserCheck className="w-3.5 h-3.5 text-[#55c538]" />
             <span>Direct Communication</span>
           </div>
@@ -89,7 +89,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
           {/* Left Column */}
           <div ref={leftColRef} className="flex flex-col justify-between gap-2.5 sm:gap-4 md:gap-6 h-full">
             {/* Factory Address Card */}
-            <div className="p-3.5 sm:p-6 md:p-8 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between flex-1">
+            <div className="p-3.5 sm:p-6 md:p-8 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between flex-1">
               <div>
                 <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-[#72e055] uppercase tracking-wider mb-1 sm:mb-2">
                   <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -115,7 +115,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
 
             {/* Regulatory Credentials */}
-            <div className="p-3.5 sm:p-5 md:p-7 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between flex-1">
+            <div className="p-3.5 sm:p-5 md:p-7 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between flex-1">
               <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
                 <FileCheck2 className="w-3.5 h-3.5 text-[#55c538]" />
                 <span>Regulatory Credentials</span>
@@ -144,7 +144,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
           {/* Right Column */}
           <div ref={rightColRef} className="flex flex-col justify-between gap-2.5 sm:gap-4 md:gap-6 h-full">
             {/* Key Executives */}
-            <div className="p-3.5 sm:p-6 md:p-8 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between flex-1">
+            <div className="p-3.5 sm:p-6 md:p-8 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between flex-1">
               <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-[#72e055] uppercase tracking-wider mb-2">
                 <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span>Executive Contacts</span>
@@ -204,7 +204,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
 
             {/* Banking */}
-            <div className="p-3.5 sm:p-5 md:p-7 rounded-xl md:rounded-2xl glass-deck-card flex flex-col justify-between flex-1">
+            <div className="p-3.5 sm:p-5 md:p-7 rounded-xl md:rounded-2xl cyber-card flex flex-col justify-between flex-1">
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-[#72e055] uppercase tracking-wider">
                   <CreditCard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />

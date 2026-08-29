@@ -5,8 +5,10 @@
     --brand-green: #55c538;
     --brand-green-dark: #3a8e24;
     --brand-green-light: #72e055;
-    --brand-dark: #050811;
-    --brand-card: rgba(13, 20, 36, 0.75);
+    --brand-dark-base: #050811;
+    --brand-dark-slate: #080d1a;
+    --brand-card-surface: rgba(13, 20, 36, 0.75);
+    --brand-border: rgba(255, 255, 255, 0.08);
   }
 
   * {
@@ -66,7 +68,7 @@
   background-color: #050811;
 }
 
-/* Desktop Horizontal Slide Transition */
+/* Desktop Horizontal Slide-Snapping */
 @media (min-width: 768px) {
   .snap-container {
     display: flex;
@@ -102,28 +104,33 @@
   flex-direction: column;
 }
 
-/* Ultra-Luxury Cyber Glassmorphism */
-.glass-deck-card {
-  background: rgba(13, 20, 36, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+/* Luxury Cyber Glassmorphic Card Styles */
+.cyber-card {
+  background: rgba(13, 20, 36, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.glass-deck-card:hover {
-  border-color: rgba(85, 197, 56, 0.4);
-  box-shadow: 0 15px 35px -10px rgba(85, 197, 56, 0.15);
+.cyber-card:hover {
+  border-color: rgba(85, 197, 56, 0.45);
+  box-shadow: 0 15px 35px -10px rgba(85, 197, 56, 0.18);
 }
 
-.glass-pill {
+.cyber-pill {
   background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* Ambient glow accents */
-.emerald-glow {
-  box-shadow: 0 0 35px rgba(85, 197, 56, 0.25);
+/* Luminous Glow Elements */
+.glow-emerald {
+  box-shadow: 0 0 30px rgba(85, 197, 56, 0.3);
+}
+
+.glow-bar {
+  box-shadow: 0 0 20px rgba(85, 197, 56, 0.6);
 }
