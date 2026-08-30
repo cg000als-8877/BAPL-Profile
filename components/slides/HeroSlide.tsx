@@ -4,14 +4,21 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { Building2, Globe2, ShieldCheck, Sparkles, Award } from "lucide-react";
+import {
+  Award,
+  Sparkles,
+  Building2,
+  Globe2,
+  ShieldCheck,
+  ArrowRight,
+} from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
   onNext?: () => void;
 }
 
-export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
+export const HeroSlide: React.FC<SlideProps> = ({ isActive, onNext }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -29,7 +36,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
       tl.fromTo(
         badgeRef.current,
         { y: -30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5 }
+        { y: 0, opacity: 1, duration: 0.45 }
       )
         .fromTo(
           titleRef.current,
@@ -39,14 +46,14 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
         )
         .fromTo(
           subtitleRef.current,
-          { y: 25, opacity: 0 },
+          { y: 30, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.45 },
           "-=0.3"
         )
         .fromTo(
           descRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.4 },
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45 },
           "-=0.3"
         )
         .fromTo(
@@ -90,8 +97,11 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           />
         </div>
 
-        {/* Bottom subtle gradient for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/60 to-transparent" />
+        {/* Desktop subtle gradient */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/60 to-transparent" />
+
+        {/* Mobile View: Black gradient rising from bottom only to the content area, fading to transparent at the top */}
+        <div className="block md:hidden absolute bottom-0 left-0 right-0 h-[62%] bg-gradient-to-t from-black via-black/85 to-transparent pointer-events-none" />
       </div>
 
       {/* Main Content Layout - Bottom-Pinned for full scenic visibility */}
@@ -188,7 +198,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
                   Compliance & Ethics
                 </div>
                 <div className="text-xs sm:text-sm md:text-base font-bold text-white truncate">
-                  BSCI & OEKO-TEX Standard 100
+                  OEKO-TEX & amfori BSCI
                 </div>
               </div>
             </div>
