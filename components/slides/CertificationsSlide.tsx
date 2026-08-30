@@ -48,7 +48,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2.5 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-5 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -72,13 +72,13 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Bento Grid of Certifications with Extra Large Bold Logo Showcases */}
+        {/* 2. Bento Grid of Certifications: 100% Flexible to Logo Dimensions, Zero Cropping */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 min-h-0"
+          className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 min-h-0 items-stretch"
         >
-          {/* Card 1: amfori BSCI (Extra Large Stacked Logo Frames) */}
-          <div className="p-3.5 sm:p-6 md:p-7 rounded-2xl cyber-card border border-indigo-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
+          {/* Card 1: amfori BSCI */}
+          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-indigo-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
               <div className="flex items-center justify-between mb-2 sm:mb-3">
                 <span className="text-xs sm:text-base font-black uppercase text-indigo-400 tracking-wider">
@@ -89,10 +89,10 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 </span>
               </div>
 
-              {/* Stacked View: Extra Large BSCI & amfori Logo Frames */}
-              <div className="flex flex-col gap-2 sm:gap-3 mb-2.5 sm:mb-3">
-                {/* BSCI Logo Frame */}
-                <div className="bg-white/95 hover:bg-white rounded-xl p-2 sm:p-3 shadow-lg h-22 sm:h-30 md:h-36 lg:h-40 relative flex items-center justify-center transition-all">
+              {/* Stacked Flexible Logo Frames for BSCI and amfori */}
+              <div className="flex flex-col gap-2.5 sm:gap-3.5 mb-3 sm:mb-4">
+                {/* BSCI Flexible Card (Exact 1019/290 Aspect Ratio) */}
+                <div className="bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-2 sm:p-3 shadow-lg relative w-full aspect-[1019/290] flex items-center justify-center transition-all overflow-hidden">
                   <Image
                     src="/logos/certifications/bsci.png"
                     alt="BSCI Business Social Compliance Initiative"
@@ -100,12 +100,12 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                     priority
                     unoptimized
                     sizes="(max-width: 768px) 90vw, 40vw"
-                    className="object-contain object-center scale-110"
+                    className="object-contain object-center p-1 sm:p-2"
                   />
                 </div>
 
-                {/* amfori Logo Frame */}
-                <div className="bg-white/95 hover:bg-white rounded-xl p-2 sm:p-3 shadow-lg h-22 sm:h-30 md:h-36 lg:h-40 relative flex items-center justify-center transition-all">
+                {/* amfori Flexible Card (Exact 1223/315 Aspect Ratio) */}
+                <div className="bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-2 sm:p-3 shadow-lg relative w-full aspect-[1223/315] flex items-center justify-center transition-all overflow-hidden">
                   <Image
                     src="/logos/certifications/amfori.png"
                     alt="amfori BSCI Global Trade Association"
@@ -113,7 +113,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                     priority
                     unoptimized
                     sizes="(max-width: 768px) 90vw, 40vw"
-                    className="object-contain object-center scale-110"
+                    className="object-contain object-center p-1 sm:p-2"
                   />
                 </div>
               </div>
@@ -121,19 +121,19 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
               <h3 className="text-sm sm:text-xl font-black text-white mb-0.5 sm:mb-1">
                 amfori BSCI Certified
               </h3>
-              <p className="text-xs sm:text-sm text-slate-200 leading-snug sm:leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-snug sm:leading-relaxed">
                 Audited for rigorous workplace safety, fair worker compensation, ethical labor practices, and transparent supply chain standards.
               </p>
             </div>
 
-            <div className="pt-2 sm:pt-2.5 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-slate-300">
+            <div className="pt-2 sm:pt-3 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-slate-300">
               <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
               <span>Full compliance with international ethical audit benchmarks</span>
             </div>
           </div>
 
-          {/* Card 2: OEKO-TEX Standard 100 (Grand Massive Hero Logo Showcase) */}
-          <div className="p-3.5 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
+          {/* Card 2: OEKO-TEX Standard 100 (Flexible to Natural 963x606 Aspect Ratio with Zero Cropping) */}
+          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
               <div className="flex items-center justify-between mb-2 sm:mb-3">
                 <span className="text-xs sm:text-base font-black uppercase text-[#72e055] tracking-wider">
@@ -144,8 +144,8 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 </span>
               </div>
 
-              {/* Massive White Logo Showcase for OEKO-TEX */}
-              <div className="bg-white/95 hover:bg-white rounded-xl p-3 sm:p-5 shadow-xl h-48 sm:h-64 md:h-74 lg:h-84 relative flex items-center justify-center mb-2.5 sm:mb-3 transition-all">
+              {/* Flexible White Showcase Card matching exact natural 963/606 aspect ratio */}
+              <div className="bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-xl relative w-full aspect-[963/606] max-h-[300px] flex items-center justify-center mb-3 sm:mb-4 transition-all overflow-hidden">
                 <Image
                   src="/logos/certifications/eee.png"
                   alt="OEKO-TEX Standard 100 Confidence in Textiles"
@@ -153,19 +153,19 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                   priority
                   unoptimized
                   sizes="(max-width: 768px) 90vw, 40vw"
-                  className="object-contain object-center scale-115 sm:scale-120"
+                  className="object-contain object-center p-1.5 sm:p-2.5"
                 />
               </div>
 
               <h3 className="text-sm sm:text-xl font-black text-white mb-0.5 sm:mb-1">
                 OEKO-TEX® Standard 100
               </h3>
-              <p className="text-xs sm:text-sm text-slate-200 leading-snug sm:leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-snug sm:leading-relaxed">
                 Certified Confidence in Textiles, rigorously laboratory-tested and verified free from harmful chemical substances and toxic dyes.
               </p>
             </div>
 
-            <div className="pt-2 sm:pt-2.5 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-slate-300">
+            <div className="pt-2 sm:pt-3 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-slate-300">
               <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
               <span>Safe for infant, toddler, children, and adult garments</span>
             </div>
