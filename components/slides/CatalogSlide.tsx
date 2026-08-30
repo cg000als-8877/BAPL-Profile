@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { ImageIcon } from "lucide-react";
+import { ImageIcon, Sparkles } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
@@ -13,6 +13,7 @@ interface SlideProps {
 
 export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,13 +21,19 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
+        headerRef.current,
+        { x: -60, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }
+      );
+
+      gsap.fromTo(
         gridRef.current?.children || [],
-        { y: 20, opacity: 0, scale: 0.96 },
+        { y: 15, opacity: 0, scale: 0.96 },
         {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.4,
+          duration: 0.35,
           stagger: 0.015,
           ease: "expo.out",
           delay: 0.05,
@@ -48,20 +55,39 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-3.5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-center items-center overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2.5 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
-        {/* Subtle Ambient Radial Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 md:w-[600px] h-96 md:h-[600px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* 20 Blank 3:4 Aspect Ratio Catalog Frames Grid */}
+        {/* 1. Header: PRODUCT IMAGES */}
+        <div ref={headerRef} className="shrink-0 flex items-center justify-between">
+          <div className="flex items-center gap-2.5 sm:gap-4">
+            <div className="w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
+            <div>
+              <div className="text-[10px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+                Garment Lookbook & Portfolio
+              </div>
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+                PRODUCT IMAGES
+              </h2>
+            </div>
+          </div>
+
+          <div className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
+            <Sparkles className="w-4 h-4 text-[#55c538]" />
+            <span>20 Showcase Styles</span>
+          </div>
+        </div>
+
+        {/* 2. Adjusted 20 Blank 3:4 Frames Grid (Fits 100% inside Desktop & Mobile) */}
         <div
           ref={gridRef}
-          className="relative z-10 w-full max-w-7xl grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3 md:gap-3.5 lg:gap-4 my-auto py-1.5"
+          className="flex-1 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-1.5 sm:gap-2.5 md:gap-3 min-h-0 content-center my-auto py-1"
         >
           {catalogFrames.map((frame) => (
             <div
               key={frame.id}
-              className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-1.5 sm:p-2 shadow-lg border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[#55c538]/30 cursor-pointer"
+              className="group relative w-full aspect-[3/4] max-h-[14vh] sm:max-h-[16vh] lg:max-h-[18vh] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-1 sm:p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.04] hover:shadow-[#55c538]/30 cursor-pointer"
             >
               {frame.src ? (
                 <Image
@@ -69,15 +95,15 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
                   alt={frame.label}
                   fill
                   unoptimized
-                  sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                  className="object-cover object-center rounded-lg sm:rounded-xl"
+                  sizes="(max-width: 640px) 25vw, 20vw"
+                  className="object-cover object-center rounded-md sm:rounded-lg"
                 />
               ) : (
-                <div className="w-full h-full rounded-lg sm:rounded-xl border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1.5 sm:p-2 transition-colors group-hover:border-[#55c538]/60 bg-slate-50/60">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
-                    <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <div className="w-full h-full rounded-md sm:rounded-lg border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1 transition-colors group-hover:border-[#55c538]/60 bg-slate-50/60">
+                  <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
+                    <ImageIcon className="w-3 h-3 sm:w-4 sm:h-4" />
                   </div>
-                  <span className="text-[9px] sm:text-[10px] md:text-xs font-black text-slate-400 group-hover:text-slate-700 mt-1 uppercase tracking-wider font-mono">
+                  <span className="text-[8px] sm:text-[9.5px] md:text-[10.5px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 sm:mt-1 uppercase tracking-wider font-mono">
                     {frame.label}
                   </span>
                 </div>
