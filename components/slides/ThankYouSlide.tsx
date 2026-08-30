@@ -42,7 +42,7 @@ export const ThankYouSlide: React.FC<SlideProps> = ({
     if (onNavigateToContact) {
       onNavigateToContact();
     } else {
-      const contactSlide = document.getElementById("slide-3");
+      const contactSlide = document.getElementById("slide-9");
       if (contactSlide) {
         contactSlide.scrollIntoView({ behavior: "smooth" });
       }
@@ -53,13 +53,13 @@ export const ThankYouSlide: React.FC<SlideProps> = ({
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between items-center text-center overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full min-h-[100dvh] flex flex-col items-center justify-center text-center p-6 sm:p-12 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute w-96 sm:w-[600px] h-96 sm:h-[600px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 flex flex-col items-center text-center gap-4 sm:gap-6">
-          {/* Grand THANK YOU Title in Center Middle */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center gap-4 sm:gap-6 my-auto">
+          {/* Grand THANK YOU Title in the Dead Center Middle */}
           <h1
             ref={textRef}
             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-widest text-white leading-none drop-shadow-2xl"
