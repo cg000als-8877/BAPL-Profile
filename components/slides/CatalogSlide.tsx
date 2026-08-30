@@ -21,7 +21,7 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   const imageSrc = `/Product Images/${id}.png`;
 
   return (
-    <div className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-0.5 sm:p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[#55c538]/30 cursor-pointer">
+    <div className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-0.5 sm:p-1.5 shadow-sm border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[#55c538]/30 cursor-pointer">
       {!hasError ? (
         <div className="relative w-full h-full rounded-md sm:rounded-lg overflow-hidden bg-slate-50 flex items-center justify-center">
           <Image
@@ -36,10 +36,10 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
         </div>
       ) : (
         <div className="w-full h-full rounded-md sm:rounded-lg border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1 transition-colors group-hover:border-[#55c538]/60 bg-slate-50/60">
-          <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
-            <ImageIcon className="w-3 h-3 sm:w-4 sm:h-4" />
+          <div className="w-4 h-4 sm:w-6 sm:h-6 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
+            <ImageIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </div>
-          <span className="text-[8px] sm:text-[9.5px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 sm:mt-1 uppercase tracking-wider font-mono">
+          <span className="text-[7.5px] sm:text-[9px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>
@@ -91,12 +91,12 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-2.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-2.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-start md:justify-between gap-2.5 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* 1. Header: PRODUCT IMAGES */}
-        <div ref={headerRef} className="shrink-0 flex items-center justify-between">
+        <div ref={headerRef} className="shrink-0 flex items-center justify-between mb-1 sm:mb-0">
           <div className="flex items-center gap-2 sm:gap-4">
             <div className="w-1.5 sm:w-2.5 h-5 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
@@ -115,10 +115,10 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Grid: Strictly 3 Frames Per Row with 2px Distance on Mobile & 5 Per Row on Desktop */}
+        {/* 2. Grid: Clean auto-rows-max with strictly 3 frames per row & 2px gap (Zero Overlapping) */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-3 md:grid-cols-5 gap-[2px] sm:gap-2.5 md:gap-3 min-h-0 content-center my-auto py-1"
+          className="w-full grid grid-cols-3 md:grid-cols-5 auto-rows-max md:auto-rows-fr gap-[2px] sm:gap-2.5 md:gap-3 py-1 pb-6 md:pb-1 md:flex-1 md:min-h-0 md:content-center"
         >
           {catalogFrames.map((frame) => (
             <CatalogFrameItem
