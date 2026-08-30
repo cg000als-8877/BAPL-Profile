@@ -87,11 +87,11 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           />
         </div>
 
-        {/* Bottom subtle gradient only for text readability */}
+        {/* Bottom subtle gradient for text contrast */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/60 to-transparent" />
       </div>
 
-      {/* Main Content Layout - Bottom-Pinned so upper image is 100% visible */}
+      {/* Main Content Layout - Bottom-Pinned for full scenic visibility */}
       <div
         ref={containerRef}
         className="relative z-10 w-full h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between overflow-hidden"
@@ -113,80 +113,80 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* Bottom Group: Title, Subtitle, Paragraph & 3 Side-by-Side Cards */}
+        {/* Bottom Group: Title, Subtitle, Paragraph & Cards Stack */}
         <div ref={contentRef} className="shrink-0 flex flex-col gap-2 sm:gap-3 max-w-6xl">
-          {/* 1. Title (Single Full-Length Line) */}
+          {/* 1. Title (Bigger for Mobile, Full Length Single Line) */}
           <h1
             ref={titleRef}
-            className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-none drop-shadow-xl whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-2 sm:gap-4"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-none drop-shadow-xl whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-2 sm:gap-4"
           >
-            <span className="w-2 sm:w-3 h-6 sm:h-10 md:h-12 lg:h-14 bg-[#55c538] rounded-sm inline-block glow-bar shrink-0" />
+            <span className="w-2 sm:w-3 h-7 sm:h-10 md:h-12 lg:h-14 bg-[#55c538] rounded-sm inline-block glow-bar shrink-0" />
             <span>BYZID APPARELS PVT LTD</span>
           </h1>
 
-          {/* 2. Subtitle (In Title Case) */}
+          {/* 2. Subtitle (Bigger for Mobile, Title Case) */}
           <p
             ref={subtitleRef}
-            className="text-xs sm:text-base md:text-xl lg:text-2xl font-extrabold text-[#72e055] flex items-center gap-2 drop-shadow-md ml-4 sm:ml-7"
+            className="text-sm sm:text-base md:text-xl lg:text-2xl font-extrabold text-[#72e055] flex items-center gap-2 drop-shadow-md ml-4 sm:ml-7"
           >
-            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0" />
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
             <span>Delivering Quality Apparel Worldwide</span>
           </p>
 
-          {/* 3. Paragraph */}
+          {/* 3. Paragraph (Hidden on Mobile, Visible on Tablet/Desktop) */}
           <p
             ref={descRef}
-            className="text-[11px] sm:text-sm md:text-base lg:text-lg text-slate-200 leading-snug sm:leading-relaxed max-w-4xl font-normal drop-shadow-md ml-4 sm:ml-7"
+            className="hidden sm:block text-sm md:text-base lg:text-lg text-slate-200 leading-relaxed max-w-4xl font-normal drop-shadow-md ml-4 sm:ml-7"
           >
             Premier ready-made garments (RMG) manufacturing powerhouse delivering knit & woven excellence to iconic global fashion brands.
           </p>
 
-          {/* 4. Three Cards Side-by-Side (Mobile & Desktop) with Minimal Gap */}
+          {/* 4. Three Cards Stack: 2 Above, 1 Below on Mobile; 3-Col on Desktop */}
           <div
             ref={cardsRef}
-            className="grid grid-cols-3 gap-1.5 sm:gap-3 ml-0 sm:ml-7 mt-1 sm:mt-2"
+            className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 ml-0 sm:ml-7 mt-1 sm:mt-2"
           >
-            {/* Card 1 */}
-            <div className="p-2 sm:p-3.5 rounded-xl sm:rounded-2xl cyber-card flex flex-col sm:flex-row items-center sm:items-center gap-1.5 sm:gap-3 text-center sm:text-left bg-[#070e1e]/85">
-              <div className="p-1.5 sm:p-2.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
-                <Building2 className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+            {/* Card 1 (Top Left on Mobile) */}
+            <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl cyber-card flex items-center gap-2.5 sm:gap-3 text-left bg-[#070e1e]/90">
+              <div className="p-2 sm:p-2.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
+                <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-[9px] sm:text-xs text-slate-400 font-medium truncate">
+                <div className="text-[10px] sm:text-xs text-slate-400 font-medium truncate">
                   Headquarters & Unit
                 </div>
-                <div className="text-[10px] sm:text-sm md:text-base font-bold text-white truncate">
+                <div className="text-xs sm:text-sm md:text-base font-bold text-white truncate">
                   Chattogram, Bangladesh
                 </div>
               </div>
             </div>
 
-            {/* Card 2 */}
-            <div className="p-2 sm:p-3.5 rounded-xl sm:rounded-2xl cyber-card flex flex-col sm:flex-row items-center sm:items-center gap-1.5 sm:gap-3 text-center sm:text-left bg-[#070e1e]/85">
-              <div className="p-1.5 sm:p-2.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
-                <Globe2 className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+            {/* Card 2 (Top Right on Mobile) */}
+            <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl cyber-card flex items-center gap-2.5 sm:gap-3 text-left bg-[#070e1e]/90">
+              <div className="p-2 sm:p-2.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
+                <Globe2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-[9px] sm:text-xs text-slate-400 font-medium truncate">
+                <div className="text-[10px] sm:text-xs text-slate-400 font-medium truncate">
                   Global Exports
                 </div>
-                <div className="text-[10px] sm:text-sm md:text-base font-bold text-white truncate">
+                <div className="text-xs sm:text-sm md:text-base font-bold text-white truncate">
                   USA, EU & Global
                 </div>
               </div>
             </div>
 
-            {/* Card 3 */}
-            <div className="p-2 sm:p-3.5 rounded-xl sm:rounded-2xl cyber-card flex flex-col sm:flex-row items-center sm:items-center gap-1.5 sm:gap-3 text-center sm:text-left bg-[#070e1e]/85">
-              <div className="p-1.5 sm:p-2.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
-                <ShieldCheck className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+            {/* Card 3 (Bottom Full Width '1 Below' on Mobile, 3rd Col on Desktop) */}
+            <div className="col-span-2 sm:col-span-1 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl cyber-card flex items-center gap-2.5 sm:gap-3 text-left bg-[#070e1e]/90">
+              <div className="p-2 sm:p-2.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-[9px] sm:text-xs text-slate-400 font-medium truncate">
+                <div className="text-[10px] sm:text-xs text-slate-400 font-medium truncate">
                   Compliance & Ethics
                 </div>
-                <div className="text-[10px] sm:text-sm md:text-base font-bold text-white truncate">
-                  BSCI & OEKO-TEX
+                <div className="text-xs sm:text-sm md:text-base font-bold text-white truncate">
+                  BSCI & OEKO-TEX Standard 100
                 </div>
               </div>
             </div>

@@ -119,7 +119,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
             <div className="text-[9px] sm:text-[10px] text-slate-400">32.00m × 12.80m Layout</div>
           </div>
 
-          {/* Floor Space */}
+          {/* Floor Space - Updated to 38,000 SFT Total Space */}
           <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl cyber-card flex flex-col justify-between border-emerald-500/25">
             <div className="flex items-center justify-between">
               <span className="text-[10px] sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider">
@@ -132,7 +132,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
                 38,000 <span className="text-xs sm:text-sm text-slate-400 font-bold">SQ. FT</span>
               </div>
               <div className="text-[11px] sm:text-xs font-bold text-[#72e055]">
-                320,000 SFT Total Campus
+                38,000 SFT Total Space
               </div>
             </div>
             <div className="text-[9px] sm:text-[10px] text-slate-400">Active Production Area</div>

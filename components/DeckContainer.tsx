@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { HeroSlide } from "./slides/HeroSlide";
+import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
 import { ContactSlide } from "./slides/ContactSlide";
 import { StrategySlide } from "./slides/StrategySlide";
 import { ProductionUnitSlide } from "./slides/ProductionUnitSlide";
@@ -9,7 +10,7 @@ import { MachinerySlide } from "./slides/MachinerySlide";
 import { ProductsSlide } from "./slides/ProductsSlide";
 import { TrustSlide } from "./slides/TrustSlide";
 
-const TOTAL_SLIDES = 7;
+const TOTAL_SLIDES = 8;
 
 export const DeckContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,7 +41,7 @@ export const DeckContainer: React.FC = () => {
     }
   }, [currentSlide, scrollToSlide]);
 
-  // Intersection Observer to accurately detect the active slide in view
+  // Intersection Observer to detect the active slide in view
   useEffect(() => {
     const options = {
       root: containerRef.current,
@@ -66,7 +67,7 @@ export const DeckContainer: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Desktop Mouse Wheel translation: scrolling mouse wheel slides horizontally to the left
+  // Desktop Mouse Wheel translation: scrolling mouse wheel slides horizontally
   useEffect(() => {
     let isLocked = false;
 
@@ -145,58 +146,67 @@ export const DeckContainer: React.FC = () => {
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>
 
-      {/* Slide 2: Contact & Operations (Moved to 2nd Page) */}
+      {/* Slide 2: Company Details (Separated Slide) */}
       <section
         ref={(el) => { slideRefs.current[1] = el; }}
         id="slide-2"
         className="slide slide-2"
       >
-        <ContactSlide isActive={currentSlide === 1} />
+        <CompanyDetailsSlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
-      {/* Slide 3: Strategic Pillars */}
+      {/* Slide 3: Contact Us (Separated Slide) */}
       <section
         ref={(el) => { slideRefs.current[2] = el; }}
         id="slide-3"
         className="slide slide-3"
       >
-        <StrategySlide isActive={currentSlide === 2} />
+        <ContactSlide isActive={currentSlide === 2} />
       </section>
 
-      {/* Slide 4: Production Unit & Factory Facility (NEW Slide with Blueprint Background) */}
+      {/* Slide 4: Strategic Pillars */}
       <section
         ref={(el) => { slideRefs.current[3] = el; }}
         id="slide-4"
         className="slide slide-4"
       >
-        <ProductionUnitSlide isActive={currentSlide === 3} onNext={handleNext} />
+        <StrategySlide isActive={currentSlide === 3} />
       </section>
 
-      {/* Slide 5: Dedicated Machine Summary & Fleet */}
+      {/* Slide 5: Production Unit & Facility (with Blueprint) */}
       <section
         ref={(el) => { slideRefs.current[4] = el; }}
         id="slide-5"
         className="slide slide-5"
       >
-        <MachinerySlide isActive={currentSlide === 4} onNext={handleNext} />
+        <ProductionUnitSlide isActive={currentSlide === 4} onNext={handleNext} />
       </section>
 
-      {/* Slide 6: Product Verticals */}
+      {/* Slide 6: Dedicated Machine Summary & Fleet */}
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
         id="slide-6"
         className="slide slide-6"
       >
-        <ProductsSlide isActive={currentSlide === 5} />
+        <MachinerySlide isActive={currentSlide === 5} onNext={handleNext} />
       </section>
 
-      {/* Slide 7: Global Trust & Compliance */}
+      {/* Slide 7: Product Verticals */}
       <section
         ref={(el) => { slideRefs.current[6] = el; }}
         id="slide-7"
         className="slide slide-7"
       >
-        <TrustSlide isActive={currentSlide === 6} />
+        <ProductsSlide isActive={currentSlide === 6} />
+      </section>
+
+      {/* Slide 8: Global Trust & Compliance */}
+      <section
+        ref={(el) => { slideRefs.current[7] = el; }}
+        id="slide-8"
+        className="slide slide-8"
+      >
+        <TrustSlide isActive={currentSlide === 7} />
       </section>
     </main>
   );
