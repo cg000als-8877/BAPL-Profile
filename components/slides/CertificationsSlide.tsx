@@ -48,19 +48,19 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-5 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2.5 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* 1. Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div className="w-2 md:w-2.5 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
+          <div className="flex items-center gap-2.5 sm:gap-4">
+            <div className="w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-[10px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Ethical & Safety Standards
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
                 WE ARE CERTIFIED BY
               </h2>
             </div>
@@ -72,96 +72,96 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Bento Grid of Certifications (Enlarged Logo Containers) */}
+        {/* 2. Bento Grid of Certifications (amfori & BSCI Stacked on Desktop & Mobile) */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6 min-h-0"
+          className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 min-h-0"
         >
-          {/* Card 1: amfori BSCI */}
-          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-indigo-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
+          {/* Card 1: amfori BSCI (Stacked Logo View) */}
+          <div className="p-3.5 sm:p-6 md:p-7 rounded-2xl cyber-card border border-indigo-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
               <div className="flex items-center justify-between mb-2 sm:mb-3">
-                <span className="text-xs sm:text-sm font-black uppercase text-indigo-400 tracking-wider">
+                <span className="text-[11px] sm:text-sm font-black uppercase text-indigo-400 tracking-wider">
                   Social & Workplace Compliance
                 </span>
-                <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] sm:text-xs font-bold border border-indigo-500/30">
+                <span className="px-2.5 py-0.5 sm:py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] sm:text-xs font-bold border border-indigo-500/30">
                   Global Standard
                 </span>
               </div>
 
-              {/* White Logo Container for BSCI & amfori */}
-              <div className="grid grid-cols-2 gap-3 mb-2.5 sm:mb-4">
-                <div className="bg-white/95 rounded-xl p-2 sm:p-3 shadow-md h-24 sm:h-32 md:h-40 relative flex items-center justify-center">
+              {/* Stacked View: BSCI Logo on Top, amfori Logo Below (Desktop & Mobile) */}
+              <div className="flex flex-col gap-2 sm:gap-2.5 mb-2.5 sm:mb-3">
+                <div className="bg-white/95 rounded-xl p-2 shadow-md h-14 sm:h-20 md:h-22 relative flex items-center justify-center">
                   <Image
                     src="/logos/certifications/bsci.png"
                     alt="BSCI Business Social Compliance Initiative"
                     fill
                     priority
-                    sizes="(max-width: 768px) 45vw, 25vw"
-                    className="object-contain object-center p-1 sm:p-2"
+                    sizes="(max-width: 768px) 90vw, 40vw"
+                    className="object-contain object-center p-1"
                   />
                 </div>
 
-                <div className="bg-white/95 rounded-xl p-2 sm:p-3 shadow-md h-24 sm:h-32 md:h-40 relative flex items-center justify-center">
+                <div className="bg-white/95 rounded-xl p-2 shadow-md h-14 sm:h-20 md:h-22 relative flex items-center justify-center">
                   <Image
                     src="/logos/certifications/amfori.png"
                     alt="amfori BSCI Global Trade Association"
                     fill
                     priority
-                    sizes="(max-width: 768px) 45vw, 25vw"
-                    className="object-contain object-center p-1 sm:p-2"
+                    sizes="(max-width: 768px) 90vw, 40vw"
+                    className="object-contain object-center p-1"
                   />
                 </div>
               </div>
 
-              <h3 className="text-base sm:text-xl font-black text-white mb-0.5 sm:mb-1">
+              <h3 className="text-sm sm:text-xl font-black text-white mb-0.5 sm:mb-1">
                 amfori BSCI Certified
               </h3>
-              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+              <p className="text-[11px] sm:text-sm text-slate-200 leading-snug sm:leading-relaxed">
                 Audited for rigorous workplace safety, fair worker compensation, ethical labor practices, and transparent supply chain standards.
               </p>
             </div>
 
-            <div className="pt-2 sm:pt-3 border-t border-slate-800 flex items-center gap-2 text-[11px] sm:text-xs text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-[#55c538] shrink-0" />
+            <div className="pt-2 sm:pt-2.5 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-slate-300">
+              <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
               <span>Full compliance with international ethical audit benchmarks</span>
             </div>
           </div>
 
-          {/* Card 2: OEKO-TEX Standard 100 (Enlarged Logo Display) */}
-          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
+          {/* Card 2: OEKO-TEX Standard 100 */}
+          <div className="p-3.5 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
               <div className="flex items-center justify-between mb-2 sm:mb-3">
-                <span className="text-xs sm:text-sm font-black uppercase text-[#72e055] tracking-wider">
+                <span className="text-[11px] sm:text-sm font-black uppercase text-[#72e055] tracking-wider">
                   Chemical Safety & Ecology
                 </span>
-                <span className="px-3 py-1 rounded-full bg-[#55c538]/20 text-[#72e055] text-[10px] sm:text-xs font-bold border border-[#55c538]/30">
+                <span className="px-2.5 py-0.5 sm:py-1 rounded-full bg-[#55c538]/20 text-[#72e055] text-[10px] sm:text-xs font-bold border border-[#55c538]/30">
                   Skin-Safe Tested
                 </span>
               </div>
 
-              {/* White Logo Container for OEKO-TEX (Larger Frame & Edge-to-Edge Prominence) */}
-              <div className="bg-white/95 rounded-xl p-1 sm:p-2 shadow-md h-24 sm:h-32 md:h-40 relative flex items-center justify-center mb-2.5 sm:mb-4">
+              {/* Large White Logo Container for OEKO-TEX (Balanced with Stacked Card 1) */}
+              <div className="bg-white/95 rounded-xl p-2 shadow-md h-30 sm:h-42 md:h-46.5 relative flex items-center justify-center mb-2.5 sm:mb-3">
                 <Image
                   src="/logos/certifications/eee.png"
                   alt="OEKO-TEX Standard 100 Confidence in Textiles"
                   fill
                   priority
                   sizes="(max-width: 768px) 90vw, 40vw"
-                  className="object-contain object-center scale-105"
+                  className="object-contain object-center scale-105 p-1"
                 />
               </div>
 
-              <h3 className="text-base sm:text-xl font-black text-white mb-0.5 sm:mb-1">
+              <h3 className="text-sm sm:text-xl font-black text-white mb-0.5 sm:mb-1">
                 OEKO-TEX® Standard 100
               </h3>
-              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+              <p className="text-[11px] sm:text-sm text-slate-200 leading-snug sm:leading-relaxed">
                 Certified Confidence in Textiles, rigorously laboratory-tested and verified free from harmful chemical substances and toxic dyes.
               </p>
             </div>
 
-            <div className="pt-2 sm:pt-3 border-t border-slate-800 flex items-center gap-2 text-[11px] sm:text-xs text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-[#55c538] shrink-0" />
+            <div className="pt-2 sm:pt-2.5 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-slate-300">
+              <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
               <span>Safe for infant, toddler, children, and adult garments</span>
             </div>
           </div>
