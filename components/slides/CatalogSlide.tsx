@@ -47,7 +47,7 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
           <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
             <ImageIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </div>
-          <span className="text-[7.5px] sm:text-[8.5px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[7px] sm:text-[8px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>
@@ -79,7 +79,7 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
           opacity: 1,
           scale: 1,
           duration: 0.35,
-          stagger: 0.012,
+          stagger: 0.01,
           ease: "expo.out",
           delay: 0.05,
         }
@@ -89,8 +89,8 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     return () => ctx.revert();
   }, [isActive]);
 
-  // Total 20 Frames loaded from /Product Images/{1..20}.png
-  const catalogFrames = Array.from({ length: 20 }, (_, i) => ({
+  // 30 Blank 3:4 Frames filling 3 full rows of 10 frames on Desktop
+  const catalogFrames = Array.from({ length: 30 }, (_, i) => ({
     id: i + 1,
     label: `Look ${String(i + 1).padStart(2, "0")}`,
   }));
@@ -99,7 +99,7 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-start md:justify-between gap-2.5 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-3.5 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-start md:justify-between gap-2.5 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -119,14 +119,14 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
 
           <div className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
             <Sparkles className="w-4 h-4 text-[#55c538]" />
-            <span>20 Showcase Styles</span>
+            <span>30 Showcase Styles</span>
           </div>
         </div>
 
-        {/* 2. Grid: Strictly 10 Frames in a Row on Desktop (md:grid-cols-10) -> 2 Clean Rows of 10 */}
+        {/* 2. Grid: 10 Frames per row on Desktop (md:grid-cols-10) with 3 full rows filling the slide */}
         <div
           ref={gridRef}
-          className="w-full grid grid-cols-4 sm:grid-cols-5 md:grid-cols-10 gap-2 sm:gap-2.5 md:gap-3 py-1 pb-6 md:pb-1 my-auto auto-rows-max"
+          className="w-full grid grid-cols-4 sm:grid-cols-5 md:grid-cols-10 gap-2 sm:gap-2 md:gap-2.5 lg:gap-3 py-1 pb-6 md:pb-1 my-auto auto-rows-max"
         >
           {catalogFrames.map((frame) => (
             <CatalogFrameItem
