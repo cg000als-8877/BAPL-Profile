@@ -16,6 +16,8 @@
 # misc
 .DS_Store
 *.pem
+BAPL Profile/
+Resource/
 
 # debug
 npm-debug.log*
