@@ -85,14 +85,14 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2.5 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-5 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* 1. Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
-          <div className="flex items-center gap-2.5 sm:gap-4">
-            <div className="w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="w-2 md:w-2.5 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-[10px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Manufacturing Lines
@@ -109,36 +109,35 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Compact 2-Col Mobile & 3-Col Desktop Grid (100% In-Frame, Zero Dead Gaps) */}
+        {/* 2. Grid with Standard Natural Flow & Standard Typography (No Artificial Gap Stretching) */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3.5 lg:gap-5 min-h-0"
+          className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 lg:gap-5 min-h-0 content-center"
         >
           {products.map((p) => (
             <div
               key={p.id}
-              className={`p-2.5 sm:p-4 md:p-5 lg:p-6 rounded-xl sm:rounded-2xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col justify-between shadow-xl min-h-0 hover:border-[#55c538] hover:scale-[1.01] transition-all`}
+              className={`p-3 sm:p-5 md:p-6 rounded-2xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col shadow-xl hover:border-[#55c538] hover:scale-[1.01] transition-all`}
             >
-              {/* Header inside card: Index and Title */}
-              <div>
-                <div className="flex items-center justify-between mb-1 sm:mb-2">
-                  <span className="text-[10px] sm:text-xs md:text-sm font-black text-slate-400 font-mono">
-                    {p.id}
-                  </span>
-                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#55c538] opacity-60" />
-                </div>
-
-                <h3 className="text-xs sm:text-base md:text-lg lg:text-xl font-black text-white leading-tight mb-1.5 sm:mb-2 tracking-tight">
-                  {p.title}
-                </h3>
+              {/* Header Row: Index & Status */}
+              <div className="flex items-center justify-between mb-1 sm:mb-2">
+                <span className="text-xs sm:text-sm font-black text-slate-400">
+                  {p.id}
+                </span>
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#55c538] opacity-60" />
               </div>
 
-              {/* Compact Garment List without huge gaps */}
-              <div className="space-y-1 sm:space-y-1.5 pt-1.5 border-t border-slate-800/80">
+              {/* Title */}
+              <h3 className="text-xs sm:text-base md:text-lg lg:text-xl font-black text-white leading-tight mb-2 sm:mb-3 tracking-tight">
+                {p.title}
+              </h3>
+
+              {/* Natural Item List with Standard Compact Spacing */}
+              <div className="space-y-1 sm:space-y-1.5 pt-2 border-t border-slate-800/80">
                 {p.items.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-1.5 text-[9.5px] sm:text-xs md:text-sm text-slate-200 font-medium leading-tight"
+                    className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs md:text-sm text-slate-200 font-medium"
                   >
                     <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#55c538] shrink-0" />
                     <span className="truncate">{item}</span>
