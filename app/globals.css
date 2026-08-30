@@ -91,7 +91,7 @@
   }
 }
 
-/* 100% Full Bleed Viewport Content Wrapper with Mobile Scroll Support */
+/* 100% Full Bleed Viewport Content Wrapper */
 .slide-content-wrapper {
   width: 100vw !important;
   height: 100vh !important;
@@ -103,9 +103,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch !important;
-  overscroll-behavior-y: contain;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Luxury Cyber Glassmorphic Card Styles */
