@@ -37,16 +37,16 @@ const MobileCatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
             fill
             unoptimized
             onError={handleError}
-            sizes="33vw"
+            sizes="25vw"
             className="object-contain object-center p-0.5"
           />
         </div>
       ) : (
-        <div className="w-full h-full rounded-md border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1 transition-colors bg-slate-50/60">
-          <div className="w-4 h-4 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400">
-            <ImageIcon className="w-3 h-3" />
+        <div className="w-full h-full rounded-md border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-0.5 transition-colors bg-slate-50/60">
+          <div className="w-3.5 h-3.5 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400">
+            <ImageIcon className="w-2.5 h-2.5" />
           </div>
-          <span className="text-[7.5px] font-black text-slate-400 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[7px] font-black text-slate-400 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>
@@ -181,7 +181,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW: Product Categories + Product Images Lookbook All in One Page */}
+        {/* 2. MOBILE VIEW: Product Categories + 4-Frame-Per-Row Product Images Lookbook */}
         <div
           ref={mobileStackRef}
           className="flex flex-col md:hidden gap-3.5 w-full pb-8"
@@ -230,8 +230,8 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </span>
           </div>
 
-          {/* C. 20-Frame Product Images Grid (3 per row, 2px gap, 3:4 uncropped) */}
-          <div className="w-full grid grid-cols-3 auto-rows-max gap-[2px]">
+          {/* C. 20-Frame Product Images Grid (Strictly 4 frames in a row on Mobile: grid-cols-4) */}
+          <div className="w-full grid grid-cols-4 auto-rows-max gap-[2px]">
             {catalogFrames.map((frame) => (
               <MobileCatalogFrameItem
                 key={frame.id}
