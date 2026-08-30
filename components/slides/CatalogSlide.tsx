@@ -9,6 +9,10 @@ import { ImageIcon, Sparkles } from "lucide-react";
 interface SlideProps {
   isActive: boolean;
   onNext?: () => void;
+  startId?: number;
+  endId?: number;
+  title?: string;
+  subtitle?: string;
 }
 
 interface FrameProps {
@@ -71,7 +75,13 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   );
 };
 
-export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
+export const CatalogSlide: React.FC<SlideProps> = ({
+  isActive,
+  startId = 1,
+  endId = 40,
+  title = "PRODUCT IMAGES",
+  subtitle = "Garment Lookbook & Portfolio",
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -104,10 +114,10 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     return () => ctx.revert();
   }, [isActive]);
 
-  // 50 Blank 3:4 Frames (5 full rows of 10 frames on Desktop)
-  const catalogFrames = Array.from({ length: 50 }, (_, i) => ({
-    id: i + 1,
-    label: `Look ${String(i + 1).padStart(2, "0")}`,
+  const frameCount = endId - startId + 1;
+  const catalogFrames = Array.from({ length: frameCount }, (_, i) => ({
+    id: startId + i,
+    label: `Look ${String(startId + i).padStart(2, "0")}`,
   }));
 
   return (
@@ -124,17 +134,19 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
             <div className="w-1.5 sm:w-2.5 h-5 sm:h-10 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-[9px] sm:text-xs font-extrabold uppercase tracking-widest text-[#72e055]">
-                Garment Lookbook & Portfolio
+                {subtitle}
               </div>
               <h2 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
-                PRODUCT IMAGES
+                {title}
               </h2>
             </div>
           </div>
 
           <div className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
             <Sparkles className="w-4 h-4 text-[#55c538]" />
-            <span>50 Showcase Styles</span>
+            <span>
+              Looks {String(startId).padStart(2, "0")}–{String(endId).padStart(2, "0")}
+            </span>
           </div>
         </div>
 

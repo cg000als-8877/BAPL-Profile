@@ -13,7 +13,7 @@ import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
 import { ContactSlide } from "./slides/ContactSlide";
 import { ThankYouSlide } from "./slides/ThankYouSlide";
 
-const TOTAL_SLIDES = 11;
+const TOTAL_SLIDES = 12;
 
 export const DeckContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -185,60 +185,83 @@ export const DeckContainer: React.FC = () => {
         <ProductsSlide isActive={currentSlide === 4} />
       </section>
 
-      {/* Slide 6: Product Catalog / Lookbook (Desktop dedicated slide; in mobile it is combined inside Slide 5) */}
+      {/* Slide 6: Product Catalog - Part 1 (Looks 01 to 40) */}
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
         id="slide-6"
         className="hidden md:flex slide slide-6 slide-catalog-desktop"
       >
-        <CatalogSlide isActive={currentSlide === 5} onNext={handleNext} />
+        <CatalogSlide
+          isActive={currentSlide === 5}
+          startId={1}
+          endId={40}
+          title="PRODUCT IMAGES"
+          subtitle="Garment Lookbook & Portfolio"
+          onNext={handleNext}
+        />
       </section>
 
-      {/* Slide 7: We Are Certified By */}
+      {/* Slide 7: Product Catalog - Part 2 (Looks 41 to 80) */}
       <section
         ref={(el) => { slideRefs.current[6] = el; }}
         id="slide-7"
-        className="slide slide-7"
+        className="hidden md:flex slide slide-7 slide-catalog-desktop"
       >
-        <CertificationsSlide isActive={currentSlide === 6} onNext={handleNext} />
+        <CatalogSlide
+          isActive={currentSlide === 6}
+          startId={41}
+          endId={80}
+          title="PRODUCT IMAGES"
+          subtitle="Garment Lookbook & Portfolio"
+          onNext={handleNext}
+        />
       </section>
 
-      {/* Slide 8: Buyers We Handled */}
+      {/* Slide 8: We Are Certified By */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"
         className="slide slide-8"
       >
-        <BuyersSlide isActive={currentSlide === 7} onNext={handleNext} />
+        <CertificationsSlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
-      {/* Slide 9: Company Details & Regulatory Profile */}
+      {/* Slide 9: Buyers We Handled */}
       <section
         ref={(el) => { slideRefs.current[8] = el; }}
         id="slide-9"
         className="slide slide-9"
       >
-        <CompanyDetailsSlide isActive={currentSlide === 8} onNext={handleNext} />
+        <BuyersSlide isActive={currentSlide === 8} onNext={handleNext} />
       </section>
 
-      {/* Slide 10: Contact Us */}
+      {/* Slide 10: Company Details & Regulatory Profile */}
       <section
         ref={(el) => { slideRefs.current[9] = el; }}
-        id="slide-10"
+        id="slide-9b"
         className="slide slide-10"
       >
-        <ContactSlide isActive={currentSlide === 9} />
+        <CompanyDetailsSlide isActive={currentSlide === 9} onNext={handleNext} />
       </section>
 
-      {/* Slide 11: Thank You */}
+      {/* Slide 11: Contact Us */}
       <section
         ref={(el) => { slideRefs.current[10] = el; }}
-        id="slide-11"
+        id="slide-10"
         className="slide slide-11"
       >
+        <ContactSlide isActive={currentSlide === 10} />
+      </section>
+
+      {/* Slide 12: Thank You */}
+      <section
+        ref={(el) => { slideRefs.current[11] = el; }}
+        id="slide-11"
+        className="slide slide-12"
+      >
         <ThankYouSlide
-          isActive={currentSlide === 10}
-          onNavigateToContact={() => scrollToSlide(9)}
+          isActive={currentSlide === 11}
+          onNavigateToContact={() => scrollToSlide(10)}
         />
       </section>
     </main>
