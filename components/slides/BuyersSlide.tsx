@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { Globe2, Sparkles } from "lucide-react";
+import { Globe2 } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
@@ -14,8 +14,7 @@ interface SlideProps {
 export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const desktopGridRef = useRef<HTMLDivElement>(null);
-  const mobileMosaicRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isActive) return;
@@ -28,28 +27,14 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
       );
 
       gsap.fromTo(
-        desktopGridRef.current?.children || [],
-        { y: 25, opacity: 0, scale: 0.94 },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.45,
-          stagger: 0.025,
-          ease: "expo.out",
-          delay: 0.05,
-        }
-      );
-
-      gsap.fromTo(
-        mobileMosaicRef.current?.children || [],
+        gridRef.current?.children || [],
         { y: 20, opacity: 0, scale: 0.95 },
         {
           y: 0,
           opacity: 1,
           scale: 1,
           duration: 0.45,
-          stagger: 0.03,
+          stagger: 0.02,
           ease: "expo.out",
           delay: 0.05,
         }
@@ -60,22 +45,22 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
   }, [isActive]);
 
   const buyerLogos = [
-    { id: 4, src: "/logos/buyers/4.png", alt: "DKNY", featured: true },
-    { id: 1, src: "/logos/buyers/1.png", alt: "Body Glove", featured: false },
-    { id: 17, src: "/logos/buyers/17.png", alt: "True Religion", featured: true },
-    { id: 12, src: "/logos/buyers/12.png", alt: "Umbro", featured: false },
-    { id: 5, src: "/logos/buyers/5.png", alt: "Bench", featured: false },
-    { id: 3, src: "/logos/buyers/3.png", alt: "Buffalo David Bitton", featured: true },
-    { id: 7, src: "/logos/buyers/7.png", alt: "Airwalk", featured: false },
-    { id: 8, src: "/logos/buyers/8.png", alt: "Joe's Jeans", featured: false },
-    { id: 14, src: "/logos/buyers/14.png", alt: "Kenneth Cole", featured: true },
-    { id: 6, src: "/logos/buyers/6.png", alt: "Original Weatherproof", featured: false },
-    { id: 10, src: "/logos/buyers/10.png", alt: "BCBG", featured: false },
-    { id: 13, src: "/logos/buyers/13.png", alt: "Brave Soul", featured: false },
-    { id: 2, src: "/logos/buyers/2.png", alt: "Soul Star", featured: false },
-    { id: 9, src: "/logos/buyers/9.png", alt: "Steve Jeans", featured: false },
-    { id: 15, src: "/logos/buyers/15.png", alt: "Torkard Clothing", featured: false },
-    { id: 16, src: "/logos/buyers/16.png", alt: "Stokomani", featured: false },
+    { id: 4, src: "/logos/buyers/4.png", alt: "DKNY" },
+    { id: 1, src: "/logos/buyers/1.png", alt: "Body Glove" },
+    { id: 17, src: "/logos/buyers/17.png", alt: "True Religion" },
+    { id: 12, src: "/logos/buyers/12.png", alt: "Umbro" },
+    { id: 5, src: "/logos/buyers/5.png", alt: "Bench" },
+    { id: 3, src: "/logos/buyers/3.png", alt: "Buffalo David Bitton" },
+    { id: 7, src: "/logos/buyers/7.png", alt: "Airwalk" },
+    { id: 8, src: "/logos/buyers/8.png", alt: "Joe's Jeans" },
+    { id: 14, src: "/logos/buyers/14.png", alt: "Kenneth Cole" },
+    { id: 6, src: "/logos/buyers/6.png", alt: "Original Weatherproof" },
+    { id: 10, src: "/logos/buyers/10.png", alt: "BCBG" },
+    { id: 13, src: "/logos/buyers/13.png", alt: "Brave Soul" },
+    { id: 2, src: "/logos/buyers/2.png", alt: "Soul Star" },
+    { id: 9, src: "/logos/buyers/9.png", alt: "Steve Jeans" },
+    { id: 15, src: "/logos/buyers/15.png", alt: "Torkard Clothing" },
+    { id: 16, src: "/logos/buyers/16.png", alt: "Stokomani" },
   ];
 
   return (
@@ -106,86 +91,23 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW ONLY: Pinterest Staggered Bento Mosaic (Fluid, Dynamic & Roomy) */}
+        {/* 2. Compact, Snug Bento Grid (No Huge Gaps, Fits 100% On Mobile & Desktop) */}
         <div
-          ref={mobileMosaicRef}
-          className="flex-1 grid grid-cols-6 gap-1.5 min-h-0 md:hidden content-between"
-        >
-          {/* Row 1: DKNY (Span 3) + True Religion (Span 3) */}
-          <div className="col-span-3 bg-white/95 rounded-xl p-2 shadow-lg flex items-center justify-center h-12 relative">
-            <Image src="/logos/buyers/4.png" alt="DKNY" fill sizes="50vw" className="object-contain p-1.5" />
-          </div>
-          <div className="col-span-3 bg-white/95 rounded-xl p-2 shadow-lg flex items-center justify-center h-12 relative">
-            <Image src="/logos/buyers/17.png" alt="True Religion" fill sizes="50vw" className="object-contain p-1.5" />
-          </div>
-
-          {/* Row 2: Body Glove (Span 2) + Umbro (Span 2) + Bench (Span 2) */}
-          <div className="col-span-2 bg-white/95 rounded-xl p-1.5 shadow-md flex items-center justify-center h-11 relative">
-            <Image src="/logos/buyers/1.png" alt="Body Glove" fill sizes="33vw" className="object-contain p-1" />
-          </div>
-          <div className="col-span-2 bg-white/95 rounded-xl p-1.5 shadow-md flex items-center justify-center h-11 relative">
-            <Image src="/logos/buyers/12.png" alt="Umbro" fill sizes="33vw" className="object-contain p-1" />
-          </div>
-          <div className="col-span-2 bg-white/95 rounded-xl p-1.5 shadow-md flex items-center justify-center h-11 relative">
-            <Image src="/logos/buyers/5.png" alt="Bench" fill sizes="33vw" className="object-contain p-1" />
-          </div>
-
-          {/* Row 3: Buffalo (Span 3) + Kenneth Cole (Span 3) */}
-          <div className="col-span-3 bg-white/95 rounded-xl p-2 shadow-lg flex items-center justify-center h-12 relative">
-            <Image src="/logos/buyers/3.png" alt="Buffalo" fill sizes="50vw" className="object-contain p-1.5" />
-          </div>
-          <div className="col-span-3 bg-white/95 rounded-xl p-2 shadow-lg flex items-center justify-center h-12 relative">
-            <Image src="/logos/buyers/14.png" alt="Kenneth Cole" fill sizes="50vw" className="object-contain p-1.5" />
-          </div>
-
-          {/* Row 4: Airwalk (Span 2) + Joe's (Span 2) + BCBG (Span 2) */}
-          <div className="col-span-2 bg-white/95 rounded-xl p-1.5 shadow-md flex items-center justify-center h-11 relative">
-            <Image src="/logos/buyers/7.png" alt="Airwalk" fill sizes="33vw" className="object-contain p-1" />
-          </div>
-          <div className="col-span-2 bg-white/95 rounded-xl p-1.5 shadow-md flex items-center justify-center h-11 relative">
-            <Image src="/logos/buyers/8.png" alt="Joe's Jeans" fill sizes="33vw" className="object-contain p-1" />
-          </div>
-          <div className="col-span-2 bg-white/95 rounded-xl p-1.5 shadow-md flex items-center justify-center h-11 relative">
-            <Image src="/logos/buyers/10.png" alt="BCBG" fill sizes="33vw" className="object-contain p-1" />
-          </div>
-
-          {/* Row 5: Weatherproof (Span 3) + Brave Soul (Span 3) */}
-          <div className="col-span-3 bg-white/95 rounded-xl p-2 shadow-lg flex items-center justify-center h-12 relative">
-            <Image src="/logos/buyers/6.png" alt="Weatherproof" fill sizes="50vw" className="object-contain p-1.5" />
-          </div>
-          <div className="col-span-3 bg-white/95 rounded-xl p-2 shadow-lg flex items-center justify-center h-12 relative">
-            <Image src="/logos/buyers/13.png" alt="Brave Soul" fill sizes="50vw" className="object-contain p-1.5" />
-          </div>
-
-          {/* Row 6: Soul Star (Span 2) + Steve Jeans (Span 2) + Stokomani (Span 2) */}
-          <div className="col-span-2 bg-white/95 rounded-xl p-1.5 shadow-md flex items-center justify-center h-11 relative">
-            <Image src="/logos/buyers/2.png" alt="Soul Star" fill sizes="33vw" className="object-contain p-1" />
-          </div>
-          <div className="col-span-2 bg-white/95 rounded-xl p-1.5 shadow-md flex items-center justify-center h-11 relative">
-            <Image src="/logos/buyers/9.png" alt="Steve Jeans" fill sizes="33vw" className="object-contain p-1" />
-          </div>
-          <div className="col-span-2 bg-white/95 rounded-xl p-1.5 shadow-md flex items-center justify-center h-11 relative">
-            <Image src="/logos/buyers/16.png" alt="Stokomani" fill sizes="33vw" className="object-contain p-1" />
-          </div>
-        </div>
-
-        {/* 3. DESKTOP VIEW ONLY: 4x4 Grid with Micro-Interactions */}
-        <div
-          ref={desktopGridRef}
-          className="hidden md:grid md:grid-cols-4 gap-4 flex-1 min-h-0"
+          ref={gridRef}
+          className="flex-1 grid grid-cols-4 gap-1.5 sm:gap-3.5 min-h-0"
         >
           {buyerLogos.map((buyer) => (
             <div
               key={buyer.id}
-              className="group relative bg-white/95 hover:bg-white rounded-2xl p-4 shadow-xl border border-white/80 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl flex items-center justify-center h-full min-h-[64px] overflow-hidden"
+              className="group relative bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-1.5 sm:p-4 shadow-lg border border-white/80 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl flex items-center justify-center h-full overflow-hidden"
             >
               <div className="relative w-full h-full">
                 <Image
                   src={buyer.src}
                   alt={buyer.alt}
                   fill
-                  sizes="25vw"
-                  className="object-contain object-center transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 25vw, 25vw"
+                  className="object-contain object-center transition-transform duration-300 group-hover:scale-105 p-1"
                 />
               </div>
             </div>
