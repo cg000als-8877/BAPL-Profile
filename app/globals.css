@@ -66,6 +66,19 @@
   overflow: hidden;
 }
 
+/* Mobile View: Completely Remove Single Product Image Slide #slide-6 (Merged into Our Products) */
+@media (max-width: 767px) {
+  #slide-6,
+  .slide-catalog-desktop {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    pointer-events: none !important;
+  }
+}
+
 /* Desktop Horizontal Slide Configuration */
 @media (min-width: 768px) {
   .snap-container {
