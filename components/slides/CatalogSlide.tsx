@@ -29,9 +29,19 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   };
 
   return (
-    <div className="group relative w-full aspect-[3/4] bg-[radial-gradient(circle_at_center,_#F5F5F5_0%,_#FFFFFF_100%)] rounded-lg sm:rounded-xl p-0.5 sm:p-1 shadow-md border border-white/90 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.05] hover:shadow-[#55c538]/30 cursor-pointer">
+    <div
+      style={{
+        background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
+      }}
+      className="group relative w-full aspect-[3/4] rounded-lg sm:rounded-xl p-0.5 sm:p-1 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.05] hover:shadow-[#55c538]/30 cursor-pointer"
+    >
       {!hasError ? (
-        <div className="relative w-full h-full rounded-md sm:rounded-lg overflow-hidden bg-[radial-gradient(circle_at_center,_#F5F5F5_0%,_#FFFFFF_100%)] flex items-center justify-center">
+        <div
+          style={{
+            background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
+          }}
+          className="relative w-full h-full rounded-md sm:rounded-lg overflow-hidden flex items-center justify-center"
+        >
           <Image
             src={imgSrc}
             alt={label}
@@ -43,11 +53,16 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
           />
         </div>
       ) : (
-        <div className="w-full h-full rounded-md sm:rounded-lg border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-0.5 transition-colors group-hover:border-[#55c538]/60 bg-[radial-gradient(circle_at_center,_#F5F5F5_0%,_#FFFFFF_100%)]">
-          <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
+        <div
+          style={{
+            background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
+          }}
+          className="w-full h-full rounded-md sm:rounded-lg border border-dashed border-slate-400 flex flex-col items-center justify-center text-center p-0.5 transition-colors group-hover:border-[#55c538]/60"
+        >
+          <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
             <ImageIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
           </div>
-          <span className="text-[6.5px] sm:text-[7.5px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[6.5px] sm:text-[7.5px] font-black text-slate-500 group-hover:text-slate-800 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>

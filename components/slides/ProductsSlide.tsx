@@ -28,9 +28,19 @@ const MobileCatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   };
 
   return (
-    <div className="group relative w-full aspect-[3/4] bg-[radial-gradient(circle_at_center,_#F5F5F5_0%,_#FFFFFF_100%)] rounded-lg p-0.5 shadow-sm border border-white/90 flex flex-col items-center justify-center overflow-hidden transition-all duration-300">
+    <div
+      style={{
+        background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
+      }}
+      className="group relative w-full aspect-[3/4] rounded-lg p-0.5 shadow-sm border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300"
+    >
       {!hasError ? (
-        <div className="relative w-full h-full rounded-md overflow-hidden bg-[radial-gradient(circle_at_center,_#F5F5F5_0%,_#FFFFFF_100%)] flex items-center justify-center">
+        <div
+          style={{
+            background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
+          }}
+          className="relative w-full h-full rounded-md overflow-hidden flex items-center justify-center"
+        >
           <Image
             src={imgSrc}
             alt={label}
@@ -42,11 +52,16 @@ const MobileCatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
           />
         </div>
       ) : (
-        <div className="w-full h-full rounded-md border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-0.5 transition-colors bg-[radial-gradient(circle_at_center,_#F5F5F5_0%,_#FFFFFF_100%)]">
-          <div className="w-3.5 h-3.5 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400">
+        <div
+          style={{
+            background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
+          }}
+          className="w-full h-full rounded-md border border-dashed border-slate-400 flex flex-col items-center justify-center text-center p-0.5 transition-colors"
+        >
+          <div className="w-3.5 h-3.5 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500">
             <ImageIcon className="w-2.5 h-2.5" />
           </div>
-          <span className="text-[7px] font-black text-slate-400 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[7px] font-black text-slate-500 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>
@@ -230,7 +245,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </span>
           </div>
 
-          {/* C. 40-Frame Product Images Grid (Radial Gradient Depth: #F5F5F5 middle to #FFFFFF outer) */}
+          {/* C. 40-Frame Product Images Grid (Exact Photoshop Radial Gradient Depth) */}
           <div className="w-full grid grid-cols-4 auto-rows-max gap-[2px]">
             {catalogFrames.map((frame) => (
               <MobileCatalogFrameItem
