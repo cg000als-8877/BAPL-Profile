@@ -216,7 +216,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW ONLY: Standard Consistent Gap & Vertically Centered Content */}
+        {/* 2. MOBILE VIEW ONLY: Vertically Middle-Aligned Stack with Standard Gap */}
         <div
           ref={mobileStackRef}
           className="flex-1 flex flex-col md:hidden gap-2.5 min-h-0"
