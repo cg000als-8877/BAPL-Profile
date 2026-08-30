@@ -1,13 +1,59 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { Sparkles, CheckCircle2 } from "lucide-react";
+import { Sparkles, CheckCircle2, ImageIcon } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
 }
+
+interface FrameProps {
+  id: number;
+  label: string;
+}
+
+const MobileCatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
+  const [imgSrc, setImgSrc] = useState<string>(`/Product Images/${id}.webp`);
+  const [hasError, setHasError] = useState(false);
+
+  const handleError = () => {
+    if (imgSrc.endsWith(".webp")) {
+      setImgSrc(`/Product Images/${id}.png`);
+    } else {
+      setHasError(true);
+    }
+  };
+
+  return (
+    <div className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-lg p-0.5 shadow-sm border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300">
+      {!hasError ? (
+        <div className="relative w-full h-full rounded-md overflow-hidden bg-slate-50 flex items-center justify-center">
+          <Image
+            src={imgSrc}
+            alt={label}
+            fill
+            unoptimized
+            onError={handleError}
+            sizes="33vw"
+            className="object-contain object-center p-0.5"
+          />
+        </div>
+      ) : (
+        <div className="w-full h-full rounded-md border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1 transition-colors bg-slate-50/60">
+          <div className="w-4 h-4 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400">
+            <ImageIcon className="w-3 h-3" />
+          </div>
+          <span className="text-[7.5px] font-black text-slate-400 mt-0.5 uppercase tracking-wider font-mono">
+            {label}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -61,7 +107,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     {
       id: "01",
       title: "Denim Wear",
-      items: ["Basic 5 Pocket Jeans", "Denim Shorts", "Cargo & Jogger Pants"],
+      items: ["Basic 5 Pocket Jeans", "Denim Shorts", "Cargo & Joggers"],
       border: "border-blue-500/35",
       bg: "bg-blue-500/10",
     },
@@ -74,7 +120,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     },
     {
       id: "03",
-      title: "Hoodies & Sweatshirts",
+      title: "Hoodies & Sweats",
       items: ["Fleece Hoodies", "Sweatshirts", "Track & Jogger Pants"],
       border: "border-purple-500/35",
       bg: "bg-purple-500/10",
@@ -88,25 +134,30 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     },
     {
       id: "05",
-      title: "Shorts & Swimwear",
+      title: "Shorts & Swim",
       items: ["Board Shorts", "Swim Trunks", "Casual Beach Shorts"],
       border: "border-cyan-500/35",
       bg: "bg-cyan-500/10",
     },
     {
       id: "06",
-      title: "Kids & Infant Wear",
+      title: "Kids & Infant",
       items: ["Onesies & Rompers", "Dungarees", "Jump Suits"],
       border: "border-rose-500/35",
       bg: "bg-rose-500/10",
     },
   ];
 
+  const catalogFrames = Array.from({ length: 20 }, (_, i) => ({
+    id: i + 1,
+    label: `Look ${String(i + 1).padStart(2, "0")}`,
+  }));
+
   return (
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2.5 sm:gap-5 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-5 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -130,43 +181,65 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW: 6-Card Stack View Filling the Frame */}
+        {/* 2. MOBILE VIEW: Product Categories + Product Images Lookbook All in One Page */}
         <div
           ref={mobileStackRef}
-          className="flex-1 flex flex-col md:hidden gap-2 min-h-0"
+          className="flex flex-col md:hidden gap-3.5 w-full pb-8"
         >
-          {products.map((p) => (
-            <div
-              key={p.id}
-              className={`flex-1 p-2.5 rounded-xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col justify-center shadow-lg min-h-0`}
-            >
-              {/* Header Row: Index & Category Name */}
-              <div className="flex items-center justify-between mb-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-black text-slate-400 font-mono">
+          {/* A. 6 Adjusted Product Category Cards (2-Column Grid on Mobile) */}
+          <div className="grid grid-cols-2 gap-2 w-full">
+            {products.map((p) => (
+              <div
+                key={p.id}
+                className={`p-2.5 rounded-xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col justify-between shadow-md`}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[10px] font-black text-slate-400 font-mono">
                     {p.id}
                   </span>
-                  <h3 className="text-xs font-black text-white leading-tight">
-                    {p.title}
-                  </h3>
                 </div>
+                <h3 className="text-xs font-black text-white leading-tight mb-1.5">
+                  {p.title}
+                </h3>
 
+                <div className="space-y-0.5 pt-1 border-t border-slate-800/80">
+                  {p.items.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-1 text-[9px] text-slate-300 font-medium truncate"
+                    >
+                      <CheckCircle2 className="w-2.5 h-2.5 text-[#55c538] shrink-0" />
+                      <span className="truncate">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
+            ))}
+          </div>
 
-              {/* Items List */}
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 pt-1 border-t border-slate-800/80">
-                {p.items.map((item, idx) => (
-                  <span
-                    key={idx}
-                    className="inline-flex items-center gap-1 text-[10px] text-slate-200 font-medium leading-none"
-                  >
-                    <CheckCircle2 className="w-2.5 h-2.5 text-[#55c538] shrink-0" />
-                    <span>{item}</span>
-                  </span>
-                ))}
-              </div>
+          {/* B. Subtitle & Divider for Product Images */}
+          <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-4 bg-[#55c538] rounded-full glow-bar" />
+              <h3 className="text-sm font-black text-white uppercase tracking-wider">
+                PRODUCT IMAGES
+              </h3>
             </div>
-          ))}
+            <span className="text-[9px] font-bold text-[#72e055] px-2 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
+              20 Looks
+            </span>
+          </div>
+
+          {/* C. 20-Frame Product Images Grid (3 per row, 2px gap, 3:4 uncropped) */}
+          <div className="w-full grid grid-cols-3 auto-rows-max gap-[2px]">
+            {catalogFrames.map((frame) => (
+              <MobileCatalogFrameItem
+                key={frame.id}
+                id={frame.id}
+                label={frame.label}
+              />
+            ))}
+          </div>
         </div>
 
         {/* 3. DESKTOP VIEW: Spacious 3x2 Bento Grid */}

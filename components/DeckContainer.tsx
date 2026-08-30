@@ -185,11 +185,11 @@ export const DeckContainer: React.FC = () => {
         <ProductsSlide isActive={currentSlide === 4} />
       </section>
 
-      {/* Slide 6: Product Catalog / Lookbook (3:4 Blank White Frames, No Title) */}
+      {/* Slide 6: Product Catalog / Lookbook (Desktop dedicated slide; in mobile it is combined inside Slide 5) */}
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
         id="slide-6"
-        className="slide slide-6"
+        className="hidden md:flex slide slide-6"
       >
         <CatalogSlide isActive={currentSlide === 5} onNext={handleNext} />
       </section>
