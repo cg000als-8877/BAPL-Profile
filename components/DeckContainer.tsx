@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { HeroSlide } from "./slides/HeroSlide";
-import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
-import { ContactSlide } from "./slides/ContactSlide";
 import { StrategySlide } from "./slides/StrategySlide";
 import { ProductionUnitSlide } from "./slides/ProductionUnitSlide";
 import { MachinerySlide } from "./slides/MachinerySlide";
 import { ProductsSlide } from "./slides/ProductsSlide";
-import { BuyersSlide } from "./slides/BuyersSlide";
 import { CertificationsSlide } from "./slides/CertificationsSlide";
+import { BuyersSlide } from "./slides/BuyersSlide";
+import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
+import { ContactSlide } from "./slides/ContactSlide";
 import { ThankYouSlide } from "./slides/ThankYouSlide";
 
 const TOTAL_SLIDES = 10;
@@ -139,7 +139,7 @@ export const DeckContainer: React.FC = () => {
 
   return (
     <main ref={containerRef} className="snap-container bg-[#050811]">
-      {/* Slide 1: Hero Section */}
+      {/* Slide 1: Hero Overview (Brand Hook & 30+ Yrs Legacy) */}
       <section
         ref={(el) => { slideRefs.current[0] = el; }}
         id="slide-1"
@@ -148,79 +148,79 @@ export const DeckContainer: React.FC = () => {
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>
 
-      {/* Slide 2: Company Details */}
+      {/* Slide 2: Strategic Pillars (Core Commitments & Quality Vision) */}
       <section
         ref={(el) => { slideRefs.current[1] = el; }}
         id="slide-2"
         className="slide slide-2"
       >
-        <CompanyDetailsSlide isActive={currentSlide === 1} onNext={handleNext} />
+        <StrategySlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
-      {/* Slide 3: Contact Us (Key Contact Persons & Address) */}
+      {/* Slide 3: Production Unit & Facility (Scale, 38,000 SFT & 300K Capacity) */}
       <section
         ref={(el) => { slideRefs.current[2] = el; }}
         id="slide-3"
         className="slide slide-3"
       >
-        <ContactSlide isActive={currentSlide === 2} />
+        <ProductionUnitSlide isActive={currentSlide === 2} onNext={handleNext} />
       </section>
 
-      {/* Slide 4: Strategic Pillars */}
+      {/* Slide 4: Machinery Summary & Plant Fleet (250 Industrial Equipment Sets) */}
       <section
         ref={(el) => { slideRefs.current[3] = el; }}
         id="slide-4"
         className="slide slide-4"
       >
-        <StrategySlide isActive={currentSlide === 3} />
+        <MachinerySlide isActive={currentSlide === 3} onNext={handleNext} />
       </section>
 
-      {/* Slide 5: Production Unit & Facility */}
+      {/* Slide 5: Product Verticals & Portfolio (Knit & Woven Showcase) */}
       <section
         ref={(el) => { slideRefs.current[4] = el; }}
         id="slide-5"
         className="slide slide-5"
       >
-        <ProductionUnitSlide isActive={currentSlide === 4} onNext={handleNext} />
+        <ProductsSlide isActive={currentSlide === 4} />
       </section>
 
-      {/* Slide 6: Dedicated Machine Summary & Fleet */}
+      {/* Slide 6: We Are Certified By (amfori BSCI & OEKO-TEX Standard 100) */}
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
-        id="slide-6"
+        id="slide-5"
         className="slide slide-6"
       >
-        <MachinerySlide isActive={currentSlide === 5} onNext={handleNext} />
+        <CertificationsSlide isActive={currentSlide === 5} onNext={handleNext} />
       </section>
 
-      {/* Slide 7: Product Verticals */}
+      {/* Slide 7: Buyers We Handled (16 Global Retail Brands Social Proof) */}
       <section
         ref={(el) => { slideRefs.current[6] = el; }}
         id="slide-7"
         className="slide slide-7"
       >
-        <ProductsSlide isActive={currentSlide === 6} />
+        <BuyersSlide isActive={currentSlide === 6} onNext={handleNext} />
       </section>
 
-      {/* Slide 8: Buyers We Handled */}
+      {/* Slide 8: Company Details & Regulatory Profile (Registration & Banking) */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"
         className="slide slide-8"
       >
-        <BuyersSlide isActive={currentSlide === 7} onNext={handleNext} />
+        <CompanyDetailsSlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
-      {/* Slide 9: We Are Certified By */}
+      {/* Slide 9: Contact Us (Leadership Profiles, Email Copy & Direct Dial) */}
       <section
         ref={(el) => { slideRefs.current[8] = el; }}
         id="slide-9"
         className="slide slide-9"
       >
-        <CertificationsSlide isActive={currentSlide === 8} onNext={handleNext} />
+        <ContactSlide isActive={currentSlide === 8} />
       </section>
 
-      {/* Slide 10: Blank Thank You Page with Shortcut Contact Us Button */}
+      {/* Slide 10: Thank You (Closing + Direct Shortcut to Contact Us) */}
       <section
         ref={(el) => { slideRefs.current[9] = el; }}
         id="slide-10"
@@ -228,7 +228,7 @@ export const DeckContainer: React.FC = () => {
       >
         <ThankYouSlide
           isActive={currentSlide === 9}
-          onNavigateToContact={() => scrollToSlide(2)}
+          onNavigateToContact={() => scrollToSlide(8)}
         />
       </section>
     </main>
