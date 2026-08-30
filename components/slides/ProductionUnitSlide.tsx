@@ -94,12 +94,12 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. CENTER-UPPER: Blueprint Image (Expanded Width on Mobile) */}
+        {/* 2. CENTER-UPPER: Blueprint Image (Expanded Width on Mobile & Desktop) */}
         <div
           ref={blueprintRef}
           className="shrink-0 w-full flex items-center justify-center my-0"
         >
-          {/* Mobile Image: Expanded -mx-4 to bleed edge-to-edge horizontally and scale up */}
+          {/* Mobile Image: Expanded -mx-4 to bleed edge-to-edge horizontally */}
           <div className="block md:hidden relative -mx-4 w-[calc(100%+2rem)] aspect-[738/352] max-h-[220px]">
             <Image
               src="/mobile-bp.png"
@@ -112,8 +112,8 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
             />
           </div>
 
-          {/* Desktop Image: Exact 1630/396 aspect ratio container */}
-          <div className="hidden md:block relative w-full aspect-[1630/396] max-h-[250px]">
+          {/* Desktop Image: Expanded -mx-8 lg:-mx-10 taking more space from left and right */}
+          <div className="hidden md:block relative -mx-6 md:-mx-8 lg:-mx-10 w-[calc(100%+3rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+5rem)] aspect-[1630/396] max-h-[320px] lg:max-h-[350px]">
             <Image
               src="/desktop-bp.png"
               alt="Byzid Apparels Architectural Blueprint Desktop View"
@@ -121,7 +121,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
               priority
               unoptimized
               sizes="100vw"
-              className="object-contain object-center"
+              className="object-contain object-center scale-105 lg:scale-110"
             />
           </div>
         </div>
