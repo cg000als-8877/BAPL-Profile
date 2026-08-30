@@ -240,27 +240,27 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
 
                 {/* Interactive Overlay: Shows on Desktop Hover & Mobile Click/Tap */}
                 <div
-                  className={`absolute inset-0 bg-slate-950/95 backdrop-blur-md transition-all duration-300 flex flex-col items-center justify-center p-1.5 sm:p-3 text-center border border-[#55c538]/50 rounded-xl sm:rounded-2xl shadow-2xl ${
+                  className={`absolute inset-0 bg-slate-950/95 backdrop-blur-md transition-all duration-300 flex flex-col items-center justify-center p-1 sm:p-2.5 md:p-3 text-center border border-[#55c538]/50 rounded-xl sm:rounded-2xl shadow-2xl ${
                     isSelected
                       ? "opacity-100 pointer-events-auto"
                       : "opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto"
                   }`}
                 >
                   {/* Flag Emoji Badge */}
-                  <span className="text-2xl sm:text-3xl md:text-4xl drop-shadow-md mb-0.5 sm:mb-1 animate-bounce">
+                  <span className="text-base sm:text-2xl md:text-3xl drop-shadow-md leading-none mb-0.5">
                     {buyer.flag}
                   </span>
 
                   {/* Brand Name */}
-                  <h4 className="text-xs sm:text-sm font-black text-white leading-tight truncate max-w-full">
+                  <h4 className="text-[11px] sm:text-sm font-black text-white leading-tight truncate max-w-full">
                     {buyer.name}
                   </h4>
 
                   {/* Origin Country & Region */}
-                  <span className="text-xs sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider mt-0.5">
+                  <span className="text-[9.5px] sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider leading-tight mt-0.5 truncate max-w-full">
                     {buyer.country}
                   </span>
-                  <span className="text-[11px] sm:text-xs text-slate-300 font-medium truncate max-w-full">
+                  <span className="hidden sm:block text-[11px] sm:text-xs text-slate-300 font-medium truncate max-w-full">
                     {buyer.region}
                   </span>
                 </div>
