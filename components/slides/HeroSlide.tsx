@@ -95,24 +95,24 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
         ref={containerRef}
         className="relative z-10 w-full h-full min-h-[100dvh] p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between overflow-y-visible md:overflow-hidden"
       >
-        {/* Top Bar: Established 1995 Luxury Badge */}
-        <div className="shrink-0 flex items-center justify-between">
-          <div className="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full cyber-pill bg-[#050811]/60 backdrop-blur-md border border-white/10 text-xs font-bold text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-[#55c538] animate-pulse" />
-            <span>Ready-Made Garments Exporter</span>
-          </div>
-
+        {/* Top Bar: Established 1995 Modern Heritage Badge */}
+        <div className="shrink-0 flex items-center justify-end w-full">
           <div
             ref={badgeRef}
-            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full cyber-pill border border-[#55c538]/40 shadow-xl bg-[#050811]/80 backdrop-blur-md ml-auto"
+            className="inline-flex items-center gap-2.5 sm:gap-3.5 px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl cyber-pill border border-[#55c538]/50 shadow-2xl shadow-[#55c538]/20 bg-[#050811]/85 backdrop-blur-xl group hover:border-[#55c538] transition-all"
           >
-            <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538]" />
-            <span className="text-xs sm:text-sm font-black tracking-widest text-white uppercase">
-              Since 1995
-            </span>
-            <span className="hidden sm:inline text-xs text-slate-300 font-semibold">
-              • 30+ Yrs Legacy
-            </span>
+            <div className="p-1.5 rounded-xl bg-[#55c538]/20 text-[#72e055] shrink-0">
+              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-[#55c538]" />
+            </div>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <span className="text-sm sm:text-base md:text-lg font-black tracking-wider text-white uppercase font-mono">
+                SINCE 1995
+              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#55c538] animate-pulse shrink-0" />
+              <span className="text-xs sm:text-sm md:text-base font-bold text-[#72e055] tracking-wide">
+                30+ Years of Excellence
+              </span>
+            </div>
           </div>
         </div>
 
