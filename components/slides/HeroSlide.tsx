@@ -97,7 +97,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
       {/* Main Content Layout - Bottom-Pinned for full scenic visibility */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between overflow-hidden"
+        className="relative z-10 w-full min-h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between overflow-y-visible md:overflow-hidden"
       >
         {/* Top: Aesthetic & Modern 'Since 1995' Pill Badge */}
         <div className="shrink-0 flex items-center justify-end">

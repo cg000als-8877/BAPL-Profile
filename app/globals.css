@@ -61,8 +61,6 @@
   scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: relative;
   background-color: #050811;
   overflow: hidden;
@@ -87,9 +85,13 @@
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
+
+  .slide-content-wrapper {
+    overflow-y: hidden !important;
+  }
 }
 
-/* 100% Full Bleed Viewport Content Wrapper */
+/* 100% Full Bleed Viewport Content Wrapper with Mobile Scroll Support */
 .slide-content-wrapper {
   width: 100vw !important;
   height: 100vh !important;
@@ -101,8 +103,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior-y: contain;
 }
 
 /* Luxury Cyber Glassmorphic Card Styles */

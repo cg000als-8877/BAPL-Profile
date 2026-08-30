@@ -53,7 +53,7 @@ export const ThankYouSlide: React.FC<SlideProps> = ({
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full flex flex-col items-center justify-center p-6 sm:p-12 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between items-center text-center overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute w-96 sm:w-[600px] h-96 sm:h-[600px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
