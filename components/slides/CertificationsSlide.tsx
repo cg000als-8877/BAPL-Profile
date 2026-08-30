@@ -48,7 +48,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2.5 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -72,13 +72,13 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Bento Grid of Certifications with Expanded OEKO-TEX Card & Logo Frames */}
+        {/* 2. Bento Grid of Certifications with Extra Large Bold Logo Showcases */}
         <div
           ref={gridRef}
           className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 min-h-0"
         >
-          {/* Card 1: amfori BSCI (Stacked Logo Frames) */}
-          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-indigo-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
+          {/* Card 1: amfori BSCI (Extra Large Stacked Logo Frames) */}
+          <div className="p-3.5 sm:p-6 md:p-7 rounded-2xl cyber-card border border-indigo-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
               <div className="flex items-center justify-between mb-2 sm:mb-3">
                 <span className="text-xs sm:text-base font-black uppercase text-indigo-400 tracking-wider">
@@ -89,10 +89,10 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 </span>
               </div>
 
-              {/* Stacked View: Large BSCI & amfori Logo Frames */}
-              <div className="flex flex-col gap-2 sm:gap-3 mb-2 sm:mb-3">
+              {/* Stacked View: Extra Large BSCI & amfori Logo Frames */}
+              <div className="flex flex-col gap-2 sm:gap-3 mb-2.5 sm:mb-3">
                 {/* BSCI Logo Frame */}
-                <div className="bg-white/95 hover:bg-white rounded-xl p-2 sm:p-3 shadow-lg h-18 sm:h-24 md:h-28 lg:h-32 relative flex items-center justify-center transition-all">
+                <div className="bg-white/95 hover:bg-white rounded-xl p-2 sm:p-3 shadow-lg h-22 sm:h-30 md:h-36 lg:h-40 relative flex items-center justify-center transition-all">
                   <Image
                     src="/logos/certifications/bsci.png"
                     alt="BSCI Business Social Compliance Initiative"
@@ -100,12 +100,12 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                     priority
                     unoptimized
                     sizes="(max-width: 768px) 90vw, 40vw"
-                    className="object-contain object-center scale-105"
+                    className="object-contain object-center scale-110"
                   />
                 </div>
 
                 {/* amfori Logo Frame */}
-                <div className="bg-white/95 hover:bg-white rounded-xl p-2 sm:p-3 shadow-lg h-18 sm:h-24 md:h-28 lg:h-32 relative flex items-center justify-center transition-all">
+                <div className="bg-white/95 hover:bg-white rounded-xl p-2 sm:p-3 shadow-lg h-22 sm:h-30 md:h-36 lg:h-40 relative flex items-center justify-center transition-all">
                   <Image
                     src="/logos/certifications/amfori.png"
                     alt="amfori BSCI Global Trade Association"
@@ -113,7 +113,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                     priority
                     unoptimized
                     sizes="(max-width: 768px) 90vw, 40vw"
-                    className="object-contain object-center scale-105"
+                    className="object-contain object-center scale-110"
                   />
                 </div>
               </div>
@@ -132,8 +132,8 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
           </div>
 
-          {/* Card 2: OEKO-TEX Standard 100 (Grand Expanded Frame with Optimized Logo Proportion) */}
-          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
+          {/* Card 2: OEKO-TEX Standard 100 (Grand Massive Hero Logo Showcase) */}
+          <div className="p-3.5 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
               <div className="flex items-center justify-between mb-2 sm:mb-3">
                 <span className="text-xs sm:text-base font-black uppercase text-[#72e055] tracking-wider">
@@ -144,8 +144,8 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 </span>
               </div>
 
-              {/* Expanded White Logo Showcase for OEKO-TEX */}
-              <div className="bg-white/95 hover:bg-white rounded-xl p-3 sm:p-5 shadow-xl h-40 sm:h-52 md:h-60 lg:h-68 relative flex items-center justify-center mb-2 sm:mb-3 transition-all">
+              {/* Massive White Logo Showcase for OEKO-TEX */}
+              <div className="bg-white/95 hover:bg-white rounded-xl p-3 sm:p-5 shadow-xl h-48 sm:h-64 md:h-74 lg:h-84 relative flex items-center justify-center mb-2.5 sm:mb-3 transition-all">
                 <Image
                   src="/logos/certifications/eee.png"
                   alt="OEKO-TEX Standard 100 Confidence in Textiles"
@@ -153,7 +153,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                   priority
                   unoptimized
                   sizes="(max-width: 768px) 90vw, 40vw"
-                  className="object-contain object-center scale-100 sm:scale-105"
+                  className="object-contain object-center scale-115 sm:scale-120"
                 />
               </div>
 
