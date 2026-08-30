@@ -60,7 +60,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="text-[11px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Ethical & Safety Standards
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-normal">
                 WE ARE CERTIFIED BY
               </h2>
             </div>

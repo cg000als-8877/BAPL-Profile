@@ -82,7 +82,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="text-[11px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Manufacturing Plant
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
+              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-normal">
                 PRODUCTION UNIT
               </h2>
             </div>

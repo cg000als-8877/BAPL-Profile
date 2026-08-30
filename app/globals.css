@@ -36,6 +36,17 @@
     user-select: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    word-spacing: 0.06em;
+    letter-spacing: 0.015em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    word-spacing: 0.18em !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  p, span, a, li {
+    word-spacing: 0.06em;
   }
 }
 

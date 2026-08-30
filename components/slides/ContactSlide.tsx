@@ -81,7 +81,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="text-[11px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Direct Communication
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-normal">
                 CONTACT US
               </h2>
             </div>

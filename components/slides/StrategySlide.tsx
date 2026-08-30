@@ -147,7 +147,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Core Operational Methodology
               </div>
-              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal">
                 OUR STRATEGY
               </h2>
             </div>

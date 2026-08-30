@@ -136,7 +136,7 @@ export const CatalogSlide: React.FC<SlideProps> = ({
               <div className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#72e055]">
                 {subtitle}
               </div>
-              <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+              <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-normal leading-tight">
                 {title}
               </h2>
             </div>

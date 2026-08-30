@@ -65,7 +65,7 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Corporate Profile & Registration
               </div>
-              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal">
                 COMPANY DETAILS
               </h2>
             </div>

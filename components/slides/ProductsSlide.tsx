@@ -184,7 +184,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Manufacturing Scope
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-normal">
                 OUR PRODUCTS
               </h2>
             </div>
@@ -273,7 +273,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                     {p.id}
                   </span>
                 </div>
-                <h3 className="text-lg md:text-xl lg:text-2xl font-black text-white mb-2 sm:mb-3 tracking-tight">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-black text-white mb-2 sm:mb-3 tracking-normal">
                   {p.title}
                 </h3>
               </div>
