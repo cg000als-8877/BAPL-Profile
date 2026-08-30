@@ -22,8 +22,8 @@ interface SlideProps {
 export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const specsRef = useRef<HTMLDivElement>(null);
   const blueprintRef = useRef<HTMLDivElement>(null);
+  const specsRef = useRef<HTMLDivElement>(null);
   const addressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -37,6 +37,12 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
       );
 
       gsap.fromTo(
+        blueprintRef.current,
+        { x: -40, opacity: 0, scale: 0.98 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.45, delay: 0.05, ease: "expo.out" }
+      );
+
+      gsap.fromTo(
         specsRef.current?.children || [],
         { x: -50, opacity: 0, scale: 0.97 },
         {
@@ -46,14 +52,8 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           duration: 0.4,
           stagger: 0.04,
           ease: "expo.out",
-          delay: 0.05,
+          delay: 0.1,
         }
-      );
-
-      gsap.fromTo(
-        blueprintRef.current,
-        { x: -40, opacity: 0, scale: 0.98 },
-        { x: 0, opacity: 1, scale: 1, duration: 0.45, delay: 0.1, ease: "expo.out" }
       );
 
       gsap.fromTo(
@@ -94,7 +94,39 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. TOP: 4 Capacity Metric Cards (Original Clean Sans-Serif Font & Proportions) */}
+        {/* 2. CENTER-UPPER: Blueprint Image (Moved UP) */}
+        <div
+          ref={blueprintRef}
+          className="shrink-0 w-full flex items-center justify-center my-0"
+        >
+          {/* Mobile Image: Exact 738/352 aspect ratio container */}
+          <div className="block md:hidden relative w-full aspect-[738/352] max-h-[190px]">
+            <Image
+              src="/mobile-bp.png"
+              alt="Byzid Apparels Architectural Blueprint Mobile View"
+              fill
+              priority
+              unoptimized
+              sizes="100vw"
+              className="object-contain object-center"
+            />
+          </div>
+
+          {/* Desktop Image: Exact 1630/396 aspect ratio container */}
+          <div className="hidden md:block relative w-full aspect-[1630/396] max-h-[260px]">
+            <Image
+              src="/desktop-bp.png"
+              alt="Byzid Apparels Architectural Blueprint Desktop View"
+              fill
+              priority
+              unoptimized
+              sizes="100vw"
+              className="object-contain object-center"
+            />
+          </div>
+        </div>
+
+        {/* 3. CENTER-LOWER: 4 Capacity Metric Cards (Brought DOWN) */}
         <div
           ref={specsRef}
           className="shrink-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-5"
@@ -169,38 +201,6 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
                 Personnel (+ 35 Key Staff)
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* 3. CENTER: Blueprint Image matching exact original aspect ratio (738x352 on Mobile, 1630x396 on Desktop) with ZERO top/bottom dead space */}
-        <div
-          ref={blueprintRef}
-          className="shrink-0 w-full flex items-center justify-center my-0"
-        >
-          {/* Mobile Image: Exact 738/352 aspect ratio container */}
-          <div className="block md:hidden relative w-full aspect-[738/352] max-h-[190px]">
-            <Image
-              src="/mobile-bp.png"
-              alt="Byzid Apparels Architectural Blueprint Mobile View"
-              fill
-              priority
-              unoptimized
-              sizes="100vw"
-              className="object-contain object-center"
-            />
-          </div>
-
-          {/* Desktop Image: Exact 1630/396 aspect ratio container */}
-          <div className="hidden md:block relative w-full aspect-[1630/396] max-h-[260px]">
-            <Image
-              src="/desktop-bp.png"
-              alt="Byzid Apparels Architectural Blueprint Desktop View"
-              fill
-              priority
-              unoptimized
-              sizes="100vw"
-              className="object-contain object-center"
-            />
           </div>
         </div>
 
