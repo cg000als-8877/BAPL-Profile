@@ -44,21 +44,17 @@
   height: 100vh;
   height: 100dvh;
   width: 100vw;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
+  position: relative;
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 .slide {
   height: 100vh;
   height: 100dvh;
   width: 100vw;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,7 +64,7 @@
   background-color: #050811;
 }
 
-/* Desktop Horizontal Slide-Snapping */
+/* Desktop Horizontal Slide Configuration */
 @media (min-width: 768px) {
   .snap-container {
     display: flex;
@@ -89,6 +85,29 @@
   }
 }
 
+/* Mobile Slide Configuration: Scrollable within slide until content finishes */
+@media (max-width: 767px) {
+  .snap-container {
+    display: block;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow-y: hidden;
+  }
+
+  .slide-content-wrapper {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+}
+
 /* 100% Full Bleed Viewport Content Wrapper */
 .slide-content-wrapper {
   width: 100vw !important;
@@ -99,7 +118,6 @@
   border: none !important;
   border-radius: 0 !important;
   position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }

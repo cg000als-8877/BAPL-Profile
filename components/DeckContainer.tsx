@@ -19,13 +19,17 @@ export const DeckContainer: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
   const slideRefs = useRef<(HTMLElement | null)[]>([]);
 
+  const touchStartY = useRef<number>(0);
+  const touchStartX = useRef<number>(0);
+  const isNavigating = useRef<boolean>(false);
+
   const scrollToSlide = useCallback((index: number) => {
     if (index < 0 || index >= TOTAL_SLIDES) return;
     const target = slideRefs.current[index];
     if (target) {
       target.scrollIntoView({
         behavior: "smooth",
-        block: "nearest",
+        block: "start",
         inline: "start",
       });
     }
@@ -43,7 +47,7 @@ export const DeckContainer: React.FC = () => {
     }
   }, [currentSlide, scrollToSlide]);
 
-  // Intersection Observer to detect the active slide in view
+  // Intersection Observer to detect active slide in view
   useEffect(() => {
     const options = {
       root: containerRef.current,
@@ -98,6 +102,77 @@ export const DeckContainer: React.FC = () => {
     return () => window.removeEventListener("wheel", handleWheel);
   }, [handleNext, handlePrev]);
 
+  // Mobile Touch Swipe with Scroll-Boundary Detection
+  // Only transitions to next/prev slide when the current slide's content finishes scrolling
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY;
+      touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (window.innerWidth >= 768) return;
+      if (isNavigating.current) return;
+
+      const touchEndY = e.changedTouches[0].clientY;
+      const touchEndX = e.changedTouches[0].clientX;
+      const diffY = touchStartY.current - touchEndY;
+      const diffX = touchStartX.current - touchEndX;
+
+      // Vertical swipe threshold (min 45px swipe)
+      if (Math.abs(diffY) > 45 && Math.abs(diffY) > Math.abs(diffX)) {
+        const activeSlideEl = slideRefs.current[currentSlide];
+        const scrollableEl = activeSlideEl?.querySelector(".slide-content-wrapper") as HTMLElement | null;
+
+        if (diffY > 0) {
+          // Swiping UP -> scrolling DOWN
+          if (scrollableEl) {
+            const atBottom =
+              scrollableEl.scrollHeight -
+                scrollableEl.scrollTop -
+                scrollableEl.clientHeight <=
+              15;
+
+            if (atBottom) {
+              isNavigating.current = true;
+              handleNext();
+              setTimeout(() => {
+                isNavigating.current = false;
+              }, 500);
+            }
+          } else {
+            handleNext();
+          }
+        } else {
+          // Swiping DOWN -> scrolling UP
+          if (scrollableEl) {
+            const atTop = scrollableEl.scrollTop <= 15;
+
+            if (atTop) {
+              isNavigating.current = true;
+              handlePrev();
+              setTimeout(() => {
+                isNavigating.current = false;
+              }, 500);
+            }
+          } else {
+            handlePrev();
+          }
+        }
+      }
+    };
+
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [currentSlide, handleNext, handlePrev]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -139,7 +214,7 @@ export const DeckContainer: React.FC = () => {
 
   return (
     <main ref={containerRef} className="snap-container bg-[#050811]">
-      {/* Slide 1: Hero Overview (Brand Hook & 30+ Yrs Legacy) */}
+      {/* Slide 1: Hero Overview */}
       <section
         ref={(el) => { slideRefs.current[0] = el; }}
         id="slide-1"
@@ -148,7 +223,7 @@ export const DeckContainer: React.FC = () => {
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>
 
-      {/* Slide 2: Strategic Pillars (Core Commitments & Quality Vision) */}
+      {/* Slide 2: Strategic Pillars */}
       <section
         ref={(el) => { slideRefs.current[1] = el; }}
         id="slide-2"
@@ -157,7 +232,7 @@ export const DeckContainer: React.FC = () => {
         <StrategySlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
-      {/* Slide 3: Production Unit & Facility (Scale, 38,000 SFT & 300K Capacity) */}
+      {/* Slide 3: Production Unit & Facility */}
       <section
         ref={(el) => { slideRefs.current[2] = el; }}
         id="slide-3"
@@ -166,7 +241,7 @@ export const DeckContainer: React.FC = () => {
         <ProductionUnitSlide isActive={currentSlide === 2} onNext={handleNext} />
       </section>
 
-      {/* Slide 4: Machinery Summary & Plant Fleet (250 Industrial Equipment Sets) */}
+      {/* Slide 4: Machinery Summary & Plant Fleet */}
       <section
         ref={(el) => { slideRefs.current[3] = el; }}
         id="slide-4"
@@ -175,7 +250,7 @@ export const DeckContainer: React.FC = () => {
         <MachinerySlide isActive={currentSlide === 3} onNext={handleNext} />
       </section>
 
-      {/* Slide 5: Product Verticals & Portfolio (Knit & Woven Showcase) */}
+      {/* Slide 5: Product Verticals & Portfolio */}
       <section
         ref={(el) => { slideRefs.current[4] = el; }}
         id="slide-5"
@@ -184,16 +259,16 @@ export const DeckContainer: React.FC = () => {
         <ProductsSlide isActive={currentSlide === 4} />
       </section>
 
-      {/* Slide 6: We Are Certified By (amfori BSCI & OEKO-TEX Standard 100) */}
+      {/* Slide 6: We Are Certified By */}
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
-        id="slide-5"
+        id="slide-6"
         className="slide slide-6"
       >
         <CertificationsSlide isActive={currentSlide === 5} onNext={handleNext} />
       </section>
 
-      {/* Slide 7: Buyers We Handled (16 Global Retail Brands Social Proof) */}
+      {/* Slide 7: Buyers We Handled */}
       <section
         ref={(el) => { slideRefs.current[6] = el; }}
         id="slide-7"
@@ -202,7 +277,7 @@ export const DeckContainer: React.FC = () => {
         <BuyersSlide isActive={currentSlide === 6} onNext={handleNext} />
       </section>
 
-      {/* Slide 8: Company Details & Regulatory Profile (Registration & Banking) */}
+      {/* Slide 8: Company Details & Regulatory Profile */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"
@@ -211,7 +286,7 @@ export const DeckContainer: React.FC = () => {
         <CompanyDetailsSlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
-      {/* Slide 9: Contact Us (Leadership Profiles, Email Copy & Direct Dial) */}
+      {/* Slide 9: Contact Us */}
       <section
         ref={(el) => { slideRefs.current[8] = el; }}
         id="slide-9"
@@ -220,7 +295,7 @@ export const DeckContainer: React.FC = () => {
         <ContactSlide isActive={currentSlide === 8} />
       </section>
 
-      {/* Slide 10: Thank You (Closing + Direct Shortcut to Contact Us) */}
+      {/* Slide 10: Thank You */}
       <section
         ref={(el) => { slideRefs.current[9] = el; }}
         id="slide-10"
