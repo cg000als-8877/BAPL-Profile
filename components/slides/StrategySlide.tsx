@@ -4,13 +4,13 @@ import React, { useEffect, useRef } from "react";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
 import {
-  HeartHandshake,
-  ShieldCheck,
-  CircleDollarSign,
-  Clock,
+  Heart,
+  Network,
+  Handshake,
+  Truck,
+  Palette,
+  BadgePercent,
   Sparkles,
-  TrendingUp,
-  Award,
 } from "lucide-react";
 
 interface SlideProps {
@@ -54,57 +54,57 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
   const pillars = [
     {
       id: "01",
-      title: "Customer Satisfaction",
-      desc: "Exceeding Buyer Expectations",
-      icon: HeartHandshake,
+      title: "Customer Service Excellence",
+      desc: "Continuously identifying opportunities to elevate customer experience and surpass global standards.",
+      icon: Heart,
       color: "text-emerald-400",
       border: "border-emerald-500/30",
-      bg: "bg-emerald-500/10",
+      bg: "bg-emerald-500/15",
     },
     {
       id: "02",
-      title: "Quality Product",
-      desc: "Zero-Defect RMG Standard",
-      icon: ShieldCheck,
+      title: "Infrastructure Alignment",
+      desc: "Aligning dedicated manufacturing lines and engineering resources to meet dynamic brand demands.",
+      icon: Network,
       color: "text-blue-400",
       border: "border-blue-500/30",
-      bg: "bg-blue-500/10",
+      bg: "bg-blue-500/15",
     },
     {
       id: "03",
-      title: "Competitive Price",
-      desc: "Optimized Value Engineering",
-      icon: CircleDollarSign,
-      color: "text-amber-400",
-      border: "border-amber-500/30",
-      bg: "bg-amber-500/10",
+      title: "Proactive Partnership",
+      desc: "Forecasting seasonal market shifts through tight collaboration with international fashion teams.",
+      icon: Handshake,
+      color: "text-indigo-400",
+      border: "border-indigo-500/30",
+      bg: "bg-indigo-500/15",
     },
     {
       id: "04",
-      title: "Timely Delivery",
-      desc: "99.8% On-Time Shipment Rate",
-      icon: Clock,
-      color: "text-purple-400",
-      border: "border-purple-500/30",
-      bg: "bg-purple-500/10",
+      title: "Supply Chain Optimization",
+      desc: "Optimizing yarn, fabric, and accessories procurement for shortest lead time and lower total cost.",
+      icon: Truck,
+      color: "text-amber-400",
+      border: "border-amber-500/30",
+      bg: "bg-amber-500/15",
     },
     {
       id: "05",
-      title: "Compliance Standard",
-      desc: "BSCI & Ethical Manufacturing",
-      icon: Award,
-      color: "text-cyan-400",
-      border: "border-cyan-500/30",
-      bg: "bg-cyan-500/10",
+      title: "Product Development & Design",
+      desc: "In-house design studio and R&D sample rooms custom-tailored to each brand's aesthetic DNA.",
+      icon: Palette,
+      color: "text-purple-400",
+      border: "border-purple-500/30",
+      bg: "bg-purple-500/15",
     },
     {
       id: "06",
-      title: "Continuous Improvement",
-      desc: "Tech & Operational Innovation",
-      icon: TrendingUp,
+      title: "Value-Added Savings",
+      desc: "Specialized \"Fast Sale\" programs providing strategic buyers with substantial duty savings and agility.",
+      icon: BadgePercent,
       color: "text-[#72e055]",
       border: "border-[#55c538]/30",
-      bg: "bg-[#55c538]/10",
+      bg: "bg-[#55c538]/15",
     },
   ];
 
@@ -132,11 +132,11 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
 
           <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
             <Sparkles className="w-4 h-4 text-[#55c538]" />
-            <span>6 Execution Pillars</span>
+            <span>6 Strategic Pillars</span>
           </div>
         </div>
 
-        {/* 2. Fluid Auto-Adapting Stack / Grid (Fills Whole Frame on Mobile & Desktop) */}
+        {/* 2. Fluid 6-Card Grid / Stack View with Verbatim Data */}
         <div
           ref={gridRef}
           className="flex-1 flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 min-h-0"
@@ -146,29 +146,29 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
             return (
               <div
                 key={pillar.id}
-                className={`flex-1 p-2.5 sm:p-5 rounded-xl sm:rounded-2xl cyber-card border ${pillar.border} bg-[#091426]/90 flex items-center md:flex-col justify-between md:justify-between shadow-xl min-h-0 group hover:scale-[1.02] transition-all`}
+                className={`flex-1 p-2.5 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl cyber-card border ${pillar.border} bg-[#091426]/90 flex flex-col justify-between shadow-xl min-h-0 group hover:scale-[1.02] transition-all`}
               >
-                {/* Top/Left: Number & Icon */}
-                <div className="flex items-center gap-2.5 md:w-full md:justify-between">
+                {/* Header: Number & Icon */}
+                <div className="flex items-center justify-between mb-1.5 sm:mb-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] sm:text-sm font-black text-slate-400 font-mono">
+                    <span className="text-xs sm:text-base font-black text-slate-300 font-mono">
                       {pillar.id}
                     </span>
                     <div
-                      className={`p-2 sm:p-2.5 rounded-lg ${pillar.bg} ${pillar.color} shrink-0`}
+                      className={`p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl ${pillar.bg} ${pillar.color} shrink-0 shadow-md`}
                     >
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                     </div>
                   </div>
                   <span className="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-[#55c538] opacity-50 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                {/* Bottom/Right: Title & Description */}
-                <div className="text-right md:text-left md:w-full min-w-0 flex-1 md:flex-initial pl-2 md:pl-0 md:mt-2">
-                  <h3 className="text-xs sm:text-base lg:text-lg font-black text-white leading-tight truncate md:whitespace-normal">
+                {/* Body: Exact Title & Verbatim Description */}
+                <div>
+                  <h3 className="text-xs sm:text-base lg:text-lg font-black text-white leading-snug mb-0.5 sm:mb-1.5">
                     {pillar.title}
                   </h3>
-                  <p className="text-[10px] sm:text-xs text-slate-300 font-medium mt-0.5 truncate md:whitespace-normal">
+                  <p className="text-[10px] sm:text-xs md:text-sm text-slate-300 font-normal leading-tight sm:leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
