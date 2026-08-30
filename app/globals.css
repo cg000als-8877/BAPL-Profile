@@ -66,10 +66,11 @@
   overflow: hidden;
 }
 
-/* Mobile View: Completely Remove Standalone Product Image Slides #slide-6 and #slide-7 (Merged into Our Products) */
+/* Mobile View: Completely Remove Standalone Product Image Slides on mobile (Merged into Our Products) */
 @media (max-width: 767px) {
-  #slide-6,
-  #slide-7,
+  #slide-5.slide-catalog-desktop,
+  #slide-6.slide-catalog-desktop,
+  #slide-7.slide-catalog-desktop,
   .slide-catalog-desktop {
     display: none !important;
     height: 0 !important;

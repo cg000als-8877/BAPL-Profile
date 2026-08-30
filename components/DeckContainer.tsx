@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { HeroSlide } from "./slides/HeroSlide";
-import { StrategySlide } from "./slides/StrategySlide";
-import { ProductionUnitSlide } from "./slides/ProductionUnitSlide";
-import { MachinerySlide } from "./slides/MachinerySlide";
-import { ProductsSlide } from "./slides/ProductsSlide";
-import { CatalogSlide } from "./slides/CatalogSlide";
 import { CertificationsSlide } from "./slides/CertificationsSlide";
 import { BuyersSlide } from "./slides/BuyersSlide";
+import { ProductsSlide } from "./slides/ProductsSlide";
+import { CatalogSlide } from "./slides/CatalogSlide";
+import { ProductionUnitSlide } from "./slides/ProductionUnitSlide";
+import { MachinerySlide } from "./slides/MachinerySlide";
+import { StrategySlide } from "./slides/StrategySlide";
 import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
 import { ContactSlide } from "./slides/ContactSlide";
 import { ThankYouSlide } from "./slides/ThankYouSlide";
@@ -140,7 +140,7 @@ export const DeckContainer: React.FC = () => {
 
   return (
     <main ref={containerRef} className="snap-container bg-[#050811]">
-      {/* Slide 1: Hero Overview */}
+      {/* 1. Hook: Hero Overview */}
       <section
         ref={(el) => { slideRefs.current[0] = el; }}
         id="slide-1"
@@ -149,50 +149,41 @@ export const DeckContainer: React.FC = () => {
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>
 
-      {/* Slide 2: Strategic Pillars */}
+      {/* 2. Instant Trust: Certifications (BSCI, OEKO-TEX) */}
       <section
         ref={(el) => { slideRefs.current[1] = el; }}
         id="slide-2"
         className="slide slide-2"
       >
-        <StrategySlide isActive={currentSlide === 1} onNext={handleNext} />
+        <CertificationsSlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
-      {/* Slide 3: Production Unit & Facility */}
+      {/* 3. Social Proof: Buyers We Handled (16 Global Brands) */}
       <section
         ref={(el) => { slideRefs.current[2] = el; }}
         id="slide-3"
         className="slide slide-3"
       >
-        <ProductionUnitSlide isActive={currentSlide === 2} onNext={handleNext} />
+        <BuyersSlide isActive={currentSlide === 2} onNext={handleNext} />
       </section>
 
-      {/* Slide 4: Machinery Summary & Plant Fleet */}
+      {/* 4. Manufacturing Scope: Our Products (6 Garment Verticals) */}
       <section
         ref={(el) => { slideRefs.current[3] = el; }}
         id="slide-4"
         className="slide slide-4"
       >
-        <MachinerySlide isActive={currentSlide === 3} onNext={handleNext} />
+        <ProductsSlide isActive={currentSlide === 3} />
       </section>
 
-      {/* Slide 5: Product Verticals & Scope */}
+      {/* 5. Craftsmanship & Lookbook - Part 1: Looks 01 to 40 (Desktop dedicated) */}
       <section
         ref={(el) => { slideRefs.current[4] = el; }}
         id="slide-5"
-        className="slide slide-5"
-      >
-        <ProductsSlide isActive={currentSlide === 4} />
-      </section>
-
-      {/* Slide 6: Product Catalog - Part 1 (Looks 01 to 40) */}
-      <section
-        ref={(el) => { slideRefs.current[5] = el; }}
-        id="slide-6"
-        className="hidden md:flex slide slide-6 slide-catalog-desktop"
+        className="hidden md:flex slide slide-5 slide-catalog-desktop"
       >
         <CatalogSlide
-          isActive={currentSlide === 5}
+          isActive={currentSlide === 4}
           startId={1}
           endId={40}
           title="PRODUCT IMAGES"
@@ -201,14 +192,14 @@ export const DeckContainer: React.FC = () => {
         />
       </section>
 
-      {/* Slide 7: Product Catalog - Part 2 (Looks 41 to 80) */}
+      {/* 6. Craftsmanship & Lookbook - Part 2: Looks 41 to 80 (Desktop dedicated) */}
       <section
-        ref={(el) => { slideRefs.current[6] = el; }}
-        id="slide-7"
-        className="hidden md:flex slide slide-7 slide-catalog-desktop"
+        ref={(el) => { slideRefs.current[5] = el; }}
+        id="slide-6"
+        className="hidden md:flex slide slide-6 slide-catalog-desktop"
       >
         <CatalogSlide
-          isActive={currentSlide === 6}
+          isActive={currentSlide === 5}
           startId={41}
           endId={80}
           title="PRODUCT IMAGES"
@@ -217,46 +208,55 @@ export const DeckContainer: React.FC = () => {
         />
       </section>
 
-      {/* Slide 8: We Are Certified By */}
+      {/* 7. Facility & Capacity: Production Unit (300K pcs/mo, 38K sq ft) */}
+      <section
+        ref={(el) => { slideRefs.current[6] = el; }}
+        id="slide-7"
+        className="slide slide-7"
+      >
+        <ProductionUnitSlide isActive={currentSlide === 6} onNext={handleNext} />
+      </section>
+
+      {/* 8. Technical Fleet: Machinery Summary (250+ Plant Fleet) */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"
         className="slide slide-8"
       >
-        <CertificationsSlide isActive={currentSlide === 7} onNext={handleNext} />
+        <MachinerySlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
-      {/* Slide 9: Buyers We Handled */}
+      {/* 9. Operational Excellence: Strategic Pillars (6 Pillars) */}
       <section
         ref={(el) => { slideRefs.current[8] = el; }}
         id="slide-9"
         className="slide slide-9"
       >
-        <BuyersSlide isActive={currentSlide === 8} onNext={handleNext} />
+        <StrategySlide isActive={currentSlide === 8} onNext={handleNext} />
       </section>
 
-      {/* Slide 10: Company Details & Regulatory Profile */}
+      {/* 10. Commercial Credentials: Company Details & Banking */}
       <section
         ref={(el) => { slideRefs.current[9] = el; }}
-        id="slide-9b"
+        id="slide-10"
         className="slide slide-10"
       >
         <CompanyDetailsSlide isActive={currentSlide === 9} onNext={handleNext} />
       </section>
 
-      {/* Slide 11: Contact Us */}
+      {/* 11. Call to Action: Contact Us (MD & Director Lines) */}
       <section
         ref={(el) => { slideRefs.current[10] = el; }}
-        id="slide-10"
+        id="slide-11"
         className="slide slide-11"
       >
         <ContactSlide isActive={currentSlide === 10} />
       </section>
 
-      {/* Slide 12: Thank You */}
+      {/* 12. Closing: Thank You */}
       <section
         ref={(el) => { slideRefs.current[11] = el; }}
-        id="slide-11"
+        id="slide-12"
         className="slide slide-12"
       >
         <ThankYouSlide
