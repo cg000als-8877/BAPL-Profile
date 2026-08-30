@@ -98,8 +98,8 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
         ref={containerRef}
         className="relative z-10 w-full h-full min-h-[100dvh] max-h-[100dvh] p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between overflow-hidden"
       >
-        {/* Top Bar: Established 1995 Modern Heritage Badge */}
-        <div className="shrink-0 flex items-center justify-end w-full">
+        {/* Top Bar: Established 1995 Modern Heritage Badge (Desktop Only) */}
+        <div className="hidden md:flex shrink-0 items-center justify-end w-full">
           <div
             ref={badgeRef}
             className="inline-flex items-center gap-2.5 sm:gap-3.5 px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl cyber-pill border border-[#55c538]/50 shadow-2xl shadow-[#55c538]/20 bg-[#050811]/85 backdrop-blur-xl group hover:border-[#55c538] transition-all"
