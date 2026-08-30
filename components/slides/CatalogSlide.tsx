@@ -17,19 +17,28 @@ interface FrameProps {
 }
 
 const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
+  const [imgSrc, setImgSrc] = useState<string>(`/Product Images/${id}.webp`);
   const [hasError, setHasError] = useState(false);
-  const imageSrc = `/Product Images/${id}.png`;
+
+  const handleError = () => {
+    if (imgSrc.endsWith(".webp")) {
+      // Fallback to .png
+      setImgSrc(`/Product Images/${id}.png`);
+    } else {
+      setHasError(true);
+    }
+  };
 
   return (
     <div className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-1 sm:p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.04] hover:shadow-[#55c538]/30 cursor-pointer">
       {!hasError ? (
         <div className="relative w-full h-full rounded-md sm:rounded-lg overflow-hidden bg-slate-50 flex items-center justify-center">
           <Image
-            src={imageSrc}
+            src={imgSrc}
             alt={label}
             fill
             unoptimized
-            onError={() => setHasError(true)}
+            onError={handleError}
             sizes="(max-width: 640px) 33vw, (max-width: 1024px) 16vw, 14vw"
             className="object-contain object-center p-0.5 sm:p-1"
           />
