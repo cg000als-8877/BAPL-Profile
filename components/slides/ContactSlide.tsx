@@ -115,7 +115,6 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                     AR
                   </div>
                   <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full cyber-pill text-[10px] sm:text-xs font-bold text-[#72e055] border border-[#55c538]/30 shadow-md">
-                    <span className="w-2 h-2 rounded-full bg-[#55c538] animate-pulse" />
                     <span>Executive Leadership</span>
                   </div>
                 </div>
@@ -173,7 +172,6 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                     SR
                   </div>
                   <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full cyber-pill text-[10px] sm:text-xs font-bold text-blue-400 border border-blue-500/30 shadow-md">
-                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
                     <span>Plant & Operations</span>
                   </div>
                 </div>

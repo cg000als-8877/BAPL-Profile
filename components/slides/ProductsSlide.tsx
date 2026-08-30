@@ -150,7 +150,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                     {p.title}
                   </h3>
                 </div>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#55c538] opacity-60" />
+
               </div>
 
               {/* Items List */}
@@ -184,9 +184,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                   <span className="text-sm font-black text-slate-400 font-mono">
                     {p.id}
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#55c538] opacity-60" />
                 </div>
-
                 <h3 className="text-lg md:text-xl lg:text-2xl font-black text-white mb-2 sm:mb-3 tracking-tight">
                   {p.title}
                 </h3>

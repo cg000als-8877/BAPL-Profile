@@ -105,7 +105,6 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
             ref={badgeRef}
             className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full cyber-pill border border-[#55c538]/40 shadow-xl bg-[#050811]/70 backdrop-blur-md"
           >
-            <span className="w-2 h-2 rounded-full bg-[#55c538] animate-pulse glow-bar" />
             <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538]" />
             <span className="text-xs sm:text-sm font-black tracking-widest text-white uppercase">
               Since 1995
