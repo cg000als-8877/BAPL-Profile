@@ -22,7 +22,6 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
 
   const handleError = () => {
     if (imgSrc.endsWith(".webp")) {
-      // Fallback to .png
       setImgSrc(`/Product Images/${id}.png`);
     } else {
       setHasError(true);
@@ -30,7 +29,7 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   };
 
   return (
-    <div className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-1 sm:p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.04] hover:shadow-[#55c538]/30 cursor-pointer">
+    <div className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl p-1 sm:p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.05] hover:shadow-[#55c538]/30 cursor-pointer">
       {!hasError ? (
         <div className="relative w-full h-full rounded-md sm:rounded-lg overflow-hidden bg-slate-50 flex items-center justify-center">
           <Image
@@ -39,16 +38,16 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
             fill
             unoptimized
             onError={handleError}
-            sizes="(max-width: 640px) 33vw, (max-width: 1024px) 16vw, 14vw"
+            sizes="(max-width: 1024px) 15vw, 10vw"
             className="object-contain object-center p-0.5 sm:p-1"
           />
         </div>
       ) : (
         <div className="w-full h-full rounded-md sm:rounded-lg border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1 transition-colors group-hover:border-[#55c538]/60 bg-slate-50/60">
-          <div className="w-4 h-4 sm:w-6 sm:h-6 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
-            <ImageIcon className="w-3 h-3 sm:w-4 sm:h-4" />
+          <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
+            <ImageIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </div>
-          <span className="text-[7.5px] sm:text-[9px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[7.5px] sm:text-[8.5px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>
@@ -100,7 +99,7 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-2.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-start md:justify-between gap-2.5 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-start md:justify-between gap-2.5 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -124,10 +123,10 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Grid: 3 Frames per row on Mobile, 7 Frames per row on Desktop (Zero Overlapping) */}
+        {/* 2. Grid: Strictly 10 Frames in a Row on Desktop (md:grid-cols-10) -> 2 Clean Rows of 10 */}
         <div
           ref={gridRef}
-          className="w-full grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 auto-rows-max gap-[2px] sm:gap-2 md:gap-2.5 lg:gap-3.5 py-1 pb-6 md:pb-1 my-auto"
+          className="w-full grid grid-cols-4 sm:grid-cols-5 md:grid-cols-10 gap-2 sm:gap-2.5 md:gap-3 py-1 pb-6 md:pb-1 my-auto auto-rows-max"
         >
           {catalogFrames.map((frame) => (
             <CatalogFrameItem
