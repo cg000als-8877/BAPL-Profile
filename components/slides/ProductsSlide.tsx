@@ -61,7 +61,7 @@ const MobileCatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
           <div className="w-3.5 h-3.5 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500">
             <ImageIcon className="w-2.5 h-2.5" />
           </div>
-          <span className="text-[9px] font-black text-slate-500 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[10px] font-black text-slate-500 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>
@@ -209,7 +209,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 className={`p-2.5 rounded-xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col justify-between shadow-md`}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[11px] font-black text-slate-400 font-mono">
+                  <span className="text-xs font-black text-slate-400 font-mono">
                     {p.id}
                   </span>
                 </div>
@@ -221,7 +221,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                   {p.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-1 text-[10.5px] text-slate-200 font-medium truncate"
+                      className="flex items-center gap-1 text-[11.5px] text-slate-200 font-medium truncate"
                     >
                       <CheckCircle2 className="w-2.5 h-2.5 text-[#55c538] shrink-0" />
                       <span className="truncate">{item}</span>
@@ -240,7 +240,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 PRODUCT IMAGES
               </h3>
             </div>
-            <span className="text-[10.5px] sm:text-xs font-bold text-[#72e055] px-2 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
+            <span className="text-[11.5px] sm:text-xs font-bold text-[#72e055] px-2 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
               80 Looks
             </span>
           </div>

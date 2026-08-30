@@ -78,7 +78,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
           <div className="flex items-center gap-2.5 sm:gap-4">
             <div className="w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-[10px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+              <div className="text-[11px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Direct Communication
               </div>
               <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
@@ -95,7 +95,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
 
         {/* 2. KEY CONTACT PERSONS: Executive Profile Cards */}
         <div className="flex flex-col justify-center my-auto py-1">
-          <div className="text-[10px] sm:text-xs md:text-sm font-extrabold text-slate-400 uppercase tracking-widest mb-1.5 sm:mb-3 flex items-center gap-1.5 sm:gap-2">
+          <div className="text-[11px] sm:text-xs md:text-sm font-extrabold text-slate-400 uppercase tracking-widest mb-1.5 sm:mb-3 flex items-center gap-1.5 sm:gap-2">
             <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538]" />
             <span>KEY CONTACT PERSONS</span>
           </div>
@@ -114,7 +114,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                   <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-gradient-to-br from-[#55c538]/30 to-[#55c538]/10 border border-[#55c538]/40 flex items-center justify-center text-xs sm:text-lg font-black text-[#72e055] shadow-lg">
                     AR
                   </div>
-                  <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full cyber-pill text-[9.5px] sm:text-xs font-bold text-[#72e055] border border-[#55c538]/30 shadow-md">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full cyber-pill text-[10.5px] sm:text-xs font-bold text-[#72e055] border border-[#55c538]/30 shadow-md">
                     <span>Executive Leadership</span>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
 
                 <button
                   onClick={() => handleCopy("info@byzidapparels.com", "md")}
-                  className="px-2.5 sm:px-3.5 py-1 sm:py-2 rounded-lg sm:rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-200 hover:text-white text-xs sm:text-sm font-bold transition-all shadow-md flex items-center gap-1 shrink-0 cursor-pointer"
+                  className="px-2.5 sm:px-3.5 py-1 sm:py-2 rounded-lg sm:rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-200 hover:text-white text-[11px] sm:text-sm font-bold transition-all shadow-md flex items-center gap-1 shrink-0 cursor-pointer"
                   title="Copy Email"
                 >
                   {copiedEmail === "md" ? (
@@ -200,7 +200,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
 
                 <button
                   onClick={() => handleCopy("susan@byzidapparels.com", "ops")}
-                  className="px-2.5 sm:px-3.5 py-1 sm:py-2 rounded-lg sm:rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-200 hover:text-white text-[10px] sm:text-sm font-bold transition-all shadow-md flex items-center gap-1 shrink-0 cursor-pointer"
+                  className="px-2.5 sm:px-3.5 py-1 sm:py-2 rounded-lg sm:rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-200 hover:text-white text-[11px] sm:text-sm font-bold transition-all shadow-md flex items-center gap-1 shrink-0 cursor-pointer"
                   title="Copy Email"
                 >
                   {copiedEmail === "ops" ? (
@@ -226,14 +226,14 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
           className="shrink-0 p-3 sm:p-6 rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-2.5 sm:gap-3 bg-slate-950/95 shadow-xl"
         >
           <div>
-            <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs md:text-sm font-extrabold text-[#72e055] uppercase tracking-wider mb-0.5">
+            <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs md:text-sm font-extrabold text-[#72e055] uppercase tracking-wider mb-0.5">
               <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538]" />
               <span>REGISTERED OFFICE & MAILING ADDRESS</span>
             </div>
             <h3 className="text-xs sm:text-xl md:text-2xl font-black text-white">
               BYZID APPARELS (PVT.) LTD
             </h3>
-            <p className="text-[11px] sm:text-base md:text-lg text-slate-200 font-medium leading-tight">
+            <p className="text-xs sm:text-base md:text-lg text-slate-200 font-medium leading-tight">
               ABMTOWER, 671/1 Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
             </p>
           </div>

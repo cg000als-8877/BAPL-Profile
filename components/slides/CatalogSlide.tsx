@@ -66,7 +66,7 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
           <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
             <ImageIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
           </div>
-          <span className="text-[8.5px] sm:text-[9.5px] font-black text-slate-500 group-hover:text-slate-800 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[9.5px] sm:text-[10.5px] font-black text-slate-500 group-hover:text-slate-800 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>
@@ -133,7 +133,7 @@ export const CatalogSlide: React.FC<SlideProps> = ({
           <div className="flex items-center gap-2.5 sm:gap-4">
             <div className="w-1.5 sm:w-2.5 h-5 sm:h-10 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-[9px] sm:text-xs font-extrabold uppercase tracking-widest text-[#72e055]">
+              <div className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#72e055]">
                 {subtitle}
               </div>
               <h2 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">

@@ -57,7 +57,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
           <div className="flex items-center gap-2.5 sm:gap-4">
             <div className="w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-[10px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+              <div className="text-[11px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Ethical & Safety Standards
               </div>
               <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
@@ -84,7 +84,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 <span className="text-xs sm:text-base font-black uppercase text-indigo-400 tracking-wider">
                   Social & Workplace Compliance
                 </span>
-                <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] sm:text-xs font-bold border border-indigo-500/30">
+                <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-[11px] sm:text-xs font-bold border border-indigo-500/30">
                   Global Standard
                 </span>
               </div>

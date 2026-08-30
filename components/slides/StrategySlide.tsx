@@ -181,7 +181,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
                       <Icon className="w-3.5 h-3.5" />
                     </div>
                   </div>
-                  <span className="text-[10.5px] font-bold px-2 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                  <span className="text-[11.5px] font-bold px-2 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10">
                     {pillar.tag}
                   </span>
                 </div>
