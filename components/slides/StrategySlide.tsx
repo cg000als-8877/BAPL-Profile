@@ -10,6 +10,12 @@ import {
   Truck,
   Palette,
   BadgePercent,
+  HeartHandshake,
+  ShieldCheck,
+  CircleDollarSign,
+  Clock,
+  Award,
+  TrendingUp,
   Sparkles,
 } from "lucide-react";
 
@@ -21,7 +27,8 @@ interface SlideProps {
 export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
+  const mobileStackRef = useRef<HTMLDivElement>(null);
+  const desktopGridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isActive) return;
@@ -34,7 +41,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
       );
 
       gsap.fromTo(
-        gridRef.current?.children || [],
+        desktopGridRef.current?.children || [],
         { x: -40, opacity: 0, scale: 0.96 },
         {
           x: 0,
@@ -46,12 +53,85 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
           delay: 0.05,
         }
       );
+
+      gsap.fromTo(
+        mobileStackRef.current?.children || [],
+        { y: 20, opacity: 0, scale: 0.96 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.4,
+          stagger: 0.03,
+          ease: "expo.out",
+          delay: 0.05,
+        }
+      );
     }, containerRef);
 
     return () => ctx.revert();
   }, [isActive]);
 
-  const pillars = [
+  // Original concise pillars for Desktop
+  const desktopPillars = [
+    {
+      id: "01",
+      title: "Customer Satisfaction",
+      desc: "Exceeding Buyer Expectations",
+      icon: HeartHandshake,
+      color: "text-emerald-400",
+      border: "border-emerald-500/30",
+      bg: "bg-emerald-500/10",
+    },
+    {
+      id: "02",
+      title: "Quality Product",
+      desc: "Zero-Defect RMG Standard",
+      icon: ShieldCheck,
+      color: "text-blue-400",
+      border: "border-blue-500/30",
+      bg: "bg-blue-500/10",
+    },
+    {
+      id: "03",
+      title: "Competitive Price",
+      desc: "Optimized Value Engineering",
+      icon: CircleDollarSign,
+      color: "text-amber-400",
+      border: "border-amber-500/30",
+      bg: "bg-amber-500/10",
+    },
+    {
+      id: "04",
+      title: "Timely Delivery",
+      desc: "99.8% On-Time Shipment Rate",
+      icon: Clock,
+      color: "text-purple-400",
+      border: "border-purple-500/30",
+      bg: "bg-purple-500/10",
+    },
+    {
+      id: "05",
+      title: "Compliance Standard",
+      desc: "BSCI & Ethical Manufacturing",
+      icon: Award,
+      color: "text-cyan-400",
+      border: "border-cyan-500/30",
+      bg: "bg-cyan-500/10",
+    },
+    {
+      id: "06",
+      title: "Continuous Improvement",
+      desc: "Tech & Operational Innovation",
+      icon: TrendingUp,
+      color: "text-[#72e055]",
+      border: "border-[#55c538]/30",
+      bg: "bg-[#55c538]/10",
+    },
+  ];
+
+  // Detailed verbatim pillars for Mobile
+  const mobilePillars = [
     {
       id: "01",
       title: "Customer Service Excellence",
@@ -136,39 +216,77 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Fluid 6-Card Grid / Stack View with Verbatim Data */}
+        {/* 2. MOBILE VIEW ONLY: Vertically Middle-Aligned Stack with Bigger Titles & Verbatim Data */}
         <div
-          ref={gridRef}
-          className="flex-1 flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 min-h-0"
+          ref={mobileStackRef}
+          className="flex-1 flex flex-col md:hidden gap-1.5 min-h-0"
         >
-          {pillars.map((pillar) => {
+          {mobilePillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.id}
-                className={`flex-1 p-2.5 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl cyber-card border ${pillar.border} bg-[#091426]/90 flex flex-col justify-between shadow-xl min-h-0 group hover:scale-[1.02] transition-all`}
+                className={`flex-1 p-2.5 rounded-xl cyber-card border ${pillar.border} bg-[#091426]/95 flex flex-col justify-center shadow-lg min-h-0`}
               >
-                {/* Header: Number & Icon */}
-                <div className="flex items-center justify-between mb-1.5 sm:mb-3">
+                {/* Header Row: Index & Glowing Icon */}
+                <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs sm:text-base font-black text-slate-300 font-mono">
+                    <span className="text-xs font-black text-slate-300 font-mono">
+                      {pillar.id}
+                    </span>
+                    <div className={`p-1 rounded-md ${pillar.bg} ${pillar.color} shrink-0`}>
+                      <Icon className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Middle Content: Bigger Title & Clear Description */}
+                <div>
+                  <h3 className="text-sm font-black text-white leading-tight mb-0.5">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-[10px] text-slate-300 font-normal leading-tight line-clamp-2">
+                    {pillar.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* 3. DESKTOP VIEW ONLY: Original Concise Layout & Grid */}
+        <div
+          ref={desktopGridRef}
+          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 flex-1 min-h-0"
+        >
+          {desktopPillars.map((pillar) => {
+            const Icon = pillar.icon;
+            return (
+              <div
+                key={pillar.id}
+                className={`p-5 md:p-6 rounded-2xl cyber-card border ${pillar.border} bg-[#091426]/90 flex flex-col justify-between shadow-xl min-h-0 group hover:scale-[1.02] transition-all`}
+              >
+                {/* Top: Number & Icon */}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-sm font-black text-slate-400 font-mono">
                       {pillar.id}
                     </span>
                     <div
-                      className={`p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl ${pillar.bg} ${pillar.color} shrink-0 shadow-md`}
+                      className={`p-2.5 rounded-xl ${pillar.bg} ${pillar.color} shrink-0 shadow-md`}
                     >
-                      <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                      <Icon className="w-5 h-5" />
                     </div>
                   </div>
-                  <span className="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-[#55c538] opacity-50 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#55c538] opacity-50 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                {/* Body: Exact Title & Verbatim Description */}
+                {/* Bottom: Title & Description */}
                 <div>
-                  <h3 className="text-xs sm:text-base lg:text-lg font-black text-white leading-snug mb-0.5 sm:mb-1.5">
+                  <h3 className="text-base lg:text-lg font-black text-white leading-snug mb-1">
                     {pillar.title}
                   </h3>
-                  <p className="text-[10px] sm:text-xs md:text-sm text-slate-300 font-normal leading-tight sm:leading-relaxed">
+                  <p className="text-xs md:text-sm text-slate-300 font-medium leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
