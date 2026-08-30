@@ -10,8 +10,9 @@ import {
   Phone,
   Maximize2,
   Layers,
-  ShieldCheck,
-  Compass,
+  TrendingUp,
+  Users,
+  Sparkles,
 } from "lucide-react";
 
 interface SlideProps {
@@ -70,18 +71,17 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-2.5 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-2 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* 1. Header */}
+        {/* 1. Header (Cleaned, Strictly Matching PDF) */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="w-2 md:w-2.5 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055] flex items-center gap-1.5">
-                <Compass className="w-3.5 h-3.5 text-[#55c538]" />
-                <span>Facility Architecture & Engineering Layout</span>
+              <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+                Manufacturing Plant
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
                 PRODUCTION UNIT
@@ -91,96 +91,92 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
 
           <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
             <Building2 className="w-4 h-4 text-[#55c538]" />
-            <span>Multi-Story RMG Campus</span>
+            <span>Factory Facility</span>
           </div>
         </div>
 
-        {/* 2. TOP: Floor Details & Facility Specifications Cards */}
+        {/* 2. TOP: Capacity Metrics from PDF (Stacked 1 above another on Mobile, 4-Col on Desktop) */}
         <div
           ref={specsRef}
-          className="shrink-0 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3.5"
+          className="shrink-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-3.5"
         >
-          {/* Elevation */}
-          <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl cyber-card flex flex-col justify-between border-sky-500/25">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs font-extrabold text-sky-400 uppercase tracking-wider">
-                Building Elevation
-              </span>
-              <Building2 className="w-4 h-4 text-sky-400" />
-            </div>
-            <div className="my-1">
-              <div className="text-lg sm:text-2xl md:text-3xl font-black text-white">
-                21.50 M
-              </div>
-              <div className="text-[11px] sm:text-xs font-bold text-slate-200">
-                6 Production Floors
-              </div>
-            </div>
-            <div className="text-[9px] sm:text-[10px] text-slate-400">32.00m × 12.80m Layout</div>
-          </div>
-
-          {/* Floor Space - Updated to 38,000 SFT Total Space */}
-          <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl cyber-card flex flex-col justify-between border-emerald-500/25">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider">
-                Floor Space
-              </span>
-              <Maximize2 className="w-4 h-4 text-[#55c538]" />
-            </div>
-            <div className="my-1">
-              <div className="text-lg sm:text-2xl md:text-3xl font-black text-white">
-                38,000 <span className="text-xs sm:text-sm text-slate-400 font-bold">SQ. FT</span>
-              </div>
-              <div className="text-[11px] sm:text-xs font-bold text-[#72e055]">
-                38,000 SFT Total Space
-              </div>
-            </div>
-            <div className="text-[9px] sm:text-[10px] text-slate-400">Active Production Area</div>
-          </div>
-
-          {/* Monthly Capacity */}
-          <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl cyber-card flex flex-col justify-between border-blue-500/25">
-            <div className="flex items-center justify-between">
+          {/* Production Capacity */}
+          <div className="p-2.5 sm:p-4 rounded-xl cyber-card flex items-center sm:flex-col justify-between sm:justify-between border-blue-500/25 bg-[#091426]/90">
+            <div className="flex items-center gap-2 sm:w-full sm:justify-between">
               <span className="text-[10px] sm:text-xs font-extrabold text-blue-400 uppercase tracking-wider">
-                Monthly Capacity
+                Production Capacity
               </span>
-              <Layers className="w-4 h-4 text-blue-400" />
+              <Layers className="w-4 h-4 text-blue-400 shrink-0 hidden sm:block" />
             </div>
-            <div className="my-1">
-              <div className="text-lg sm:text-2xl md:text-3xl font-black text-white">
+            <div className="text-right sm:text-left sm:w-full sm:my-1">
+              <div className="text-base sm:text-2xl md:text-3xl font-black text-white">
                 300,000
               </div>
-              <div className="text-[11px] sm:text-xs font-bold text-blue-300">
-                Pieces / Month Output
+              <div className="text-[10px] sm:text-xs font-bold text-blue-300">
+                Pieces Per Month
               </div>
             </div>
-            <div className="text-[9px] sm:text-[10px] text-slate-400">High-Speed Lines</div>
           </div>
 
-          {/* Workforce & License */}
-          <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl cyber-card flex flex-col justify-between border-amber-500/25">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs font-extrabold text-amber-400 uppercase tracking-wider">
-                Workforce & Safety
+          {/* Factory Space */}
+          <div className="p-2.5 sm:p-4 rounded-xl cyber-card flex items-center sm:flex-col justify-between sm:justify-between border-emerald-500/25 bg-[#091426]/90">
+            <div className="flex items-center gap-2 sm:w-full sm:justify-between">
+              <span className="text-[10px] sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider">
+                Factory Space
               </span>
-              <ShieldCheck className="w-4 h-4 text-amber-400" />
+              <Maximize2 className="w-4 h-4 text-[#55c538] shrink-0 hidden sm:block" />
             </div>
-            <div className="my-1">
-              <div className="text-lg sm:text-2xl md:text-3xl font-black text-white">
-                700+
+            <div className="text-right sm:text-left sm:w-full sm:my-1">
+              <div className="text-base sm:text-2xl md:text-3xl font-black text-white">
+                38,000 <span className="text-xs sm:text-sm text-slate-400 font-bold">SQ. FT</span>
               </div>
-              <div className="text-[11px] sm:text-xs font-bold text-amber-300">
-                Personnel + 35 Staff
+              <div className="text-[10px] sm:text-xs font-bold text-[#72e055]">
+                38,000 Sq. Feet Space
               </div>
             </div>
-            <div className="text-[9px] sm:text-[10px] text-slate-400">Fire: CHATTA-6961</div>
+          </div>
+
+          {/* Annual Turnover */}
+          <div className="p-2.5 sm:p-4 rounded-xl cyber-card flex items-center sm:flex-col justify-between sm:justify-between border-amber-500/25 bg-[#091426]/90">
+            <div className="flex items-center gap-2 sm:w-full sm:justify-between">
+              <span className="text-[10px] sm:text-xs font-extrabold text-amber-400 uppercase tracking-wider">
+                Annual Turnover
+              </span>
+              <TrendingUp className="w-4 h-4 text-amber-400 shrink-0 hidden sm:block" />
+            </div>
+            <div className="text-right sm:text-left sm:w-full sm:my-1">
+              <div className="text-base sm:text-2xl md:text-3xl font-black text-white">
+                $10.00M
+              </div>
+              <div className="text-[10px] sm:text-xs font-bold text-amber-300">
+                Million / Year
+              </div>
+            </div>
+          </div>
+
+          {/* Total Manpower */}
+          <div className="p-2.5 sm:p-4 rounded-xl cyber-card flex items-center sm:flex-col justify-between sm:justify-between border-purple-500/25 bg-[#091426]/90">
+            <div className="flex items-center gap-2 sm:w-full sm:justify-between">
+              <span className="text-[10px] sm:text-xs font-extrabold text-purple-400 uppercase tracking-wider">
+                Total Manpower
+              </span>
+              <Users className="w-4 h-4 text-purple-400 shrink-0 hidden sm:block" />
+            </div>
+            <div className="text-right sm:text-left sm:w-full sm:my-1">
+              <div className="text-base sm:text-2xl md:text-3xl font-black text-white">
+                700
+              </div>
+              <div className="text-[10px] sm:text-xs font-bold text-purple-300">
+                Personnel (+ 35 Key Staff)
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* 3. CENTER: Blueprint Transparent Image (Separated for Desktop & Mobile, without text or frame stroke) */}
+        {/* 3. CENTER: Blueprint Transparent Image (Desktop & Mobile, No Frame, No Extra Text) */}
         <div
           ref={blueprintRef}
-          className="flex-1 relative w-full overflow-hidden min-h-[140px] sm:min-h-[220px] md:min-h-[280px]"
+          className="flex-1 relative w-full overflow-hidden min-h-[120px] sm:min-h-[220px] md:min-h-[280px]"
         >
           {/* Mobile Transparent Blueprint Image */}
           <div className="block md:hidden absolute inset-0 w-full h-full">
@@ -207,10 +203,10 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 4. BOTTOM: Address of Production Unit */}
+        {/* 4. BOTTOM: Production Unit Address (Matching PDF Page 5) */}
         <div
           ref={addressRef}
-          className="shrink-0 p-3 sm:p-4 rounded-xl sm:rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-2.5 bg-slate-950/80"
+          className="shrink-0 p-3 sm:p-4 rounded-xl sm:rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-2.5 bg-slate-950/90"
         >
           <div>
             <div className="flex items-center gap-2 text-xs font-extrabold text-[#72e055] uppercase tracking-wider mb-0.5">
@@ -218,7 +214,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
               <span>Production Unit Address</span>
             </div>
             <h3 className="text-sm sm:text-lg md:text-xl font-black text-white">
-              Byzid Apparels (Pvt) Ltd.
+              Byzid Apparels (Pvt) Ltd
             </h3>
             <p className="text-xs sm:text-sm text-slate-200 font-medium">
               ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
