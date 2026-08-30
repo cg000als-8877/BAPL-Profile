@@ -12,7 +12,6 @@ import {
   Layers,
   TrendingUp,
   Users,
-  Sparkles,
 } from "lucide-react";
 
 interface SlideProps {
@@ -75,7 +74,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* 1. Header (Cleaned, Strictly Matching PDF) */}
+        {/* 1. Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="w-2 md:w-2.5 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
@@ -95,7 +94,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. TOP: Capacity Metrics from PDF (Stacked 1 above another on Mobile, 4-Col on Desktop) */}
+        {/* 2. TOP: Capacity Metrics */}
         <div
           ref={specsRef}
           className="shrink-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-3.5"
@@ -173,7 +172,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 3. CENTER: Blueprint Transparent Image (Desktop & Mobile, No Frame, No Extra Text) */}
+        {/* 3. CENTER: Blueprint Transparent Image with unoptimized flag to prevent browser cache holding old images */}
         <div
           ref={blueprintRef}
           className="flex-1 relative w-full overflow-hidden min-h-[120px] sm:min-h-[220px] md:min-h-[280px]"
@@ -185,6 +184,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
               alt="Byzid Apparels Architectural Blueprint Mobile View"
               fill
               priority
+              unoptimized
               sizes="100vw"
               className="object-contain object-center"
             />
@@ -197,13 +197,14 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
               alt="Byzid Apparels Architectural Blueprint Desktop View"
               fill
               priority
+              unoptimized
               sizes="100vw"
               className="object-contain object-center"
             />
           </div>
         </div>
 
-        {/* 4. BOTTOM: Production Unit Address (Matching PDF Page 5) */}
+        {/* 4. BOTTOM: Production Unit Address */}
         <div
           ref={addressRef}
           className="shrink-0 p-3 sm:p-4 rounded-xl sm:rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-2.5 bg-slate-950/90"

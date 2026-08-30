@@ -71,6 +71,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
             alt="Byzid Apparels Mobile View"
             fill
             priority
+            unoptimized
             sizes="100vw"
             className="object-cover object-center brightness-100 contrast-105"
           />
@@ -82,6 +83,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
             alt="Byzid Apparels Headquarters & Production Building"
             fill
             priority
+            unoptimized
             sizes="100vw"
             className="object-cover object-center brightness-100 contrast-105"
           />
