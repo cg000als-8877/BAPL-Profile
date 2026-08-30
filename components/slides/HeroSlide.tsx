@@ -62,32 +62,17 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
 
   return (
     <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden">
-      {/* High-Visibility Clean Background Image */}
+      {/* High-Visibility Hero Background Image (Unified baplprofile.webp for Desktop & Mobile) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Mobile View Image */}
-        <div className="block md:hidden absolute inset-0 w-full h-full">
-          <Image
-            src="/mobile-view.webp"
-            alt="Byzid Apparels Mobile View"
-            fill
-            priority
-            unoptimized
-            sizes="100vw"
-            className="object-cover object-center brightness-100 contrast-105"
-          />
-        </div>
-        {/* Desktop View Image */}
-        <div className="hidden md:block absolute inset-0 w-full h-full">
-          <Image
-            src="/baplprofile.webp"
-            alt="Byzid Apparels Headquarters & Production Building"
-            fill
-            priority
-            unoptimized
-            sizes="100vw"
-            className="object-cover object-center brightness-100 contrast-105"
-          />
-        </div>
+        <Image
+          src="/baplprofile.webp"
+          alt="Byzid Apparels Headquarters & Production Building"
+          fill
+          priority
+          unoptimized
+          sizes="100vw"
+          className="object-cover object-center brightness-100 contrast-105"
+        />
 
         {/* Bottom subtle gradient for text contrast */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/60 to-transparent" />
