@@ -98,6 +98,9 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
 
         {/* Desktop subtle gradient */}
         <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/60 to-transparent" />
+
+        {/* Mobile Gradient: Rising strictly from the bottom edge of the screen up to the content area (title/cards) and fading to transparent */}
+        <div className="block md:hidden absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#050811] via-[#050811]/90 to-transparent pointer-events-none" />
       </div>
 
       {/* Main Content Layout - Bottom-Pinned for full scenic visibility */}
@@ -121,14 +124,11 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* Bottom Group: Title, Subtitle, Paragraph & Cards Stack (With Content-Only Gradient on Mobile) */}
+        {/* Bottom Group: Title, Subtitle, Paragraph & Cards Stack */}
         <div
           ref={contentRef}
-          className="relative shrink-0 flex flex-col gap-2 sm:gap-3 max-w-6xl -mx-4 px-4 pb-2 pt-6 md:p-0 md:m-0"
+          className="shrink-0 flex flex-col gap-2 sm:gap-3 max-w-6xl"
         >
-          {/* Mobile Dedicated Content-Only Gradient: Anchored strictly behind Title, Subtitle & Cards */}
-          <div className="block md:hidden absolute inset-0 bg-gradient-to-t from-black via-black/85 to-transparent pointer-events-none rounded-t-3xl -z-10" />
-
           {/* 1. Title (Bigger for Mobile, Full Length Single Line) */}
           <h1
             ref={titleRef}
