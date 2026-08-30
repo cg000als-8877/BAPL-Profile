@@ -145,7 +145,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
             <div className="w-2 md:w-2.5 h-8 md:h-12 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
-                Core Operational Methodology • PDF Page 4
+                Core Operational Methodology
               </div>
               <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
                 OUR STRATEGY
