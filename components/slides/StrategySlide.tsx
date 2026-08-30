@@ -10,12 +10,6 @@ import {
   Truck,
   Palette,
   BadgePercent,
-  HeartHandshake,
-  ShieldCheck,
-  CircleDollarSign,
-  Clock,
-  Award,
-  TrendingUp,
   Sparkles,
 } from "lucide-react";
 
@@ -72,73 +66,14 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
     return () => ctx.revert();
   }, [isActive]);
 
-  // Original concise pillars for Desktop
-  const desktopPillars = [
-    {
-      id: "01",
-      title: "Customer Satisfaction",
-      desc: "Exceeding Buyer Expectations",
-      icon: HeartHandshake,
-      color: "text-emerald-400",
-      border: "border-emerald-500/30",
-      bg: "bg-emerald-500/10",
-    },
-    {
-      id: "02",
-      title: "Quality Product",
-      desc: "Zero-Defect RMG Standard",
-      icon: ShieldCheck,
-      color: "text-blue-400",
-      border: "border-blue-500/30",
-      bg: "bg-blue-500/10",
-    },
-    {
-      id: "03",
-      title: "Competitive Price",
-      desc: "Optimized Value Engineering",
-      icon: CircleDollarSign,
-      color: "text-amber-400",
-      border: "border-amber-500/30",
-      bg: "bg-amber-500/10",
-    },
-    {
-      id: "04",
-      title: "Timely Delivery",
-      desc: "99.8% On-Time Shipment Rate",
-      icon: Clock,
-      color: "text-purple-400",
-      border: "border-purple-500/30",
-      bg: "bg-purple-500/10",
-    },
-    {
-      id: "05",
-      title: "Compliance Standard",
-      desc: "BSCI & Ethical Manufacturing",
-      icon: Award,
-      color: "text-cyan-400",
-      border: "border-cyan-500/30",
-      bg: "bg-cyan-500/10",
-    },
-    {
-      id: "06",
-      title: "Continuous Improvement",
-      desc: "Tech & Operational Innovation",
-      icon: TrendingUp,
-      color: "text-[#72e055]",
-      border: "border-[#55c538]/30",
-      bg: "bg-[#55c538]/10",
-    },
-  ];
-
-  // Detailed verbatim pillars for Mobile
-  const mobilePillars = [
+  const strategicPillars = [
     {
       id: "01",
       title: "Customer Service Excellence",
       desc: "Continuously identifying opportunities to elevate customer experience and surpass global standards.",
       icon: Heart,
       color: "text-emerald-400",
-      border: "border-emerald-500/30",
+      border: "border-emerald-500/35",
       bg: "bg-emerald-500/15",
     },
     {
@@ -147,7 +82,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
       desc: "Aligning dedicated manufacturing lines and engineering resources to meet dynamic brand demands.",
       icon: Network,
       color: "text-blue-400",
-      border: "border-blue-500/30",
+      border: "border-blue-500/35",
       bg: "bg-blue-500/15",
     },
     {
@@ -156,7 +91,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
       desc: "Forecasting seasonal market shifts through tight collaboration with international fashion teams.",
       icon: Handshake,
       color: "text-indigo-400",
-      border: "border-indigo-500/30",
+      border: "border-indigo-500/35",
       bg: "bg-indigo-500/15",
     },
     {
@@ -165,7 +100,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
       desc: "Optimizing yarn, fabric, and accessories procurement for shortest lead time and lower total cost.",
       icon: Truck,
       color: "text-amber-400",
-      border: "border-amber-500/30",
+      border: "border-amber-500/35",
       bg: "bg-amber-500/15",
     },
     {
@@ -174,7 +109,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
       desc: "In-house design studio and R&D sample rooms custom-tailored to each brand's aesthetic DNA.",
       icon: Palette,
       color: "text-purple-400",
-      border: "border-purple-500/30",
+      border: "border-purple-500/35",
       bg: "bg-purple-500/15",
     },
     {
@@ -183,7 +118,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
       desc: "Specialized \"Fast Sale\" programs providing strategic buyers with substantial duty savings and agility.",
       icon: BadgePercent,
       color: "text-[#72e055]",
-      border: "border-[#55c538]/30",
+      border: "border-[#55c538]/35",
       bg: "bg-[#55c538]/15",
     },
   ];
@@ -192,7 +127,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-5 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -221,7 +156,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
           ref={mobileStackRef}
           className="flex-1 flex flex-col md:hidden gap-2.5 min-h-0"
         >
-          {mobilePillars.map((pillar) => {
+          {strategicPillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
@@ -254,39 +189,39 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
           })}
         </div>
 
-        {/* 3. DESKTOP VIEW ONLY: Original Concise Layout & Grid */}
+        {/* 3. DESKTOP VIEW ONLY: Large High-Legibility Bento Grid with Increased Typography */}
         <div
           ref={desktopGridRef}
-          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 flex-1 min-h-0"
+          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 flex-1 min-h-0"
         >
-          {desktopPillars.map((pillar) => {
+          {strategicPillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.id}
-                className={`p-5 md:p-6 rounded-2xl cyber-card border ${pillar.border} bg-[#091426]/90 flex flex-col justify-between shadow-xl min-h-0 group hover:scale-[1.02] transition-all`}
+                className={`p-5 md:p-6 lg:p-7 rounded-2xl cyber-card border ${pillar.border} bg-[#091426]/95 flex flex-col justify-between shadow-2xl min-h-0 group hover:scale-[1.02] hover:border-[#55c538] transition-all`}
               >
-                {/* Top: Number & Icon */}
+                {/* Top: Index & Glowing Icon Badge */}
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-sm font-black text-slate-400 font-mono">
+                  <div className="flex items-center gap-3">
+                    <span className="text-base lg:text-lg font-black text-slate-300 font-mono">
                       {pillar.id}
                     </span>
                     <div
-                      className={`p-2.5 rounded-xl ${pillar.bg} ${pillar.color} shrink-0 shadow-md`}
+                      className={`p-3 rounded-xl ${pillar.bg} ${pillar.color} shrink-0 shadow-lg`}
                     >
-                      <Icon className="w-5 h-5" />
+                      <Icon className="w-5 h-5 lg:w-6 lg:h-6" />
                     </div>
                   </div>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#55c538] opacity-50 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-2 h-2 rounded-full bg-[#55c538] opacity-50 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                {/* Bottom: Title & Description */}
+                {/* Bottom: Enlarged Title & Rich Typography Description */}
                 <div>
-                  <h3 className="text-base lg:text-lg font-black text-white leading-snug mb-1">
+                  <h3 className="text-base lg:text-xl font-black text-white leading-snug mb-1.5">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-slate-300 font-medium leading-relaxed">
+                  <p className="text-xs md:text-sm lg:text-base text-slate-200 font-normal leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>

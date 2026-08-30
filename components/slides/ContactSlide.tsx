@@ -11,8 +11,6 @@ import {
   Check,
   Mail,
   Sparkles,
-  Briefcase,
-  ExternalLink,
 } from "lucide-react";
 
 interface SlideProps {
@@ -71,7 +69,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-3 sm:gap-5 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-5 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -95,10 +93,10 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. KEY CONTACT PERSONS: Executive Profile Cards (Side-by-Side on Desktop, One Under Another on Mobile) */}
+        {/* 2. KEY CONTACT PERSONS: Executive Profile Cards with Increased Desktop Typography */}
         <div className="flex-1 flex flex-col justify-center min-h-0">
-          <div className="text-[10px] sm:text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-2 sm:mb-3 flex items-center gap-2">
-            <UserCheck className="w-3.5 h-3.5 text-[#55c538]" />
+          <div className="text-[10px] sm:text-xs md:text-sm font-extrabold text-slate-400 uppercase tracking-widest mb-2 sm:mb-3 flex items-center gap-2">
+            <UserCheck className="w-4 h-4 text-[#55c538]" />
             <span>KEY CONTACT PERSONS</span>
           </div>
 
@@ -107,57 +105,56 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
             className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6"
           >
             {/* Profile Card 1: Mr. Abdur Rahaman */}
-            <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-gradient-to-br from-[#09162a]/95 to-[#060c18]/95 flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-[#55c538] transition-all">
-              {/* Subtle top ambient glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#55c538]/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="p-4 sm:p-6 md:p-8 rounded-2xl cyber-card border border-emerald-500/35 bg-gradient-to-br from-[#09162a]/95 to-[#060c18]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-[#55c538]/10 rounded-full blur-2xl pointer-events-none" />
 
               <div>
                 {/* Monogram Badge & Role Tag */}
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#55c538]/30 to-[#55c538]/10 border border-[#55c538]/40 flex items-center justify-center text-sm sm:text-base font-black text-[#72e055] shadow-md">
+                <div className="flex items-center justify-between mb-3.5">
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#55c538]/30 to-[#55c538]/10 border border-[#55c538]/40 flex items-center justify-center text-sm sm:text-lg font-black text-[#72e055] shadow-lg">
                     AR
                   </div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full cyber-pill text-[10px] sm:text-xs font-bold text-[#72e055] border border-[#55c538]/30">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#55c538] animate-pulse" />
+                  <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full cyber-pill text-[10px] sm:text-xs font-bold text-[#72e055] border border-[#55c538]/30 shadow-md">
+                    <span className="w-2 h-2 rounded-full bg-[#55c538] animate-pulse" />
                     <span>Executive Leadership</span>
                   </div>
                 </div>
 
                 {/* Name & Title */}
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-snug">
+                <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
                   Mr. Abdur Rahaman
                 </h3>
-                <p className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055] mt-0.5">
+                <p className="text-xs sm:text-base md:text-lg font-extrabold text-[#72e055] mt-1">
                   Managing Director
                 </p>
-                <p className="text-[11px] sm:text-xs text-slate-400 mt-1">
+                <p className="text-xs sm:text-sm text-slate-300 mt-1">
                   Byzid Apparels (Pvt) Ltd.
                 </p>
               </div>
 
               {/* Email Contact Action Box */}
-              <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
+              <div className="mt-5 pt-3.5 border-t border-slate-800/80 flex items-center justify-between gap-3">
                 <a
                   href="mailto:info@byzidapparels.com"
-                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-200 hover:text-white transition-colors truncate"
+                  className="flex items-center gap-2 text-xs sm:text-base md:text-lg font-bold text-slate-200 hover:text-white transition-colors truncate"
                 >
-                  <Mail className="w-4 h-4 text-[#55c538] shrink-0" />
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#55c538] shrink-0" />
                   <span className="truncate">info@byzidapparels.com</span>
                 </a>
 
                 <button
                   onClick={() => handleCopy("info@byzidapparels.com", "md")}
-                  className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0"
+                  className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-200 hover:text-white text-xs sm:text-sm font-bold transition-all shadow-md flex items-center gap-1.5 shrink-0 cursor-pointer"
                   title="Copy Email"
                 >
                   {copiedEmail === "md" ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-[#55c538]" />
+                      <Check className="w-4 h-4 text-[#55c538]" />
                       <span className="text-[#55c538]">Copied</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5" />
+                      <Copy className="w-4 h-4" />
                       <span>Copy</span>
                     </>
                   )}
@@ -166,57 +163,56 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
 
             {/* Profile Card 2: Mrs. Susan Rebeiro */}
-            <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-blue-500/35 bg-gradient-to-br from-[#09162a]/95 to-[#060c18]/95 flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-blue-400 transition-all">
-              {/* Subtle top ambient glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="p-4 sm:p-6 md:p-8 rounded-2xl cyber-card border border-blue-500/35 bg-gradient-to-br from-[#09162a]/95 to-[#060c18]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-blue-400 transition-all">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div>
                 {/* Monogram Badge & Role Tag */}
-                <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-500/10 border border-blue-500/40 flex items-center justify-center text-sm sm:text-base font-black text-blue-400 shadow-md">
+                <div className="flex items-center justify-between mb-3.5">
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500/30 to-blue-500/10 border border-blue-500/40 flex items-center justify-center text-sm sm:text-lg font-black text-blue-400 shadow-lg">
                     SR
                   </div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full cyber-pill text-[10px] sm:text-xs font-bold text-blue-400 border border-blue-500/30">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                  <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full cyber-pill text-[10px] sm:text-xs font-bold text-blue-400 border border-blue-500/30 shadow-md">
+                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
                     <span>Plant & Operations</span>
                   </div>
                 </div>
 
                 {/* Name & Title */}
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-snug">
+                <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
                   Mrs. Susan Rebeiro
                 </h3>
-                <p className="text-xs sm:text-sm md:text-base font-extrabold text-blue-400 mt-0.5">
+                <p className="text-xs sm:text-base md:text-lg font-extrabold text-blue-400 mt-1">
                   Director of Operations
                 </p>
-                <p className="text-[11px] sm:text-xs text-slate-400 mt-1">
+                <p className="text-xs sm:text-sm text-slate-300 mt-1">
                   Byzid Apparels (Pvt) Ltd.
                 </p>
               </div>
 
               {/* Email Contact Action Box */}
-              <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
+              <div className="mt-5 pt-3.5 border-t border-slate-800/80 flex items-center justify-between gap-3">
                 <a
                   href="mailto:susan@byzidapparels.com"
-                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-200 hover:text-white transition-colors truncate"
+                  className="flex items-center gap-2 text-xs sm:text-base md:text-lg font-bold text-slate-200 hover:text-white transition-colors truncate"
                 >
-                  <Mail className="w-4 h-4 text-blue-400 shrink-0" />
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 shrink-0" />
                   <span className="truncate">susan@byzidapparels.com</span>
                 </a>
 
                 <button
                   onClick={() => handleCopy("susan@byzidapparels.com", "ops")}
-                  className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0"
+                  className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-200 hover:text-white text-xs sm:text-sm font-bold transition-all shadow-md flex items-center gap-1.5 shrink-0 cursor-pointer"
                   title="Copy Email"
                 >
                   {copiedEmail === "ops" ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-[#55c538]" />
+                      <Check className="w-4 h-4 text-[#55c538]" />
                       <span className="text-[#55c538]">Copied</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5" />
+                      <Copy className="w-4 h-4" />
                       <span>Copy</span>
                     </>
                   )}
@@ -229,27 +225,27 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* 3. Registered Office & Mailing Address (Bottom Section) */}
         <div
           ref={addressRef}
-          className="shrink-0 p-3.5 sm:p-5 rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-950/90"
+          className="shrink-0 p-4 sm:p-6 rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-950/95 shadow-xl"
         >
           <div>
-            <div className="flex items-center gap-2 text-[10px] sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider mb-0.5">
-              <MapPin className="w-3.5 h-3.5 text-[#55c538]" />
+            <div className="flex items-center gap-2 text-[10px] sm:text-xs md:text-sm font-extrabold text-[#72e055] uppercase tracking-wider mb-0.5">
+              <MapPin className="w-4 h-4 text-[#55c538]" />
               <span>REGISTERED OFFICE & MAILING ADDRESS</span>
             </div>
-            <h3 className="text-sm sm:text-lg font-black text-white">
+            <h3 className="text-sm sm:text-xl md:text-2xl font-black text-white">
               BYZID APPARELS (PVT.) LTD
             </h3>
-            <p className="text-xs sm:text-sm text-slate-200 font-medium">
+            <p className="text-xs sm:text-base md:text-lg text-slate-200 font-medium">
               ABMTOWER, 671/1 Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
             </p>
           </div>
 
-          <div className="shrink-0 pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-slate-800 md:pl-5">
+          <div className="shrink-0 pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-slate-800 md:pl-6">
             <a
               href="tel:008802334451856"
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-xl bg-[#55c538] text-slate-950 font-black text-xs sm:text-sm shadow-md shadow-[#55c538]/30 hover:bg-[#72e055] transition-all"
+              className="inline-flex items-center gap-2.5 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-[#55c538] text-slate-950 font-black text-xs sm:text-sm md:text-base shadow-lg shadow-[#55c538]/30 hover:bg-[#72e055] transition-all"
             >
-              <Phone className="w-3.5 h-3.5 text-slate-950" />
+              <Phone className="w-4 h-4 text-slate-950" />
               <span>TEL # 0088-02334451856</span>
             </a>
           </div>

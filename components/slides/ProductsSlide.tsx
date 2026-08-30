@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { Layers, CheckCircle2 } from "lucide-react";
+import { Layers, CheckCircle2, Sparkles } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
@@ -116,12 +116,12 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-3 sm:gap-5 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-1/4 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header */}
-        <div ref={headerRef} className="shrink-0 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div ref={headerRef} className="shrink-0 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="w-2 md:w-2.5 h-8 md:h-12 bg-[#55c538] rounded-full glow-bar" />
             <div>
@@ -134,13 +134,14 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
           </div>
 
-          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full cyber-pill text-slate-200 font-bold shadow-sm text-xs sm:text-sm">
-            Mens • Ladies • Boys • Girls • Kids
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full cyber-pill text-slate-200 font-bold shadow-md text-xs sm:text-sm md:text-base">
+            <Sparkles className="w-4 h-4 text-[#55c538]" />
+            <span>Mens • Ladies • Boys • Girls • Kids</span>
           </div>
         </div>
 
         {/* Filter Pills */}
-        <div ref={filterRef} className="shrink-0 flex items-center gap-2 my-1 overflow-x-auto pb-0.5">
+        <div ref={filterRef} className="shrink-0 flex items-center gap-2 my-0.5 sm:my-1 overflow-x-auto pb-0.5">
           {[
             { id: "all", label: "All Lines" },
             { id: "denim", label: "Denim & Bottoms" },
@@ -151,7 +152,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id as any)}
-              className={`px-4 sm:px-5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm md:text-base font-bold transition-all whitespace-nowrap ${
+              className={`px-4 sm:px-5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm md:text-base font-bold transition-all whitespace-nowrap cursor-pointer ${
                 activeCategory === cat.id
                   ? "bg-[#55c538] text-slate-950 shadow-md shadow-[#55c538]/30 font-black"
                   : "cyber-pill text-slate-300 hover:text-white"
@@ -162,27 +163,27 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           ))}
         </div>
 
-        {/* 6 Cards Grid (Large, Bold, Space-Filling) */}
+        {/* 6 Cards Grid (Large, Bold, Space-Filling with Increased Typography) */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 min-h-0"
+          className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 min-h-0"
         >
           {filteredCards.map((p) => (
             <div
               key={p.id}
-              className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between h-full"
+              className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between h-full bg-[#091426]/90 shadow-2xl hover:border-[#55c538]/50 hover:scale-[1.01] transition-all"
             >
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-md bg-white/10 text-slate-200 border border-white/10">
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-[10px] sm:text-xs md:text-sm font-black px-2.5 py-1 rounded-md bg-white/10 text-slate-200 border border-white/10">
                     {p.badge}
                   </span>
-                  <div className={`p-2 rounded-xl ${p.iconColor}`}>
+                  <div className={`p-2 sm:p-2.5 rounded-xl ${p.iconColor} shadow-md`}>
                     <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                 </div>
 
-                <h3 className="text-sm sm:text-lg md:text-xl font-bold text-white mb-1.5 leading-snug">
+                <h3 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-black text-white mb-1.5 leading-snug">
                   {p.title}
                 </h3>
                 <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed mb-3">
@@ -191,14 +192,14 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
               </div>
 
               {/* Tags Cloud */}
-              <div className="flex flex-wrap gap-1.5 pt-2.5 border-t border-slate-800">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-2.5 border-t border-slate-800/80">
                 {p.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-full bg-white/5 text-slate-200 border border-white/10"
+                    className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs md:text-sm font-bold px-2.5 py-1 rounded-full bg-white/5 text-slate-200 border border-white/10"
                   >
-                    <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#55c538]" />
-                    {tag}
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#55c538] shrink-0" />
+                    <span>{tag}</span>
                   </span>
                 ))}
               </div>

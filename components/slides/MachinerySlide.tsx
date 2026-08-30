@@ -102,13 +102,13 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-3 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between gap-2 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2.5 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* 1. Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-2.5 sm:gap-4">
             <div className="w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-[10px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
@@ -129,30 +129,30 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* 2. Headline Banner from PDF */}
         <div
           ref={bannerRef}
-          className="shrink-0 p-2.5 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl cyber-card border border-[#55c538]/35 flex items-center justify-between gap-3 bg-[#091426]/90"
+          className="shrink-0 p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl cyber-card border border-[#55c538]/35 flex items-center justify-between gap-3 bg-[#091426]/95 shadow-xl"
         >
-          <div className="flex items-center gap-3">
-            <div className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-[#55c538] text-slate-950 flex items-center gap-1.5 shadow-md shadow-[#55c538]/30 font-black shrink-0">
-              <Cpu className="w-4 h-4" />
-              <span className="text-base sm:text-2xl md:text-3xl font-black leading-none">
+          <div className="flex items-center gap-3.5">
+            <div className="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-[#55c538] text-slate-950 flex items-center gap-2 shadow-lg shadow-[#55c538]/30 font-black shrink-0">
+              <Cpu className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black leading-none font-mono">
                 {counterMachines}
               </span>
-              <span className="text-[9px] sm:text-xs font-black uppercase">
+              <span className="text-[10px] sm:text-xs font-black uppercase">
                 SETS
               </span>
             </div>
 
             <div>
-              <h3 className="text-xs sm:text-lg md:text-xl font-black text-white leading-tight">
+              <h3 className="text-sm sm:text-xl md:text-2xl font-black text-white leading-tight">
                 Knit & Woven Machinery
               </h3>
-              <p className="text-[10px] sm:text-xs text-slate-300 font-medium">
+              <p className="text-xs sm:text-sm md:text-base text-slate-200 font-medium">
                 Comprehensive Production Equipment Fleet
               </p>
             </div>
           </div>
 
-          <span className="hidden sm:inline-flex text-xs font-bold text-[#72e055] px-3 py-1 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
+          <span className="hidden sm:inline-flex text-xs md:text-sm font-bold text-[#72e055] px-3.5 py-1.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30 shadow-md">
             20 Essential Machinery Models
           </span>
         </div>
@@ -160,29 +160,29 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* 3. FLUID DISPLAY (Zero Tabs, Fills Whole Display on Mobile & Desktop) */}
         <div
           ref={panelsRef}
-          className="flex-1 flex flex-col md:grid md:grid-cols-3 gap-2 sm:gap-4 min-h-0"
+          className="flex-1 flex flex-col md:grid md:grid-cols-3 gap-2.5 sm:gap-4 lg:gap-5 min-h-0"
         >
           {/* PANEL 1: PRIMARY SEWING */}
-          <div className="flex-1 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl cyber-card border border-blue-500/30 bg-[#091426]/85 flex flex-col justify-between min-h-0">
-            <div className="shrink-0 flex items-center justify-between pb-1 mb-1 sm:pb-2 sm:mb-2 border-b border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <Scissors className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
-                <h4 className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wider text-blue-400">
+          <div className="flex-1 p-3 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl cyber-card border border-blue-500/30 bg-[#091426]/90 flex flex-col justify-between min-h-0 shadow-2xl">
+            <div className="shrink-0 flex items-center justify-between pb-1.5 mb-1.5 sm:pb-3 sm:mb-3 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <Scissors className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                <h4 className="text-xs sm:text-base lg:text-lg font-black uppercase tracking-wider text-blue-400">
                   Primary Sewing
                 </h4>
               </div>
-              <span className="text-[9px] sm:text-xs font-black px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
+              <span className="text-[10px] sm:text-xs font-black px-2.5 py-1 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
                 {primarySewing.length} Types
               </span>
             </div>
 
-            <div className="flex-1 grid grid-cols-2 md:grid-cols-1 gap-1 sm:gap-1.5 overflow-hidden content-center">
+            <div className="flex-1 grid grid-cols-2 md:grid-cols-1 gap-1.5 sm:gap-2 overflow-hidden content-center">
               {primarySewing.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-1.5 p-1.5 sm:p-2 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-xs font-bold text-slate-100 truncate"
+                  className="flex items-center gap-2 p-1.5 sm:p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-[10px] sm:text-sm lg:text-base font-bold text-slate-100 truncate"
                 >
-                  <CheckCircle2 className="w-3 h-3 text-[#55c538] shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
                   <span className="truncate">{item}</span>
                 </div>
               ))}
@@ -190,26 +190,26 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
 
           {/* PANEL 2: SPECIALTY STITCHING */}
-          <div className="flex-1 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl cyber-card border border-purple-500/30 bg-[#091426]/85 flex flex-col justify-between min-h-0">
-            <div className="shrink-0 flex items-center justify-between pb-1 mb-1 sm:pb-2 sm:mb-2 border-b border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400" />
-                <h4 className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wider text-purple-400">
+          <div className="flex-1 p-3 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl cyber-card border border-purple-500/30 bg-[#091426]/90 flex flex-col justify-between min-h-0 shadow-2xl">
+            <div className="shrink-0 flex items-center justify-between pb-1.5 mb-1.5 sm:pb-3 sm:mb-3 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+                <h4 className="text-xs sm:text-base lg:text-lg font-black uppercase tracking-wider text-purple-400">
                   Specialty Stitching
                 </h4>
               </div>
-              <span className="text-[9px] sm:text-xs font-black px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">
+              <span className="text-[10px] sm:text-xs font-black px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">
                 {specialtyStitching.length} Types
               </span>
             </div>
 
-            <div className="flex-1 grid grid-cols-2 md:grid-cols-1 gap-1 sm:gap-1.5 overflow-hidden content-center">
+            <div className="flex-1 grid grid-cols-2 md:grid-cols-1 gap-1.5 sm:gap-2 overflow-hidden content-center">
               {specialtyStitching.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-1.5 p-1.5 sm:p-2 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-xs font-bold text-slate-100 truncate"
+                  className="flex items-center gap-2 p-1.5 sm:p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-[10px] sm:text-sm lg:text-base font-bold text-slate-100 truncate"
                 >
-                  <CheckCircle2 className="w-3 h-3 text-[#55c538] shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
                   <span className="truncate">{item}</span>
                 </div>
               ))}
@@ -217,26 +217,26 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
 
           {/* PANEL 3: FINISHING & ASSEMBLY */}
-          <div className="flex-1 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl cyber-card border border-amber-500/30 bg-[#091426]/85 flex flex-col justify-between min-h-0">
-            <div className="shrink-0 flex items-center justify-between pb-1 mb-1 sm:pb-2 sm:mb-2 border-b border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
-                <h4 className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-wider text-amber-400">
+          <div className="flex-1 p-3 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl cyber-card border border-amber-500/30 bg-[#091426]/90 flex flex-col justify-between min-h-0 shadow-2xl">
+            <div className="shrink-0 flex items-center justify-between pb-1.5 mb-1.5 sm:pb-3 sm:mb-3 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+                <h4 className="text-xs sm:text-base lg:text-lg font-black uppercase tracking-wider text-amber-400">
                   Finishing & Assembly
                 </h4>
               </div>
-              <span className="text-[9px] sm:text-xs font-black px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+              <span className="text-[10px] sm:text-xs font-black px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
                 {finishingAssembly.length} Types
               </span>
             </div>
 
-            <div className="flex-1 grid grid-cols-2 md:grid-cols-1 gap-1 sm:gap-1.5 overflow-hidden content-center">
+            <div className="flex-1 grid grid-cols-2 md:grid-cols-1 gap-1.5 sm:gap-2 overflow-hidden content-center">
               {finishingAssembly.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-1.5 p-1.5 sm:p-2 rounded-lg bg-slate-900/70 border border-slate-800 text-[10px] sm:text-xs font-bold text-slate-100 truncate"
+                  className="flex items-center gap-2 p-1.5 sm:p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 text-[10px] sm:text-sm lg:text-base font-bold text-slate-100 truncate"
                 >
-                  <CheckCircle2 className="w-3 h-3 text-[#55c538] shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
                   <span className="truncate">{item}</span>
                 </div>
               ))}
