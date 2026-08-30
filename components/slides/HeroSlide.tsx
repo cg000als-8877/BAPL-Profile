@@ -120,13 +120,12 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
         </div>
 
         {/* Mobile View: Large Architectural Blend Watermark "SINCE 1995" */}
-        <div className="block md:hidden shrink-0 pt-1 select-none pointer-events-none">
-          <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-white/50 font-mono drop-shadow-sm">
-            <span className="w-1 h-3 bg-[#55c538] rounded-full inline-block" />
-            <span>ESTABLISHED — 1995</span>
+        <div className="block md:hidden shrink-0 pt-1 pl-0.5 select-none pointer-events-none">
+          <div className="text-[11px] font-black uppercase tracking-[0.25em] text-white/40 font-mono mix-blend-overlay">
+            SINCE
           </div>
-          <div className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white/35 mix-blend-overlay drop-shadow-lg font-mono leading-none mt-1">
-            SINCE 1995
+          <div className="text-6xl sm:text-7xl font-black uppercase tracking-tight text-white/25 mix-blend-overlay font-mono leading-none -mt-0.5">
+            1995
           </div>
         </div>
 
