@@ -203,18 +203,16 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* MOBILE VIEW: Bottom-Pinned Responsive Layout */}
         <div
           ref={mobileContentRef}
-          className="flex md:hidden flex-col gap-2.5 w-full mt-auto pb-4"
+          className="flex md:hidden flex-col gap-1.5 w-full mt-auto pb-4 items-center text-center"
         >
-          {/* 1. Title */}
-          <h1 className="text-2xl font-black tracking-tight text-white leading-tight drop-shadow-xl flex items-center gap-2">
-            <span className="w-1.5 h-6 bg-[#55c538] rounded-sm inline-block glow-bar shrink-0" />
-            <span>BYZID APPARELS PVT LTD</span>
+          {/* 1. Title (Center Aligned, No Symbol) */}
+          <h1 className="text-2xl font-black tracking-normal text-white leading-tight drop-shadow-xl text-center w-full">
+            BYZID APPARELS PVT LTD
           </h1>
 
-          {/* 2. Subtitle */}
-          <p className="text-sm font-extrabold text-[#72e055] flex items-center gap-1.5 drop-shadow-md ml-3.5">
-            <Sparkles className="w-4 h-4 shrink-0 text-[#55c538]" />
-            <span>Exporting Quality. Delivering Trust.</span>
+          {/* 2. Subtitle (Center Aligned, No Symbol, Green Color) */}
+          <p className="text-sm font-extrabold text-[#72e055] text-center drop-shadow-md w-full">
+            Exporting Quality. Delivering Trust.
           </p>
 
           {/* 3. Cards Grid on Mobile */}
