@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { Globe2 } from "lucide-react";
+import { Globe2, Sparkles } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
@@ -15,6 +15,8 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+
+  const [activeBuyerId, setActiveBuyerId] = useState<number | null>(null);
 
   useEffect(() => {
     if (!isActive) return;
@@ -203,49 +205,67 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Bento Grid of Buyer Logos with Interactive Country/Flag Hover Overlay */}
+        {/* 2. Responsive Bento Grid: 2-Col Mobile (Generous Large Logo Size) & 4-Col Desktop */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-4 gap-2 sm:gap-3.5 min-h-0"
+          className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3.5 min-h-0 overflow-y-auto sm:overflow-visible pr-0.5"
         >
-          {buyerLogos.map((buyer) => (
-            <div
-              key={buyer.id}
-              className="group relative bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-xl border border-white/80 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl flex items-center justify-center h-full overflow-hidden cursor-pointer"
-            >
-              {/* Default State: Clean Transparent PNG Brand Logo */}
-              <div className="relative w-full h-full flex items-center justify-center transition-all duration-300 group-hover:opacity-10 group-hover:scale-90">
-                <Image
-                  src={buyer.src}
-                  alt={buyer.name}
-                  fill
-                  sizes="(max-width: 768px) 25vw, 20vw"
-                  className="object-contain object-center p-1 sm:p-2"
-                />
+          {buyerLogos.map((buyer) => {
+            const isSelected = activeBuyerId === buyer.id;
+            return (
+              <div
+                key={buyer.id}
+                onClick={() =>
+                  setActiveBuyerId(isSelected ? null : buyer.id)
+                }
+                className="group relative bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-xl border border-white/80 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl flex items-center justify-center min-h-[64px] sm:min-h-[85px] md:min-h-0 h-full overflow-hidden cursor-pointer"
+              >
+                {/* Default State: Clean High-Res Transparent PNG Brand Logo */}
+                <div
+                  className={`relative w-full h-full flex items-center justify-center transition-all duration-300 ${
+                    isSelected
+                      ? "opacity-10 scale-90"
+                      : "opacity-100 group-hover:opacity-10 group-hover:scale-90"
+                  }`}
+                >
+                  <Image
+                    src={buyer.src}
+                    alt={buyer.name}
+                    fill
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
+                    className="object-contain object-center p-1 sm:p-2"
+                  />
+                </div>
+
+                {/* Interactive Overlay: Shows on Desktop Hover & Mobile Click/Tap */}
+                <div
+                  className={`absolute inset-0 bg-slate-950/95 backdrop-blur-md transition-all duration-300 flex flex-col items-center justify-center p-1.5 sm:p-3 text-center border border-[#55c538]/50 rounded-xl sm:rounded-2xl shadow-2xl ${
+                    isSelected
+                      ? "opacity-100 pointer-events-auto"
+                      : "opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto"
+                  }`}
+                >
+                  {/* Flag Emoji Badge */}
+                  <span className="text-2xl sm:text-3xl md:text-4xl drop-shadow-md mb-0.5 sm:mb-1 animate-bounce">
+                    {buyer.flag}
+                  </span>
+
+                  {/* Brand Name */}
+                  <h4 className="text-xs sm:text-sm font-black text-white leading-tight truncate max-w-full">
+                    {buyer.name}
+                  </h4>
+
+                  {/* Origin Country & Region */}
+                  <span className="text-[10px] sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider mt-0.5">
+                    {buyer.country}
+                  </span>
+                  <span className="text-[9px] sm:text-[10px] text-slate-400 font-medium truncate max-w-full">
+                    {buyer.region}
+                  </span>
+                </div>
               </div>
-
-              {/* Hover / Active Overlay: Origin Country & National Flag */}
-              <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-1.5 sm:p-3 text-center border border-[#55c538]/50 rounded-xl sm:rounded-2xl shadow-2xl">
-                {/* Flag Emoji Badge */}
-                <span className="text-xl sm:text-3xl md:text-4xl drop-shadow-md mb-0.5 sm:mb-1 animate-bounce">
-                  {buyer.flag}
-                </span>
-
-                {/* Brand Name */}
-                <h4 className="text-[10px] sm:text-xs md:text-sm font-black text-white leading-tight truncate max-w-full">
-                  {buyer.name}
-                </h4>
-
-                {/* Origin Country & Region */}
-                <span className="text-[9px] sm:text-[11px] md:text-xs font-extrabold text-[#72e055] uppercase tracking-wider mt-0.5">
-                  {buyer.country}
-                </span>
-                <span className="hidden sm:inline text-[9px] sm:text-[10px] text-slate-400 font-medium">
-                  {buyer.region}
-                </span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </AspectWrapper>
