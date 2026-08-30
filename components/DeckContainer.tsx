@@ -10,8 +10,9 @@ import { MachinerySlide } from "./slides/MachinerySlide";
 import { ProductsSlide } from "./slides/ProductsSlide";
 import { BuyersSlide } from "./slides/BuyersSlide";
 import { CertificationsSlide } from "./slides/CertificationsSlide";
+import { ThankYouSlide } from "./slides/ThankYouSlide";
 
-const TOTAL_SLIDES = 9;
+const TOTAL_SLIDES = 10;
 
 export const DeckContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -156,7 +157,7 @@ export const DeckContainer: React.FC = () => {
         <CompanyDetailsSlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
-      {/* Slide 3: Contact Us */}
+      {/* Slide 3: Contact Us (Key Contact Persons & Address) */}
       <section
         ref={(el) => { slideRefs.current[2] = el; }}
         id="slide-3"
@@ -201,7 +202,7 @@ export const DeckContainer: React.FC = () => {
         <ProductsSlide isActive={currentSlide === 6} />
       </section>
 
-      {/* Slide 8: Buyers We Handled (Dedicated Slide - PDF Page 21) */}
+      {/* Slide 8: Buyers We Handled */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"
@@ -210,13 +211,25 @@ export const DeckContainer: React.FC = () => {
         <BuyersSlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
-      {/* Slide 9: We Are Certified By (Dedicated Slide - PDF Page 22) */}
+      {/* Slide 9: We Are Certified By */}
       <section
         ref={(el) => { slideRefs.current[8] = el; }}
         id="slide-9"
         className="slide slide-9"
       >
-        <CertificationsSlide isActive={currentSlide === 8} />
+        <CertificationsSlide isActive={currentSlide === 8} onNext={handleNext} />
+      </section>
+
+      {/* Slide 10: Blank Thank You Page with Shortcut Contact Us Button */}
+      <section
+        ref={(el) => { slideRefs.current[9] = el; }}
+        id="slide-10"
+        className="slide slide-10"
+      >
+        <ThankYouSlide
+          isActive={currentSlide === 9}
+          onNavigateToContact={() => scrollToSlide(2)}
+        />
       </section>
     </main>
   );
