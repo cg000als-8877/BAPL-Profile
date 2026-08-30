@@ -19,10 +19,6 @@ export const DeckContainer: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
   const slideRefs = useRef<(HTMLElement | null)[]>([]);
 
-  const touchStartY = useRef<number>(0);
-  const touchStartX = useRef<number>(0);
-  const isNavigating = useRef<boolean>(false);
-
   const scrollToSlide = useCallback((index: number) => {
     if (index < 0 || index >= TOTAL_SLIDES) return;
     const target = slideRefs.current[index];
@@ -101,77 +97,6 @@ export const DeckContainer: React.FC = () => {
     window.addEventListener("wheel", handleWheel, { passive: false });
     return () => window.removeEventListener("wheel", handleWheel);
   }, [handleNext, handlePrev]);
-
-  // Mobile Touch Swipe with Scroll-Boundary Detection
-  // Only transitions to next/prev slide when the current slide's content finishes scrolling
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY.current = e.touches[0].clientY;
-      touchStartX.current = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = (e: TouchEvent) => {
-      if (window.innerWidth >= 768) return;
-      if (isNavigating.current) return;
-
-      const touchEndY = e.changedTouches[0].clientY;
-      const touchEndX = e.changedTouches[0].clientX;
-      const diffY = touchStartY.current - touchEndY;
-      const diffX = touchStartX.current - touchEndX;
-
-      // Vertical swipe threshold (min 45px swipe)
-      if (Math.abs(diffY) > 45 && Math.abs(diffY) > Math.abs(diffX)) {
-        const activeSlideEl = slideRefs.current[currentSlide];
-        const scrollableEl = activeSlideEl?.querySelector(".slide-content-wrapper") as HTMLElement | null;
-
-        if (diffY > 0) {
-          // Swiping UP -> scrolling DOWN
-          if (scrollableEl) {
-            const atBottom =
-              scrollableEl.scrollHeight -
-                scrollableEl.scrollTop -
-                scrollableEl.clientHeight <=
-              15;
-
-            if (atBottom) {
-              isNavigating.current = true;
-              handleNext();
-              setTimeout(() => {
-                isNavigating.current = false;
-              }, 500);
-            }
-          } else {
-            handleNext();
-          }
-        } else {
-          // Swiping DOWN -> scrolling UP
-          if (scrollableEl) {
-            const atTop = scrollableEl.scrollTop <= 15;
-
-            if (atTop) {
-              isNavigating.current = true;
-              handlePrev();
-              setTimeout(() => {
-                isNavigating.current = false;
-              }, 500);
-            }
-          } else {
-            handlePrev();
-          }
-        }
-      }
-    };
-
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchend", handleTouchEnd, { passive: true });
-
-    return () => {
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [currentSlide, handleNext, handlePrev]);
 
   // Keyboard navigation
   useEffect(() => {
