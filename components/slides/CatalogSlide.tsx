@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
@@ -10,6 +10,43 @@ interface SlideProps {
   isActive: boolean;
   onNext?: () => void;
 }
+
+interface FrameProps {
+  id: number;
+  label: string;
+}
+
+const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
+  const [hasError, setHasError] = useState(false);
+  const imageSrc = `/Product Images/${id}.png`;
+
+  return (
+    <div className="group relative w-full aspect-[3/4] max-h-[16vh] sm:max-h-[18vh] bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-1 sm:p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.04] hover:shadow-[#55c538]/30 cursor-pointer">
+      {!hasError ? (
+        <div className="relative w-full h-full rounded-lg sm:rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center">
+          <Image
+            src={imageSrc}
+            alt={label}
+            fill
+            unoptimized
+            onError={() => setHasError(true)}
+            sizes="(max-width: 640px) 33vw, 20vw"
+            className="object-cover object-center"
+          />
+        </div>
+      ) : (
+        <div className="w-full h-full rounded-lg sm:rounded-xl border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1 transition-colors group-hover:border-[#55c538]/60 bg-slate-50/60">
+          <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
+            <ImageIcon className="w-3 h-3 sm:w-4 sm:h-4" />
+          </div>
+          <span className="text-[8px] sm:text-[9.5px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 sm:mt-1 uppercase tracking-wider font-mono">
+            {label}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -44,10 +81,9 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     return () => ctx.revert();
   }, [isActive]);
 
-  // Total 20 Blank 3:4 Catalog Frames
+  // Total 20 Frames loaded from /Product Images/{1..20}.png
   const catalogFrames = Array.from({ length: 20 }, (_, i) => ({
     id: i + 1,
-    src: "",
     label: `Look ${String(i + 1).padStart(2, "0")}`,
   }));
 
@@ -79,36 +115,17 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Adjusted 20 Blank 3:4 Frames Grid (Fits 100% inside Desktop & Mobile) */}
+        {/* 2. Grid: Exactly 3 Frames in One Row on Mobile (grid-cols-3) & 5 Frames per Row on Desktop (md:grid-cols-5) */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-1.5 sm:gap-2.5 md:gap-3 min-h-0 content-center my-auto py-1"
+          className="flex-1 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-2 sm:gap-2.5 md:gap-3 min-h-0 content-center my-auto py-1"
         >
           {catalogFrames.map((frame) => (
-            <div
+            <CatalogFrameItem
               key={frame.id}
-              className="group relative w-full aspect-[3/4] max-h-[14vh] sm:max-h-[16vh] lg:max-h-[18vh] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-1 sm:p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.04] hover:shadow-[#55c538]/30 cursor-pointer"
-            >
-              {frame.src ? (
-                <Image
-                  src={frame.src}
-                  alt={frame.label}
-                  fill
-                  unoptimized
-                  sizes="(max-width: 640px) 25vw, 20vw"
-                  className="object-cover object-center rounded-md sm:rounded-lg"
-                />
-              ) : (
-                <div className="w-full h-full rounded-md sm:rounded-lg border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1 transition-colors group-hover:border-[#55c538]/60 bg-slate-50/60">
-                  <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
-                    <ImageIcon className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </div>
-                  <span className="text-[8px] sm:text-[9.5px] md:text-[10.5px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 sm:mt-1 uppercase tracking-wider font-mono">
-                    {frame.label}
-                  </span>
-                </div>
-              )}
-            </div>
+              id={frame.id}
+              label={frame.label}
+            />
           ))}
         </div>
       </div>
