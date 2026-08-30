@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { Globe2, Sparkles } from "lucide-react";
+import { Globe2 } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
@@ -16,7 +16,7 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  const [activeBuyerId, setActiveBuyerId] = useState<number | null>(null);
+  const [activeBuyerId, setActiveBuyerId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isActive) return;
@@ -48,132 +48,132 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
 
   const buyerLogos = [
     {
-      id: 10,
+      id: "bcbg",
       name: "BCBG",
       country: "United States",
       flag: "🇺🇸",
       region: "California, USA",
-      src: "/logos/buyers/10.png",
+      src: "/logos/buyers/BCBG.png",
     },
     {
-      id: 1,
+      id: "body-glove",
       name: "Body Glove",
       country: "United States",
       flag: "🇺🇸",
       region: "California, USA",
-      src: "/logos/buyers/1.png",
+      src: "/logos/buyers/Body Glove.png",
     },
     {
-      id: 17,
+      id: "true-religion",
       name: "True Religion",
       country: "United States",
       flag: "🇺🇸",
       region: "California, USA",
-      src: "/logos/buyers/17.png",
+      src: "/logos/buyers/TRUE RELIGION.png",
     },
     {
-      id: 16,
+      id: "stokomani",
       name: "Stokomani",
       country: "France",
       flag: "🇫🇷",
       region: "Paris, France",
-      src: "/logos/buyers/16.png",
+      src: "/logos/buyers/STOK OMANI.png",
     },
     {
-      id: 15,
-      name: "Torkard Clothing",
+      id: "torkard",
+      name: "Torkard",
       country: "United Kingdom",
       flag: "🇬🇧",
       region: "Nottingham, UK",
-      src: "/logos/buyers/15.png",
+      src: "/logos/buyers/TORKARD.png",
     },
     {
-      id: 7,
+      id: "airwalk",
       name: "Airwalk",
       country: "United States",
       flag: "🇺🇸",
       region: "California, USA",
-      src: "/logos/buyers/7.png",
+      src: "/logos/buyers/AIRWALK.png",
     },
     {
-      id: 5,
-      name: "Bench",
+      id: "bench",
+      name: "Bench.",
       country: "United Kingdom",
       flag: "🇬🇧",
       region: "Manchester, UK",
-      src: "/logos/buyers/5.png",
+      src: "/logos/buyers/BENCH.png",
     },
     {
-      id: 8,
+      id: "joes",
       name: "Joe's Jeans",
       country: "United States",
       flag: "🇺🇸",
       region: "Los Angeles, USA",
-      src: "/logos/buyers/8.png",
+      src: "/logos/buyers/JOE'S.png",
     },
     {
-      id: 6,
-      name: "Original Weatherproof",
+      id: "weatherproof",
+      name: "Weatherproof",
       country: "United States",
       flag: "🇺🇸",
       region: "New York, USA",
-      src: "/logos/buyers/6.png",
+      src: "/logos/buyers/WEATHERPROOF.png",
     },
     {
-      id: 2,
+      id: "soulstar",
       name: "Soul Star",
       country: "United Kingdom",
       flag: "🇬🇧",
       region: "London, UK",
-      src: "/logos/buyers/2.png",
+      src: "/logos/buyers/SOULSTAR.png",
     },
     {
-      id: 13,
+      id: "brave-soul",
       name: "Brave Soul",
       country: "United Kingdom",
       flag: "🇬🇧",
       region: "London, UK",
-      src: "/logos/buyers/13.png",
+      src: "/logos/buyers/BRAVE SOUL.png",
     },
     {
-      id: 3,
-      name: "Buffalo David Bitton",
+      id: "buffalo",
+      name: "Buffalo",
       country: "Canada",
       flag: "🇨🇦",
       region: "Montreal, Canada",
-      src: "/logos/buyers/3.png",
+      src: "/logos/buyers/BUFFALO.png",
     },
     {
-      id: 4,
+      id: "dkny",
       name: "DKNY",
       country: "United States",
       flag: "🇺🇸",
       region: "New York, USA",
-      src: "/logos/buyers/4.png",
+      src: "/logos/buyers/DKNY.png",
     },
     {
-      id: 12,
+      id: "umbro",
       name: "Umbro",
       country: "United Kingdom",
       flag: "🇬🇧",
       region: "Cheshire, UK",
-      src: "/logos/buyers/12.png",
+      src: "/logos/buyers/UMBRO.png",
     },
     {
-      id: 9,
+      id: "stevejeans",
       name: "Steve Jeans",
       country: "France",
       flag: "🇫🇷",
       region: "Paris, France",
-      src: "/logos/buyers/9.png",
+      src: "/logos/buyers/STEVEJEANS.png",
     },
     {
-      id: 14,
+      id: "kenneth-cole",
       name: "Kenneth Cole",
       country: "United States",
       flag: "🇺🇸",
       region: "New York, USA",
-      src: "/logos/buyers/14.png",
+      src: "/logos/buyers/KENNETH COLE.png",
     },
   ];
 
@@ -205,10 +205,10 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Responsive Bento Grid: 2-Col Mobile (Generous Large Logo Size) & 4-Col Desktop */}
+        {/* 2. Responsive Bento Grid: 2-Col Mobile & 4-Col Desktop */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3.5 min-h-0 overflow-y-auto sm:overflow-visible pr-0.5"
+          className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3.5 min-h-0"
         >
           {buyerLogos.map((buyer) => {
             const isSelected = activeBuyerId === buyer.id;
@@ -232,6 +232,7 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
                     src={buyer.src}
                     alt={buyer.name}
                     fill
+                    unoptimized
                     sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
                     className="object-contain object-center p-1 sm:p-2"
                   />
