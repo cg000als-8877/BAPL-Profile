@@ -148,7 +148,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     },
   ];
 
-  const catalogFrames = Array.from({ length: 30 }, (_, i) => ({
+  const catalogFrames = Array.from({ length: 40 }, (_, i) => ({
     id: i + 1,
     label: `Look ${String(i + 1).padStart(2, "0")}`,
   }));
@@ -226,7 +226,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
               </h3>
             </div>
             <span className="text-[9px] font-bold text-[#72e055] px-2 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
-              30 Looks
+              40 Looks
             </span>
           </div>
 

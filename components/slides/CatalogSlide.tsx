@@ -29,7 +29,7 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   };
 
   return (
-    <div className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl p-1 sm:p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.05] hover:shadow-[#55c538]/30 cursor-pointer">
+    <div className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl p-0.5 sm:p-1 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.05] hover:shadow-[#55c538]/30 cursor-pointer">
       {!hasError ? (
         <div className="relative w-full h-full rounded-md sm:rounded-lg overflow-hidden bg-slate-50 flex items-center justify-center">
           <Image
@@ -39,15 +39,15 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
             unoptimized
             onError={handleError}
             sizes="(max-width: 1024px) 15vw, 10vw"
-            className="object-contain object-center p-0.5 sm:p-1"
+            className="object-contain object-center p-0.5"
           />
         </div>
       ) : (
-        <div className="w-full h-full rounded-md sm:rounded-lg border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1 transition-colors group-hover:border-[#55c538]/60 bg-slate-50/60">
-          <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
-            <ImageIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+        <div className="w-full h-full rounded-md sm:rounded-lg border border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-0.5 transition-colors group-hover:border-[#55c538]/60 bg-slate-50/60">
+          <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-md bg-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
+            <ImageIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
           </div>
-          <span className="text-[7px] sm:text-[8px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[6.5px] sm:text-[7.5px] font-black text-slate-400 group-hover:text-slate-700 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>
@@ -79,7 +79,7 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
           opacity: 1,
           scale: 1,
           duration: 0.35,
-          stagger: 0.01,
+          stagger: 0.008,
           ease: "expo.out",
           delay: 0.05,
         }
@@ -89,8 +89,8 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     return () => ctx.revert();
   }, [isActive]);
 
-  // 30 Blank 3:4 Frames filling 3 full rows of 10 frames on Desktop
-  const catalogFrames = Array.from({ length: 30 }, (_, i) => ({
+  // 40 Blank 3:4 Frames filling 4 full rows of 10 frames on Desktop
+  const catalogFrames = Array.from({ length: 40 }, (_, i) => ({
     id: i + 1,
     label: `Look ${String(i + 1).padStart(2, "0")}`,
   }));
@@ -99,34 +99,34 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-3.5 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-start md:justify-between gap-2.5 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-3.5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-start md:justify-between gap-2 sm:gap-3 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* 1. Header: PRODUCT IMAGES */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between mb-1 sm:mb-0">
           <div className="flex items-center gap-2.5 sm:gap-4">
-            <div className="w-1.5 sm:w-2.5 h-5 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
+            <div className="w-1.5 sm:w-2.5 h-5 sm:h-10 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-[9px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+              <div className="text-[9px] sm:text-xs font-extrabold uppercase tracking-widest text-[#72e055]">
                 Garment Lookbook & Portfolio
               </div>
-              <h2 className="text-lg sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
                 PRODUCT IMAGES
               </h2>
             </div>
           </div>
 
-          <div className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
+          <div className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
             <Sparkles className="w-4 h-4 text-[#55c538]" />
-            <span>30 Showcase Styles</span>
+            <span>40 Showcase Styles</span>
           </div>
         </div>
 
-        {/* 2. Grid: 10 Frames per row on Desktop (md:grid-cols-10) with 3 full rows filling the slide */}
+        {/* 2. Grid: 10 Frames per row on Desktop (md:grid-cols-10) with 4 full rows of 10 */}
         <div
           ref={gridRef}
-          className="w-full grid grid-cols-4 sm:grid-cols-5 md:grid-cols-10 gap-2 sm:gap-2 md:gap-2.5 lg:gap-3 py-1 pb-6 md:pb-1 my-auto auto-rows-max"
+          className="w-full grid grid-cols-4 sm:grid-cols-5 md:grid-cols-10 gap-1.5 sm:gap-2 md:gap-2 lg:gap-2.5 py-1 pb-6 md:pb-1 my-auto auto-rows-max"
         >
           {catalogFrames.map((frame) => (
             <CatalogFrameItem
