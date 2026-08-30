@@ -192,7 +192,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2.5 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-4 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -216,17 +216,17 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW ONLY: Vertically Middle-Aligned Stack with Bigger Titles & Verbatim Data */}
+        {/* 2. MOBILE VIEW ONLY: Standard Consistent Gap & Vertically Centered Content */}
         <div
           ref={mobileStackRef}
-          className="flex-1 flex flex-col md:hidden gap-1.5 min-h-0"
+          className="flex-1 flex flex-col md:hidden gap-2.5 min-h-0"
         >
           {mobilePillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.id}
-                className={`flex-1 p-2.5 rounded-xl cyber-card border ${pillar.border} bg-[#091426]/95 flex flex-col justify-center shadow-lg min-h-0`}
+                className={`flex-1 p-3 rounded-xl cyber-card border ${pillar.border} bg-[#091426]/95 flex flex-col justify-center shadow-lg min-h-0`}
               >
                 {/* Header Row: Index & Glowing Icon */}
                 <div className="flex items-center justify-between mb-1">
