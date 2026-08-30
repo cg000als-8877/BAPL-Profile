@@ -8,9 +8,10 @@ import { StrategySlide } from "./slides/StrategySlide";
 import { ProductionUnitSlide } from "./slides/ProductionUnitSlide";
 import { MachinerySlide } from "./slides/MachinerySlide";
 import { ProductsSlide } from "./slides/ProductsSlide";
-import { TrustSlide } from "./slides/TrustSlide";
+import { BuyersSlide } from "./slides/BuyersSlide";
+import { CertificationsSlide } from "./slides/CertificationsSlide";
 
-const TOTAL_SLIDES = 8;
+const TOTAL_SLIDES = 9;
 
 export const DeckContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -146,7 +147,7 @@ export const DeckContainer: React.FC = () => {
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>
 
-      {/* Slide 2: Company Details (Separated Slide) */}
+      {/* Slide 2: Company Details */}
       <section
         ref={(el) => { slideRefs.current[1] = el; }}
         id="slide-2"
@@ -155,7 +156,7 @@ export const DeckContainer: React.FC = () => {
         <CompanyDetailsSlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
-      {/* Slide 3: Contact Us (Separated Slide) */}
+      {/* Slide 3: Contact Us */}
       <section
         ref={(el) => { slideRefs.current[2] = el; }}
         id="slide-3"
@@ -173,7 +174,7 @@ export const DeckContainer: React.FC = () => {
         <StrategySlide isActive={currentSlide === 3} />
       </section>
 
-      {/* Slide 5: Production Unit & Facility (with Blueprint) */}
+      {/* Slide 5: Production Unit & Facility */}
       <section
         ref={(el) => { slideRefs.current[4] = el; }}
         id="slide-5"
@@ -200,13 +201,22 @@ export const DeckContainer: React.FC = () => {
         <ProductsSlide isActive={currentSlide === 6} />
       </section>
 
-      {/* Slide 8: Global Trust & Compliance */}
+      {/* Slide 8: Buyers We Handled (Dedicated Slide - PDF Page 21) */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"
         className="slide slide-8"
       >
-        <TrustSlide isActive={currentSlide === 7} />
+        <BuyersSlide isActive={currentSlide === 7} onNext={handleNext} />
+      </section>
+
+      {/* Slide 9: We Are Certified By (Dedicated Slide - PDF Page 22) */}
+      <section
+        ref={(el) => { slideRefs.current[8] = el; }}
+        id="slide-9"
+        className="slide slide-9"
+      >
+        <CertificationsSlide isActive={currentSlide === 8} />
       </section>
     </main>
   );
