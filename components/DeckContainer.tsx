@@ -6,13 +6,14 @@ import { StrategySlide } from "./slides/StrategySlide";
 import { ProductionUnitSlide } from "./slides/ProductionUnitSlide";
 import { MachinerySlide } from "./slides/MachinerySlide";
 import { ProductsSlide } from "./slides/ProductsSlide";
+import { CatalogSlide } from "./slides/CatalogSlide";
 import { CertificationsSlide } from "./slides/CertificationsSlide";
 import { BuyersSlide } from "./slides/BuyersSlide";
 import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
 import { ContactSlide } from "./slides/ContactSlide";
 import { ThankYouSlide } from "./slides/ThankYouSlide";
 
-const TOTAL_SLIDES = 10;
+const TOTAL_SLIDES = 11;
 
 export const DeckContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -175,7 +176,7 @@ export const DeckContainer: React.FC = () => {
         <MachinerySlide isActive={currentSlide === 3} onNext={handleNext} />
       </section>
 
-      {/* Slide 5: Product Verticals & Portfolio */}
+      {/* Slide 5: Product Verticals & Scope */}
       <section
         ref={(el) => { slideRefs.current[4] = el; }}
         id="slide-5"
@@ -184,51 +185,60 @@ export const DeckContainer: React.FC = () => {
         <ProductsSlide isActive={currentSlide === 4} />
       </section>
 
-      {/* Slide 6: We Are Certified By */}
+      {/* Slide 6: Product Catalog / Lookbook (3:4 Blank White Frames, No Title) */}
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
         id="slide-6"
         className="slide slide-6"
       >
-        <CertificationsSlide isActive={currentSlide === 5} onNext={handleNext} />
+        <CatalogSlide isActive={currentSlide === 5} onNext={handleNext} />
       </section>
 
-      {/* Slide 7: Buyers We Handled */}
+      {/* Slide 7: We Are Certified By */}
       <section
         ref={(el) => { slideRefs.current[6] = el; }}
         id="slide-7"
         className="slide slide-7"
       >
-        <BuyersSlide isActive={currentSlide === 6} onNext={handleNext} />
+        <CertificationsSlide isActive={currentSlide === 6} onNext={handleNext} />
       </section>
 
-      {/* Slide 8: Company Details & Regulatory Profile */}
+      {/* Slide 8: Buyers We Handled */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"
         className="slide slide-8"
       >
-        <CompanyDetailsSlide isActive={currentSlide === 7} onNext={handleNext} />
+        <BuyersSlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
-      {/* Slide 9: Contact Us */}
+      {/* Slide 9: Company Details & Regulatory Profile */}
       <section
         ref={(el) => { slideRefs.current[8] = el; }}
         id="slide-9"
         className="slide slide-9"
       >
-        <ContactSlide isActive={currentSlide === 8} />
+        <CompanyDetailsSlide isActive={currentSlide === 8} onNext={handleNext} />
       </section>
 
-      {/* Slide 10: Thank You */}
+      {/* Slide 10: Contact Us */}
       <section
         ref={(el) => { slideRefs.current[9] = el; }}
         id="slide-10"
         className="slide slide-10"
       >
+        <ContactSlide isActive={currentSlide === 9} />
+      </section>
+
+      {/* Slide 11: Thank You */}
+      <section
+        ref={(el) => { slideRefs.current[10] = el; }}
+        id="slide-11"
+        className="slide slide-11"
+      >
         <ThankYouSlide
-          isActive={currentSlide === 9}
-          onNavigateToContact={() => scrollToSlide(8)}
+          isActive={currentSlide === 10}
+          onNavigateToContact={() => scrollToSlide(9)}
         />
       </section>
     </main>
