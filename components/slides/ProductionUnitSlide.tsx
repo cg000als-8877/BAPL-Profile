@@ -94,13 +94,13 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. CENTER-UPPER: Blueprint Image (Exact Natural Ratio) */}
+        {/* 2. CENTER-UPPER: Blueprint Image (Expanded Width on Mobile) */}
         <div
           ref={blueprintRef}
           className="shrink-0 w-full flex items-center justify-center my-0"
         >
-          {/* Mobile Image: Exact 738/352 aspect ratio container */}
-          <div className="block md:hidden relative w-full aspect-[738/352] max-h-[180px]">
+          {/* Mobile Image: Expanded -mx-4 to bleed edge-to-edge horizontally and scale up */}
+          <div className="block md:hidden relative -mx-4 w-[calc(100%+2rem)] aspect-[738/352] max-h-[220px]">
             <Image
               src="/mobile-bp.png"
               alt="Byzid Apparels Architectural Blueprint Mobile View"
@@ -108,7 +108,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
               priority
               unoptimized
               sizes="100vw"
-              className="object-contain object-center"
+              className="object-contain object-center scale-105"
             />
           </div>
 
@@ -204,7 +204,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 4. BOTTOM: Enlarged Production Unit Address Card */}
+        {/* 4. BOTTOM: Production Unit Address Card */}
         <div
           ref={addressRef}
           className="shrink-0 p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-950/95 shadow-2xl"
