@@ -45,22 +45,134 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
   }, [isActive]);
 
   const buyerLogos = [
-    { id: 4, src: "/logos/buyers/4.png", alt: "DKNY" },
-    { id: 1, src: "/logos/buyers/1.png", alt: "Body Glove" },
-    { id: 17, src: "/logos/buyers/17.png", alt: "True Religion" },
-    { id: 12, src: "/logos/buyers/12.png", alt: "Umbro" },
-    { id: 5, src: "/logos/buyers/5.png", alt: "Bench" },
-    { id: 3, src: "/logos/buyers/3.png", alt: "Buffalo David Bitton" },
-    { id: 7, src: "/logos/buyers/7.png", alt: "Airwalk" },
-    { id: 8, src: "/logos/buyers/8.png", alt: "Joe's Jeans" },
-    { id: 14, src: "/logos/buyers/14.png", alt: "Kenneth Cole" },
-    { id: 6, src: "/logos/buyers/6.png", alt: "Original Weatherproof" },
-    { id: 10, src: "/logos/buyers/10.png", alt: "BCBG" },
-    { id: 13, src: "/logos/buyers/13.png", alt: "Brave Soul" },
-    { id: 2, src: "/logos/buyers/2.png", alt: "Soul Star" },
-    { id: 9, src: "/logos/buyers/9.png", alt: "Steve Jeans" },
-    { id: 15, src: "/logos/buyers/15.png", alt: "Torkard Clothing" },
-    { id: 16, src: "/logos/buyers/16.png", alt: "Stokomani" },
+    {
+      id: 10,
+      name: "BCBG",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "California, USA",
+      src: "/logos/buyers/10.png",
+    },
+    {
+      id: 1,
+      name: "Body Glove",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "California, USA",
+      src: "/logos/buyers/1.png",
+    },
+    {
+      id: 17,
+      name: "True Religion",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "California, USA",
+      src: "/logos/buyers/17.png",
+    },
+    {
+      id: 16,
+      name: "Stokomani",
+      country: "France",
+      flag: "🇫🇷",
+      region: "Paris, France",
+      src: "/logos/buyers/16.png",
+    },
+    {
+      id: 15,
+      name: "Torkard Clothing",
+      country: "United Kingdom",
+      flag: "🇬🇧",
+      region: "Nottingham, UK",
+      src: "/logos/buyers/15.png",
+    },
+    {
+      id: 7,
+      name: "Airwalk",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "California, USA",
+      src: "/logos/buyers/7.png",
+    },
+    {
+      id: 5,
+      name: "Bench",
+      country: "United Kingdom",
+      flag: "🇬🇧",
+      region: "Manchester, UK",
+      src: "/logos/buyers/5.png",
+    },
+    {
+      id: 8,
+      name: "Joe's Jeans",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "Los Angeles, USA",
+      src: "/logos/buyers/8.png",
+    },
+    {
+      id: 6,
+      name: "Original Weatherproof",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "New York, USA",
+      src: "/logos/buyers/6.png",
+    },
+    {
+      id: 2,
+      name: "Soul Star",
+      country: "United Kingdom",
+      flag: "🇬🇧",
+      region: "London, UK",
+      src: "/logos/buyers/2.png",
+    },
+    {
+      id: 13,
+      name: "Brave Soul",
+      country: "United Kingdom",
+      flag: "🇬🇧",
+      region: "London, UK",
+      src: "/logos/buyers/13.png",
+    },
+    {
+      id: 3,
+      name: "Buffalo David Bitton",
+      country: "Canada",
+      flag: "🇨🇦",
+      region: "Montreal, Canada",
+      src: "/logos/buyers/3.png",
+    },
+    {
+      id: 4,
+      name: "DKNY",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "New York, USA",
+      src: "/logos/buyers/4.png",
+    },
+    {
+      id: 12,
+      name: "Umbro",
+      country: "United Kingdom",
+      flag: "🇬🇧",
+      region: "Cheshire, UK",
+      src: "/logos/buyers/12.png",
+    },
+    {
+      id: 9,
+      name: "Steve Jeans",
+      country: "France",
+      flag: "🇫🇷",
+      region: "Paris, France",
+      src: "/logos/buyers/9.png",
+    },
+    {
+      id: 14,
+      name: "Kenneth Cole",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "New York, USA",
+      src: "/logos/buyers/14.png",
+    },
   ];
 
   return (
@@ -91,24 +203,46 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Compact, Snug Bento Grid (No Huge Gaps, Fits 100% On Mobile & Desktop) */}
+        {/* 2. Bento Grid of Buyer Logos with Interactive Country/Flag Hover Overlay */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-4 gap-1.5 sm:gap-3.5 min-h-0"
+          className="flex-1 grid grid-cols-4 gap-2 sm:gap-3.5 min-h-0"
         >
           {buyerLogos.map((buyer) => (
             <div
               key={buyer.id}
-              className="group relative bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-1.5 sm:p-4 shadow-lg border border-white/80 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl flex items-center justify-center h-full overflow-hidden"
+              className="group relative bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-xl border border-white/80 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl flex items-center justify-center h-full overflow-hidden cursor-pointer"
             >
-              <div className="relative w-full h-full">
+              {/* Default State: Clean Transparent PNG Brand Logo */}
+              <div className="relative w-full h-full flex items-center justify-center transition-all duration-300 group-hover:opacity-10 group-hover:scale-90">
                 <Image
                   src={buyer.src}
-                  alt={buyer.alt}
+                  alt={buyer.name}
                   fill
-                  sizes="(max-width: 768px) 25vw, 25vw"
-                  className="object-contain object-center transition-transform duration-300 group-hover:scale-105 p-1"
+                  sizes="(max-width: 768px) 25vw, 20vw"
+                  className="object-contain object-center p-1 sm:p-2"
                 />
+              </div>
+
+              {/* Hover / Active Overlay: Origin Country & National Flag */}
+              <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-1.5 sm:p-3 text-center border border-[#55c538]/50 rounded-xl sm:rounded-2xl shadow-2xl">
+                {/* Flag Emoji Badge */}
+                <span className="text-xl sm:text-3xl md:text-4xl drop-shadow-md mb-0.5 sm:mb-1 animate-bounce">
+                  {buyer.flag}
+                </span>
+
+                {/* Brand Name */}
+                <h4 className="text-[10px] sm:text-xs md:text-sm font-black text-white leading-tight truncate max-w-full">
+                  {buyer.name}
+                </h4>
+
+                {/* Origin Country & Region */}
+                <span className="text-[9px] sm:text-[11px] md:text-xs font-extrabold text-[#72e055] uppercase tracking-wider mt-0.5">
+                  {buyer.country}
+                </span>
+                <span className="hidden sm:inline text-[9px] sm:text-[10px] text-slate-400 font-medium">
+                  {buyer.region}
+                </span>
               </div>
             </div>
           ))}
