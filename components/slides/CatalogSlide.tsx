@@ -104,8 +104,8 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
     return () => ctx.revert();
   }, [isActive]);
 
-  // 40 Blank 3:4 Frames filling 4 full rows of 10 frames on Desktop
-  const catalogFrames = Array.from({ length: 40 }, (_, i) => ({
+  // 50 Blank 3:4 Frames (5 full rows of 10 frames on Desktop)
+  const catalogFrames = Array.from({ length: 50 }, (_, i) => ({
     id: i + 1,
     label: `Look ${String(i + 1).padStart(2, "0")}`,
   }));
@@ -134,7 +134,7 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
 
           <div className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
             <Sparkles className="w-4 h-4 text-[#55c538]" />
-            <span>40 Showcase Styles</span>
+            <span>50 Showcase Styles</span>
           </div>
         </div>
 
