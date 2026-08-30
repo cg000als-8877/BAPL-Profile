@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { ShieldCheck, Award, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, CheckCircle2 } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
@@ -72,7 +72,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Bento Grid of Certifications (Filling the Whole Screen Fluidly) */}
+        {/* 2. Bento Grid of Certifications (Enlarged Logo Containers) */}
         <div
           ref={gridRef}
           className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6 min-h-0"
@@ -80,7 +80,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
           {/* Card 1: amfori BSCI */}
           <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-indigo-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
                 <span className="text-xs sm:text-sm font-black uppercase text-indigo-400 tracking-wider">
                   Social & Workplace Compliance
                 </span>
@@ -90,31 +90,31 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
               </div>
 
               {/* White Logo Container for BSCI & amfori */}
-              <div className="grid grid-cols-2 gap-3 mb-3 sm:mb-4">
-                <div className="bg-white/95 rounded-xl p-3 shadow-md h-20 sm:h-28 md:h-32 relative flex items-center justify-center">
+              <div className="grid grid-cols-2 gap-3 mb-2.5 sm:mb-4">
+                <div className="bg-white/95 rounded-xl p-2 sm:p-3 shadow-md h-24 sm:h-32 md:h-40 relative flex items-center justify-center">
                   <Image
                     src="/logos/certifications/bsci.png"
                     alt="BSCI Business Social Compliance Initiative"
                     fill
                     priority
                     sizes="(max-width: 768px) 45vw, 25vw"
-                    className="object-contain object-center p-2"
+                    className="object-contain object-center p-1 sm:p-2"
                   />
                 </div>
 
-                <div className="bg-white/95 rounded-xl p-3 shadow-md h-20 sm:h-28 md:h-32 relative flex items-center justify-center">
+                <div className="bg-white/95 rounded-xl p-2 sm:p-3 shadow-md h-24 sm:h-32 md:h-40 relative flex items-center justify-center">
                   <Image
                     src="/logos/certifications/amfori.png"
                     alt="amfori BSCI Global Trade Association"
                     fill
                     priority
                     sizes="(max-width: 768px) 45vw, 25vw"
-                    className="object-contain object-center p-2"
+                    className="object-contain object-center p-1 sm:p-2"
                   />
                 </div>
               </div>
 
-              <h3 className="text-base sm:text-xl font-black text-white mb-1">
+              <h3 className="text-base sm:text-xl font-black text-white mb-0.5 sm:mb-1">
                 amfori BSCI Certified
               </h3>
               <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
@@ -128,10 +128,10 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
           </div>
 
-          {/* Card 2: OEKO-TEX Standard 100 */}
+          {/* Card 2: OEKO-TEX Standard 100 (Enlarged Logo Display) */}
           <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
                 <span className="text-xs sm:text-sm font-black uppercase text-[#72e055] tracking-wider">
                   Chemical Safety & Ecology
                 </span>
@@ -140,19 +140,19 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 </span>
               </div>
 
-              {/* White Logo Container for OEKO-TEX */}
-              <div className="bg-white/95 rounded-xl p-3 shadow-md h-20 sm:h-28 md:h-32 relative flex items-center justify-center mb-3 sm:mb-4">
+              {/* White Logo Container for OEKO-TEX (Larger Frame & Edge-to-Edge Prominence) */}
+              <div className="bg-white/95 rounded-xl p-1 sm:p-2 shadow-md h-24 sm:h-32 md:h-40 relative flex items-center justify-center mb-2.5 sm:mb-4">
                 <Image
                   src="/logos/certifications/eee.png"
                   alt="OEKO-TEX Standard 100 Confidence in Textiles"
                   fill
                   priority
                   sizes="(max-width: 768px) 90vw, 40vw"
-                  className="object-contain object-center p-2"
+                  className="object-contain object-center scale-105"
                 />
               </div>
 
-              <h3 className="text-base sm:text-xl font-black text-white mb-1">
+              <h3 className="text-base sm:text-xl font-black text-white mb-0.5 sm:mb-1">
                 OEKO-TEX® Standard 100
               </h3>
               <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
