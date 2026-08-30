@@ -11,6 +11,8 @@ import {
   Check,
   Mail,
   Sparkles,
+  Briefcase,
+  ExternalLink,
 } from "lucide-react";
 
 interface SlideProps {
@@ -20,7 +22,7 @@ interface SlideProps {
 export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const contactsRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
   const addressRef = useRef<HTMLDivElement>(null);
 
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
@@ -42,14 +44,14 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
       );
 
       gsap.fromTo(
-        contactsRef.current?.children || [],
-        { x: -50, opacity: 0, scale: 0.97 },
+        cardsRef.current?.children || [],
+        { y: 30, opacity: 0, scale: 0.96 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
           scale: 1,
           duration: 0.45,
-          stagger: 0.05,
+          stagger: 0.08,
           ease: "expo.out",
           delay: 0.05,
         }
@@ -57,8 +59,8 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
 
       gsap.fromTo(
         addressRef.current,
-        { x: -40, opacity: 0, scale: 0.98 },
-        { x: 0, opacity: 1, scale: 1, duration: 0.45, delay: 0.15, ease: "expo.out" }
+        { y: 25, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, delay: 0.15, ease: "expo.out" }
       );
     }, containerRef);
 
@@ -76,12 +78,12 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* 1. Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-3 sm:gap-4">
-            <div className="w-2 md:w-2.5 h-8 md:h-12 bg-[#55c538] rounded-full glow-bar" />
+            <div className="w-2 md:w-2.5 h-7 md:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+              <div className="text-[10px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Direct Communication
               </div>
-              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
                 CONTACT US
               </h2>
             </div>
@@ -89,86 +91,134 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
 
           <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
             <UserCheck className="w-4 h-4 text-[#55c538]" />
-            <span>Executive Contacts</span>
+            <span>Executive Leadership</span>
           </div>
         </div>
 
-        {/* 2. Key Contact Persons Section (Top Section) */}
+        {/* 2. KEY CONTACT PERSONS: Executive Profile Cards (Side-by-Side on Desktop, One Under Another on Mobile) */}
         <div className="flex-1 flex flex-col justify-center min-h-0">
-          <div className="text-xs sm:text-sm font-extrabold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-            <UserCheck className="w-4 h-4 text-[#55c538]" />
+          <div className="text-[10px] sm:text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-2 sm:mb-3 flex items-center gap-2">
+            <UserCheck className="w-3.5 h-3.5 text-[#55c538]" />
             <span>KEY CONTACT PERSONS</span>
           </div>
 
           <div
-            ref={contactsRef}
-            className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5"
+            ref={cardsRef}
+            className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6"
           >
-            {/* Managing Director */}
-            <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/30 bg-[#091426]/90 flex flex-col justify-between">
+            {/* Profile Card 1: Mr. Abdur Rahaman */}
+            <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-gradient-to-br from-[#09162a]/95 to-[#060c18]/95 flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-[#55c538] transition-all">
+              {/* Subtle top ambient glow */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#55c538]/10 rounded-full blur-2xl pointer-events-none" />
+
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#55c538]/20 text-[#72e055] border border-[#55c538]/30">
-                    Executive
-                  </span>
-                  <Mail className="w-5 h-5 text-[#55c538]" />
+                {/* Monogram Badge & Role Tag */}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#55c538]/30 to-[#55c538]/10 border border-[#55c538]/40 flex items-center justify-center text-sm sm:text-base font-black text-[#72e055] shadow-md">
+                    AR
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full cyber-pill text-[10px] sm:text-xs font-bold text-[#72e055] border border-[#55c538]/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#55c538] animate-pulse" />
+                    <span>Executive Leadership</span>
+                  </div>
                 </div>
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-white mb-1">
+
+                {/* Name & Title */}
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-snug">
                   Mr. Abdur Rahaman
                 </h3>
-                <p className="text-xs sm:text-sm md:text-base text-[#72e055] font-bold mb-3">
+                <p className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055] mt-0.5">
                   Managing Director
+                </p>
+                <p className="text-[11px] sm:text-xs text-slate-400 mt-1">
+                  Byzid Apparels (Pvt) Ltd.
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
-                <span className="text-xs sm:text-sm md:text-base font-semibold text-slate-200 truncate">
-                  info@byzidapparels.com
-                </span>
+              {/* Email Contact Action Box */}
+              <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                <a
+                  href="mailto:info@byzidapparels.com"
+                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-200 hover:text-white transition-colors truncate"
+                >
+                  <Mail className="w-4 h-4 text-[#55c538] shrink-0" />
+                  <span className="truncate">info@byzidapparels.com</span>
+                </a>
+
                 <button
                   onClick={() => handleCopy("info@byzidapparels.com", "md")}
-                  className="p-2 sm:p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white transition-all shadow-sm shrink-0"
+                  className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0"
                   title="Copy Email"
                 >
                   {copiedEmail === "md" ? (
-                    <Check className="w-4 h-4 text-[#55c538]" />
+                    <>
+                      <Check className="w-3.5 h-3.5 text-[#55c538]" />
+                      <span className="text-[#55c538]">Copied</span>
+                    </>
                   ) : (
-                    <Copy className="w-4 h-4" />
+                    <>
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>Copy</span>
+                    </>
                   )}
                 </button>
               </div>
             </div>
 
-            {/* Director of Operations */}
-            <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-blue-500/30 bg-[#091426]/90 flex flex-col justify-between">
+            {/* Profile Card 2: Mrs. Susan Rebeiro */}
+            <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-blue-500/35 bg-gradient-to-br from-[#09162a]/95 to-[#060c18]/95 flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-blue-400 transition-all">
+              {/* Subtle top ambient glow */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
-                    Operations
-                  </span>
-                  <Mail className="w-5 h-5 text-blue-400" />
+                {/* Monogram Badge & Role Tag */}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-500/10 border border-blue-500/40 flex items-center justify-center text-sm sm:text-base font-black text-blue-400 shadow-md">
+                    SR
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full cyber-pill text-[10px] sm:text-xs font-bold text-blue-400 border border-blue-500/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                    <span>Plant & Operations</span>
+                  </div>
                 </div>
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-white mb-1">
+
+                {/* Name & Title */}
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-white tracking-tight leading-snug">
                   Mrs. Susan Rebeiro
                 </h3>
-                <p className="text-xs sm:text-sm md:text-base text-blue-400 font-bold mb-3">
+                <p className="text-xs sm:text-sm md:text-base font-extrabold text-blue-400 mt-0.5">
                   Director of Operations
+                </p>
+                <p className="text-[11px] sm:text-xs text-slate-400 mt-1">
+                  Byzid Apparels (Pvt) Ltd.
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
-                <span className="text-xs sm:text-sm md:text-base font-semibold text-slate-200 truncate">
-                  susan@byzidapparels.com
-                </span>
+              {/* Email Contact Action Box */}
+              <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                <a
+                  href="mailto:susan@byzidapparels.com"
+                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-200 hover:text-white transition-colors truncate"
+                >
+                  <Mail className="w-4 h-4 text-blue-400 shrink-0" />
+                  <span className="truncate">susan@byzidapparels.com</span>
+                </a>
+
                 <button
                   onClick={() => handleCopy("susan@byzidapparels.com", "ops")}
-                  className="p-2 sm:p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white transition-all shadow-sm shrink-0"
+                  className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-300 hover:text-white text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0"
                   title="Copy Email"
                 >
                   {copiedEmail === "ops" ? (
-                    <Check className="w-4 h-4 text-[#55c538]" />
+                    <>
+                      <Check className="w-3.5 h-3.5 text-[#55c538]" />
+                      <span className="text-[#55c538]">Copied</span>
+                    </>
                   ) : (
-                    <Copy className="w-4 h-4" />
+                    <>
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>Copy</span>
+                    </>
                   )}
                 </button>
               </div>
@@ -179,27 +229,27 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* 3. Registered Office & Mailing Address (Bottom Section) */}
         <div
           ref={addressRef}
-          className="shrink-0 p-4 sm:p-6 rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-950/90"
+          className="shrink-0 p-3.5 sm:p-5 rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-950/90"
         >
           <div>
-            <div className="flex items-center gap-2 text-xs font-extrabold text-[#72e055] uppercase tracking-wider mb-1">
-              <MapPin className="w-4 h-4 text-[#55c538]" />
+            <div className="flex items-center gap-2 text-[10px] sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider mb-0.5">
+              <MapPin className="w-3.5 h-3.5 text-[#55c538]" />
               <span>REGISTERED OFFICE & MAILING ADDRESS</span>
             </div>
-            <h3 className="text-base sm:text-xl font-black text-white mb-1">
+            <h3 className="text-sm sm:text-lg font-black text-white">
               BYZID APPARELS (PVT.) LTD
             </h3>
-            <p className="text-xs sm:text-sm md:text-base text-slate-200 font-medium">
+            <p className="text-xs sm:text-sm text-slate-200 font-medium">
               ABMTOWER, 671/1 Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
             </p>
           </div>
 
-          <div className="shrink-0 pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-slate-800 md:pl-6">
+          <div className="shrink-0 pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-slate-800 md:pl-5">
             <a
               href="tel:008802334451856"
-              className="inline-flex items-center gap-2 px-5 py-2.5 sm:py-3 rounded-xl bg-[#55c538] text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-[#55c538]/30 hover:bg-[#72e055] transition-all"
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-xl bg-[#55c538] text-slate-950 font-black text-xs sm:text-sm shadow-md shadow-[#55c538]/30 hover:bg-[#72e055] transition-all"
             >
-              <Phone className="w-4 h-4 text-slate-950" />
+              <Phone className="w-3.5 h-3.5 text-slate-950" />
               <span>TEL # 0088-02334451856</span>
             </a>
           </div>
