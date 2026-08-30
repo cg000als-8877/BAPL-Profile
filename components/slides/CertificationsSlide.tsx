@@ -126,7 +126,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
               </p>
             </div>
 
-            <div className="pt-2 sm:pt-3 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-slate-300">
+            <div className="pt-2 sm:pt-3 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-xs text-slate-300">
               <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
               <span>Full compliance with international ethical audit benchmarks</span>
             </div>
@@ -139,7 +139,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 <span className="text-xs sm:text-base font-black uppercase text-[#72e055] tracking-wider">
                   Chemical Safety & Ecology
                 </span>
-                <span className="px-3 py-1 rounded-full bg-[#55c538]/20 text-[#72e055] text-[10px] sm:text-xs font-bold border border-[#55c538]/30">
+                <span className="px-3 py-1 rounded-full bg-[#55c538]/20 text-[#72e055] text-xs sm:text-xs font-bold border border-[#55c538]/30">
                   Skin-Safe Tested
                 </span>
               </div>
@@ -165,7 +165,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
               </p>
             </div>
 
-            <div className="pt-2 sm:pt-3 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-slate-300">
+            <div className="pt-2 sm:pt-3 border-t border-slate-800 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-xs text-slate-300">
               <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
               <span>Safe for infant, toddler, children, and adult garments</span>
             </div>

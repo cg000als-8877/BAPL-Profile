@@ -126,7 +126,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                 <p className="text-xs sm:text-base md:text-lg font-extrabold text-[#72e055] mt-0.5 sm:mt-1">
                   Managing Director
                 </p>
-                <p className="text-[10.5px] sm:text-sm text-slate-300 mt-0.5 sm:mt-1">
+                <p className="text-xs sm:text-sm text-slate-300 mt-0.5 sm:mt-1">
                   Byzid Apparels (Pvt) Ltd.
                 </p>
               </div>
@@ -143,7 +143,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
 
                 <button
                   onClick={() => handleCopy("info@byzidapparels.com", "md")}
-                  className="px-2.5 sm:px-3.5 py-1 sm:py-2 rounded-lg sm:rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-200 hover:text-white text-[10px] sm:text-sm font-bold transition-all shadow-md flex items-center gap-1 shrink-0 cursor-pointer"
+                  className="px-2.5 sm:px-3.5 py-1 sm:py-2 rounded-lg sm:rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-slate-200 hover:text-white text-xs sm:text-sm font-bold transition-all shadow-md flex items-center gap-1 shrink-0 cursor-pointer"
                   title="Copy Email"
                 >
                   {copiedEmail === "md" ? (
@@ -171,7 +171,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                   <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-gradient-to-br from-blue-500/30 to-blue-500/10 border border-blue-500/40 flex items-center justify-center text-xs sm:text-lg font-black text-blue-400 shadow-lg">
                     SR
                   </div>
-                  <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full cyber-pill text-[9.5px] sm:text-xs font-bold text-blue-400 border border-blue-500/30 shadow-md">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full cyber-pill text-xs sm:text-xs font-bold text-blue-400 border border-blue-500/30 shadow-md">
                     <span>Plant & Operations</span>
                   </div>
                 </div>
@@ -183,7 +183,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                 <p className="text-xs sm:text-base md:text-lg font-extrabold text-blue-400 mt-0.5 sm:mt-1">
                   Director of Operations
                 </p>
-                <p className="text-[10.5px] sm:text-sm text-slate-300 mt-0.5 sm:mt-1">
+                <p className="text-xs sm:text-sm text-slate-300 mt-0.5 sm:mt-1">
                   Byzid Apparels (Pvt) Ltd.
                 </p>
               </div>

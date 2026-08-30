@@ -166,7 +166,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
                 <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-[10px] sm:text-xs text-slate-400 font-medium truncate">
+                <div className="text-xs sm:text-xs text-slate-400 font-medium truncate">
                   Headquarters & Unit
                 </div>
                 <div className="text-xs sm:text-sm md:text-base font-bold text-white truncate">
@@ -181,7 +181,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
                 <Globe2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-[10px] sm:text-xs text-slate-400 font-medium truncate">
+                <div className="text-xs sm:text-xs text-slate-400 font-medium truncate">
                   Global Exports
                 </div>
                 <div className="text-xs sm:text-sm md:text-base font-bold text-white truncate">
@@ -196,7 +196,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="min-w-0">
-                <div className="text-[10px] sm:text-xs text-slate-400 font-medium truncate">
+                <div className="text-xs sm:text-xs text-slate-400 font-medium truncate">
                   Compliance & Ethics
                 </div>
                 <div className="text-xs sm:text-sm md:text-base font-bold text-white truncate">

@@ -190,7 +190,7 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
           <div className="flex items-center gap-2.5 sm:gap-4">
             <div className="w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
             <div>
-              <div className="text-[10px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+              <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 International Retail Portfolio
               </div>
               <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
@@ -257,10 +257,10 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
                   </h4>
 
                   {/* Origin Country & Region */}
-                  <span className="text-[10px] sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider mt-0.5">
+                  <span className="text-xs sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider mt-0.5">
                     {buyer.country}
                   </span>
-                  <span className="text-[9px] sm:text-[10px] text-slate-400 font-medium truncate max-w-full">
+                  <span className="text-[11px] sm:text-xs text-slate-300 font-medium truncate max-w-full">
                     {buyer.region}
                   </span>
                 </div>

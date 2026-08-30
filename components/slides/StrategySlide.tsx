@@ -181,7 +181,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
                       <Icon className="w-3.5 h-3.5" />
                     </div>
                   </div>
-                  <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                  <span className="text-[10.5px] font-bold px-2 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10">
                     {pillar.tag}
                   </span>
                 </div>
@@ -191,7 +191,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
                   <h3 className="text-sm font-black text-white leading-tight mb-0.5">
                     {pillar.title}
                   </h3>
-                  <p className="text-[10px] text-slate-300 font-normal leading-tight line-clamp-2">
+                  <p className="text-xs text-slate-300 font-normal leading-tight line-clamp-2">
                     {pillar.desc}
                   </p>
                 </div>

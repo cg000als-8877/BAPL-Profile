@@ -62,7 +62,7 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
           <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
             <ImageIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
           </div>
-          <span className="text-[6.5px] sm:text-[7.5px] font-black text-slate-500 group-hover:text-slate-800 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[8.5px] sm:text-[9.5px] font-black text-slate-500 group-hover:text-slate-800 mt-0.5 uppercase tracking-wider font-mono">
             {label}
           </span>
         </div>
