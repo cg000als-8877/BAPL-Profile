@@ -56,8 +56,8 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden">
       {/* 1. Dynamic Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Mobile View Hero Image */}
-        <div className="block md:hidden absolute inset-0 w-full h-full">
+        {/* Mobile View Hero Image: Aspect-Locked & Top-Anchored */}
+        <div className="block md:hidden absolute inset-0 w-full h-full overflow-hidden">
           <Image
             src="/mobile-view.webp"
             alt="Byzid Apparels Mobile Hero"
@@ -65,7 +65,10 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
             priority
             unoptimized
             sizes="100vw"
-            className="object-cover object-center brightness-100 contrast-105"
+            className="object-cover brightness-100 contrast-105 select-none pointer-events-none"
+            style={{
+              objectPosition: "center top",
+            }}
           />
         </div>
 
@@ -87,13 +90,13 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
         <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#050811]/50 via-transparent to-[#050811]/40" />
 
         {/* Mobile Bottom Rising Gradient */}
-        <div className="block md:hidden absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-[#050811] via-[#050811]/95 to-transparent pointer-events-none" />
+        <div className="block md:hidden absolute bottom-0 left-0 right-0 h-[48%] bg-gradient-to-t from-[#050811] via-[#050811]/90 to-transparent pointer-events-none" />
       </div>
 
       {/* 2. Main Slide Interface */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full min-h-[100dvh] p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between overflow-y-visible md:overflow-hidden"
+        className="relative z-10 w-full h-full min-h-[100dvh] max-h-[100dvh] p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between overflow-hidden"
       >
         {/* Top Bar: Established 1995 Modern Heritage Badge */}
         <div className="shrink-0 flex items-center justify-end w-full">
