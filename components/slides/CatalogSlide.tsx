@@ -23,7 +23,7 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   return (
     <div className="group relative w-full aspect-[3/4] bg-white/95 hover:bg-white rounded-lg sm:rounded-xl md:rounded-2xl p-0.5 sm:p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[#55c538]/30 cursor-pointer">
       {!hasError ? (
-        <div className="relative w-full h-full rounded-md sm:rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center">
+        <div className="relative w-full h-full rounded-md sm:rounded-lg overflow-hidden bg-slate-50 flex items-center justify-center">
           <Image
             src={imageSrc}
             alt={label}
@@ -31,7 +31,7 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
             unoptimized
             onError={() => setHasError(true)}
             sizes="(max-width: 640px) 33vw, 20vw"
-            className="object-cover object-center"
+            className="object-contain object-center p-0.5 sm:p-1"
           />
         </div>
       ) : (
@@ -115,7 +115,7 @@ export const CatalogSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Grid: Strictly 3 Frames Per Row with 2px Distance on Mobile (grid-cols-3 gap-[2px]) */}
+        {/* 2. Grid: Strictly 3 Frames Per Row with 2px Distance on Mobile & 5 Per Row on Desktop */}
         <div
           ref={gridRef}
           className="flex-1 grid grid-cols-3 md:grid-cols-5 gap-[2px] sm:gap-2.5 md:gap-3 min-h-0 content-center my-auto py-1"
