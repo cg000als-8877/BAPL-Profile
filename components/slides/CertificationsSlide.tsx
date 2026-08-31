@@ -54,14 +54,15 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
 
         {/* 1. Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
-          <div className="flex flex-col">
-            <h2 className="text-[17px] xs:text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-normal whitespace-nowrap leading-tight">
-              WE ARE CERTIFIED BY
-            </h2>
-            <div className="text-[10px] xs:text-[11px] sm:text-sm md:text-base font-extrabold uppercase tracking-wider text-[#72e055] flex items-center gap-1.5 sm:gap-2 mt-0.5 sm:mt-1">
-              <span>Global Standard</span>
-              <span className="text-white/40">•</span>
-              <span>Safe Skin Test</span>
+          <div className="flex items-center gap-2.5 sm:gap-4">
+            <div className="w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
+            <div>
+              <div className="text-[11px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+                Ethical & Safety Standards
+              </div>
+              <h2 className="text-lg xs:text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-normal whitespace-nowrap">
+                WE ARE CERTIFIED BY
+              </h2>
             </div>
           </div>
 
@@ -114,9 +115,12 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 </div>
               </div>
 
-              <h3 className="text-sm sm:text-xl font-black text-white mb-1">
+              <h3 className="text-sm sm:text-xl font-black text-white mb-0.5">
                 amfori BSCI Certified
               </h3>
+              <div className="text-xs sm:text-sm text-slate-400 font-normal tracking-wide uppercase mb-1 sm:mb-1.5">
+                Global Standard
+              </div>
               <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-snug sm:leading-relaxed">
                 Audited for rigorous workplace safety, fair worker compensation, ethical labor practices, and transparent supply chain standards.
               </p>
@@ -150,9 +154,12 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 />
               </div>
 
-              <h3 className="text-sm sm:text-xl font-black text-white mb-1">
+              <h3 className="text-sm sm:text-xl font-black text-white mb-0.5">
                 OEKO-TEX® Standard 100
               </h3>
+              <div className="text-xs sm:text-sm text-slate-400 font-normal tracking-wide uppercase mb-1 sm:mb-1.5">
+                Safe Skin Test
+              </div>
               <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-snug sm:leading-relaxed">
                 Certified Confidence in Textiles, rigorously laboratory-tested and verified free from harmful chemical substances and toxic dyes.
               </p>
