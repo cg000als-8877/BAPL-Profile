@@ -48,14 +48,9 @@ const MobilePinterestFrameItem: React.FC<FrameProps> = ({
             fill
             unoptimized
             onError={handleError}
-            sizes="50vw"
+            sizes="33vw"
             className="object-contain object-center p-1"
           />
-
-          {/* Floating Luxury Look Pill */}
-          <div className="absolute bottom-1.5 right-1.5 px-2 py-0.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-[9.5px] font-black text-white font-mono tracking-wider shadow-md">
-            {label}
-          </div>
         </div>
       ) : (
         <div className="w-full h-full rounded-xl border border-dashed border-slate-400 flex flex-col items-center justify-center text-center p-1">
