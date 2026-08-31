@@ -9,7 +9,6 @@ import {
   MapPin,
   Navigation,
   ExternalLink,
-  Compass,
 } from "lucide-react";
 
 interface SlideProps {
@@ -80,93 +79,72 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Four Structured Cards (2x2 Grid) */}
+        {/* 2. Structured Bento Grid (2 Cards Top, 1 Merged Address & Map Navigation Card Bottom) */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5 lg:gap-6 min-h-0"
+          className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 lg:gap-5 min-h-0 content-center"
         >
           {/* Card 1: Corporate Entity */}
-          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between h-full border-emerald-500/30 bg-[#091426]/90 shadow-2xl">
+          <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between h-full border-emerald-500/30 bg-[#091426]/90 shadow-2xl">
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs sm:text-base font-extrabold text-[#72e055] uppercase tracking-wider">
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <span className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055] uppercase tracking-wider">
                   BYZID APPARELS (PVT) LTD.
                 </span>
-                <Building2 className="w-5 h-5 text-[#55c538]" />
+                <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#55c538]" />
               </div>
-              <div className="space-y-2.5 text-xs sm:text-sm md:text-base text-slate-200 mt-2">
-                <div className="flex justify-between pb-2 border-b border-slate-800">
+              <div className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-slate-200 mt-1">
+                <div className="flex justify-between pb-1.5 border-b border-slate-800">
                   <span className="text-slate-400">Year of Incorporation:</span>
                   <span className="font-bold text-white">1995</span>
                 </div>
-                <div className="flex justify-between pb-2 border-b border-slate-800">
+                <div className="flex justify-between pb-1.5 border-b border-slate-800">
                   <span className="text-slate-400">Type of Company:</span>
                   <span className="font-bold text-white">Private Limited Company</span>
                 </div>
-                <div className="flex justify-between pb-2 border-b border-slate-800">
+                <div className="flex justify-between pb-1.5 border-b border-slate-800">
                   <span className="text-slate-400">Managing Director:</span>
                   <span className="font-extrabold text-[#72e055]">Abdur Rahaman</span>
                 </div>
-                <div className="flex justify-between pt-1">
+                <div className="flex justify-between pt-0.5">
                   <span className="text-slate-400">Business Operation:</span>
                   <span className="font-semibold text-right text-slate-200">
-                    Woven & Knit Apparel Manufacturing
+                    Woven & Knit Manufacturing
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Card 2: Factory Address */}
-          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between h-full border-blue-500/30 bg-[#091426]/90 shadow-2xl">
+          {/* Card 2: Regulatory & Capacity */}
+          <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between h-full border-amber-500/30 bg-[#091426]/90 shadow-2xl">
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs sm:text-base font-extrabold text-blue-400 uppercase tracking-wider">
-                  FACTORY ADDRESS
-                </span>
-                <MapPin className="w-5 h-5 text-blue-400" />
-              </div>
-              <h3 className="text-base sm:text-xl lg:text-2xl font-black text-white mb-2">
-                Byzid Apparels (Pvt.) Ltd.
-              </h3>
-              <p className="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed">
-                ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
-              </p>
-            </div>
-            <div className="pt-3 border-t border-slate-800 text-xs sm:text-sm text-slate-400">
-              Chattogram Industrial Hub • Strategic Port Access
-            </div>
-          </div>
-
-          {/* Card 3: Regulatory & Capacity */}
-          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between h-full border-amber-500/30 bg-[#091426]/90 shadow-2xl">
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs sm:text-base font-extrabold text-amber-400 uppercase tracking-wider">
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <span className="text-xs sm:text-sm md:text-base font-extrabold text-amber-400 uppercase tracking-wider">
                   REGULATORY & CAPACITY
                 </span>
-                <FileCheck2 className="w-5 h-5 text-amber-400" />
+                <FileCheck2 className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
               </div>
-              <div className="space-y-2 text-xs sm:text-sm md:text-base text-slate-200 mt-1">
-                <div className="flex justify-between pb-1.5 border-b border-slate-800">
+              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-200 mt-1">
+                <div className="flex justify-between pb-1 border-b border-slate-800">
                   <span className="text-slate-400">BIN:</span>
                   <span className="font-bold text-white font-mono">001287924-0505</span>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-slate-800">
+                <div className="flex justify-between pb-1 border-b border-slate-800">
                   <span className="text-slate-400">IRC / ERC:</span>
-                  <span className="font-bold text-white text-xs sm:text-sm font-mono truncate">
+                  <span className="font-bold text-white text-[11px] sm:text-xs font-mono truncate">
                     260315120087920 | 260315210089519
                   </span>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-slate-800">
+                <div className="flex justify-between pb-1 border-b border-slate-800">
                   <span className="text-slate-400">BGMEA Reg No:</span>
                   <span className="font-bold text-white font-mono">2673</span>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-slate-800">
+                <div className="flex justify-between pb-1 border-b border-slate-800">
                   <span className="text-slate-400">Fire License:</span>
                   <span className="font-bold text-white font-mono">CHATTA-6961/97-98</span>
                 </div>
-                <div className="flex justify-between pt-1">
+                <div className="flex justify-between pt-0.5">
                   <span className="text-slate-400">Total Space:</span>
                   <span className="font-extrabold text-[#72e055]">38,000 SFT</span>
                 </div>
@@ -174,49 +152,45 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
           </div>
 
-          {/* Card 4: Google Maps & Directions (Replaced Banking Details) */}
-          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between h-full border-purple-500/40 bg-gradient-to-br from-[#121028]/95 via-[#091024]/95 to-[#060a18]/95 shadow-2xl relative overflow-hidden group hover:border-purple-400 transition-all">
-            <div className="absolute top-0 right-0 w-36 h-36 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+          {/* Card 3: MERGED FACTORY ADDRESS & GOOGLE MAPS DIRECTIONS (Full Width) */}
+          <div className="md:col-span-2 p-4 sm:p-6 rounded-2xl cyber-card border border-blue-500/40 bg-gradient-to-br from-[#09152a]/95 via-[#060e1d]/95 to-[#040812]/95 shadow-2xl relative overflow-hidden group hover:border-blue-400 transition-all flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs sm:text-base font-extrabold text-purple-300 uppercase tracking-wider flex items-center gap-1.5">
-                  <Compass className="w-4 h-4 text-purple-400" />
-                  <span>LOCATION & MAP DIRECTIONS</span>
+            <div className="space-y-1.5 sm:space-y-2 flex-1">
+              <div className="flex items-center gap-2">
+                <div className="p-1 rounded-lg bg-blue-500/20 text-blue-400">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <span className="text-xs sm:text-sm font-extrabold text-blue-400 uppercase tracking-wider">
+                  FACTORY ADDRESS & MAP DIRECTIONS
                 </span>
-                <Navigation className="w-5 h-5 text-purple-400 animate-pulse" />
               </div>
 
-              <div className="space-y-2 text-xs sm:text-sm md:text-base text-slate-200 mt-1">
-                <div className="font-bold text-white text-sm sm:text-lg flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#55c538] shrink-0" />
-                  <span>ABM Tower, Chattogram</span>
-                </div>
+              <h3 className="text-sm sm:text-lg md:text-xl font-black text-white leading-snug">
+                Byzid Apparels (Pvt.) Ltd.
+              </h3>
 
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  671/1 Sholakbahar, Bahaddarhat, Chattogram — Quick access to major highway corridors & port terminals.
-                </p>
+              <p className="text-xs sm:text-sm md:text-base text-slate-200 font-medium leading-relaxed max-w-3xl">
+                ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
+              </p>
 
-                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80 text-[11px] sm:text-xs">
-                  <div className="p-2 rounded-xl bg-white/[0.04] border border-white/5">
-                    <span className="text-slate-400 block">Sea Port:</span>
-                    <span className="font-bold text-white font-mono">12 km Distance</span>
-                  </div>
-                  <div className="p-2 rounded-xl bg-white/[0.04] border border-white/5">
-                    <span className="text-slate-400 block">Intl Airport:</span>
-                    <span className="font-bold text-white font-mono">18 km Distance</span>
-                  </div>
-                </div>
+              <div className="flex flex-wrap items-center gap-2 pt-1 text-[10.5px] sm:text-xs text-slate-300">
+                <span className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10">
+                  Port Logistics: 12 km to Sea Port
+                </span>
+                <span className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10">
+                  Airport: 18 km to Shah Amanat Intl
+                </span>
               </div>
             </div>
 
-            {/* Google Maps Direct Navigation Link */}
-            <div className="mt-3 pt-3 border-t border-slate-800/80">
+            {/* Direct Google Maps Direction Button */}
+            <div className="shrink-0 pt-2 md:pt-0 border-t md:border-t-0 md:border-l border-slate-800 md:pl-5">
               <a
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 sm:py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-[#55c538] hover:from-purple-500 hover:to-[#72e055] text-white font-black text-xs sm:text-sm shadow-lg shadow-purple-500/25 flex items-center justify-center gap-2 transition-all group-hover:scale-[1.02]"
+                className="w-full md:w-auto py-2.5 sm:py-3.5 px-5 sm:px-6 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-[#55c538] hover:from-blue-500 hover:to-[#72e055] text-white font-black text-xs sm:text-sm shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all hover:scale-[1.02] cursor-pointer"
               >
                 <Navigation className="w-4 h-4" />
                 <span>Get Directions in Google Maps</span>
