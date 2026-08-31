@@ -60,7 +60,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="text-[11px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Ethical & Safety Standards
               </div>
-              <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-normal">
+              <h2 className="text-lg xs:text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-normal whitespace-nowrap">
                 WE ARE CERTIFIED BY
               </h2>
             </div>
@@ -80,12 +80,9 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
           {/* Card 1: amfori BSCI */}
           <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-indigo-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
-              <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <div className="mb-2 sm:mb-3">
                 <span className="text-xs sm:text-base font-black uppercase text-indigo-400 tracking-wider">
                   Social & Workplace Compliance
-                </span>
-                <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-[11px] sm:text-xs font-bold border border-indigo-500/30">
-                  Global Standard
                 </span>
               </div>
 
@@ -118,9 +115,12 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 </div>
               </div>
 
-              <h3 className="text-sm sm:text-xl font-black text-white mb-0.5 sm:mb-1">
+              <h3 className="text-sm sm:text-xl font-black text-white mb-0.5">
                 amfori BSCI Certified
               </h3>
+              <div className="text-[11px] sm:text-xs font-extrabold text-indigo-400 uppercase tracking-wider mb-1 sm:mb-1.5">
+                Global Standard
+              </div>
               <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-snug sm:leading-relaxed">
                 Audited for rigorous workplace safety, fair worker compensation, ethical labor practices, and transparent supply chain standards.
               </p>
@@ -135,12 +135,9 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
           {/* Card 2: OEKO-TEX Standard 100 (Flexible to Natural 963x606 Aspect Ratio with Zero Cropping) */}
           <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-emerald-500/35 bg-[#091426]/90 flex flex-col justify-between h-full shadow-2xl">
             <div>
-              <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <div className="mb-2 sm:mb-3">
                 <span className="text-xs sm:text-base font-black uppercase text-[#72e055] tracking-wider">
                   Chemical Safety & Ecology
-                </span>
-                <span className="px-3 py-1 rounded-full bg-[#55c538]/20 text-[#72e055] text-xs sm:text-xs font-bold border border-[#55c538]/30">
-                  Skin-Safe Tested
                 </span>
               </div>
 
@@ -157,9 +154,12 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 />
               </div>
 
-              <h3 className="text-sm sm:text-xl font-black text-white mb-0.5 sm:mb-1">
+              <h3 className="text-sm sm:text-xl font-black text-white mb-0.5">
                 OEKO-TEX® Standard 100
               </h3>
+              <div className="text-[11px] sm:text-xs font-extrabold text-[#72e055] uppercase tracking-wider mb-1 sm:mb-1.5">
+                Skin-Safe Tested
+              </div>
               <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-snug sm:leading-relaxed">
                 Certified Confidence in Textiles, rigorously laboratory-tested and verified free from harmful chemical substances and toxic dyes.
               </p>
