@@ -30,34 +30,34 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { x: -60, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", clearProps: "transform" }
       );
 
       gsap.fromTo(
         profilesRef.current?.children || [],
-        { y: 30, opacity: 0, scale: 0.96 },
+        { y: 14, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          scale: 1,
           duration: 0.45,
-          stagger: 0.08,
-          ease: "expo.out",
+          stagger: 0.05,
+          ease: "power2.out",
           delay: 0.05,
+          clearProps: "transform",
         }
       );
 
       gsap.fromTo(
         bankRef.current,
-        { y: 25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.45, delay: 0.12, ease: "expo.out" }
+        { y: 14, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, delay: 0.1, ease: "power2.out", clearProps: "transform" }
       );
 
       gsap.fromTo(
         addressRef.current,
-        { y: 25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.45, delay: 0.18, ease: "expo.out" }
+        { y: 14, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, delay: 0.15, ease: "power2.out", clearProps: "transform" }
       );
     }, containerRef);
 

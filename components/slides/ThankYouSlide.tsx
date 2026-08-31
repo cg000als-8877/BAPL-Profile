@@ -19,8 +19,8 @@ export const ThankYouSlide: React.FC<SlideProps> = ({ isActive }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         textRef.current,
-        { scale: 0.9, opacity: 0, y: 30 },
-        { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: "power2.out", clearProps: "transform" }
       );
     }, containerRef);
 

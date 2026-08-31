@@ -22,21 +22,21 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { x: -60, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", clearProps: "transform" }
       );
 
       gsap.fromTo(
         gridRef.current?.children || [],
-        { y: 30, opacity: 0, scale: 0.96 },
+        { y: 16, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          scale: 1,
-          duration: 0.45,
-          stagger: 0.08,
-          ease: "expo.out",
+          duration: 0.5,
+          stagger: 0.06,
+          ease: "power2.out",
           delay: 0.05,
+          clearProps: "transform",
         }
       );
     }, containerRef);

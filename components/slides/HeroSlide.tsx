@@ -28,23 +28,23 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
     if (!isActive) return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
       tl.fromTo(
         badgeRef.current,
-        { y: -30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.45 }
+        { y: -16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, clearProps: "transform" }
       )
         .fromTo(
           rightContentRef.current?.children || [],
-          { x: 50, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.5, stagger: 0.08 },
+          { x: 30, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, stagger: 0.06, clearProps: "transform" },
           "-=0.2"
         )
         .fromTo(
           mobileContentRef.current?.children || [],
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.45, stagger: 0.06 },
+          { y: 16, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, clearProps: "transform" },
           "-=0.3"
         );
     }, containerRef);

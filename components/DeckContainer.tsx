@@ -44,17 +44,17 @@ export const DeckContainer: React.FC = () => {
     }
   }, [currentSlide, scrollToSlide]);
 
-  // Intersection Observer to detect active slide in view
+  // Intersection Observer to detect active slide in view with stabilized threshold
   useEffect(() => {
     const options = {
       root: containerRef.current,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 0.55,
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
           const index = slideRefs.current.indexOf(entry.target as HTMLElement);
           if (index !== -1) {
             setCurrentSlide(index);

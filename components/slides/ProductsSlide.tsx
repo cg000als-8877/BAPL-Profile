@@ -82,35 +82,35 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headerRef.current,
-        { x: -60, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", clearProps: "transform" }
       );
 
       gsap.fromTo(
         desktopGridRef.current?.children || [],
-        { x: -40, opacity: 0, scale: 0.96 },
+        { y: 16, opacity: 0 },
         {
-          x: 0,
+          y: 0,
           opacity: 1,
-          scale: 1,
-          duration: 0.45,
+          duration: 0.5,
           stagger: 0.04,
-          ease: "expo.out",
+          ease: "power2.out",
           delay: 0.05,
+          clearProps: "transform",
         }
       );
 
       gsap.fromTo(
         mobileStackRef.current?.children || [],
-        { y: 20, opacity: 0, scale: 0.96 },
+        { y: 14, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          scale: 1,
-          duration: 0.4,
-          stagger: 0.03,
-          ease: "expo.out",
+          duration: 0.45,
+          stagger: 0.06,
+          ease: "power2.out",
           delay: 0.05,
+          clearProps: "transform",
         }
       );
     }, containerRef);
