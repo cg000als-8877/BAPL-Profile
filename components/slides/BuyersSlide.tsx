@@ -252,8 +252,6 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
                       ? "opacity-100 pointer-events-auto"
                       : "opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto"
                   }`}
-                >group-hover:opacity-100 group-hover:pointer-events-auto"
-                  }`}
                 >
                   {/* Flag Emoji Badge */}
                   <span className="text-base sm:text-2xl md:text-3xl drop-shadow-md leading-none mb-0.5">
