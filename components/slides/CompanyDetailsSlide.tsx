@@ -50,8 +50,7 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
     return () => ctx.revert();
   }, [isActive]);
 
-  const googleMapsUrl =
-    "https://www.google.com/maps/search/?api=1&query=ABM+Tower,+671/1+Sholakbahar,+Bahaddarhat,+Chattogram,+Bangladesh";
+  const googleMapsUrl = "https://maps.app.goo.gl/rmAxTS1NAkbz3sLC7";
 
   return (
     <AspectWrapper className="bg-[#050811] text-white">
