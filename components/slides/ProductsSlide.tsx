@@ -13,9 +13,14 @@ interface SlideProps {
 interface FrameProps {
   id: number;
   label: string;
+  aspectClass: string;
 }
 
-const MobileCatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
+const MobilePinterestFrameItem: React.FC<FrameProps> = ({
+  id,
+  label,
+  aspectClass,
+}) => {
   const [imgSrc, setImgSrc] = useState<string>(`/Product Images/${id}.webp`);
   const [hasError, setHasError] = useState(false);
 
@@ -30,38 +35,34 @@ const MobileCatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   return (
     <div
       style={{
-        background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
+        background:
+          "radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f4f6 45%, #e2e2e8 100%)",
       }}
-      className="group relative w-full aspect-[3/4] rounded-lg p-0.5 shadow-sm border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300"
+      className={`group relative w-full ${aspectClass} rounded-2xl p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 active:scale-[0.98] select-none`}
     >
       {!hasError ? (
-        <div
-          style={{
-            background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
-          }}
-          className="relative w-full h-full rounded-md overflow-hidden flex items-center justify-center"
-        >
+        <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
           <Image
             src={imgSrc}
             alt={label}
             fill
             unoptimized
             onError={handleError}
-            sizes="25vw"
-            className="object-contain object-center p-0.5"
+            sizes="50vw"
+            className="object-contain object-center p-1"
           />
+
+          {/* Floating Luxury Look Pill */}
+          <div className="absolute bottom-1.5 right-1.5 px-2 py-0.5 rounded-full bg-slate-950/75 backdrop-blur-md border border-white/20 text-[9.5px] font-black text-white font-mono tracking-wider shadow-md">
+            {label}
+          </div>
         </div>
       ) : (
-        <div
-          style={{
-            background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
-          }}
-          className="w-full h-full rounded-md border border-dashed border-slate-400 flex flex-col items-center justify-center text-center p-0.5 transition-colors"
-        >
-          <div className="w-3.5 h-3.5 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500">
-            <ImageIcon className="w-2.5 h-2.5" />
+        <div className="w-full h-full rounded-xl border border-dashed border-slate-400 flex flex-col items-center justify-center text-center p-1">
+          <div className="w-4 h-4 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500 mb-0.5">
+            <ImageIcon className="w-3 h-3" />
           </div>
-          <span className="text-[10px] font-black text-slate-500 mt-0.5 uppercase tracking-wider font-mono">
+          <span className="text-[10px] font-black text-slate-500 font-mono">
             {label}
           </span>
         </div>
@@ -142,37 +143,51 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     },
     {
       id: "04",
-      title: "Woven Shirts",
-      items: ["Casual Shirts", "Flannel Plaid Shirts", "Cotton Tops"],
+      title: "Pants & Trousers",
+      items: ["Chino Pants", "Cargo Trousers", "Casual Bottoms"],
       border: "border-amber-500/35",
       bg: "bg-amber-500/10",
     },
     {
       id: "05",
-      title: "Shorts & Swim",
-      items: ["Board Shorts", "Swim Trunks", "Casual Beach Shorts"],
+      title: "Active & Swimwear",
+      items: ["Board Shorts", "Performance Shorts", "Athletic Gear"],
       border: "border-cyan-500/35",
       bg: "bg-cyan-500/10",
     },
     {
       id: "06",
-      title: "Kids & Infant",
-      items: ["Onesies & Rompers", "Dungarees", "Jump Suits"],
+      title: "Knit & Woven Tops",
+      items: ["Tank Tops", "Fashion Tops", "Woven Casuals"],
       border: "border-rose-500/35",
       bg: "bg-rose-500/10",
     },
   ];
 
+  // 80 Frames lookbook
   const catalogFrames = Array.from({ length: 80 }, (_, i) => ({
     id: i + 1,
     label: `Look ${String(i + 1).padStart(2, "0")}`,
   }));
 
+  const col1Aspects = [
+    "aspect-[3/4.2]",
+    "aspect-[3/4]",
+    "aspect-[2/3]",
+    "aspect-[4/5]",
+  ];
+  const col2Aspects = [
+    "aspect-[2/3]",
+    "aspect-[4/5]",
+    "aspect-[3/4.2]",
+    "aspect-[3/4]",
+  ];
+
   return (
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-5 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-3.5 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between gap-3 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -196,12 +211,12 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW: Product Categories + 4-Frame-Per-Row Product Images Lookbook */}
+        {/* 2. MOBILE VIEW: 6 Categories + 2-Column Pinterest Masonry Lookbook Feed */}
         <div
           ref={mobileStackRef}
           className="flex flex-col md:hidden gap-3.5 w-full pb-8"
         >
-          {/* A. 6 Adjusted Product Category Cards (2-Column Grid on Mobile) */}
+          {/* A. 6 Product Category Cards (2-Column Grid on Mobile) */}
           <div className="grid grid-cols-2 gap-2 w-full">
             {products.map((p) => (
               <div
@@ -232,7 +247,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             ))}
           </div>
 
-          {/* B. Subtitle & Divider for Product Images */}
+          {/* B. Subtitle & Divider for Pinterest Lookbook */}
           <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-4 bg-[#55c538] rounded-full glow-bar" />
@@ -240,20 +255,40 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 PRODUCT IMAGES
               </h3>
             </div>
-            <span className="text-[11.5px] sm:text-xs font-bold text-[#72e055] px-2 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
-              80 Looks
+            <span className="text-[11px] font-bold text-[#72e055] px-2 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
+              80 Looks • Masonry Feed
             </span>
           </div>
 
-          {/* C. 40-Frame Product Images Grid (Exact Photoshop Radial Gradient Depth) */}
-          <div className="w-full grid grid-cols-4 auto-rows-max gap-[2px]">
-            {catalogFrames.map((frame) => (
-              <MobileCatalogFrameItem
-                key={frame.id}
-                id={frame.id}
-                label={frame.label}
-              />
-            ))}
+          {/* C. PINTEREST MASONRY GRID (2 Staggered Columns on Mobile) */}
+          <div className="w-full grid grid-cols-2 gap-2.5 items-start">
+            {/* Column 1 (Left Stream) */}
+            <div className="flex flex-col gap-2.5">
+              {catalogFrames
+                .filter((_, idx) => idx % 2 === 0)
+                .map((frame, colIdx) => (
+                  <MobilePinterestFrameItem
+                    key={frame.id}
+                    id={frame.id}
+                    label={frame.label}
+                    aspectClass={col1Aspects[colIdx % col1Aspects.length]}
+                  />
+                ))}
+            </div>
+
+            {/* Column 2 (Right Stream) */}
+            <div className="flex flex-col gap-2.5">
+              {catalogFrames
+                .filter((_, idx) => idx % 2 === 1)
+                .map((frame, colIdx) => (
+                  <MobilePinterestFrameItem
+                    key={frame.id}
+                    id={frame.id}
+                    label={frame.label}
+                    aspectClass={col2Aspects[colIdx % col2Aspects.length]}
+                  />
+                ))}
+            </div>
           </div>
         </div>
 
@@ -283,9 +318,9 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 {p.items.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 text-sm md:text-base text-slate-200 font-medium"
+                    className="flex items-center gap-2 text-xs md:text-sm lg:text-base text-slate-200 font-medium"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[#55c538] shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#55c538] shrink-0" />
                     <span>{item}</span>
                   </div>
                 ))}

@@ -215,7 +215,7 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* 2. Responsive Bento Grid: 2-Col Mobile & 4-Col Desktop */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 min-h-0"
+          className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 min-h-0 content-center"
         >
           {buyerLogos.map((buyer) => {
             const isSelected = activeBuyerId === buyer.id;
@@ -225,7 +225,7 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
                 onClick={() =>
                   setActiveBuyerId(isSelected ? null : buyer.id)
                 }
-                className="group relative bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-2 sm:p-3 shadow-xl border border-white/80 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl flex items-center justify-center min-h-[56px] sm:min-h-[75px] md:min-h-0 h-full overflow-hidden cursor-pointer"
+                className="group relative bg-white hover:bg-slate-50 rounded-xl sm:rounded-2xl p-2 sm:p-2.5 shadow-lg border border-white/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl flex items-center justify-center aspect-[2.3/1] sm:aspect-[2.5/1] md:aspect-[2.4/1] w-full overflow-hidden cursor-pointer"
               >
                 {/* Default State: Clean High-Res Transparent PNG Brand Logo */}
                 <div
@@ -241,16 +241,18 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
                     fill
                     unoptimized
                     sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
-                    className="object-contain object-center p-1 sm:p-2"
+                    className="object-contain object-center"
                   />
                 </div>
 
                 {/* Interactive Overlay: Shows on Desktop Hover & Mobile Click/Tap */}
                 <div
-                  className={`absolute inset-0 bg-slate-950/95 backdrop-blur-md transition-all duration-300 flex flex-col items-center justify-center p-1 sm:p-2.5 md:p-3 text-center border border-[#55c538]/50 rounded-xl sm:rounded-2xl shadow-2xl ${
+                  className={`absolute inset-0 bg-slate-950/95 backdrop-blur-md transition-all duration-300 flex flex-col items-center justify-center p-1 sm:p-2 text-center border border-[#55c538]/50 rounded-xl sm:rounded-2xl shadow-2xl ${
                     isSelected
                       ? "opacity-100 pointer-events-auto"
                       : "opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto"
+                  }`}
+                >group-hover:opacity-100 group-hover:pointer-events-auto"
                   }`}
                 >
                   {/* Flag Emoji Badge */}
