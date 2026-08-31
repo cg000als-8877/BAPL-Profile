@@ -7,8 +7,9 @@ import {
   Building2,
   FileCheck2,
   MapPin,
-  CreditCard,
-  Sparkles,
+  Navigation,
+  ExternalLink,
+  Compass,
 } from "lucide-react";
 
 interface SlideProps {
@@ -49,6 +50,9 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
     return () => ctx.revert();
   }, [isActive]);
 
+  const googleMapsUrl =
+    "https://www.google.com/maps/search/?api=1&query=ABM+Tower,+671/1+Sholakbahar,+Bahaddarhat,+Chattogram,+Bangladesh";
+
   return (
     <AspectWrapper className="bg-[#050811] text-white">
       <div
@@ -63,7 +67,7 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
             <div className="w-2 md:w-2.5 h-8 md:h-12 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
-                Corporate Profile & Registration
+                Corporate Profile & Logistics
               </div>
               <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal">
                 COMPANY DETAILS
@@ -77,7 +81,7 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. Four Structured Cards (2x2 Grid with Increased Desktop Typography) */}
+        {/* 2. Four Structured Cards (2x2 Grid) */}
         <div
           ref={gridRef}
           className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5 lg:gap-6 min-h-0"
@@ -131,7 +135,7 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
               </p>
             </div>
             <div className="pt-3 border-t border-slate-800 text-xs sm:text-sm text-slate-400">
-              Chattogram Industrial Hub • Seamless Port Logistics
+              Chattogram Industrial Hub • Strategic Port Access
             </div>
           </div>
 
@@ -171,37 +175,54 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
           </div>
 
-          {/* Card 4: Banking Details */}
-          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between h-full border-purple-500/30 bg-[#091426]/90 shadow-2xl">
+          {/* Card 4: Google Maps & Directions (Replaced Banking Details) */}
+          <div className="p-4 sm:p-6 md:p-7 rounded-2xl cyber-card flex flex-col justify-between h-full border-purple-500/40 bg-gradient-to-br from-[#121028]/95 via-[#091024]/95 to-[#060a18]/95 shadow-2xl relative overflow-hidden group hover:border-purple-400 transition-all">
+            <div className="absolute top-0 right-0 w-36 h-36 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
+
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs sm:text-base font-extrabold text-purple-400 uppercase tracking-wider">
-                  BANKING DETAILS
+                <span className="text-xs sm:text-base font-extrabold text-purple-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <Compass className="w-4 h-4 text-purple-400" />
+                  <span>LOCATION & MAP DIRECTIONS</span>
                 </span>
-                <CreditCard className="w-5 h-5 text-purple-400" />
+                <Navigation className="w-5 h-5 text-purple-400 animate-pulse" />
               </div>
+
               <div className="space-y-2 text-xs sm:text-sm md:text-base text-slate-200 mt-1">
-                <div className="font-bold text-white text-sm sm:text-lg">
-                  Rupali Bank Ltd.
+                <div className="font-bold text-white text-sm sm:text-lg flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4 text-[#55c538] shrink-0" />
+                  <span>ABM Tower, Chattogram</span>
                 </div>
-                <div className="text-xs sm:text-sm text-slate-300">
-                  RUPALI SADAN CORP. BRANCH, 320, LALDIGHI EAST, CHATTOGRAM, BANGLADESH.
-                </div>
-                <div className="flex justify-between pb-1.5 border-b border-slate-800 pt-1">
-                  <span className="text-slate-400">A/C No:</span>
-                  <span className="font-extrabold text-[#72e055] font-mono text-sm sm:text-base">
-                    1271020012021
-                  </span>
-                </div>
-                <div className="flex justify-between pb-1.5 border-b border-slate-800">
-                  <span className="text-slate-400">SWIFT Code:</span>
-                  <span className="font-bold text-white font-mono">RUPBBDDHRSC</span>
-                </div>
-                <div className="flex justify-between pt-1 text-xs sm:text-sm text-slate-300">
-                  <span>Tel: 880-02333356130</span>
-                  <span>Fax: 880-31-637552</span>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  671/1 Sholakbahar, Bahaddarhat, Chattogram — Quick access to major highway corridors & port terminals.
+                </p>
+
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80 text-[11px] sm:text-xs">
+                  <div className="p-2 rounded-xl bg-white/[0.04] border border-white/5">
+                    <span className="text-slate-400 block">Sea Port:</span>
+                    <span className="font-bold text-white font-mono">12 km Distance</span>
+                  </div>
+                  <div className="p-2 rounded-xl bg-white/[0.04] border border-white/5">
+                    <span className="text-slate-400 block">Intl Airport:</span>
+                    <span className="font-bold text-white font-mono">18 km Distance</span>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Google Maps Direct Navigation Link */}
+            <div className="mt-3 pt-3 border-t border-slate-800/80">
+              <a
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 sm:py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-[#55c538] hover:from-purple-500 hover:to-[#72e055] text-white font-black text-xs sm:text-sm shadow-lg shadow-purple-500/25 flex items-center justify-center gap-2 transition-all group-hover:scale-[1.02]"
+              >
+                <Navigation className="w-4 h-4" />
+                <span>Get Directions in Google Maps</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </a>
             </div>
           </div>
         </div>
