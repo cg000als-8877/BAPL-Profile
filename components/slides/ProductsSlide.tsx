@@ -182,6 +182,12 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     "aspect-[3/4.2]",
     "aspect-[3/4]",
   ];
+  const col3Aspects = [
+    "aspect-[3/4]",
+    "aspect-[2/3]",
+    "aspect-[4/5]",
+    "aspect-[3/4.2]",
+  ];
 
   return (
     <AspectWrapper className="bg-[#050811] text-white">
@@ -211,7 +217,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW: 6 Categories + 2-Column Pinterest Masonry Lookbook Feed */}
+        {/* 2. MOBILE VIEW: 6 Categories + 3-Column Pinterest Masonry Lookbook Feed */}
         <div
           ref={mobileStackRef}
           className="flex flex-col md:hidden gap-3.5 w-full pb-8"
@@ -256,16 +262,16 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
               </h3>
             </div>
             <span className="text-[11px] font-bold text-[#72e055] px-2 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
-              80 Looks • Masonry Feed
+              80 Looks • 3-Col Masonry
             </span>
           </div>
 
-          {/* C. PINTEREST MASONRY GRID (2 Staggered Columns on Mobile) */}
-          <div className="w-full grid grid-cols-2 gap-2.5 items-start">
+          {/* C. PINTEREST MASONRY GRID (3 Staggered Columns on Mobile) */}
+          <div className="w-full grid grid-cols-3 gap-1.5 sm:gap-2 items-start">
             {/* Column 1 (Left Stream) */}
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-1.5 sm:gap-2">
               {catalogFrames
-                .filter((_, idx) => idx % 2 === 0)
+                .filter((_, idx) => idx % 3 === 0)
                 .map((frame, colIdx) => (
                   <MobilePinterestFrameItem
                     key={frame.id}
@@ -276,16 +282,30 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 ))}
             </div>
 
-            {/* Column 2 (Right Stream) */}
-            <div className="flex flex-col gap-2.5">
+            {/* Column 2 (Middle Stream) */}
+            <div className="flex flex-col gap-1.5 sm:gap-2">
               {catalogFrames
-                .filter((_, idx) => idx % 2 === 1)
+                .filter((_, idx) => idx % 3 === 1)
                 .map((frame, colIdx) => (
                   <MobilePinterestFrameItem
                     key={frame.id}
                     id={frame.id}
                     label={frame.label}
                     aspectClass={col2Aspects[colIdx % col2Aspects.length]}
+                  />
+                ))}
+            </div>
+
+            {/* Column 3 (Right Stream) */}
+            <div className="flex flex-col gap-1.5 sm:gap-2">
+              {catalogFrames
+                .filter((_, idx) => idx % 3 === 2)
+                .map((frame, colIdx) => (
+                  <MobilePinterestFrameItem
+                    key={frame.id}
+                    id={frame.id}
+                    label={frame.label}
+                    aspectClass={col3Aspects[colIdx % col3Aspects.length]}
                   />
                 ))}
             </div>
