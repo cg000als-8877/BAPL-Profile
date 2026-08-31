@@ -89,138 +89,134 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
 
           <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
             <UserCheck className="w-4 h-4 text-[#55c538]" />
-            <span>Executive Board & Banking Credentials</span>
+            <span>Executive Board & Commercial Credentials</span>
           </div>
         </div>
 
-        {/* 2. UPPER SECTION: KEY CONTACT PERSONS */}
-        <div className="flex flex-col gap-2 flex-1 md:min-h-0">
-          <div className="text-[11px] sm:text-xs md:text-sm font-extrabold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 shrink-0">
+        {/* 2. UPPER ROW: EXECUTIVE LEADERSHIP CARDS (Equal 50% Height Balance) */}
+        <div className="flex flex-col gap-1.5 flex-1 min-h-0">
+          <div className="text-[11px] sm:text-xs font-extrabold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 shrink-0">
             <UserCheck className="w-3.5 h-3.5 text-[#55c538]" />
             <span>EXECUTIVE LEADERSHIP & INQUIRIES</span>
           </div>
 
           <div
             ref={profilesRef}
-            className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 flex-1 min-h-0"
+            className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5 flex-1 min-h-0"
           >
             {/* Profile Card 1: Mr. Abdur Rahaman */}
-            <div className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-2xl cyber-card border border-emerald-500/35 bg-gradient-to-br from-[#09162a]/95 via-[#060e1c]/95 to-[#040812]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all h-full">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-[#55c538]/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-emerald-500/35 bg-gradient-to-br from-[#09162a]/95 via-[#060e1c]/95 to-[#040812]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all h-full">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-[#55c538]/10 rounded-full blur-2xl pointer-events-none" />
 
               <div>
                 {/* Monogram Badge & Role Tag */}
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#55c538]/30 to-[#55c538]/10 border border-[#55c538]/40 flex items-center justify-center text-base sm:text-xl md:text-2xl font-black text-[#72e055] shadow-xl shrink-0">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-[#55c538]/30 to-[#55c538]/10 border border-[#55c538]/40 flex items-center justify-center text-base sm:text-lg md:text-xl font-black text-[#72e055] shadow-xl shrink-0">
                       AR
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-2xl md:text-2xl lg:text-3xl font-black text-white leading-tight">
+                      <h3 className="text-base sm:text-xl md:text-xl lg:text-2xl font-black text-white leading-tight">
                         Mr. Abdur Rahaman
                       </h3>
-                      {/* Designation in Line 1 */}
-                      <div className="text-xs sm:text-sm md:text-base lg:text-lg font-extrabold text-[#72e055] mt-0.5">
+                      <div className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055] mt-0.5">
                         Managing Director
                       </div>
-                      {/* Workplace in Line 2 */}
-                      <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold text-slate-300">
+                      <div className="text-[11px] sm:text-xs md:text-sm font-semibold text-slate-300">
                         Byzid Apparels (Pvt) Ltd.
                       </div>
                     </div>
                   </div>
 
-                  <div className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full cyber-pill text-xs md:text-sm font-bold text-[#72e055] border border-[#55c538]/30 shadow-md shrink-0">
-                    <span className="w-2 h-2 rounded-full bg-[#55c538] animate-pulse" />
+                  <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full cyber-pill text-[11px] sm:text-xs font-bold text-[#72e055] border border-[#55c538]/30 shadow-md shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#55c538] animate-pulse" />
                     <span>Managing Director</span>
                   </div>
                 </div>
 
-                {/* Executive Scope / Bio Note */}
-                <p className="text-xs sm:text-sm md:text-base lg:text-base text-slate-200 font-medium leading-relaxed mb-3 hidden md:block">
-                  Overseeing 30+ years of manufacturing excellence, direct client relationships, and global buyer partnerships across North America and Europe.
+                {/* Executive Scope Note */}
+                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-2 hidden md:block">
+                  Overseeing 30+ years of manufacturing excellence, direct client relationships, and global buyer partnerships.
                 </p>
               </div>
 
-              {/* Email Contact Action Box with Send Email Button */}
-              <div className="mt-2 pt-3 md:pt-4 border-t border-slate-800/80 flex items-center justify-between gap-3">
+              {/* Email Contact Action Box */}
+              <div className="mt-1 pt-2.5 sm:pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3">
                 <a
                   href="mailto:info@byzidapparels.com?subject=Business%20Inquiry%20-%20Byzid%20Apparels"
-                  className="flex items-center gap-2.5 text-xs sm:text-sm md:text-base lg:text-lg font-bold text-slate-100 hover:text-white transition-colors truncate"
+                  className="flex items-center gap-2 text-xs sm:text-sm md:text-base font-bold text-slate-100 hover:text-white transition-colors truncate"
                   title="Click to Send Email"
                 >
-                  <div className="p-2 rounded-xl bg-[#55c538]/10 text-[#55c538] shrink-0">
-                    <Mail className="w-4 h-4 md:w-5 md:h-5" />
+                  <div className="p-1.5 rounded-lg bg-[#55c538]/10 text-[#55c538] shrink-0">
+                    <Mail className="w-4 h-4" />
                   </div>
                   <span className="truncate font-mono">info@byzidapparels.com</span>
                 </a>
 
                 <a
                   href="mailto:info@byzidapparels.com?subject=Business%20Inquiry%20-%20Byzid%20Apparels"
-                  className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-[#55c538] hover:bg-[#72e055] text-slate-950 text-xs sm:text-sm md:text-base font-black transition-all shadow-lg shadow-[#55c538]/25 flex items-center gap-2 shrink-0 active:scale-95"
+                  className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#55c538] hover:bg-[#72e055] text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md shadow-[#55c538]/25 flex items-center gap-1.5 shrink-0 active:scale-95"
                 >
-                  <Send className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  <Send className="w-3.5 h-3.5" />
                   <span>Send Email</span>
                 </a>
               </div>
             </div>
 
             {/* Profile Card 2: Mrs. Susan Rebeiro */}
-            <div className="p-4 sm:p-5 md:p-6 lg:p-8 rounded-2xl cyber-card border border-blue-500/35 bg-gradient-to-br from-[#09162a]/95 via-[#060e1c]/95 to-[#040812]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-blue-400 transition-all h-full">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-blue-500/35 bg-gradient-to-br from-[#09162a]/95 via-[#060e1c]/95 to-[#040812]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-blue-400 transition-all h-full">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div>
                 {/* Monogram Badge & Role Tag */}
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500/30 to-blue-500/10 border border-blue-500/40 flex items-center justify-center text-base sm:text-xl md:text-2xl font-black text-blue-400 shadow-xl shrink-0">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-500/10 border border-blue-500/40 flex items-center justify-center text-base sm:text-lg md:text-xl font-black text-blue-400 shadow-xl shrink-0">
                       SR
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-2xl md:text-2xl lg:text-3xl font-black text-white leading-tight">
+                      <h3 className="text-base sm:text-xl md:text-xl lg:text-2xl font-black text-white leading-tight">
                         Mrs. Susan Rebeiro
                       </h3>
-                      {/* Designation in Line 1 */}
-                      <div className="text-xs sm:text-sm md:text-base lg:text-lg font-extrabold text-blue-400 mt-0.5">
+                      <div className="text-xs sm:text-sm md:text-base font-extrabold text-blue-400 mt-0.5">
                         Director of Operations
                       </div>
-                      {/* Workplace in Line 2 */}
-                      <div className="text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold text-slate-300">
+                      <div className="text-[11px] sm:text-xs md:text-sm font-semibold text-slate-300">
                         Byzid Apparels (Pvt) Ltd.
                       </div>
                     </div>
                   </div>
 
-                  <div className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full cyber-pill text-xs md:text-sm font-bold text-blue-400 border border-blue-500/30 shadow-md shrink-0">
-                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                  <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full cyber-pill text-[11px] sm:text-xs font-bold text-blue-400 border border-blue-500/30 shadow-md shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                     <span>Director of Operations</span>
                   </div>
                 </div>
 
-                {/* Executive Scope / Bio Note */}
-                <p className="text-xs sm:text-sm md:text-base lg:text-base text-slate-200 font-medium leading-relaxed mb-3 hidden md:block">
-                  Directing end-to-end plant operations, daily 12-line sewing production flow, strict quality benchmarks, and container export logistics.
+                {/* Executive Scope Note */}
+                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-2 hidden md:block">
+                  Directing end-to-end plant operations, 12-line sewing production, quality benchmarks, and container shipments.
                 </p>
               </div>
 
-              {/* Email Contact Action Box with Send Email Button */}
-              <div className="mt-2 pt-3 md:pt-4 border-t border-slate-800/80 flex items-center justify-between gap-3">
+              {/* Email Contact Action Box */}
+              <div className="mt-1 pt-2.5 sm:pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3">
                 <a
                   href="mailto:susan@byzidapparels.com?subject=Operational%20Inquiry%20-%20Byzid%20Apparels"
-                  className="flex items-center gap-2.5 text-xs sm:text-sm md:text-base lg:text-lg font-bold text-slate-100 hover:text-white transition-colors truncate"
+                  className="flex items-center gap-2 text-xs sm:text-sm md:text-base font-bold text-slate-100 hover:text-white transition-colors truncate"
                   title="Click to Send Email"
                 >
-                  <div className="p-2 rounded-xl bg-blue-500/10 text-blue-400 shrink-0">
-                    <Mail className="w-4 h-4 md:w-5 md:h-5" />
+                  <div className="p-1.5 rounded-lg bg-blue-500/10 text-blue-400 shrink-0">
+                    <Mail className="w-4 h-4" />
                   </div>
                   <span className="truncate font-mono">susan@byzidapparels.com</span>
                 </a>
 
                 <a
                   href="mailto:susan@byzidapparels.com?subject=Operational%20Inquiry%20-%20Byzid%20Apparels"
-                  className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 text-xs sm:text-sm md:text-base font-black transition-all shadow-lg shadow-blue-500/25 flex items-center gap-2 shrink-0 active:scale-95"
+                  className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md shadow-blue-500/25 flex items-center gap-1.5 shrink-0 active:scale-95"
                 >
-                  <Send className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  <Send className="w-3.5 h-3.5" />
                   <span>Send Email</span>
                 </a>
               </div>
@@ -228,110 +224,161 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 3. LOWER SECTION: Balanced 2-Column Desktop Grid (Banking Details & Registered Office) */}
-        <div
-          ref={bottomGridRef}
-          className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 shrink-0"
-        >
-          {/* Card A: Banking Details */}
-          <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-purple-500/40 bg-gradient-to-br from-[#10142b]/95 via-[#091024]/95 to-[#060a18]/95 shadow-xl flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-2 sm:mb-3">
-                <div className="flex items-center gap-2">
-                  <div className="p-1.5 sm:p-2 rounded-xl bg-purple-500/20 text-purple-300">
-                    <CreditCard className="w-4 h-4 md:w-5 md:h-5" />
-                  </div>
-                  <span className="text-xs sm:text-sm md:text-base font-extrabold text-purple-300 uppercase tracking-wider">
-                    COMMERCIAL BANKING DETAILS
-                  </span>
-                </div>
-                <span className="text-xs sm:text-sm font-bold text-slate-300 font-mono">
-                  Rupali Bank Ltd.
-                </span>
-              </div>
+        {/* 3. LOWER ROW: BALANCED & STRUCTURED COMMERCIAL DETAILS (Equal 50% Height Balance) */}
+        <div className="flex flex-col gap-1.5 flex-1 min-h-0">
+          <div className="text-[11px] sm:text-xs font-extrabold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 shrink-0">
+            <CreditCard className="w-3.5 h-3.5 text-purple-400" />
+            <span>COMMERCIAL BANKING & CORPORATE LOCATION</span>
+          </div>
 
-              <div className="space-y-2 pt-2 border-t border-slate-800/80 text-xs sm:text-sm md:text-base">
-                <div>
-                  <div className="text-[11px] sm:text-xs text-slate-400 font-medium">
-                    Corporate Branch:
-                  </div>
-                  <div className="font-bold text-white text-xs sm:text-sm md:text-base">
-                    RUPALI SADAN CORP. BRANCH
-                  </div>
-                  <div className="text-[11px] sm:text-xs md:text-sm text-slate-300 leading-snug">
-                    320, Laldighi East, Chattogram, Bangladesh
-                  </div>
-                </div>
+          <div
+            ref={bottomGridRef}
+            className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5 flex-1 min-h-0"
+          >
+            {/* Card 3: Commercial Banking Details */}
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-purple-500/35 bg-gradient-to-br from-[#0d1226]/95 via-[#080d1e]/95 to-[#040712]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-purple-400 transition-all h-full">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
 
-                <div className="grid grid-cols-2 gap-2 pt-1 border-t border-slate-800/60">
-                  <div>
-                    <div className="text-[10px] sm:text-xs text-slate-400 font-medium">
-                      Account Number:
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 shrink-0">
+                      <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <div className="font-extrabold text-[#72e055] font-mono text-xs sm:text-base md:text-lg">
+                    <div>
+                      <h4 className="text-xs sm:text-sm md:text-base font-black text-purple-300 uppercase tracking-wider">
+                        Commercial Banking Details
+                      </h4>
+                      <span className="text-[11px] sm:text-xs font-bold text-slate-400">
+                        Rupali Bank Ltd.
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full cyber-pill text-[11px] sm:text-xs font-bold text-purple-300 border border-purple-500/30 shadow-md shrink-0">
+                    <span>Corporate Account</span>
+                  </div>
+                </div>
+
+                {/* Structured 2-Column Info Grid */}
+                <div className="grid grid-cols-2 gap-2 sm:gap-2.5 pt-2 border-t border-slate-800/80">
+                  {/* Account Number */}
+                  <div className="p-2 sm:p-2.5 rounded-xl bg-purple-500/5 border border-purple-500/20">
+                    <div className="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider">
+                      Account Number
+                    </div>
+                    <div className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055] font-mono mt-0.5">
                       1271020012021
                     </div>
                   </div>
-                  <div>
-                    <div className="text-[10px] sm:text-xs text-slate-400 font-medium">
-                      SWIFT Code:
+
+                  {/* SWIFT Code */}
+                  <div className="p-2 sm:p-2.5 rounded-xl bg-purple-500/5 border border-purple-500/20">
+                    <div className="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider">
+                      SWIFT Code
                     </div>
-                    <div className="font-extrabold text-white font-mono text-xs sm:text-base md:text-lg">
+                    <div className="text-xs sm:text-sm md:text-base font-extrabold text-white font-mono mt-0.5">
                       RUPBBDDHRSC
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
 
-            <div className="pt-2.5 border-t border-slate-800/60 text-xs sm:text-sm text-slate-400 flex items-center justify-between">
-              <span>Tel: +880-02333356130</span>
-              <span className="text-[#72e055] font-bold">100% Export Compliant</span>
-            </div>
-          </div>
-
-          {/* Card B: Registered Office & Direct Telephone Line */}
-          <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-slate-700/80 bg-gradient-to-br from-[#0c1527]/95 via-[#080e1a]/95 to-[#040810]/95 shadow-xl flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-2 sm:mb-3">
-                <div className="flex items-center gap-2">
-                  <div className="p-1.5 sm:p-2 rounded-xl bg-[#55c538]/20 text-[#55c538]">
-                    <MapPin className="w-4 h-4 md:w-5 md:h-5" />
+                  {/* Corporate Branch & Address */}
+                  <div className="col-span-2 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                    <div className="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider">
+                      Corporate Branch & Location
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-white mt-0.5">
+                      Rupali Sadan Corporate Branch
+                    </div>
+                    <div className="text-[11px] sm:text-xs text-slate-300">
+                      320, Laldighi East, Chattogram, Bangladesh
+                    </div>
                   </div>
-                  <span className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055] uppercase tracking-wider">
-                    REGISTERED OFFICE & MAILING ADDRESS
-                  </span>
                 </div>
-                <span className="text-xs sm:text-sm font-bold text-slate-400">
-                  Headquarters
-                </span>
               </div>
 
-              <div className="pt-2 border-t border-slate-800/80">
-                <h3 className="text-sm sm:text-lg md:text-xl font-black text-white mb-0.5">
-                  BYZID APPARELS (PVT.) LTD
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base text-slate-200 font-medium leading-relaxed">
-                  ABM TOWER, 671/1 Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
-                </p>
-                <div className="mt-2 text-xs sm:text-sm text-slate-400 flex items-center gap-1.5">
-                  <Building2 className="w-4 h-4 text-[#55c538]" />
-                  <span>Factory Location: Chandgaon I/A, Chattogram</span>
-                </div>
+              {/* Footer Bar */}
+              <div className="mt-2 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] sm:text-xs text-slate-400">
+                <span className="flex items-center gap-1.5">
+                  <Phone className="w-3 h-3 text-purple-400" />
+                  <span>Tel: +880-02333356130</span>
+                </span>
+                <span className="text-[#72e055] font-bold">100% Export Compliant</span>
               </div>
             </div>
 
-            <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <span className="text-xs sm:text-sm text-slate-300 font-medium">
-                Direct Line:
-              </span>
-              <a
-                href="tel:008802334451856"
-                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-[#55c538] text-slate-950 font-black text-xs sm:text-sm md:text-base shadow-lg shadow-[#55c538]/25 hover:bg-[#72e055] transition-all active:scale-95"
-              >
-                <Phone className="w-4 h-4 text-slate-950" />
-                <span>TEL: +880-02334451856</span>
-              </a>
+            {/* Card 4: Registered Office & Mailing Address */}
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-slate-700/80 bg-gradient-to-br from-[#0c1527]/95 via-[#080e1a]/95 to-[#040810]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all h-full">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-[#55c538]/10 rounded-full blur-2xl pointer-events-none" />
+
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#55c538]/20 border border-[#55c538]/30 flex items-center justify-center text-[#55c538] shrink-0">
+                      <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm md:text-base font-black text-[#72e055] uppercase tracking-wider">
+                        Registered Office & Plant
+                      </h4>
+                      <span className="text-[11px] sm:text-xs font-bold text-slate-400">
+                        Headquarters & Production Facility
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full cyber-pill text-[11px] sm:text-xs font-bold text-[#72e055] border border-[#55c538]/30 shadow-md shrink-0">
+                    <span>Headquarters</span>
+                  </div>
+                </div>
+
+                {/* Structured 2-Column Info Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 pt-2 border-t border-slate-800/80">
+                  {/* Registered Corporate Office */}
+                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                    <div className="text-[10px] sm:text-xs text-[#72e055] font-extrabold uppercase tracking-wider">
+                      Registered Office
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-white mt-0.5">
+                      BYZID APPARELS (PVT.) LTD
+                    </div>
+                    <div className="text-[11px] sm:text-xs text-slate-300 leading-snug mt-0.5">
+                      ABM TOWER, 671/1 Sholakbahar, Bahaddarhat, Chattogram.
+                    </div>
+                  </div>
+
+                  {/* Factory Production Unit */}
+                  <div className="p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                    <div className="text-[10px] sm:text-xs text-[#72e055] font-extrabold uppercase tracking-wider">
+                      Factory Facility
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-white mt-0.5">
+                      Chandgaon Industrial Area
+                    </div>
+                    <div className="text-[11px] sm:text-xs text-slate-300 leading-snug mt-0.5">
+                      Chattogram, Bangladesh
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer Bar with Direct Telephone Action Button */}
+              <div className="mt-2 pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                <div className="text-[11px] sm:text-xs text-slate-300 font-medium flex items-center gap-1.5">
+                  <Building2 className="w-3.5 h-3.5 text-[#55c538]" />
+                  <span>Direct Line:</span>
+                </div>
+
+                <a
+                  href="tel:008802334451856"
+                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-xl bg-[#55c538] text-slate-950 font-black text-xs sm:text-sm shadow-md shadow-[#55c538]/25 hover:bg-[#72e055] transition-all active:scale-95"
+                >
+                  <Phone className="w-3.5 h-3.5 text-slate-950" />
+                  <span>TEL: +880-02334451856</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
