@@ -261,8 +261,8 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 PRODUCT IMAGES
               </h3>
             </div>
-            <span className="text-[11px] font-bold text-[#72e055] px-2 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
-              80 Looks • 3-Col Masonry
+            <span className="text-[11px] font-bold text-[#72e055] px-2.5 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
+              80 Looks
             </span>
           </div>
 
