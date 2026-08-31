@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { Globe2 } from "lucide-react";
+import { Globe2, Sparkles } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
@@ -15,6 +15,7 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const paraRef = useRef<HTMLDivElement>(null);
 
   const [activeBuyerId, setActiveBuyerId] = useState<string | null>(null);
 
@@ -41,6 +42,12 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
           delay: 0.05,
         }
       );
+
+      gsap.fromTo(
+        paraRef.current,
+        { y: 25, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, delay: 0.15, ease: "expo.out" }
+      );
     }, containerRef);
 
     return () => ctx.revert();
@@ -61,7 +68,79 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
       country: "United States",
       flag: "🇺🇸",
       region: "California, USA",
-      src: "/logos/buyers/Body Glove.png",
+      src: "/logos/buyers/BODY GLOVE.png",
+    },
+    {
+      id: "chaps",
+      name: "Chaps",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "New York, USA",
+      src: "/logos/buyers/CHAPS.png",
+    },
+    {
+      id: "costco",
+      name: "Costco Wholesale",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "Washington, USA",
+      src: "/logos/buyers/COSTCO.png",
+    },
+    {
+      id: "daniel-cremieux",
+      name: "Daniel Cremieux",
+      country: "France",
+      flag: "🇫🇷",
+      region: "Paris, France",
+      src: "/logos/buyers/DANIEL CREMIEUX.png",
+    },
+    {
+      id: "dockers",
+      name: "Dockers",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "California, USA",
+      src: "/logos/buyers/DOCKERS.png",
+    },
+    {
+      id: "eddie-bauer",
+      name: "Eddie Bauer",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "Washington, USA",
+      src: "/logos/buyers/EDDIE BAUER.png",
+    },
+    {
+      id: "g-star-raw",
+      name: "G-Star Raw",
+      country: "Netherlands",
+      flag: "🇳🇱",
+      region: "Amsterdam, NL",
+      src: "/logos/buyers/G-STAR RAW.png",
+    },
+    {
+      id: "gh-bass",
+      name: "G.H. Bass & Co.",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "Maine, USA",
+      src: "/logos/buyers/G.H.BASS.png",
+    },
+    {
+      id: "izod",
+      name: "IZOD",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "New York, USA",
+      src: "/logos/buyers/IZOD.png",
+    },
+    {
+      id: "ocean-current",
+      name: "Ocean Current",
+      country: "United States",
+      flag: "🇺🇸",
+      region: "California, USA",
+      src: "/logos/buyers/OCEAN CURRENT.png",
     },
     {
       id: "true-religion",
@@ -70,78 +149,6 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
       flag: "🇺🇸",
       region: "California, USA",
       src: "/logos/buyers/TRUE RELIGION.png",
-    },
-    {
-      id: "stokomani",
-      name: "Stokomani",
-      country: "France",
-      flag: "🇫🇷",
-      region: "Paris, France",
-      src: "/logos/buyers/STOK OMANI.png",
-    },
-    {
-      id: "torkard",
-      name: "Torkard",
-      country: "United Kingdom",
-      flag: "🇬🇧",
-      region: "Nottingham, UK",
-      src: "/logos/buyers/TORKARD.png",
-    },
-    {
-      id: "airwalk",
-      name: "Airwalk",
-      country: "United States",
-      flag: "🇺🇸",
-      region: "California, USA",
-      src: "/logos/buyers/AIRWALK.png",
-    },
-    {
-      id: "bench",
-      name: "Bench.",
-      country: "United Kingdom",
-      flag: "🇬🇧",
-      region: "Manchester, UK",
-      src: "/logos/buyers/BENCH.png",
-    },
-    {
-      id: "joes",
-      name: "Joe's Jeans",
-      country: "United States",
-      flag: "🇺🇸",
-      region: "Los Angeles, USA",
-      src: "/logos/buyers/JOE'S.png",
-    },
-    {
-      id: "weatherproof",
-      name: "Weatherproof",
-      country: "United States",
-      flag: "🇺🇸",
-      region: "New York, USA",
-      src: "/logos/buyers/WEATHERPROOF.png",
-    },
-    {
-      id: "soulstar",
-      name: "Soul Star",
-      country: "United Kingdom",
-      flag: "🇬🇧",
-      region: "London, UK",
-      src: "/logos/buyers/SOULSTAR.png",
-    },
-    {
-      id: "brave-soul",
-      name: "Brave Soul",
-      country: "United Kingdom",
-      flag: "🇬🇧",
-      region: "London, UK",
-      src: "/logos/buyers/BRAVE SOUL.png",
-    },
-    {
-      id: "buffalo",
-      name: "Buffalo",
-      country: "Canada",
-      flag: "🇨🇦",
-      region: "Montreal, Canada",
-      src: "/logos/buyers/BUFFALO.png",
     },
     {
       id: "dkny",
@@ -181,14 +188,14 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-3.5 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-2.5 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-3 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between gap-2 sm:gap-3 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* 1. Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-between">
           <div className="flex items-center gap-2.5 sm:gap-4">
-            <div className="w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
+            <div className="w-1.5 sm:w-2.5 h-6 sm:h-10 bg-[#55c538] rounded-full glow-bar" />
             <div>
               <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 International Retail Portfolio
@@ -208,7 +215,7 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* 2. Responsive Bento Grid: 2-Col Mobile & 4-Col Desktop */}
         <div
           ref={gridRef}
-          className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3.5 min-h-0"
+          className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 min-h-0"
         >
           {buyerLogos.map((buyer) => {
             const isSelected = activeBuyerId === buyer.id;
@@ -218,7 +225,7 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
                 onClick={() =>
                   setActiveBuyerId(isSelected ? null : buyer.id)
                 }
-                className="group relative bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-xl border border-white/80 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl flex items-center justify-center min-h-[64px] sm:min-h-[85px] md:min-h-0 h-full overflow-hidden cursor-pointer"
+                className="group relative bg-white/95 hover:bg-white rounded-xl sm:rounded-2xl p-2 sm:p-3 shadow-xl border border-white/80 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl flex items-center justify-center min-h-[56px] sm:min-h-[75px] md:min-h-0 h-full overflow-hidden cursor-pointer"
               >
                 {/* Default State: Clean High-Res Transparent PNG Brand Logo */}
                 <div
@@ -267,6 +274,26 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
               </div>
             );
           })}
+        </div>
+
+        {/* 3. Engaging & Convincing Sourcing Paragraph Under Buyer Cards */}
+        <div
+          ref={paraRef}
+          className="shrink-0 p-2.5 sm:p-3 md:p-3.5 rounded-xl sm:rounded-2xl bg-[#081122]/90 border border-slate-700/60 backdrop-blur-md flex items-center gap-2.5 sm:gap-3.5 shadow-xl"
+        >
+          <div className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-[#55c538]/20 text-[#72e055] shrink-0">
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+          </div>
+          <div className="flex-1 min-w-0">
+            {/* Desktop Paragraph */}
+            <p className="hidden md:block text-xs lg:text-sm text-slate-200 leading-relaxed font-medium">
+              <span className="font-extrabold text-white">Three Decades of Global Export Mastery:</span> Trusted by premier fashion houses and leading retail brands across North America and Europe. From precision fabric sourcing to full container shipments, we deliver uncompromised quality, strict compliance (amfori BSCI & OEKO-TEX), and guaranteed on-time execution.
+            </p>
+            {/* Mobile Paragraph */}
+            <p className="block md:hidden text-[11px] sm:text-xs text-slate-200 leading-snug font-medium">
+              <span className="font-extrabold text-white">30+ Years Global Trust:</span> Trusted by iconic retail brands across USA & Europe for precision knit & woven manufacturing, strict compliance, and on-time shipments.
+            </p>
+          </div>
         </div>
       </div>
     </AspectWrapper>
