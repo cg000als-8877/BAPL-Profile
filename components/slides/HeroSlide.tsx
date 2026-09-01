@@ -72,7 +72,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
       {/* 2. Main Slide Interface */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between overflow-hidden md:overflow-visible"
+        className="relative z-10 w-full h-full max-w-7xl md:max-w-[1700px] mx-auto p-4 sm:p-6 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-between overflow-hidden md:overflow-visible"
       >
         {/* Mobile View: Large Architectural Blend Watermark "SINCE 1995" */}
         <div className="block md:hidden shrink-0 pt-1 pl-0.5 select-none pointer-events-none">
@@ -84,11 +84,11 @@ export const HeroSlide: React.FC<SlideProps> = () => {
           </div>
         </div>
 
-        {/* DESKTOP VIEW: Right-Aligned Hero Text Layout */}
+        {/* DESKTOP VIEW: Right-Aligned Hero Text Layout (Anchored to Far Right) */}
         <div className="hidden md:flex w-full items-center justify-end my-auto">
           <div
             ref={rightContentRef}
-            className="w-full md:max-w-[50%] lg:max-w-[46%] xl:max-w-[44%] flex flex-col gap-3.5 lg:gap-4.5 p-6 lg:p-8 rounded-3xl bg-[#050811]/75 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/80"
+            className="w-full md:max-w-[46%] lg:max-w-[42%] xl:max-w-[39%] flex flex-col gap-3 lg:gap-4 p-5 lg:p-7 xl:p-8 rounded-3xl bg-[#050811]/80 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/90 ml-auto"
           >
             {/* A. Integrated Header: Eyebrow + Heritage Pill */}
             <div className="flex items-center justify-between gap-2">
