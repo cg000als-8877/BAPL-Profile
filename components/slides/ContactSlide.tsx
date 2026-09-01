@@ -49,23 +49,18 @@ export const ContactSlide: React.FC<SlideProps> = () => {
               <div className="block md:hidden w-20 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full mt-2" />
             </div>
           </div>
-
-          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
-            <UserCheck className="w-4 h-4 text-[#55c538]" />
-            <span>Executive Board & Commercial Credentials</span>
-          </div>
         </div>
 
-        {/* 2. UPPER ROW: EXECUTIVE LEADERSHIP CARDS (Equal 50% Height Balance) */}
-        <div className="flex flex-col gap-1.5 flex-1 min-h-0">
+        {/* 2. UPPER ROW: EXECUTIVE LEADERSHIP CARDS */}
+        <div className="flex flex-col gap-2 flex-1 min-h-0">
           <div className="text-[11px] sm:text-xs font-extrabold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 shrink-0">
             <UserCheck className="w-3.5 h-3.5 text-[#55c538]" />
-            <span>EXECUTIVE LEADERSHIP & INQUIRIES</span>
+            <span>EXECUTIVE CONTACTS</span>
           </div>
 
           <div
             ref={profilesRef}
-            className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5 flex-1 min-h-0"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 flex-1 min-h-0"
           >
             {/* Profile Card 1: Mr. Abdur Rahaman */}
             <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-emerald-500/35 bg-gradient-to-br from-[#09162a]/95 via-[#060e1c]/95 to-[#040812]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all h-full">
@@ -96,15 +91,10 @@ export const ContactSlide: React.FC<SlideProps> = () => {
                     <span>Managing Director</span>
                   </div>
                 </div>
-
-                {/* Executive Scope Note */}
-                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-2 hidden md:block">
-                  Overseeing 30+ years of manufacturing excellence, direct client relationships, and global buyer partnerships.
-                </p>
               </div>
 
               {/* Email Contact Action Box */}
-              <div className="mt-1 pt-2.5 sm:pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3">
+              <div className="mt-2 pt-2.5 sm:pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3">
                 <a
                   href="mailto:info@byzidapparels.com?subject=Business%20Inquiry%20-%20Byzid%20Apparels"
                   className="flex items-center gap-2 text-xs sm:text-sm md:text-base font-bold text-slate-100 hover:text-white transition-colors truncate"
@@ -155,15 +145,10 @@ export const ContactSlide: React.FC<SlideProps> = () => {
                     <span>Director of Operations</span>
                   </div>
                 </div>
-
-                {/* Executive Scope Note */}
-                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed mb-2 hidden md:block">
-                  Directing end-to-end plant operations, 12-line sewing production, quality benchmarks, and container shipments.
-                </p>
               </div>
 
               {/* Email Contact Action Box */}
-              <div className="mt-1 pt-2.5 sm:pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3">
+              <div className="mt-2 pt-2.5 sm:pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3">
                 <a
                   href="mailto:susan@byzidapparels.com?subject=Operational%20Inquiry%20-%20Byzid%20Apparels"
                   className="flex items-center gap-2 text-xs sm:text-sm md:text-base font-bold text-slate-100 hover:text-white transition-colors truncate"
@@ -187,16 +172,16 @@ export const ContactSlide: React.FC<SlideProps> = () => {
           </div>
         </div>
 
-        {/* 3. LOWER ROW: BALANCED & STRUCTURED COMMERCIAL DETAILS (Equal 50% Height Balance) */}
-        <div className="flex flex-col gap-1.5 flex-1 min-h-0">
+        {/* 3. LOWER ROW: BANKING & CORPORATE LOCATION */}
+        <div className="flex flex-col gap-2 flex-1 min-h-0">
           <div className="text-[11px] sm:text-xs font-extrabold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 shrink-0">
             <CreditCard className="w-3.5 h-3.5 text-purple-400" />
-            <span>COMMERCIAL BANKING & CORPORATE LOCATION</span>
+            <span>BANKING & CORPORATE LOCATION</span>
           </div>
 
           <div
             ref={bottomGridRef}
-            className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5 flex-1 min-h-0"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 flex-1 min-h-0"
           >
             {/* Card 3: Commercial Banking Details */}
             <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-purple-500/35 bg-gradient-to-br from-[#0d1226]/95 via-[#080d1e]/95 to-[#040712]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-purple-400 transition-all h-full">
