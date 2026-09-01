@@ -71,80 +71,80 @@ export const HeroSlide: React.FC<SlideProps> = () => {
       {/* 2. Main Slide Interface */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full max-w-7xl md:max-w-[1700px] mx-auto p-4 sm:p-6 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-between overflow-hidden md:overflow-visible"
+        className="relative z-10 w-full h-full max-w-7xl md:max-w-[1700px] mx-auto p-3 sm:p-6 md:p-3 lg:p-6 xl:p-8 2xl:p-10 flex flex-col justify-between overflow-hidden md:overflow-visible"
       >
         {/* DESKTOP VIEW: Right-Aligned Hero Text Layout (Anchored to Far Right) */}
         <div className="hidden md:flex w-full items-center justify-end my-auto">
           <div
             ref={rightContentRef}
-            className="w-full md:max-w-[46%] lg:max-w-[42%] xl:max-w-[39%] flex flex-col gap-3 lg:gap-4 p-5 lg:p-7 xl:p-8 rounded-3xl bg-[#111419]/85 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/90 ml-auto"
+            className="w-full md:max-w-[48%] lg:max-w-[44%] xl:max-w-[40%] 2xl:max-w-[38%] flex flex-col md:gap-1.5 lg:gap-2.5 xl:gap-3.5 2xl:gap-4 md:p-3.5 lg:p-5 xl:p-7 2xl:p-8 rounded-2xl lg:rounded-3xl bg-[#111419]/85 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/90 ml-auto"
           >
             {/* A. Integrated Header: Eyebrow + Heritage Pill */}
             <div className="flex items-center justify-between gap-2">
-              <div className="inline-flex items-center gap-1.5 text-xs lg:text-sm font-extrabold uppercase tracking-widest text-[#d8dde6]">
-                <Sparkles className="w-4 h-4 text-[#dbe2ea]" />
+              <div className="inline-flex items-center gap-1.5 md:text-[10px] lg:text-xs xl:text-sm font-extrabold uppercase tracking-widest text-[#d8dde6]">
+                <Sparkles className="md:w-3 md:h-3 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-[#dbe2ea]" />
                 <span>BYZID APPARELS (PVT.) LTD</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 shadow-sm shrink-0">
-                <Award className="w-3.5 h-3.5 text-[#dbe2ea]" />
-                <span className="text-[11px] font-black uppercase tracking-wider text-white">
+              <div className="inline-flex items-center gap-1.5 md:px-2 md:py-0.5 lg:px-3 lg:py-1 rounded-full bg-white/10 border border-white/20 shadow-sm shrink-0">
+                <Award className="md:w-3 md:h-3 lg:w-3.5 lg:h-3.5 text-[#dbe2ea]" />
+                <span className="md:text-[9.5px] lg:text-[11px] font-black uppercase tracking-wider text-white">
                   SINCE 1995
                 </span>
               </div>
             </div>
 
             {/* B. Master Hero Title */}
-            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight text-white leading-[1.12] drop-shadow-2xl">
+            <h1 className="md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black tracking-tight text-white md:leading-[1.15] lg:leading-[1.12] drop-shadow-2xl">
               EXPORTING QUALITY.
               <br />
               <span className="text-[#dbe2ea] text-glow">DELIVERING TRUST.</span>
             </h1>
 
             {/* C. Glowing Accent Line */}
-            <div className="w-20 h-1 bg-gradient-to-r from-[#dbe2ea] via-white/50 to-transparent rounded-full glow-bar" />
+            <div className="md:w-12 md:h-0.5 lg:w-16 lg:h-1 xl:w-20 bg-gradient-to-r from-[#dbe2ea] via-white/50 to-transparent rounded-full glow-bar" />
 
             {/* D. Narrative Subtitle Description */}
-            <p className="text-xs sm:text-sm lg:text-[15px] xl:text-base text-slate-200 leading-relaxed font-normal">
+            <p className="md:text-[10.5px] lg:text-xs xl:text-[14px] 2xl:text-base text-slate-200 md:leading-snug lg:leading-relaxed font-normal">
               From our 38,000 sq. ft. multi-story garment facility in Chattogram to global retail runways — delivering BSCI & OEKO-TEX certified knit & woven apparel with uncompromised quality and on-time shipments.
             </p>
 
             {/* E. 3 Feature / Stat Columns */}
-            <div className="grid grid-cols-3 gap-2 lg:gap-3 pt-3.5 border-t border-slate-700/60">
+            <div className="grid grid-cols-3 md:gap-1.5 lg:gap-2.5 xl:gap-3 md:pt-2 lg:pt-3 border-t border-slate-700/60">
               {/* Feature 1 */}
-              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-white/[0.04] border border-white/5">
-                <div className="p-1.5 rounded-lg bg-white/10 text-[#dbe2ea] mb-1.5 shadow-sm">
-                  <Factory className="w-4 h-4" />
+              <div className="flex flex-col items-center text-center md:p-1.5 lg:p-2 rounded-lg lg:rounded-xl bg-white/[0.04] border border-white/5">
+                <div className="md:p-1 lg:p-1.5 rounded-md lg:rounded-lg bg-white/10 text-[#dbe2ea] md:mb-1 lg:mb-1.5 shadow-sm">
+                  <Factory className="md:w-3 md:h-3 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4" />
                 </div>
-                <div className="text-[11px] lg:text-xs font-black uppercase text-white tracking-wider">
+                <div className="md:text-[8.5px] lg:text-[10px] xl:text-xs font-black uppercase text-white tracking-wider">
                   MODERN FACILITY
                 </div>
-                <div className="text-[10px] text-slate-300 font-medium mt-0.5">
+                <div className="md:text-[7.5px] lg:text-[9px] xl:text-[10px] text-slate-300 font-medium md:mt-0 lg:mt-0.5">
                   38,000 SFT Plant
                 </div>
               </div>
 
               {/* Feature 2 */}
-              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-white/[0.04] border border-white/5">
-                <div className="p-1.5 rounded-lg bg-white/10 text-[#dbe2ea] mb-1.5 shadow-sm">
-                  <ShieldCheck className="w-4 h-4" />
+              <div className="flex flex-col items-center text-center md:p-1.5 lg:p-2 rounded-lg lg:rounded-xl bg-white/[0.04] border border-white/5">
+                <div className="md:p-1 lg:p-1.5 rounded-md lg:rounded-lg bg-white/10 text-[#dbe2ea] md:mb-1 lg:mb-1.5 shadow-sm">
+                  <ShieldCheck className="md:w-3 md:h-3 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4" />
                 </div>
-                <div className="text-[11px] lg:text-xs font-black uppercase text-white tracking-wider">
+                <div className="md:text-[8.5px] lg:text-[10px] xl:text-xs font-black uppercase text-white tracking-wider">
                   QUALITY ASSURED
                 </div>
-                <div className="text-[10px] text-slate-300 font-medium mt-0.5">
+                <div className="md:text-[7.5px] lg:text-[9px] xl:text-[10px] text-slate-300 font-medium md:mt-0 lg:mt-0.5">
                   BSCI & OEKO-TEX
                 </div>
               </div>
 
               {/* Feature 3 */}
-              <div className="flex flex-col items-center text-center p-2 rounded-xl bg-white/[0.04] border border-white/5">
-                <div className="p-1.5 rounded-lg bg-white/10 text-[#dbe2ea] mb-1.5 shadow-sm">
-                  <Globe2 className="w-4 h-4" />
+              <div className="flex flex-col items-center text-center md:p-1.5 lg:p-2 rounded-lg lg:rounded-xl bg-white/[0.04] border border-white/5">
+                <div className="md:p-1 lg:p-1.5 rounded-md lg:rounded-lg bg-white/10 text-[#dbe2ea] md:mb-1 lg:mb-1.5 shadow-sm">
+                  <Globe2 className="md:w-3 md:h-3 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4" />
                 </div>
-                <div className="text-[11px] lg:text-xs font-black uppercase text-white tracking-wider">
+                <div className="md:text-[8.5px] lg:text-[10px] xl:text-xs font-black uppercase text-white tracking-wider">
                   GLOBAL DELIVERY
                 </div>
-                <div className="text-[10px] text-slate-300 font-medium mt-0.5">
+                <div className="md:text-[7.5px] lg:text-[9px] xl:text-[10px] text-slate-300 font-medium md:mt-0 lg:mt-0.5">
                   USA, EU & Global
                 </div>
               </div>
