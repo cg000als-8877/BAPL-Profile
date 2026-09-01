@@ -737,3 +737,263 @@ html.day-mode .ambient-blob-4 {
   background-color: rgba(16, 185, 129, 0.07) !important;
 }
 
+/* ============================================================
+   NIGHT MODE THEME PRESET 1: QUIET LUXURY CORPORATE (Default)
+   ============================================================ */
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"],
+html:not([data-theme="day"]):not([data-night-preset]) {
+  background-color: #080d0b !important;
+}
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] body,
+html:not([data-theme="day"]):not([data-night-preset]) body,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .snap-container,
+html:not([data-theme="day"]):not([data-night-preset]) .snap-container {
+  background-color: #080d0b !important;
+}
+
+/* Card Surfaces */
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .cyber-card,
+html:not([data-theme="day"]):not([data-night-preset]) .cyber-card {
+  background-color: #101713 !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7) !important;
+}
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .cyber-card:hover,
+html:not([data-theme="day"]):not([data-night-preset]) .cyber-card:hover {
+  background-color: #141e19 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Sub-containers & inner rows */
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .bg-slate-900\/60,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .bg-slate-900\/80,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .bg-slate-900\/90,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .bg-purple-500\/5,
+html:not([data-theme="day"]):not([data-night-preset]) .bg-slate-900\/60,
+html:not([data-theme="day"]):not([data-night-preset]) .bg-slate-900\/80,
+html:not([data-theme="day"]):not([data-night-preset]) .bg-slate-900\/90,
+html:not([data-theme="day"]):not([data-night-preset]) .bg-purple-500\/5 {
+  background-color: #15201a !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Monogram badges */
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .w-11.h-11,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .w-10.h-10,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .w-9.h-9,
+html:not([data-theme="day"]):not([data-night-preset]) .w-11.h-11,
+html:not([data-theme="day"]):not([data-night-preset]) .w-10.h-10,
+html:not([data-theme="day"]):not([data-night-preset]) .w-9.h-9 {
+  background-color: #15201a !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #5bcb4a !important;
+}
+
+/* Unified green buttons */
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .bg-blue-500,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .bg-gradient-to-r,
+html:not([data-theme="day"]):not([data-night-preset]) .bg-blue-500,
+html:not([data-theme="day"]):not([data-night-preset]) .bg-gradient-to-r {
+  background-color: #5bcb4a !important;
+  background-image: none !important;
+  color: #080d0b !important;
+}
+
+/* Unified titles & secondary colors */
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .text-blue-400,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .text-purple-300,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .text-purple-400,
+html:not([data-theme="day"])[data-night-preset="quiet-luxury"] .text-amber-400,
+html:not([data-theme="day"]):not([data-night-preset]) .text-blue-400,
+html:not([data-theme="day"]):not([data-night-preset]) .text-purple-300,
+html:not([data-theme="day"]):not([data-night-preset]) .text-purple-400,
+html:not([data-theme="day"]):not([data-night-preset]) .text-amber-400 {
+  color: #aab4ae !important;
+}
+
+/* ============================================================
+   NIGHT MODE THEME PRESET 2: MONOCHROME PRESTIGE (High-Fashion Look)
+   ============================================================ */
+html:not([data-theme="day"])[data-night-preset="monochrome"],
+html:not([data-theme="day"])[data-night-preset="monochrome"] body,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .snap-container {
+  background-color: #040608 !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="monochrome"] .cyber-card {
+  background-color: #0c0e12 !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 14px 35px -10px rgba(0, 0, 0, 0.85) !important;
+}
+html:not([data-theme="day"])[data-night-preset="monochrome"] .cyber-card:hover {
+  background-color: #12151b !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="monochrome"] .bg-slate-900\/60,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .bg-slate-900\/80,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .bg-slate-900\/90,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .bg-purple-500\/5 {
+  background-color: #14171e !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="monochrome"] .w-11.h-11,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .w-10.h-10,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .w-9.h-9 {
+  background-color: #14171e !important;
+  background-image: none !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* Crisp White Buttons */
+html:not([data-theme="day"])[data-night-preset="monochrome"] .bg-\[\#55c538\],
+html:not([data-theme="day"])[data-night-preset="monochrome"] .bg-blue-500,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .bg-gradient-to-r {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #040608 !important;
+  font-weight: 900 !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="monochrome"] .glow-bar {
+  background-color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5) !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="monochrome"] .text-\[\#72e055\],
+html:not([data-theme="day"])[data-night-preset="monochrome"] .text-\[\#55c538\],
+html:not([data-theme="day"])[data-night-preset="monochrome"] .text-blue-400,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .text-purple-300,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .text-purple-400,
+html:not([data-theme="day"])[data-night-preset="monochrome"] .text-amber-400 {
+  color: #e2e8f0 !important;
+}
+
+/* ============================================================
+   NIGHT MODE THEME PRESET 3: EMERALD EXECUTIVE (Midnight Forest & Mint)
+   ============================================================ */
+html:not([data-theme="day"])[data-night-preset="emerald-executive"],
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] body,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .snap-container {
+  background-color: #030c07 !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .cyber-card {
+  background-color: #07170f !important;
+  background-image: none !important;
+  border-color: rgba(45, 106, 79, 0.35) !important;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.8) !important;
+}
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .cyber-card:hover {
+  background-color: #0b2216 !important;
+  border-color: rgba(74, 222, 128, 0.35) !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .bg-slate-900\/60,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .bg-slate-900\/80,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .bg-slate-900\/90,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .bg-purple-500\/5 {
+  background-color: #0e261a !important;
+  border-color: rgba(45, 106, 79, 0.25) !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .w-11.h-11,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .w-10.h-10,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .w-9.h-9 {
+  background-color: #0e261a !important;
+  background-image: none !important;
+  border-color: rgba(74, 222, 128, 0.3) !important;
+  color: #10b981 !important;
+}
+
+/* Mint Emerald Buttons */
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .bg-\[\#55c538\],
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .bg-blue-500,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .bg-gradient-to-r {
+  background-color: #10b981 !important;
+  background-image: none !important;
+  color: #022c16 !important;
+  font-weight: 900 !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .glow-bar {
+  background-color: #10b981 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.5) !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .text-\[\#72e055\],
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .text-\[\#55c538\],
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .text-blue-400,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .text-purple-300,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .text-purple-400,
+html:not([data-theme="day"])[data-night-preset="emerald-executive"] .text-amber-400 {
+  color: #6ee7b7 !important;
+}
+
+/* ============================================================
+   NIGHT MODE THEME PRESET 4: TITANIUM SLATE (Industrial Steel & Cyan)
+   ============================================================ */
+html:not([data-theme="day"])[data-night-preset="titanium-slate"],
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] body,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .snap-container {
+  background-color: #080b10 !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .cyber-card {
+  background-color: #0e141e !important;
+  background-image: none !important;
+  border-color: rgba(148, 163, 184, 0.16) !important;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.8) !important;
+}
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .cyber-card:hover {
+  background-color: #141c2b !important;
+  border-color: rgba(148, 163, 184, 0.28) !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .bg-slate-900\/60,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .bg-slate-900\/80,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .bg-slate-900\/90,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .bg-purple-500\/5 {
+  background-color: #161f2e !important;
+  border-color: rgba(148, 163, 184, 0.1) !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .w-11.h-11,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .w-10.h-10,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .w-9.h-9 {
+  background-color: #161f2e !important;
+  background-image: none !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  color: #38bdf8 !important;
+}
+
+/* Steel Cyan Buttons */
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .bg-\[\#55c538\],
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .bg-blue-500,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .bg-gradient-to-r {
+  background-color: #0ea5e9 !important;
+  background-image: none !important;
+  color: #03131e !important;
+  font-weight: 900 !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .glow-bar {
+  background-color: #38bdf8 !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5) !important;
+}
+
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .text-\[\#72e055\],
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .text-\[\#55c538\],
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .text-blue-400,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .text-purple-300,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .text-purple-400,
+html:not([data-theme="day"])[data-night-preset="titanium-slate"] .text-amber-400 {
+  color: #94a3b8 !important;
+}
+
+
