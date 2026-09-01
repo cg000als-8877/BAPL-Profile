@@ -148,12 +148,11 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
   ];
 
   return (
-    <AspectWrapper className="bg-[#050811] text-white">
+    <AspectWrapper className="bg-transparent text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between gap-3 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-4 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between gap-3 sm:gap-4 overflow-visible"
       >
-        <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* 1. Header */}
         <div ref={headerRef} className="shrink-0 flex items-center justify-center md:justify-between w-full">

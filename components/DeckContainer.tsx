@@ -125,12 +125,24 @@ const MobileSectionDivider: React.FC = () => (
 );
 
   return (
-    <main ref={containerRef} className="snap-container bg-[#050811]">
+    <main ref={containerRef} className="snap-container bg-[#050811] relative overflow-x-hidden">
+      {/* Universal Seamless Background Glow Orbs (Fixed across entire website without any clipping or section borders) */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
+        {/* Ambient Blob 1: Top-Right Glow */}
+        <div className="ambient-blob-1 absolute -top-40 -right-40 w-[600px] sm:w-[900px] h-[600px] sm:h-[900px] rounded-full bg-[#55c538]/[0.08] blur-[160px] pointer-events-none" />
+        {/* Ambient Blob 2: Mid-Left Glow */}
+        <div className="ambient-blob-2 absolute top-[30%] -left-48 w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] rounded-full bg-[#72e055]/[0.06] blur-[170px] pointer-events-none" />
+        {/* Ambient Blob 3: Mid-Right Glow */}
+        <div className="ambient-blob-3 absolute top-[60%] -right-48 w-[550px] sm:w-[850px] h-[550px] sm:h-[850px] rounded-full bg-[#55c538]/[0.07] blur-[160px] pointer-events-none" />
+        {/* Ambient Blob 4: Bottom-Center Glow */}
+        <div className="ambient-blob-4 absolute -bottom-40 left-[20%] w-[600px] sm:w-[900px] h-[600px] sm:h-[900px] rounded-full bg-[#55c538]/[0.08] blur-[180px] pointer-events-none" />
+      </div>
+
       {/* 1. Hook: Hero Overview */}
       <section
         ref={(el) => { slideRefs.current[0] = el; }}
         id="slide-1"
-        className="slide slide-1"
+        className="slide slide-1 relative z-10"
       >
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>

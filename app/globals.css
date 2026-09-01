@@ -706,3 +706,26 @@ html.day-mode .mobile-divider-day {
   filter: drop-shadow(0 2px 6px rgba(37, 99, 235, 0.45));
 }
 
+/* ============================================================
+   UNIVERSAL AMBIENT BACKGROUND GLOW ORBS (Night & Day Modes)
+   ============================================================ */
+html[data-theme="day"] .ambient-blob-1,
+html.day-mode .ambient-blob-1 {
+  background-color: rgba(37, 99, 235, 0.08) !important;
+}
+
+html[data-theme="day"] .ambient-blob-2,
+html.day-mode .ambient-blob-2 {
+  background-color: rgba(16, 185, 129, 0.07) !important;
+}
+
+html[data-theme="day"] .ambient-blob-3,
+html.day-mode .ambient-blob-3 {
+  background-color: rgba(37, 99, 235, 0.08) !important;
+}
+
+html[data-theme="day"] .ambient-blob-4,
+html.day-mode .ambient-blob-4 {
+  background-color: rgba(16, 185, 129, 0.07) !important;
+}
+
