@@ -12,6 +12,7 @@ import { StrategySlide } from "./slides/StrategySlide";
 import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
 import { ContactSlide } from "./slides/ContactSlide";
 import { ThankYouSlide } from "./slides/ThankYouSlide";
+import { ThemeToggle } from "./ThemeToggle";
 
 const TOTAL_SLIDES = 12;
 
@@ -346,6 +347,9 @@ export const DeckContainer: React.FC = () => {
           onNavigateToContact={() => scrollToSlide(10)}
         />
       </section>
+
+      {/* Floating Day / Night Mode Switcher */}
+      <ThemeToggle />
     </main>
   );
 };

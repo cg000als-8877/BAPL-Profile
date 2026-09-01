@@ -226,3 +226,228 @@
 .glow-bar {
   box-shadow: 0 0 20px rgba(85, 197, 56, 0.6);
 }
+
+/* ============================================================
+   DAY MODE / LIGHT THEME LUXURY STYLESHEET
+   ============================================================ */
+html[data-theme="day"],
+html.day-mode,
+html.light {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="day"] body,
+html.day-mode body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="day"] .snap-container,
+html.day-mode .snap-container {
+  background-color: #f8fafc !important;
+}
+
+html[data-theme="day"] .slide,
+html.day-mode .slide {
+  background-color: #f8fafc !important;
+}
+
+html[data-theme="day"] .aspect-wrapper,
+html.day-mode .aspect-wrapper {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Day Mode Slide Gradient Backgrounds */
+html[data-theme="day"] .bg-gradient-to-br,
+html.day-mode .bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, #ffffff, #f8fafc, #f1f5f9) !important;
+}
+
+/* Day Mode Cyber Cards */
+html[data-theme="day"] .cyber-card,
+html.day-mode .cyber-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(226, 232, 240, 0.9) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04) !important;
+}
+
+html[data-theme="day"] .cyber-card:hover,
+html.day-mode .cyber-card:hover {
+  border-color: rgba(22, 163, 74, 0.5) !important;
+  box-shadow: 0 15px 30px -5px rgba(22, 163, 74, 0.15) !important;
+}
+
+/* Day Mode Cyber Pills */
+html[data-theme="day"] .cyber-pill,
+html.day-mode .cyber-pill {
+  background: rgba(241, 245, 249, 0.95) !important;
+  border-color: rgba(203, 213, 225, 0.85) !important;
+  color: #1e293b !important;
+}
+
+/* Day Mode Typography */
+html[data-theme="day"] .text-white,
+html.day-mode .text-white {
+  color: #0f172a !important;
+}
+
+html[data-theme="day"] .text-slate-100,
+html[data-theme="day"] .text-slate-200,
+html.day-mode .text-slate-100,
+html.day-mode .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html[data-theme="day"] .text-slate-300,
+html[data-theme="day"] .text-slate-400,
+html.day-mode .text-slate-300,
+html.day-mode .text-slate-400 {
+  color: #475569 !important;
+}
+
+html[data-theme="day"] .text-slate-500,
+html.day-mode .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Day Mode Forest Emerald Brand Accents */
+html[data-theme="day"] .text-\[\#72e055\],
+html[data-theme="day"] .text-\[\#55c538\],
+html[data-theme="day"] .text-\[\#88cb5c\],
+html.day-mode .text-\[\#72e055\],
+html.day-mode .text-\[\#55c538\],
+html.day-mode .text-\[\#88cb5c\] {
+  color: #15803d !important;
+}
+
+html[data-theme="day"] .bg-\[\#55c538\],
+html[data-theme="day"] .bg-\[\#72e055\],
+html.day-mode .bg-\[\#55c538\],
+html.day-mode .bg-\[\#72e055\] {
+  background-color: #16a34a !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="day"] .bg-\[\#55c538\]\/10,
+html[data-theme="day"] .bg-\[\#55c538\]\/20,
+html.day-mode .bg-\[\#55c538\]\/10,
+html.day-mode .bg-\[\#55c538\]\/20 {
+  background-color: rgba(22, 163, 74, 0.12) !important;
+}
+
+html[data-theme="day"] .border-\[\#55c538\]\/30,
+html[data-theme="day"] .border-\[\#55c538\]\/35,
+html[data-theme="day"] .border-\[\#55c538\]\/40,
+html.day-mode .border-\[\#55c538\]\/30,
+html.day-mode .border-\[\#55c538\]\/35,
+html.day-mode .border-\[\#55c538\]\/40 {
+  border-color: rgba(22, 163, 74, 0.3) !important;
+}
+
+/* Day Mode Borders & Dividers */
+html[data-theme="day"] .border-slate-800,
+html[data-theme="day"] .border-slate-800\/80,
+html[data-theme="day"] .border-slate-700,
+html[data-theme="day"] .border-slate-700\/80,
+html.day-mode .border-slate-800,
+html.day-mode .border-slate-800\/80,
+html.day-mode .border-slate-700,
+html.day-mode .border-slate-700\/80 {
+  border-color: #e2e8f0 !important;
+}
+
+html[data-theme="day"] .border-white\/5,
+html[data-theme="day"] .border-white\/10,
+html[data-theme="day"] .border-white\/20,
+html.day-mode .border-white\/5,
+html.day-mode .border-white\/10,
+html.day-mode .border-white\/20 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html[data-theme="day"] .bg-white\/5,
+html.day-mode .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Day Mode Internal Surfaces */
+html[data-theme="day"] .bg-\[\#050811\],
+html[data-theme="day"] .bg-\[\#080d1a\],
+html[data-theme="day"] .bg-\[\#081122\]\/90,
+html[data-theme="day"] .bg-\[\#091426\]\/90,
+html[data-theme="day"] .bg-\[\#091426\]\/95,
+html[data-theme="day"] .bg-\[\#09162a\]\/95,
+html[data-theme="day"] .bg-\[\#0c1527\]\/95,
+html[data-theme="day"] .bg-\[\#0d1226\]\/95,
+html[data-theme="day"] .bg-slate-900\/60,
+html[data-theme="day"] .bg-slate-900\/80,
+html[data-theme="day"] .bg-slate-900\/90,
+html[data-theme="day"] .bg-slate-950\/95,
+html[data-theme="day"] .bg-slate-950,
+html.day-mode .bg-\[\#050811\],
+html.day-mode .bg-\[\#080d1a\],
+html.day-mode .bg-\[\#081122\]\/90,
+html.day-mode .bg-\[\#091426\]\/90,
+html.day-mode .bg-\[\#091426\]\/95,
+html.day-mode .bg-\[\#09162a\]\/95,
+html.day-mode .bg-\[\#0c1527\]\/95,
+html.day-mode .bg-\[\#0d1226\]\/95,
+html.day-mode .bg-slate-900\/60,
+html.day-mode .bg-slate-900\/80,
+html.day-mode .bg-slate-900\/90,
+html.day-mode .bg-slate-950\/95,
+html.day-mode .bg-slate-950 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Day Mode Glow Bar & Accents */
+html[data-theme="day"] .glow-bar,
+html.day-mode .glow-bar {
+  background-color: #16a34a !important;
+  box-shadow: 0 0 10px rgba(22, 163, 74, 0.4) !important;
+}
+
+html[data-theme="day"] .glow-emerald,
+html.day-mode .glow-emerald {
+  box-shadow: 0 0 15px rgba(22, 163, 74, 0.2) !important;
+}
+
+/* Day Mode Watermark in Hero */
+html[data-theme="day"] .mix-blend-overlay,
+html.day-mode .mix-blend-overlay {
+  mix-blend-mode: normal !important;
+  color: rgba(15, 23, 42, 0.09) !important;
+}
+
+/* Day Mode Buyer Brand Badges & Lookbook Frames */
+html[data-theme="day"] .border-slate-800\/60,
+html[data-theme="day"] .border-slate-800\/80,
+html.day-mode .border-slate-800\/60,
+html.day-mode .border-slate-800\/80 {
+  border-color: #e2e8f0 !important;
+}
+
+html[data-theme="day"] .bg-slate-900\/50,
+html.day-mode .bg-slate-900\/50 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Day Mode Presentation Controls Bar */
+html[data-theme="day"] .bg-slate-900\/90,
+html.day-mode .bg-slate-900\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="day"] .hover\:bg-slate-800:hover,
+html.day-mode .hover\:bg-slate-800:hover {
+  background-color: #f1f5f9 !important;
+}
