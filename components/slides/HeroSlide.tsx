@@ -14,6 +14,7 @@ import {
   MapPin,
   Ship,
   Plane,
+  Navigation,
 } from "lucide-react";
 
 interface SlideProps {
@@ -222,10 +223,24 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           <div className="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full my-1" />
 
           {/* 4. Factory Address & Logistics as Plain Text View */}
-          <div className="space-y-1 text-center max-w-sm mx-auto pt-0.5">
+          <div className="space-y-1.5 text-center max-w-sm mx-auto pt-0.5">
             <p className="text-xs text-slate-200 font-medium leading-relaxed">
               ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
             </p>
+
+            {/* Google Map : Get Direction Minimal Animated Stroke Line Button */}
+            <div className="py-0.5">
+              <a
+                href="https://maps.app.goo.gl/rmAxTS1NAkbz3sLC7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="anim-stroke-button inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-semibold text-[#72e055] hover:text-white bg-transparent transition-all active:scale-95"
+              >
+                <span>Google Map : Get Direction</span>
+                <Navigation className="w-3 h-3 text-[#72e055]" />
+              </a>
+            </div>
+
             <p className="text-[11px] text-slate-400 font-medium pt-0.5">
               Sea Port: <span className="text-slate-200 font-bold">12 km Distance</span> &nbsp;•&nbsp; Airport: <span className="text-slate-200 font-bold">18 km (Intl)</span>
             </p>

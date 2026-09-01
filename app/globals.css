@@ -53,10 +53,28 @@
 /* ============================================================
    MOBILE VIEW: Fluid Continuous Vertical Scroll Layout (< 768px)
    ============================================================ */
+@keyframes strokeGlowPulse {
+  0%, 100% {
+    border-color: rgba(85, 197, 56, 0.35);
+    box-shadow: 0 0 6px rgba(85, 197, 56, 0.15);
+  }
+  50% {
+    border-color: rgba(114, 224, 85, 0.95);
+    box-shadow: 0 0 12px rgba(114, 224, 85, 0.4);
+  }
+}
+
+.anim-stroke-button {
+  border: 1px solid rgba(85, 197, 56, 0.4);
+  animation: strokeGlowPulse 2s ease-in-out infinite !important;
+}
+
 @media (max-width: 767px) {
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
+  *:not(.anim-stroke-button):not(.anim-stroke-button *),
+  *:not(.anim-stroke-button)::before,
+  *:not(.anim-stroke-button)::after {
+    animation: none;
+    transition: none;
   }
 
   body {
