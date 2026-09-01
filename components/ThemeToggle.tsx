@@ -13,26 +13,46 @@ export const ThemeToggle: React.FC = () => {
   const startTouchRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const startTimeRef = useRef<number>(0);
   const hasDraggedRef = useRef(false);
+  const lastToggleTimeRef = useRef<number>(0);
 
   const applyTheme = useCallback((mode: "night" | "day") => {
     if (typeof document === "undefined") return;
-    document.documentElement.setAttribute("data-theme", mode);
+    const root = document.documentElement;
+    const body = document.body;
+
+    root.setAttribute("data-theme", mode);
+    if (body) body.setAttribute("data-theme", mode);
+
+    root.classList.remove("light", "dark", "day-mode", "night-mode");
     if (mode === "day") {
-      document.documentElement.classList.add("light", "day-mode");
-      document.documentElement.classList.remove("dark", "night-mode");
+      root.classList.add("light", "day-mode");
+      if (body) {
+        body.classList.remove("dark", "night-mode");
+        body.classList.add("light", "day-mode");
+      }
     } else {
-      document.documentElement.classList.add("dark", "night-mode");
-      document.documentElement.classList.remove("light", "day-mode");
+      root.classList.add("dark", "night-mode");
+      if (body) {
+        body.classList.remove("light", "day-mode");
+        body.classList.add("dark", "night-mode");
+      }
     }
   }, []);
 
   const toggleTheme = useCallback(() => {
+    const now = Date.now();
+    // Debounce to prevent ghost click / double-firing on mobile touch devices
+    if (now - lastToggleTimeRef.current < 400) {
+      return;
+    }
+    lastToggleTimeRef.current = now;
+
     setTheme((prevTheme) => {
       const nextTheme = prevTheme === "night" ? "day" : "night";
       try {
         localStorage.setItem("bapl-theme", nextTheme);
       } catch {
-        // local storage error ignored
+        // ignore
       }
       applyTheme(nextTheme);
       return nextTheme;
