@@ -312,8 +312,8 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
 
           {/* D. Mobile Pagination Control */}
-          <div className="pt-3 pb-2 flex flex-col items-center justify-center">
-            {visibleCount < 80 ? (
+          {visibleCount < 80 && (
+            <div className="pt-3 pb-2 flex flex-col items-center justify-center">
               <button
                 type="button"
                 onClick={() => setVisibleCount((prev) => Math.min(prev + 12, 80))}
@@ -322,13 +322,8 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 <span>Load More Looks ({visibleCount} / 80)</span>
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
-            ) : (
-              <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-[11px] font-bold text-slate-400">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#55c538]" />
-                <span>All 80 Looks Loaded</span>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         {/* 3. DESKTOP VIEW: Spacious 3x2 Bento Grid */}
