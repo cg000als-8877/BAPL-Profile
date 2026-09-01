@@ -30,7 +30,7 @@ export const ContactSlide: React.FC<SlideProps> = () => {
     <AspectWrapper className="bg-transparent text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between gap-3 sm:gap-4 md:gap-5 overflow-visible"
+        className="relative w-full h-auto min-h-0 md:min-h-full p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-start md:justify-between gap-4 sm:gap-5 md:gap-6 overflow-visible pb-16 sm:pb-20 md:pb-6"
       >
 
         {/* 1. Header */}
@@ -51,25 +51,25 @@ export const ContactSlide: React.FC<SlideProps> = () => {
         </div>
 
         {/* 2. UPPER ROW: EXECUTIVE LEADERSHIP CARDS */}
-        <div className="flex flex-col gap-2 flex-1 min-h-0">
-          <div className="text-[11px] sm:text-xs font-extrabold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 shrink-0">
+        <div className="flex flex-col gap-2.5 w-full">
+          <div className="text-[11px] sm:text-xs font-extrabold text-slate-300 uppercase tracking-widest flex items-center gap-1.5 shrink-0">
             <UserCheck className="w-3.5 h-3.5 text-[#55c538]" />
             <span>EXECUTIVE CONTACTS</span>
           </div>
 
           <div
             ref={profilesRef}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 flex-1 min-h-0"
+            className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 md:gap-5 w-full"
           >
             {/* Profile Card 1: Mr. Abdur Rahaman */}
-            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-emerald-500/35 bg-gradient-to-br from-[#09162a]/95 via-[#060e1c]/95 to-[#040812]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all h-full">
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-emerald-500/35 bg-gradient-to-br from-[#09162a]/95 via-[#060e1c]/95 to-[#040812]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all">
               <div className="absolute top-0 right-0 w-36 h-36 bg-[#55c538]/10 rounded-full blur-2xl pointer-events-none" />
 
               <div>
                 {/* Monogram Badge & Role Tag */}
-                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-[#55c538]/30 to-[#55c538]/10 border border-[#55c538]/40 flex items-center justify-center text-base sm:text-lg md:text-xl font-black text-[#72e055] shadow-xl shrink-0">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-[#55c538]/30 to-[#55c538]/10 border border-[#55c538]/40 flex items-center justify-center text-base sm:text-lg md:text-xl font-black text-[#72e055] shadow-xl shrink-0">
                       AR
                     </div>
                     <div>
@@ -93,10 +93,10 @@ export const ContactSlide: React.FC<SlideProps> = () => {
               </div>
 
               {/* Email Contact Action Box */}
-              <div className="mt-2 pt-2.5 sm:pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3">
+              <div className="mt-3 pt-3 border-t border-slate-800/80 flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-2.5">
                 <a
                   href="mailto:info@byzidapparels.com?subject=Business%20Inquiry%20-%20Byzid%20Apparels"
-                  className="flex items-center gap-2 text-xs sm:text-sm md:text-base font-bold text-slate-100 hover:text-white transition-colors truncate"
+                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-100 hover:text-white transition-colors truncate"
                   title="Click to Send Email"
                 >
                   <div className="p-1.5 rounded-lg bg-[#55c538]/10 text-[#55c538] shrink-0">
@@ -107,7 +107,7 @@ export const ContactSlide: React.FC<SlideProps> = () => {
 
                 <a
                   href="mailto:info@byzidapparels.com?subject=Business%20Inquiry%20-%20Byzid%20Apparels"
-                  className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#55c538] hover:bg-[#72e055] text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md shadow-[#55c538]/25 flex items-center gap-1.5 shrink-0 active:scale-95"
+                  className="px-4 py-2 rounded-xl bg-[#55c538] hover:bg-[#72e055] text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md shadow-[#55c538]/25 flex items-center justify-center gap-1.5 shrink-0 active:scale-95"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Send Email</span>
@@ -116,14 +116,14 @@ export const ContactSlide: React.FC<SlideProps> = () => {
             </div>
 
             {/* Profile Card 2: Mrs. Susan Rebeiro */}
-            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-blue-500/35 bg-gradient-to-br from-[#09162a]/95 via-[#060e1c]/95 to-[#040812]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-blue-400 transition-all h-full">
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-blue-500/35 bg-gradient-to-br from-[#09162a]/95 via-[#060e1c]/95 to-[#040812]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-blue-400 transition-all">
               <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div>
                 {/* Monogram Badge & Role Tag */}
-                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-500/10 border border-blue-500/40 flex items-center justify-center text-base sm:text-lg md:text-xl font-black text-blue-400 shadow-xl shrink-0">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl bg-gradient-to-br from-blue-500/30 to-blue-500/10 border border-blue-500/40 flex items-center justify-center text-base sm:text-lg md:text-xl font-black text-blue-400 shadow-xl shrink-0">
                       SR
                     </div>
                     <div>
@@ -147,10 +147,10 @@ export const ContactSlide: React.FC<SlideProps> = () => {
               </div>
 
               {/* Email Contact Action Box */}
-              <div className="mt-2 pt-2.5 sm:pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3">
+              <div className="mt-3 pt-3 border-t border-slate-800/80 flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-2.5">
                 <a
                   href="mailto:susan@byzidapparels.com?subject=Operational%20Inquiry%20-%20Byzid%20Apparels"
-                  className="flex items-center gap-2 text-xs sm:text-sm md:text-base font-bold text-slate-100 hover:text-white transition-colors truncate"
+                  className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-100 hover:text-white transition-colors truncate"
                   title="Click to Send Email"
                 >
                   <div className="p-1.5 rounded-lg bg-blue-500/10 text-blue-400 shrink-0">
@@ -161,7 +161,7 @@ export const ContactSlide: React.FC<SlideProps> = () => {
 
                 <a
                   href="mailto:susan@byzidapparels.com?subject=Operational%20Inquiry%20-%20Byzid%20Apparels"
-                  className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md shadow-blue-500/25 flex items-center gap-1.5 shrink-0 active:scale-95"
+                  className="px-4 py-2 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md shadow-blue-500/25 flex items-center justify-center gap-1.5 shrink-0 active:scale-95"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Send Email</span>
@@ -172,23 +172,23 @@ export const ContactSlide: React.FC<SlideProps> = () => {
         </div>
 
         {/* 3. LOWER ROW: BANKING & CORPORATE LOCATION */}
-        <div className="flex flex-col gap-2 flex-1 min-h-0">
-          <div className="text-[11px] sm:text-xs font-extrabold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 shrink-0">
+        <div className="flex flex-col gap-2.5 w-full">
+          <div className="text-[11px] sm:text-xs font-extrabold text-slate-300 uppercase tracking-widest flex items-center gap-1.5 shrink-0">
             <CreditCard className="w-3.5 h-3.5 text-purple-400" />
             <span>BANKING & CORPORATE LOCATION</span>
           </div>
 
           <div
             ref={bottomGridRef}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 flex-1 min-h-0"
+            className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 md:gap-5 w-full"
           >
             {/* Card 3: Commercial Banking Details */}
-            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-purple-500/35 bg-gradient-to-br from-[#0d1226]/95 via-[#080d1e]/95 to-[#040712]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-purple-400 transition-all h-full">
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-purple-500/35 bg-gradient-to-br from-[#0d1226]/95 via-[#080d1e]/95 to-[#040712]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-purple-400 transition-all">
               <div className="absolute top-0 right-0 w-36 h-36 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                   <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 shrink-0">
                       <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -246,7 +246,7 @@ export const ContactSlide: React.FC<SlideProps> = () => {
               </div>
 
               {/* Footer Bar */}
-              <div className="mt-2 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] sm:text-xs text-slate-400">
+              <div className="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] sm:text-xs text-slate-400">
                 <span className="flex items-center gap-1.5">
                   <Phone className="w-3 h-3 text-purple-400" />
                   <span>Tel: +880-02333356130</span>
@@ -256,12 +256,12 @@ export const ContactSlide: React.FC<SlideProps> = () => {
             </div>
 
             {/* Card 4: Registered Office, Factory & Google Maps Directions */}
-            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-slate-700/80 bg-gradient-to-br from-[#0c1527]/95 via-[#080e1a]/95 to-[#040810]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all h-full">
+            <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-slate-700/80 bg-gradient-to-br from-[#0c1527]/95 via-[#080e1a]/95 to-[#040810]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all">
               <div className="absolute top-0 right-0 w-36 h-36 bg-[#55c538]/10 rounded-full blur-2xl pointer-events-none" />
 
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                   <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#55c538]/20 border border-[#55c538]/30 flex items-center justify-center text-[#55c538] shrink-0">
                       <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -322,10 +322,10 @@ export const ContactSlide: React.FC<SlideProps> = () => {
               </div>
 
               {/* Action Buttons: Direct Line + Google Maps Direction Button */}
-              <div className="mt-2 pt-2.5 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
+              <div className="mt-3 pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
                 <a
                   href="tel:008802334451856"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700 text-slate-200 font-bold text-xs hover:border-[#55c538] transition-all active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-slate-200 font-bold text-xs hover:border-[#55c538] transition-all active:scale-95"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#55c538]" />
                   <span>TEL: +880-02334451856</span>
@@ -335,7 +335,7 @@ export const ContactSlide: React.FC<SlideProps> = () => {
                   href="https://maps.app.goo.gl/rmAxTS1NAkbz3sLC7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-[#55c538] hover:from-blue-500 hover:to-[#72e055] text-white font-black text-xs shadow-md shadow-blue-500/25 transition-all active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-[#55c538] hover:from-blue-500 hover:to-[#72e055] text-white font-black text-xs shadow-md shadow-blue-500/25 transition-all active:scale-95"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Google Maps</span>

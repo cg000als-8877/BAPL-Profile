@@ -12,6 +12,7 @@ import { StrategySlide } from "./slides/StrategySlide";
 import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
 import { ContactSlide } from "./slides/ContactSlide";
 import { ThemeToggle } from "./ThemeToggle";
+import { ArrowUp } from "lucide-react";
 
 const TOTAL_SLIDES = 11;
 
@@ -241,6 +242,21 @@ const MobileSectionDivider: React.FC = () => (
       >
         <ContactSlide isActive={currentSlide === 9} />
       </section>
+
+      {/* Mobile Bottom Footer & Back to Top (Ensures 100% accessible scroll past last card) */}
+      <footer className="block md:hidden w-full px-6 pt-2 pb-24 text-center select-none relative z-10">
+        <button
+          type="button"
+          onClick={() => scrollToSlide(0)}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-slate-300 hover:text-white hover:border-[#55c538] text-xs font-bold transition-all shadow-md active:scale-95 cursor-pointer"
+        >
+          <ArrowUp className="w-3.5 h-3.5 text-[#55c538]" />
+          <span>Back to Top</span>
+        </button>
+        <p className="text-[10px] text-slate-400 mt-3 font-medium">
+          © {new Date().getFullYear()} Byzid Apparels (Pvt.) Ltd. All rights reserved.
+        </p>
+      </footer>
 
       {/* Floating Draggable Day / Night Mode Switcher */}
       <ThemeToggle />
