@@ -1,6 +1,6 @@
-﻿"use client";
+"use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Sun, Moon } from "lucide-react";
 
 export const ThemeToggle: React.FC = () => {
@@ -11,35 +11,11 @@ export const ThemeToggle: React.FC = () => {
   const isDraggingRef = useRef(false);
   const startPosRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const startTouchRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-  const hasMovedRef = useRef(false);
+  const startTimeRef = useRef<number>(0);
+  const hasDraggedRef = useRef(false);
 
-  useEffect(() => {
-    setMounted(true);
-    const savedTheme = localStorage.getItem("bapl-theme") as "night" | "day" | null;
-    const initialTheme = savedTheme || "night";
-    setTheme(initialTheme);
-    applyTheme(initialTheme);
-
-    // Initial position: Bottom-right side
-    const initX = Math.max(12, window.innerWidth - 56);
-    const initY = Math.max(12, window.innerHeight - 90);
-    setPosition({ x: initX, y: initY });
-
-    const handleResize = () => {
-      setPosition((prev) => {
-        if (!prev) return { x: window.innerWidth - 56, y: window.innerHeight - 90 };
-        return {
-          x: Math.min(Math.max(8, prev.x), window.innerWidth - 52),
-          y: Math.min(Math.max(8, prev.y), window.innerHeight - 52),
-        };
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const applyTheme = (mode: "night" | "day") => {
+  const applyTheme = useCallback((mode: "night" | "day") => {
+    if (typeof document === "undefined") return;
     document.documentElement.setAttribute("data-theme", mode);
     if (mode === "day") {
       document.documentElement.classList.add("light", "day-mode");
@@ -48,73 +24,124 @@ export const ThemeToggle: React.FC = () => {
       document.documentElement.classList.add("dark", "night-mode");
       document.documentElement.classList.remove("light", "day-mode");
     }
-  };
+  }, []);
 
-  const toggleTheme = () => {
-    const next = theme === "night" ? "day" : "night";
-    setTheme(next);
-    localStorage.setItem("bapl-theme", next);
-    applyTheme(next);
-  };
+  const toggleTheme = useCallback(() => {
+    setTheme((prevTheme) => {
+      const nextTheme = prevTheme === "night" ? "day" : "night";
+      try {
+        localStorage.setItem("bapl-theme", nextTheme);
+      } catch {
+        // local storage error ignored
+      }
+      applyTheme(nextTheme);
+      return nextTheme;
+    });
+  }, [applyTheme]);
 
-  // Drag handlers
-  const onPointerDown = (clientX: number, clientY: number) => {
+  useEffect(() => {
+    setMounted(true);
+    let initialTheme: "night" | "day" = "night";
+    try {
+      const saved = localStorage.getItem("bapl-theme") as "night" | "day" | null;
+      if (saved === "day" || saved === "night") {
+        initialTheme = saved;
+      }
+    } catch {
+      // ignore
+    }
+    setTheme(initialTheme);
+    applyTheme(initialTheme);
+
+    // Initial position: Bottom-right side with safe margins
+    const initX = Math.max(12, window.innerWidth - 60);
+    const initY = Math.max(12, window.innerHeight - 90);
+    setPosition({ x: initX, y: initY });
+
+    const handleResize = () => {
+      setPosition((prev) => {
+        if (!prev) return { x: window.innerWidth - 60, y: window.innerHeight - 90 };
+        return {
+          x: Math.min(Math.max(8, prev.x), window.innerWidth - 56),
+          y: Math.min(Math.max(8, prev.y), window.innerHeight - 56),
+        };
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [applyTheme]);
+
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
     isDraggingRef.current = true;
-    hasMovedRef.current = false;
-    startTouchRef.current = { x: clientX, y: clientY };
-    startPosRef.current = position || { x: window.innerWidth - 56, y: window.innerHeight - 90 };
+    hasDraggedRef.current = false;
+    startTimeRef.current = Date.now();
+    startTouchRef.current = { x: touch.clientX, y: touch.clientY };
+    startPosRef.current = position || { x: window.innerWidth - 60, y: window.innerHeight - 90 };
   };
 
-  const onPointerMove = (clientX: number, clientY: number) => {
+  const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDraggingRef.current) return;
-    const dx = clientX - startTouchRef.current.x;
-    const dy = clientY - startTouchRef.current.y;
+    const touch = e.touches[0];
+    const dx = touch.clientX - startTouchRef.current.x;
+    const dy = touch.clientY - startTouchRef.current.y;
 
-    if (Math.hypot(dx, dy) > 4) {
-      hasMovedRef.current = true;
+    // Generous threshold to distinguish between a tap vs intentional drag
+    if (Math.hypot(dx, dy) > 12) {
+      hasDraggedRef.current = true;
     }
 
-    const newX = Math.min(Math.max(8, startPosRef.current.x + dx), window.innerWidth - 52);
-    const newY = Math.min(Math.max(8, startPosRef.current.y + dy), window.innerHeight - 52);
+    const newX = Math.min(Math.max(8, startPosRef.current.x + dx), window.innerWidth - 56);
+    const newY = Math.min(Math.max(8, startPosRef.current.y + dy), window.innerHeight - 56);
 
     setPosition({ x: newX, y: newY });
   };
 
-  const onPointerUp = () => {
-    if (isDraggingRef.current) {
-      isDraggingRef.current = false;
-      if (!hasMovedRef.current) {
-        toggleTheme();
-      }
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+
+    const duration = Date.now() - startTimeRef.current;
+    if (!hasDraggedRef.current || duration < 250) {
+      e.preventDefault();
+      toggleTheme();
     }
   };
 
-  // Touch Event Listeners
-  const handleTouchStart = (e: React.TouchEvent) => {
-    const touch = e.touches[0];
-    onPointerDown(touch.clientX, touch.clientY);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    const touch = e.touches[0];
-    onPointerMove(touch.clientX, touch.clientY);
-  };
-
-  const handleTouchEnd = () => {
-    onPointerUp();
-  };
-
-  // Mouse Event Listeners
+  // Mouse handlers (for desktop testing / dragging)
   const handleMouseDown = (e: React.MouseEvent) => {
-    e.preventDefault();
-    onPointerDown(e.clientX, e.clientY);
+    if (e.button !== 0) return;
+    isDraggingRef.current = true;
+    hasDraggedRef.current = false;
+    startTimeRef.current = Date.now();
+    startTouchRef.current = { x: e.clientX, y: e.clientY };
+    startPosRef.current = position || { x: window.innerWidth - 60, y: window.innerHeight - 90 };
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
-      onPointerMove(moveEvent.clientX, moveEvent.clientY);
+      if (!isDraggingRef.current) return;
+      const dx = moveEvent.clientX - startTouchRef.current.x;
+      const dy = moveEvent.clientY - startTouchRef.current.y;
+
+      if (Math.hypot(dx, dy) > 8) {
+        hasDraggedRef.current = true;
+      }
+
+      const newX = Math.min(Math.max(8, startPosRef.current.x + dx), window.innerWidth - 56);
+      const newY = Math.min(Math.max(8, startPosRef.current.y + dy), window.innerHeight - 56);
+
+      setPosition({ x: newX, y: newY });
     };
 
     const handleMouseUp = () => {
-      onPointerUp();
+      if (isDraggingRef.current) {
+        isDraggingRef.current = false;
+        const duration = Date.now() - startTimeRef.current;
+        if (!hasDraggedRef.current || duration < 250) {
+          toggleTheme();
+        }
+      }
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
     };
@@ -134,26 +161,33 @@ export const ThemeToggle: React.FC = () => {
         zIndex: 9999,
         touchAction: "none",
       }}
-      className="select-none transition-transform active:scale-90 cursor-grab active:cursor-grabbing"
+      className="select-none cursor-grab active:cursor-grabbing"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onMouseDown={handleMouseDown}
-      title={`Drag anywhere or tap to switch to ${theme === "night" ? "Day" : "Night"} Mode`}
+      title={`Tap or drag to switch to ${theme === "night" ? "Day" : "Night"} Mode`}
     >
       <button
         type="button"
         aria-label={`Switch to ${theme === "night" ? "Day" : "Night"} Mode`}
-        className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border transition-all duration-200 pointer-events-auto ${
+        onClick={(e) => {
+          // If click was triggered without drag, ensure toggle
+          if (!hasDraggedRef.current) {
+            e.stopPropagation();
+            toggleTheme();
+          }
+        }}
+        className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-transform active:scale-95 pointer-events-auto shadow-2xl ${
           theme === "day"
-            ? "bg-gradient-to-b from-white via-slate-100 to-slate-200 border-slate-300 shadow-[inset_0_1.5px_1px_rgba(255,255,255,1),_0_6px_14px_-2px_rgba(15,23,42,0.22),_0_2px_4px_rgba(0,0,0,0.08)] hover:shadow-amber-500/25 active:translate-y-0.5"
-            : "bg-gradient-to-b from-slate-800 via-[#0a1122] to-[#040710] border-[#55c538]/70 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.25),_0_8px_16px_-2px_rgba(0,0,0,0.8),_0_0_12px_rgba(85,197,56,0.45)] hover:shadow-[#55c538]/60 active:translate-y-0.5"
+            ? "bg-gradient-to-b from-white via-slate-100 to-slate-200 border-slate-300 shadow-[inset_0_1.5px_1px_rgba(255,255,255,1),_0_8px_18px_-2px_rgba(15,23,42,0.3)] hover:shadow-amber-500/25"
+            : "bg-gradient-to-b from-slate-800 via-[#0a1122] to-[#040710] border-[#55c538]/70 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.25),_0_8px_20px_-2px_rgba(0,0,0,0.9),_0_0_14px_rgba(85,197,56,0.5)] hover:shadow-[#55c538]/60"
         }`}
       >
         {theme === "day" ? (
-          <Sun className="w-4.5 h-4.5 text-amber-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.1)]" />
+          <Sun className="w-5 h-5 text-amber-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)] pointer-events-none" />
         ) : (
-          <Moon className="w-4.5 h-4.5 text-[#72e055] drop-shadow-[0_0_6px_rgba(85,197,56,0.9)]" />
+          <Moon className="w-5 h-5 text-[#72e055] drop-shadow-[0_0_8px_rgba(85,197,56,0.9)] pointer-events-none" />
         )}
       </button>
     </div>
