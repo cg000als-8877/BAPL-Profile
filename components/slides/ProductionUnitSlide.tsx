@@ -75,15 +75,15 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
 
           {/* Desktop Image */}
-          <div className="hidden md:block relative -mx-6 md:-mx-8 lg:-mx-10 w-[calc(100%+3rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+5rem)] aspect-[1630/396] max-h-[320px] lg:max-h-[350px]">
+          <div className="hidden md:block relative w-full aspect-[1630/396] max-h-[360px] my-1">
             <Image
               src="/desktop-bp.png"
-              alt="Byzid Apparels Architectural Blueprint Desktop View"
+              alt="Byzid Apparels Production Unit Facility Blueprint"
               fill
               priority
               unoptimized
-              sizes="100vw"
-              className="object-contain object-center scale-105 lg:scale-110"
+              sizes="(max-width: 1280px) 95vw, 1200px"
+              className="object-contain object-center"
             />
           </div>
         </div>
