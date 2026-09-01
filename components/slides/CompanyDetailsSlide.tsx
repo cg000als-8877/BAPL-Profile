@@ -60,16 +60,18 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
         <div className="absolute top-0 right-0 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* 1. Header */}
-        <div ref={headerRef} className="shrink-0 flex items-center justify-between">
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div className="w-2 md:w-2.5 h-8 md:h-12 bg-[#55c538] rounded-full glow-bar" />
-            <div>
+        <div ref={headerRef} className="shrink-0 flex items-center justify-center md:justify-between w-full">
+          <div className="flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-2.5 sm:gap-4 w-full md:w-auto">
+            <div className="hidden md:block w-2 md:w-2.5 h-8 md:h-12 bg-[#55c538] rounded-full glow-bar" />
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
                 Corporate Profile & Logistics
               </div>
               <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal">
                 COMPANY DETAILS
               </h2>
+              {/* Thin line under title and subtitle on mobile */}
+              <div className="block md:hidden w-20 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full mt-2" />
             </div>
           </div>
 
