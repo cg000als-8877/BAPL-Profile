@@ -11,6 +11,8 @@ import {
   Send,
   CreditCard,
   Building2,
+  Navigation,
+  ExternalLink,
 } from "lucide-react";
 
 interface SlideProps {
@@ -310,7 +312,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
               </div>
             </div>
 
-            {/* Card 4: Registered Office & Mailing Address */}
+            {/* Card 4: Registered Office, Factory & Google Maps Directions */}
             <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card border border-slate-700/80 bg-gradient-to-br from-[#0c1527]/95 via-[#080e1a]/95 to-[#040810]/95 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-[#55c538] transition-all h-full">
               <div className="absolute top-0 right-0 w-36 h-36 bg-[#55c538]/10 rounded-full blur-2xl pointer-events-none" />
 
@@ -363,22 +365,38 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                       Chattogram, Bangladesh
                     </div>
                   </div>
+
+                  {/* Logistics Badges */}
+                  <div className="col-span-1 sm:col-span-2 flex flex-wrap items-center gap-1.5 pt-0.5 text-[10px] sm:text-xs text-slate-300">
+                    <span className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10">
+                      Port: 12 km to Sea Port
+                    </span>
+                    <span className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10">
+                      Airport: 18 km to Shah Amanat Intl
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* Footer Bar with Direct Telephone Action Button */}
-              <div className="mt-2 pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2">
-                <div className="text-[11px] sm:text-xs text-slate-300 font-medium flex items-center gap-1.5">
-                  <Building2 className="w-3.5 h-3.5 text-[#55c538]" />
-                  <span>Direct Line:</span>
-                </div>
-
+              {/* Action Buttons: Direct Line + Google Maps Direction Button */}
+              <div className="mt-2 pt-2.5 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
                 <a
                   href="tel:008802334451856"
-                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-xl bg-[#55c538] text-slate-950 font-black text-xs sm:text-sm shadow-md shadow-[#55c538]/25 hover:bg-[#72e055] transition-all active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700 text-slate-200 font-bold text-xs hover:border-[#55c538] transition-all active:scale-95"
                 >
-                  <Phone className="w-3.5 h-3.5 text-slate-950" />
+                  <Phone className="w-3.5 h-3.5 text-[#55c538]" />
                   <span>TEL: +880-02334451856</span>
+                </a>
+
+                <a
+                  href="https://maps.app.goo.gl/rmAxTS1NAkbz3sLC7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-[#55c538] hover:from-blue-500 hover:to-[#72e055] text-white font-black text-xs shadow-md shadow-blue-500/25 transition-all active:scale-95"
+                >
+                  <Navigation className="w-3.5 h-3.5" />
+                  <span>Google Maps</span>
+                  <ExternalLink className="w-3 h-3 opacity-80" />
                 </a>
               </div>
             </div>

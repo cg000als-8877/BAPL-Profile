@@ -154,8 +154,8 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
           </div>
 
-          {/* Card 3: MERGED FACTORY ADDRESS & GOOGLE MAPS DIRECTIONS (Full Width) */}
-          <div className="md:col-span-2 p-4 sm:p-6 rounded-2xl cyber-card border border-blue-500/40 bg-gradient-to-br from-[#09152a]/95 via-[#060e1d]/95 to-[#040812]/95 shadow-2xl relative overflow-hidden group hover:border-blue-400 transition-all flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
+          {/* Card 3: MERGED FACTORY ADDRESS & GOOGLE MAPS DIRECTIONS (Desktop only, merged into Contact on mobile) */}
+          <div className="hidden md:flex md:col-span-2 p-4 sm:p-6 rounded-2xl cyber-card border border-blue-500/40 bg-gradient-to-br from-[#09152a]/95 via-[#060e1d]/95 to-[#040812]/95 shadow-2xl relative overflow-hidden group hover:border-blue-400 transition-all flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
             <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="space-y-1.5 sm:space-y-2 flex-1">
