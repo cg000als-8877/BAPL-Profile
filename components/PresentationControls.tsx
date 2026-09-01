@@ -77,7 +77,7 @@ export const PresentationControls: React.FC<PresentationControlsProps> = ({
         </button>
 
         {/* Slide Counter */}
-        <div className="px-2 text-xs font-mono font-bold flex items-center gap-1">
+        <div className="px-2 text-xs font-bold flex items-center gap-1">
           <span className="text-[#88cb5c]">
             {String(currentSlide + 1).padStart(2, "0")}
           </span>
@@ -152,25 +152,25 @@ export const PresentationControls: React.FC<PresentationControlsProps> = ({
               <ul className="space-y-1 text-[11px]">
                 <li className="flex justify-between">
                   <span className="text-slate-400">Next Slide:</span>
-                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700 font-mono">
+                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700">
                     ↓ / Space / PgDn
                   </kbd>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-slate-400">Prev Slide:</span>
-                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700 font-mono">
+                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700">
                     ↑ / PgUp
                   </kbd>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-slate-400">Fullscreen:</span>
-                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700 font-mono">
+                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700">
                     F
                   </kbd>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-slate-400">Auto-play:</span>
-                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700 font-mono">
+                  <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700">
                     P
                   </kbd>
                 </li>

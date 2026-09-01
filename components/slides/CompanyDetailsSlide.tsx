@@ -130,21 +130,21 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = ({ isActive }) => {
               <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-200 mt-1">
                 <div className="flex justify-between pb-1 border-b border-slate-800">
                   <span className="text-slate-400">BIN:</span>
-                  <span className="font-bold text-white font-mono">001287924-0505</span>
+                  <span className="font-bold text-white">001287924-0505</span>
                 </div>
                 <div className="flex justify-between pb-1 border-b border-slate-800">
                   <span className="text-slate-400">IRC / ERC:</span>
-                  <span className="font-bold text-white text-[11px] sm:text-xs font-mono truncate">
+                  <span className="font-bold text-white text-[11px] sm:text-xs truncate">
                     260315120087920 | 260315210089519
                   </span>
                 </div>
                 <div className="flex justify-between pb-1 border-b border-slate-800">
                   <span className="text-slate-400">BGMEA Reg No:</span>
-                  <span className="font-bold text-white font-mono">2673</span>
+                  <span className="font-bold text-white">2673</span>
                 </div>
                 <div className="flex justify-between pb-1 border-b border-slate-800">
                   <span className="text-slate-400">Fire License:</span>
-                  <span className="font-bold text-white font-mono">CHATTA-6961/97-98</span>
+                  <span className="font-bold text-white">CHATTA-6961/97-98</span>
                 </div>
                 <div className="flex justify-between pt-0.5">
                   <span className="text-slate-400">Total Space:</span>

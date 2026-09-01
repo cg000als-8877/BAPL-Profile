@@ -57,7 +57,7 @@ const MobilePinterestFrameItem: React.FC<FrameProps> = ({
           <div className="w-4 h-4 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500 mb-0.5">
             <ImageIcon className="w-3 h-3" />
           </div>
-          <span className="text-[10px] font-black text-slate-500 font-mono">
+          <span className="text-[10px] font-black text-slate-500">
             {label}
           </span>
         </div>
@@ -232,7 +232,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 className={`p-3 rounded-2xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col justify-between shadow-md`}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-black text-slate-400 font-mono">
+                  <span className="text-xs font-black text-slate-400">
                     {p.id}
                   </span>
                 </div>
@@ -335,7 +335,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             >
               <div>
                 <div className="flex items-center justify-between mb-2 sm:mb-3">
-                  <span className="text-sm font-black text-slate-400 font-mono">
+                  <span className="text-sm font-black text-slate-400">
                     {p.id}
                   </span>
                 </div>

@@ -155,7 +155,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                   <div className="p-1.5 rounded-lg bg-[#55c538]/10 text-[#55c538] shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <span className="truncate font-mono">info@byzidapparels.com</span>
+                  <span className="truncate">info@byzidapparels.com</span>
                 </a>
 
                 <a
@@ -214,7 +214,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                   <div className="p-1.5 rounded-lg bg-blue-500/10 text-blue-400 shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <span className="truncate font-mono">susan@byzidapparels.com</span>
+                  <span className="truncate">susan@byzidapparels.com</span>
                 </a>
 
                 <a
@@ -273,7 +273,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                     <div className="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider">
                       Account Number
                     </div>
-                    <div className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055] font-mono mt-0.5">
+                    <div className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055] mt-0.5">
                       1271020*****
                     </div>
                   </div>
@@ -283,7 +283,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                     <div className="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider">
                       SWIFT Code
                     </div>
-                    <div className="text-xs sm:text-sm md:text-base font-extrabold text-white font-mono mt-0.5">
+                    <div className="text-xs sm:text-sm md:text-base font-extrabold text-white mt-0.5">
                       RUPBBDDHRSC
                     </div>
                   </div>

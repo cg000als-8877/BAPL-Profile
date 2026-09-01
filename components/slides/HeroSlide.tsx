@@ -112,7 +112,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
               <Award className="w-4 h-4 sm:w-5 sm:h-5 text-[#55c538]" />
             </div>
             <div className="flex items-center gap-2 sm:gap-3">
-              <span className="text-sm sm:text-base md:text-lg font-black tracking-wider text-white uppercase font-mono">
+              <span className="text-sm sm:text-base md:text-lg font-black tracking-wider text-white uppercase">
                 SINCE 1995
               </span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#55c538] animate-pulse shrink-0" />
@@ -125,10 +125,10 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
 
         {/* Mobile View: Large Architectural Blend Watermark "SINCE 1995" */}
         <div className="block md:hidden shrink-0 pt-1 pl-0.5 select-none pointer-events-none">
-          <div className="text-[11px] font-black uppercase tracking-[0.25em] text-white/40 font-mono mix-blend-overlay">
+          <div className="text-[11px] font-black uppercase tracking-[0.25em] text-white/40 mix-blend-overlay">
             SINCE
           </div>
-          <div className="text-6xl sm:text-7xl font-black uppercase tracking-tight text-white/25 mix-blend-overlay font-mono leading-none -mt-0.5">
+          <div className="text-6xl sm:text-7xl font-black uppercase tracking-tight text-white/25 mix-blend-overlay leading-none -mt-0.5">
             1995
           </div>
         </div>

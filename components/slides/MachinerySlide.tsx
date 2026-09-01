@@ -140,7 +140,7 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
           <div className="flex items-center gap-3.5">
             <div className="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-[#55c538] text-slate-950 flex items-center gap-2 shadow-lg shadow-[#55c538]/30 font-black shrink-0">
               <Cpu className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black leading-none font-mono">
+              <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black leading-none">
                 {counterMachines}
               </span>
               <span className="text-[10px] sm:text-xs font-black uppercase">
