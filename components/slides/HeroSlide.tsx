@@ -178,23 +178,13 @@ export const HeroSlide: React.FC<SlideProps> = () => {
             Exporting Quality. Delivering Trust.
           </p>
 
-          {/* 3. Logistics & Google Map Button */}
-          <div className="space-y-2 text-center max-w-sm mx-auto pt-1">
-            {/* Google Map : Get Direction Minimal Animated Stroke Line Button */}
-            <div className="py-0.5">
-              <a
-                href="https://maps.app.goo.gl/rmAxTS1NAkbz3sLC7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="anim-stroke-button inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-semibold text-[#72e055] hover:text-white bg-transparent transition-all active:scale-95"
-              >
-                <span>Google Map : Get Direction</span>
-                <Navigation className="w-3 h-3 text-[#72e055]" />
-              </a>
-            </div>
-
-            <p className="text-[11px] text-slate-400 font-medium pt-0.5">
-              Port: <span className="text-slate-200 font-bold">12 km to Sea Port</span> &nbsp;•&nbsp; Airport: <span className="text-slate-200 font-bold">18 km to Shah Amanat Intl</span>
+          {/* 3. Logistics Distance (Two Separate Lines) */}
+          <div className="space-y-1 text-center max-w-sm mx-auto pt-1">
+            <p className="text-[12px] text-slate-300 font-medium">
+              Port: <span className="text-white font-bold">12 km to Sea Port</span>
+            </p>
+            <p className="text-[12px] text-slate-300 font-medium">
+              Airport: <span className="text-white font-bold">18 km to Shah Amanat Intl</span>
             </p>
           </div>
         </div>
