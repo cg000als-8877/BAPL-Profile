@@ -11,6 +11,9 @@ import {
   Globe2,
   ShieldCheck,
   Factory,
+  MapPin,
+  Ship,
+  Plane,
 } from "lucide-react";
 
 interface SlideProps {
@@ -205,56 +208,50 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           ref={mobileContentRef}
           className="flex md:hidden flex-col gap-1.5 w-full mt-auto pb-4 items-center text-center"
         >
-          {/* 1. Title (Center Aligned, No Symbol) */}
+          {/* 1. Title (Center Aligned) */}
           <h1 className="text-2xl font-black tracking-normal text-white leading-tight drop-shadow-xl text-center w-full">
             BYZID APPARELS PVT LTD
           </h1>
 
-          {/* 2. Subtitle (Center Aligned, No Symbol, Green Color) */}
-          <p className="text-sm font-extrabold text-[#72e055] text-center drop-shadow-md w-full">
+          {/* 2. Subtitle (Center Aligned, Regular Weight Font, Green Color) */}
+          <p className="text-sm sm:text-base font-normal text-[#72e055] text-center drop-shadow-md w-full">
             Exporting Quality. Delivering Trust.
           </p>
 
-          {/* 3. Cards Grid on Mobile */}
-          <div className="grid grid-cols-2 gap-2 mt-1">
-            <div className="p-2.5 rounded-xl cyber-card flex items-center gap-2 bg-[#070e1e]/95 border border-white/10">
-              <div className="p-1.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
-                <Building2 className="w-3.5 h-3.5" />
+          {/* 3. Replacement Card: Factory Address & Logistics Distance Badge Card */}
+          <div className="w-full mt-2 p-3 sm:p-3.5 rounded-2xl cyber-card border border-white/10 bg-[#070e1e]/95 backdrop-blur-xl flex flex-col gap-2 shadow-2xl text-left">
+            {/* Factory Address Header */}
+            <div className="flex items-start gap-2.5">
+              <div className="p-1.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0 mt-0.5">
+                <MapPin className="w-4 h-4" />
               </div>
-              <div className="min-w-0">
-                <div className="text-[10.5px] text-slate-400 font-medium truncate">
-                  Headquarters & Plant
+              <div className="min-w-0 flex-1">
+                <div className="text-[10px] uppercase font-extrabold text-[#72e055] tracking-wider">
+                  Factory Address
                 </div>
-                <div className="text-[11.5px] font-bold text-white truncate">
-                  Chattogram, BD
-                </div>
-              </div>
-            </div>
-
-            <div className="p-2.5 rounded-xl cyber-card flex items-center gap-2 bg-[#070e1e]/95 border border-white/10">
-              <div className="p-1.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
-                <Globe2 className="w-3.5 h-3.5" />
-              </div>
-              <div className="min-w-0">
-                <div className="text-[10.5px] text-slate-400 font-medium truncate">
-                  Global Exports
-                </div>
-                <div className="text-[11.5px] font-bold text-white truncate">
-                  USA, EU & Global
+                <div className="text-xs text-white font-bold leading-snug mt-0.5">
+                  ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh
                 </div>
               </div>
             </div>
 
-            <div className="col-span-2 p-2.5 rounded-xl cyber-card flex items-center gap-2 bg-[#070e1e]/95 border border-white/10">
-              <div className="p-1.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0">
-                <ShieldCheck className="w-3.5 h-3.5" />
-              </div>
-              <div className="min-w-0">
-                <div className="text-[10.5px] text-slate-400 font-medium truncate">
-                  Compliance & Ethics
+            {/* Port & Airport Logistics Distances */}
+            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80">
+              {/* Seaport Distance */}
+              <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-left">
+                <Ship className="w-4 h-4 text-blue-400 shrink-0" />
+                <div className="min-w-0">
+                  <div className="text-[10px] text-slate-400 font-medium">Sea Port</div>
+                  <div className="text-xs font-bold text-white font-mono">12 km Distance</div>
                 </div>
-                <div className="text-[11.5px] font-bold text-white truncate">
-                  OEKO-TEX Standard 100 & amfori BSCI Certified
+              </div>
+
+              {/* Airport Distance */}
+              <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-left">
+                <Plane className="w-4 h-4 text-amber-400 shrink-0" />
+                <div className="min-w-0">
+                  <div className="text-[10px] text-slate-400 font-medium">Airport</div>
+                  <div className="text-xs font-bold text-white font-mono">18 km (Intl)</div>
                 </div>
               </div>
             </div>
