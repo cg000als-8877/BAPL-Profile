@@ -119,9 +119,10 @@
   .slide#slide-1 {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    height: 100dvh !important;
-    min-height: 100dvh !important;
-    max-height: 100dvh !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    width: 100% !important;
     overflow: hidden !important;
   }
 
@@ -141,9 +142,11 @@
 
   #slide-1 .slide-content-wrapper,
   #slide-1 .aspect-wrapper {
-    height: 100% !important;
-    min-height: 100% !important;
-    max-height: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    min-height: auto !important;
+    max-height: none !important;
   }
 
   .aspect-wrapper {

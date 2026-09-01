@@ -29,7 +29,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
   const mobileContentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden w-full h-full md:aspect-[1915/821] md:min-h-[calc(100vw*821/1915)]">
+    <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden w-full aspect-[9/16] md:aspect-[1915/821]">
       {/* 1. Dynamic Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Mobile View Hero Image: Aspect-Locked & Top-Anchored */}
@@ -72,7 +72,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
       {/* 2. Main Slide Interface */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full min-h-[100dvh] max-h-[100dvh] md:min-h-0 md:max-h-none max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between overflow-hidden md:overflow-visible"
+        className="relative z-10 w-full h-full max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between overflow-hidden md:overflow-visible"
       >
         {/* Mobile View: Large Architectural Blend Watermark "SINCE 1995" */}
         <div className="block md:hidden shrink-0 pt-1 pl-0.5 select-none pointer-events-none">
@@ -166,7 +166,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
         {/* MOBILE VIEW: Bottom-Pinned Responsive Layout (No cards, No icons, Clean Text View) */}
         <div
           ref={mobileContentRef}
-          className="flex md:hidden flex-col w-full mt-auto pb-6 items-center text-center space-y-1.5 px-2"
+          className="flex md:hidden flex-col w-full mt-auto pb-6 items-center text-center space-y-2 px-2"
         >
           {/* 1. Title (Center Aligned) */}
           <h1 className="text-2xl font-black tracking-normal text-white leading-tight drop-shadow-xl text-center w-full">
@@ -178,11 +178,8 @@ export const HeroSlide: React.FC<SlideProps> = () => {
             Exporting Quality. Delivering Trust.
           </p>
 
-          {/* 3. Subtle Accent Line */}
-          <div className="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full my-1" />
-
-          {/* 4. Logistics & Google Map Button */}
-          <div className="space-y-1.5 text-center max-w-sm mx-auto pt-0.5">
+          {/* 3. Logistics & Google Map Button */}
+          <div className="space-y-2 text-center max-w-sm mx-auto pt-1">
             {/* Google Map : Get Direction Minimal Animated Stroke Line Button */}
             <div className="py-0.5">
               <a
@@ -197,7 +194,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
             </div>
 
             <p className="text-[11px] text-slate-400 font-medium pt-0.5">
-              Sea Port: <span className="text-slate-200 font-bold">12 km Distance</span> &nbsp;•&nbsp; Airport: <span className="text-slate-200 font-bold">18 km (Intl)</span>
+              Port of Chattogram: <span className="text-slate-200 font-bold">12 km</span> &nbsp;•&nbsp; International Airport: <span className="text-slate-200 font-bold">18 km</span>
             </p>
           </div>
         </div>
