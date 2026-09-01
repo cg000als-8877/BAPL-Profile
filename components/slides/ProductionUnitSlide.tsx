@@ -73,16 +73,16 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
             />
           </div>
 
-          {/* Desktop Image: Scaled up with exact 732/396 native aspect ratio */}
-          <div className="hidden md:block relative w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl aspect-[732/396] max-h-[460px] lg:max-h-[520px] my-2">
+          {/* Desktop Image: Balanced medium size with exact 732/396 aspect ratio */}
+          <div className="hidden md:block relative w-full max-w-2xl lg:max-w-3xl xl:max-w-[820px] aspect-[732/396] max-h-[260px] lg:max-h-[300px] xl:max-h-[330px] my-1">
             <Image
               src="/desktop-bp.png"
               alt="Byzid Apparels Production Unit Facility Blueprint"
               fill
               priority
               unoptimized
-              sizes="(max-width: 1536px) 90vw, 1400px"
-              className="object-contain object-center scale-100 lg:scale-105"
+              sizes="(max-width: 1280px) 75vw, 850px"
+              className="object-contain object-center scale-100"
             />
           </div>
         </div>
