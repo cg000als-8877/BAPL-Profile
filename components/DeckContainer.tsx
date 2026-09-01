@@ -11,10 +11,9 @@ import { MachinerySlide } from "./slides/MachinerySlide";
 import { StrategySlide } from "./slides/StrategySlide";
 import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
 import { ContactSlide } from "./slides/ContactSlide";
-import { ThankYouSlide } from "./slides/ThankYouSlide";
 import { ThemeToggle } from "./ThemeToggle";
 
-const TOTAL_SLIDES = 12;
+const TOTAL_SLIDES = 11;
 
 export const DeckContainer: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -45,13 +44,12 @@ export const DeckContainer: React.FC = () => {
     }
   }, [currentSlide, scrollToSlide]);
 
-  // Intersection Observer to detect active slide in view
+  // Intersection Observer to trigger GSAP animations as sections scroll into view
   useEffect(() => {
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
     const options = {
-      root: isMobile ? null : containerRef.current,
-      rootMargin: isMobile ? "-5% 0px -15% 0px" : "0px",
-      threshold: isMobile ? 0.1 : 0.5,
+      root: null,
+      rootMargin: "-10% 0px -10% 0px",
+      threshold: 0.15,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -71,74 +69,6 @@ export const DeckContainer: React.FC = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  // Desktop Mouse Wheel translation: scrolling mouse wheel slides horizontally
-  useEffect(() => {
-    let isLocked = false;
-
-    const handleWheel = (e: WheelEvent) => {
-      if (window.innerWidth < 768) return;
-
-      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-      if (Math.abs(delta) > 15) {
-        e.preventDefault();
-        if (isLocked) return;
-        isLocked = true;
-
-        if (delta > 0) {
-          handleNext();
-        } else {
-          handlePrev();
-        }
-
-        setTimeout(() => {
-          isLocked = false;
-        }, 650);
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, [handleNext, handlePrev]);
-
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (
-        e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement
-      ) {
-        return;
-      }
-
-      switch (e.key) {
-        case "ArrowDown":
-        case "ArrowRight":
-        case "PageDown":
-        case " ":
-          e.preventDefault();
-          handleNext();
-          break;
-        case "ArrowUp":
-        case "ArrowLeft":
-        case "PageUp":
-          e.preventDefault();
-          handlePrev();
-          break;
-        case "Home":
-          e.preventDefault();
-          scrollToSlide(0);
-          break;
-        case "End":
-          e.preventDefault();
-          scrollToSlide(TOTAL_SLIDES - 1);
-          break;
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handleNext, handlePrev, scrollToSlide]);
 
 const MobileSectionDivider: React.FC = () => (
   <div className="block md:hidden w-full px-6 py-5 select-none pointer-events-none">
@@ -321,18 +251,6 @@ const MobileSectionDivider: React.FC = () => (
         className="slide slide-11"
       >
         <ContactSlide isActive={currentSlide === 10} />
-      </section>
-
-      {/* 12. Closing: Thank You (Desktop Presentation Only) */}
-      <section
-        ref={(el) => { slideRefs.current[11] = el; }}
-        id="slide-12"
-        className="hidden md:flex slide slide-12 slide-thankyou-desktop"
-      >
-        <ThankYouSlide
-          isActive={currentSlide === 11}
-          onNavigateToContact={() => scrollToSlide(10)}
-        />
       </section>
 
       {/* Floating Draggable Day / Night Mode Switcher */}
