@@ -194,7 +194,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
             </div>
 
             <p className="text-[11px] text-slate-400 font-medium pt-0.5">
-              Port of Chattogram: <span className="text-slate-200 font-bold">12 km</span> &nbsp;•&nbsp; International Airport: <span className="text-slate-200 font-bold">18 km</span>
+              Port: <span className="text-slate-200 font-bold">12 km to Sea Port</span> &nbsp;•&nbsp; Airport: <span className="text-slate-200 font-bold">18 km to Shah Amanat Intl</span>
             </p>
           </div>
         </div>
