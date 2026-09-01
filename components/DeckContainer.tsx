@@ -141,38 +141,52 @@ export const DeckContainer: React.FC = () => {
   }, [handleNext, handlePrev, scrollToSlide]);
 
 const MobileSectionDivider: React.FC = () => (
-  <div className="block md:hidden w-full px-6 py-4 select-none pointer-events-none">
+  <div className="block md:hidden w-full px-6 py-5 select-none pointer-events-none">
     <div className="relative flex items-center justify-center w-full">
+      {/* Night Mode: Glowing Emerald Wave */}
       <svg
-        className="w-full max-w-sm h-4 text-[#55c538] drop-shadow-[0_0_8px_rgba(85,197,56,0.5)] mobile-divider-svg"
+        className="w-full max-w-sm h-4 mobile-divider-night"
         viewBox="0 0 360 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          className="mobile-divider-path"
           d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8"
-          stroke="url(#mobile-divider-gradient)"
+          stroke="url(#mobile-divider-grad-night)"
           strokeWidth="3.5"
           strokeLinecap="round"
         />
         <defs>
-          {/* Night Mode: Neon Emerald Wave */}
-          <linearGradient id="mobile-divider-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#55c538" stopOpacity="0" />
-            <stop offset="15%" stopColor="#55c538" stopOpacity="0.7" />
+          <linearGradient id="mobile-divider-grad-night" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#55c538" stopOpacity="0.2" />
+            <stop offset="20%" stopColor="#55c538" stopOpacity="0.9" />
             <stop offset="50%" stopColor="#72e055" stopOpacity="1" />
-            <stop offset="85%" stopColor="#55c538" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#55c538" stopOpacity="0" />
+            <stop offset="80%" stopColor="#55c538" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#55c538" stopOpacity="0.2" />
           </linearGradient>
+        </defs>
+      </svg>
 
-          {/* Day Mode: Royal Cobalt & Cyan Wave */}
-          <linearGradient id="mobile-divider-gradient-day" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0" />
-            <stop offset="15%" stopColor="#2563eb" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#06b6d4" stopOpacity="1" />
-            <stop offset="85%" stopColor="#2563eb" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+      {/* Day Mode: Bold High-Contrast Cobalt & Deep Emerald Wave */}
+      <svg
+        className="w-full max-w-sm h-4 mobile-divider-day"
+        viewBox="0 0 360 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8"
+          stroke="url(#mobile-divider-grad-day)"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <defs>
+          <linearGradient id="mobile-divider-grad-day" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#2563eb" stopOpacity="0.3" />
+            <stop offset="20%" stopColor="#2563eb" stopOpacity="1" />
+            <stop offset="50%" stopColor="#059669" stopOpacity="1" />
+            <stop offset="80%" stopColor="#2563eb" stopOpacity="1" />
+            <stop offset="100%" stopColor="#2563eb" stopOpacity="0.3" />
           </linearGradient>
         </defs>
       </svg>
