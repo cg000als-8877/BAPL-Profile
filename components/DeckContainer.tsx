@@ -73,8 +73,8 @@ export const DeckContainer: React.FC = () => {
 
   return (
     <main ref={containerRef} className="snap-container relative overflow-x-hidden">
-      {/* Universal Seamless Background Glow Orbs (Fixed across entire website without any clipping or section borders) */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
+      {/* Universal Seamless Background Glow Orbs (Desktop View) */}
+      <div className="hidden md:block fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
         {/* Ambient Blob 1: Top-Right Glow */}
         <div className="ambient-blob-1 absolute -top-40 -right-40 w-[600px] sm:w-[900px] h-[600px] sm:h-[900px] rounded-full bg-[#55c538]/[0.08] blur-[160px] pointer-events-none" />
         {/* Ambient Blob 2: Mid-Left Glow */}

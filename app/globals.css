@@ -31,7 +31,7 @@
     height: 100dvh;
     width: 100%;
     overflow: hidden;
-    background-color: #050811;
+    background-color: #111419;
     color: #f8fafc;
     user-select: none;
     -webkit-font-smoothing: antialiased;
@@ -625,16 +625,10 @@ html.day-mode .hover\:bg-slate-800:hover {
    HERO GRADIENTS & ADAPTIVE DAY/NIGHT MOBILE TEXT (100% SEAMLESS BLEND)
    ============================================================ */
 
-/* Hero Slide Wrapper - Transparent / Inherits Dynamic Theme Canvas */
-html:not([data-theme="day"]) .hero-slide-wrapper,
-html.night-mode .hero-slide-wrapper,
-html.dark .hero-slide-wrapper {
-  background-color: #111419 !important;
-}
-
-html[data-theme="day"] .hero-slide-wrapper,
-html.day-mode .hero-slide-wrapper {
-  background-color: #f8fafc !important;
+/* Hero Slide Wrapper - Inherits Dynamic Theme Canvas */
+.hero-slide-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
 }
 
 /* 1. Mobile Hero Bottom Seamless Gradient */
