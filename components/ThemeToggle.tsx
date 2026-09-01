@@ -20,17 +20,17 @@ export const ThemeToggle: React.FC = () => {
     setTheme(initialTheme);
     applyTheme(initialTheme);
 
-    // Initial position on side: bottom-right
-    const initX = Math.max(16, window.innerWidth - 68);
-    const initY = Math.max(16, window.innerHeight - 110);
+    // Initial position: Bottom-right side
+    const initX = Math.max(12, window.innerWidth - 56);
+    const initY = Math.max(12, window.innerHeight - 90);
     setPosition({ x: initX, y: initY });
 
     const handleResize = () => {
       setPosition((prev) => {
-        if (!prev) return { x: window.innerWidth - 68, y: window.innerHeight - 110 };
+        if (!prev) return { x: window.innerWidth - 56, y: window.innerHeight - 90 };
         return {
-          x: Math.min(Math.max(12, prev.x), window.innerWidth - 64),
-          y: Math.min(Math.max(12, prev.y), window.innerHeight - 64),
+          x: Math.min(Math.max(8, prev.x), window.innerWidth - 52),
+          y: Math.min(Math.max(8, prev.y), window.innerHeight - 52),
         };
       });
     };
@@ -62,7 +62,7 @@ export const ThemeToggle: React.FC = () => {
     isDraggingRef.current = true;
     hasMovedRef.current = false;
     startTouchRef.current = { x: clientX, y: clientY };
-    startPosRef.current = position || { x: window.innerWidth - 68, y: window.innerHeight - 110 };
+    startPosRef.current = position || { x: window.innerWidth - 56, y: window.innerHeight - 90 };
   };
 
   const onPointerMove = (clientX: number, clientY: number) => {
@@ -70,12 +70,12 @@ export const ThemeToggle: React.FC = () => {
     const dx = clientX - startTouchRef.current.x;
     const dy = clientY - startTouchRef.current.y;
 
-    if (Math.hypot(dx, dy) > 5) {
+    if (Math.hypot(dx, dy) > 4) {
       hasMovedRef.current = true;
     }
 
-    const newX = Math.min(Math.max(12, startPosRef.current.x + dx), window.innerWidth - 64);
-    const newY = Math.min(Math.max(12, startPosRef.current.y + dy), window.innerHeight - 64);
+    const newX = Math.min(Math.max(8, startPosRef.current.x + dx), window.innerWidth - 52);
+    const newY = Math.min(Math.max(8, startPosRef.current.y + dy), window.innerHeight - 52);
 
     setPosition({ x: newX, y: newY });
   };
@@ -134,7 +134,7 @@ export const ThemeToggle: React.FC = () => {
         zIndex: 9999,
         touchAction: "none",
       }}
-      className="select-none transition-transform active:scale-95 cursor-grab active:cursor-grabbing"
+      className="select-none transition-transform active:scale-90 cursor-grab active:cursor-grabbing"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -144,16 +144,16 @@ export const ThemeToggle: React.FC = () => {
       <button
         type="button"
         aria-label={`Switch to ${theme === "night" ? "Day" : "Night"} Mode`}
-        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-2xl backdrop-blur-xl border-2 transition-all duration-300 pointer-events-auto ${
+        className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border transition-all duration-200 pointer-events-auto ${
           theme === "day"
-            ? "bg-white/95 text-amber-600 border-amber-400/80 shadow-amber-500/25 hover:scale-105 hover:shadow-amber-500/40"
-            : "bg-[#091426]/95 text-[#72e055] border-[#55c538]/80 shadow-[#55c538]/30 hover:scale-105 hover:shadow-[#55c538]/50"
+            ? "bg-gradient-to-b from-white via-slate-100 to-slate-200 border-slate-300 shadow-[inset_0_1.5px_1px_rgba(255,255,255,1),_0_6px_14px_-2px_rgba(15,23,42,0.22),_0_2px_4px_rgba(0,0,0,0.08)] hover:shadow-amber-500/25 active:translate-y-0.5"
+            : "bg-gradient-to-b from-slate-800 via-[#0a1122] to-[#040710] border-[#55c538]/70 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.25),_0_8px_16px_-2px_rgba(0,0,0,0.8),_0_0_12px_rgba(85,197,56,0.45)] hover:shadow-[#55c538]/60 active:translate-y-0.5"
         }`}
       >
         {theme === "day" ? (
-          <Sun className="w-6 h-6 text-amber-500 animate-spin-slow" />
+          <Sun className="w-4.5 h-4.5 text-amber-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.1)]" />
         ) : (
-          <Moon className="w-6 h-6 text-[#72e055] drop-shadow-[0_0_8px_rgba(85,197,56,0.8)]" />
+          <Moon className="w-4.5 h-4.5 text-[#72e055] drop-shadow-[0_0_6px_rgba(85,197,56,0.9)]" />
         )}
       </button>
     </div>

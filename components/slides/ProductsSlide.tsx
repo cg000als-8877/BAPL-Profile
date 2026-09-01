@@ -38,10 +38,10 @@ const MobilePinterestFrameItem: React.FC<FrameProps> = ({
         background:
           "radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f4f6 45%, #e2e2e8 100%)",
       }}
-      className={`group relative w-full ${aspectClass} rounded-2xl p-1.5 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 active:scale-[0.98] select-none`}
+      className={`group relative w-full ${aspectClass} rounded-xl p-1 flex flex-col items-center justify-center overflow-hidden select-none border-none`}
     >
       {!hasError ? (
-        <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+        <div className="relative w-full h-full rounded-lg overflow-hidden flex items-center justify-center">
           <Image
             src={imgSrc}
             alt={label}

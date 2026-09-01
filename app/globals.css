@@ -289,7 +289,7 @@ html.day-mode .cyber-pill {
   color: #1e293b !important;
 }
 
-/* Day Mode Typography */
+/* Day Mode Typography - Deep High Contrast */
 html[data-theme="day"] .text-white,
 html.day-mode .text-white {
   color: #0f172a !important;
@@ -306,15 +306,15 @@ html[data-theme="day"] .text-slate-300,
 html[data-theme="day"] .text-slate-400,
 html.day-mode .text-slate-300,
 html.day-mode .text-slate-400 {
-  color: #475569 !important;
+  color: #334155 !important;
 }
 
 html[data-theme="day"] .text-slate-500,
 html.day-mode .text-slate-500 {
-  color: #64748b !important;
+  color: #475569 !important;
 }
 
-/* Day Mode Forest Emerald Brand Accents */
+/* Day Mode Deep Vibrant Brand Accents */
 html[data-theme="day"] .text-\[\#72e055\],
 html[data-theme="day"] .text-\[\#55c538\],
 html[data-theme="day"] .text-\[\#88cb5c\],
@@ -324,19 +324,84 @@ html.day-mode .text-\[\#88cb5c\] {
   color: #15803d !important;
 }
 
+html[data-theme="day"] .text-amber-400,
+html.day-mode .text-amber-400 {
+  color: #b45309 !important;
+}
+
+html[data-theme="day"] .text-purple-300,
+html[data-theme="day"] .text-purple-400,
+html.day-mode .text-purple-300,
+html.day-mode .text-purple-400 {
+  color: #7e22ce !important;
+}
+
+html[data-theme="day"] .text-blue-400,
+html.day-mode .text-blue-400 {
+  color: #1d4ed8 !important;
+}
+
+/* Day Mode CTA Action Buttons - High Contrast Matching Fills */
 html[data-theme="day"] .bg-\[\#55c538\],
 html[data-theme="day"] .bg-\[\#72e055\],
 html.day-mode .bg-\[\#55c538\],
 html.day-mode .bg-\[\#72e055\] {
-  background-color: #16a34a !important;
+  background-color: #15803d !important;
   color: #ffffff !important;
+}
+
+html[data-theme="day"] .bg-\[\#55c538\] *,
+html[data-theme="day"] .bg-\[\#72e055\] *,
+html.day-mode .bg-\[\#55c538\] *,
+html.day-mode .bg-\[\#72e055\] * {
+  color: #ffffff !important;
+}
+
+html[data-theme="day"] .bg-blue-500,
+html.day-mode .bg-blue-500 {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="day"] .bg-blue-500 *,
+html.day-mode .bg-blue-500 * {
+  color: #ffffff !important;
+}
+
+html[data-theme="day"] a[href^="tel:"],
+html.day-mode a[href^="tel:"] {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="day"] a[href^="tel:"] *,
+html.day-mode a[href^="tel:"] * {
+  color: #0f172a !important;
+}
+
+html[data-theme="day"] a[href*="maps.app.goo.gl"]:not(.anim-stroke-button),
+html.day-mode a[href*="maps.app.goo.gl"]:not(.anim-stroke-button) {
+  background-image: linear-gradient(to right, #2563eb, #15803d) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="day"] a[href*="maps.app.goo.gl"]:not(.anim-stroke-button) *,
+html.day-mode a[href*="maps.app.goo.gl"]:not(.anim-stroke-button) * {
+  color: #ffffff !important;
+}
+
+/* Day Mode Title Underline Accent Gradient */
+html[data-theme="day"] .via-\[\#55c538\],
+html.day-mode .via-\[\#55c538\] {
+  --tw-gradient-stops: var(--tw-gradient-from, transparent), #15803d, var(--tw-gradient-to, transparent) !important;
 }
 
 html[data-theme="day"] .bg-\[\#55c538\]\/10,
 html[data-theme="day"] .bg-\[\#55c538\]\/20,
 html.day-mode .bg-\[\#55c538\]\/10,
 html.day-mode .bg-\[\#55c538\]\/20 {
-  background-color: rgba(22, 163, 74, 0.12) !important;
+  background-color: rgba(21, 128, 61, 0.12) !important;
 }
 
 html[data-theme="day"] .border-\[\#55c538\]\/30,
@@ -345,7 +410,7 @@ html[data-theme="day"] .border-\[\#55c538\]\/40,
 html.day-mode .border-\[\#55c538\]\/30,
 html.day-mode .border-\[\#55c538\]\/35,
 html.day-mode .border-\[\#55c538\]\/40 {
-  border-color: rgba(22, 163, 74, 0.3) !important;
+  border-color: rgba(21, 128, 61, 0.35) !important;
 }
 
 /* Day Mode Borders & Dividers */
