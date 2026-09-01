@@ -10,7 +10,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Byzid Apparels (Pvt) Ltd. | Corporate Presentation Profile",
+  title: "Byzid Apparels Profile",
   description:
     "Delivering Quality Apparel Worldwide Since 1995. Ready Made Garments (RMG) Manufacturer in Chattogram, Bangladesh.",
   keywords: [
