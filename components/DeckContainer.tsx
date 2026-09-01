@@ -223,7 +223,7 @@ const MobileSectionDivider: React.FC = () => (
       <DesktopSectionDivider />
       <MobileSectionDivider />
 
-      {/* 8. Technical Fleet: Machinery Summary (320 Sets Plant Fleet) */}
+      {/* 8. Technical Fleet: Machinery Summary (380 Sets Plant Fleet) */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"

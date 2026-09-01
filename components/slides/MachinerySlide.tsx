@@ -23,7 +23,7 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
   const bannerRef = useRef<HTMLDivElement>(null);
   const panelsRef = useRef<HTMLDivElement>(null);
 
-  const [counterMachines] = useState(320);
+  const [counterMachines] = useState(380);
 
   const primarySewing = [
     "Plain Machine",
