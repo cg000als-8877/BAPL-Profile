@@ -73,16 +73,16 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
             />
           </div>
 
-          {/* Desktop Image */}
-          <div className="hidden md:block relative w-full aspect-[1630/396] max-h-[360px] my-1">
+          {/* Desktop Image: Scaled up with exact 732/396 native aspect ratio */}
+          <div className="hidden md:block relative w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl aspect-[732/396] max-h-[460px] lg:max-h-[520px] my-2">
             <Image
               src="/desktop-bp.png"
               alt="Byzid Apparels Production Unit Facility Blueprint"
               fill
               priority
               unoptimized
-              sizes="(max-width: 1280px) 95vw, 1200px"
-              className="object-contain object-center"
+              sizes="(max-width: 1536px) 90vw, 1400px"
+              className="object-contain object-center scale-100 lg:scale-105"
             />
           </div>
         </div>
@@ -200,7 +200,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           <div className="shrink-0 border-l border-slate-800 pl-6">
             <a
               href="tel:008802334451856"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-[#55c538] text-slate-950 font-black text-sm md:text-base shadow-xl shadow-[#55c538]/30 hover:bg-[#72e055] hover:scale-105 transition-all"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-[#55c538] text-slate-950 font-black text-sm md:text-base shadow-lg hover:bg-[#72e055] hover:scale-105 transition-all"
             >
               <Phone className="w-4 h-4 md:w-5 md:h-5 text-slate-950" />
               <span>TEL # 0088-02334451856</span>
