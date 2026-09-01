@@ -26,46 +26,6 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
   const specsRef = useRef<HTMLDivElement>(null);
   const addressRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!isActive || (typeof window !== "undefined" && window.innerWidth < 768)) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headerRef.current,
-        { y: 16, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", clearProps: "transform" }
-      );
-
-      gsap.fromTo(
-        blueprintRef.current,
-        { y: 16, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, delay: 0.05, ease: "power2.out", clearProps: "transform" }
-      );
-
-      gsap.fromTo(
-        specsRef.current?.children || [],
-        { y: 14, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.45,
-          stagger: 0.04,
-          ease: "power2.out",
-          delay: 0.08,
-          clearProps: "transform",
-        }
-      );
-
-      gsap.fromTo(
-        addressRef.current,
-        { y: 14, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.45, delay: 0.15, ease: "power2.out", clearProps: "transform" }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [isActive]);
-
   return (
     <AspectWrapper className="bg-[#050811] text-white">
       <div

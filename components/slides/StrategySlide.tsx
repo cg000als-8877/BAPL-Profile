@@ -25,48 +25,6 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
   const mobileStackRef = useRef<HTMLDivElement>(null);
   const desktopGridRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!isActive || (typeof window !== "undefined" && window.innerWidth < 768)) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headerRef.current,
-        { y: 16, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", clearProps: "transform" }
-      );
-
-      gsap.fromTo(
-        desktopGridRef.current?.children || [],
-        { y: 16, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          stagger: 0.04,
-          ease: "power2.out",
-          delay: 0.05,
-          clearProps: "transform",
-        }
-      );
-
-      gsap.fromTo(
-        mobileStackRef.current?.children || [],
-        { y: 14, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.45,
-          stagger: 0.04,
-          ease: "power2.out",
-          delay: 0.05,
-          clearProps: "transform",
-        }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [isActive]);
-
   // Authentic Strategy Pillars based on PDF Page 4 with enhanced, enlarged descriptions
   const strategyPillars = [
     {

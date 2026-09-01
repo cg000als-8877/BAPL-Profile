@@ -70,6 +70,12 @@ export const DeckContainer: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+const DesktopSectionDivider: React.FC = () => (
+  <div className="hidden md:block w-full max-w-7xl mx-auto px-6 lg:px-12 select-none pointer-events-none my-1">
+    <div className="w-full h-[1px] desktop-divider-line" />
+  </div>
+);
+
 const MobileSectionDivider: React.FC = () => (
   <div className="block md:hidden w-full px-6 py-5 select-none pointer-events-none">
     <div className="relative flex items-center justify-center w-full">
@@ -135,6 +141,8 @@ const MobileSectionDivider: React.FC = () => (
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>
 
+      <DesktopSectionDivider />
+
       {/* 2. Instant Trust: Certifications (BSCI, OEKO-TEX) */}
       <section
         ref={(el) => { slideRefs.current[1] = el; }}
@@ -144,6 +152,7 @@ const MobileSectionDivider: React.FC = () => (
         <CertificationsSlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
+      <DesktopSectionDivider />
       <MobileSectionDivider />
 
       {/* 3. Social Proof: Buyers We Handled (16 Global Brands) */}
@@ -155,6 +164,7 @@ const MobileSectionDivider: React.FC = () => (
         <BuyersSlide isActive={currentSlide === 2} onNext={handleNext} />
       </section>
 
+      <DesktopSectionDivider />
       <MobileSectionDivider />
 
       {/* 4. Manufacturing Scope: Our Products (6 Garment Verticals) */}
@@ -167,6 +177,7 @@ const MobileSectionDivider: React.FC = () => (
       </section>
 
       {/* 5. Craftsmanship & Lookbook - Part 1: Looks 01 to 40 (Desktop dedicated) */}
+      <DesktopSectionDivider />
       <section
         ref={(el) => { slideRefs.current[4] = el; }}
         id="slide-5"
@@ -183,6 +194,7 @@ const MobileSectionDivider: React.FC = () => (
       </section>
 
       {/* 6. Craftsmanship & Lookbook - Part 2: Looks 41 to 80 (Desktop dedicated) */}
+      <DesktopSectionDivider />
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
         id="slide-6"
@@ -198,6 +210,7 @@ const MobileSectionDivider: React.FC = () => (
         />
       </section>
 
+      <DesktopSectionDivider />
       <MobileSectionDivider />
 
       {/* 7. Facility & Capacity: Production Unit (300K pcs/mo, 38K sq ft) */}
@@ -209,9 +222,10 @@ const MobileSectionDivider: React.FC = () => (
         <ProductionUnitSlide isActive={currentSlide === 6} onNext={handleNext} />
       </section>
 
+      <DesktopSectionDivider />
       <MobileSectionDivider />
 
-      {/* 8. Technical Fleet: Machinery Summary (250+ Plant Fleet) */}
+      {/* 8. Technical Fleet: Machinery Summary (320 Sets Plant Fleet) */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"
@@ -220,6 +234,7 @@ const MobileSectionDivider: React.FC = () => (
         <MachinerySlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
+      <DesktopSectionDivider />
       <MobileSectionDivider />
 
       {/* 9. Operational Excellence: Strategic Pillars (6 Pillars) */}
@@ -231,6 +246,7 @@ const MobileSectionDivider: React.FC = () => (
         <StrategySlide isActive={currentSlide === 8} onNext={handleNext} />
       </section>
 
+      <DesktopSectionDivider />
       <MobileSectionDivider />
 
       {/* 10. Commercial Credentials: Company Details & Banking */}
@@ -242,6 +258,7 @@ const MobileSectionDivider: React.FC = () => (
         <CompanyDetailsSlide isActive={currentSlide === 9} onNext={handleNext} />
       </section>
 
+      <DesktopSectionDivider />
       <MobileSectionDivider />
 
       {/* 11. Call to Action: Contact Us (MD & Director Lines) */}

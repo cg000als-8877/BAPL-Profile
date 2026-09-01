@@ -22,39 +22,11 @@ interface SlideProps {
   onNext?: () => void;
 }
 
-export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
+export const HeroSlide: React.FC<SlideProps> = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const rightContentRef = useRef<HTMLDivElement>(null);
   const mobileContentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!isActive || (typeof window !== "undefined" && window.innerWidth < 768)) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-
-      tl.fromTo(
-        badgeRef.current,
-        { y: -16, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, clearProps: "transform" }
-      )
-        .fromTo(
-          rightContentRef.current?.children || [],
-          { x: 30, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.5, stagger: 0.06, clearProps: "transform" },
-          "-=0.2"
-        )
-        .fromTo(
-          mobileContentRef.current?.children || [],
-          { y: 16, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, clearProps: "transform" },
-          "-=0.3"
-        );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [isActive]);
 
   return (
     <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden">
@@ -100,7 +72,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
       {/* 2. Main Slide Interface */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full min-h-[100dvh] max-h-[100dvh] p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between overflow-hidden"
+        className="relative z-10 w-full min-h-[100dvh] md:min-h-screen max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between"
       >
         {/* Top Bar: Established 1995 Modern Heritage Badge (Desktop Only) */}
         <div className="hidden md:flex shrink-0 items-center justify-end w-full">

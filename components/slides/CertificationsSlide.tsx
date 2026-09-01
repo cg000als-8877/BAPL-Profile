@@ -16,34 +16,6 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!isActive || (typeof window !== "undefined" && window.innerWidth < 768)) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headerRef.current,
-        { y: 16, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", clearProps: "transform" }
-      );
-
-      gsap.fromTo(
-        gridRef.current?.children || [],
-        { y: 16, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          stagger: 0.06,
-          ease: "power2.out",
-          delay: 0.05,
-          clearProps: "transform",
-        }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [isActive]);
-
   return (
     <AspectWrapper className="bg-[#050811] text-white">
       <div

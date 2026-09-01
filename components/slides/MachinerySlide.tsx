@@ -23,55 +23,7 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
   const bannerRef = useRef<HTMLDivElement>(null);
   const panelsRef = useRef<HTMLDivElement>(null);
 
-  const [counterMachines, setCounterMachines] = useState(0);
-
-  useEffect(() => {
-    if (!isActive) return;
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      setCounterMachines(320);
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headerRef.current,
-        { y: 16, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", clearProps: "transform" }
-      );
-
-      gsap.fromTo(
-        bannerRef.current,
-        { y: 16, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, delay: 0.05, ease: "power2.out", clearProps: "transform" }
-      );
-
-      gsap.fromTo(
-        panelsRef.current?.children || [],
-        { y: 14, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.45,
-          stagger: 0.05,
-          ease: "power2.out",
-          delay: 0.08,
-          clearProps: "transform",
-        }
-      );
-
-      const countObj = { total: 0 };
-      gsap.to(countObj, {
-        total: 320,
-        duration: 1.2,
-        ease: "power3.out",
-        onUpdate: () => {
-          setCounterMachines(Math.round(countObj.total));
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [isActive]);
+  const [counterMachines] = useState(320);
 
   const primarySewing = [
     "Plain Machine",

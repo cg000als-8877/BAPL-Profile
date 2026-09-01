@@ -86,34 +86,6 @@ export const CatalogSlide: React.FC<SlideProps> = ({
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!isActive) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headerRef.current,
-        { y: 16, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", clearProps: "transform" }
-      );
-
-      gsap.fromTo(
-        gridRef.current?.children || [],
-        { y: 12, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.35,
-          stagger: 0.006,
-          ease: "power2.out",
-          delay: 0.05,
-          clearProps: "transform",
-        }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [isActive]);
-
   const frameCount = endId - startId + 1;
   const catalogFrames = Array.from({ length: frameCount }, (_, i) => ({
     id: startId + i,

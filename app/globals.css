@@ -69,14 +69,17 @@
   animation: strokeGlowPulse 2s ease-in-out infinite !important;
 }
 
-@media (max-width: 767px) {
-  *:not(.anim-stroke-button):not(.anim-stroke-button *),
-  *:not(.anim-stroke-button)::before,
-  *:not(.anim-stroke-button)::after {
-    animation: none;
-    transition: none;
-  }
+/* ============================================================
+   100% STATIC SITE: Remove all animations and transitions globally
+   ============================================================ */
+*:not(.anim-stroke-button):not(.anim-stroke-button *),
+*:not(.anim-stroke-button)::before,
+*:not(.anim-stroke-button)::after {
+  animation: none !important;
+  transition: none !important;
+}
 
+@media (max-width: 767px) {
   body {
     overflow-y: auto !important;
     overflow-x: hidden !important;
@@ -119,11 +122,41 @@
   .slide-content-wrapper {
     width: 100% !important;
     height: auto !important;
-    min-height: auto !important;
+    max-width: 100% !important;
     max-height: none !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow-y: visible !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aspect-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    border: none !important;
+    border-radius: 0 !important;
     overflow: visible !important;
     display: flex;
     flex-direction: column;
+    background-color: transparent !important;
+    color: inherit;
+    box-shadow: none !important;
+  }
+
+  .desktop-only-controls {
+    display: none !important;
+  }
+
+  .slide-controls-layer {
+    display: none !important;
+    position: absolute !important;
+    pointer-events: none !important;
   }
 
   /* Completely Remove Standalone Product Image Slides and Thank You Slide on mobile */
@@ -152,7 +185,7 @@
     overflow-x: hidden !important;
     height: auto !important;
     min-height: 100vh;
-    scroll-behavior: smooth;
+    scroll-behavior: auto !important;
   }
 
   .snap-container {
@@ -176,15 +209,17 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
     overflow: visible;
   }
 
-  .slide:first-child {
-    padding-top: 0;
+  .slide#slide-1 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     min-height: 100vh;
-    justify-content: center;
+    width: 100vw !important;
+    max-width: 100vw !important;
   }
 
   .slide-content-wrapper {
@@ -199,6 +234,13 @@
     display: flex;
     flex-direction: column;
     overflow: visible !important;
+  }
+
+  #slide-1 .slide-content-wrapper {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
   }
 }
 
@@ -554,23 +596,31 @@ html.day-mode .hover\:bg-slate-800:hover {
 }
 
 /* ============================================================
-   DAY MODE: Preserve White & Green Text on Mobile Hero
+   DAY MODE: Keep Hero Section 100% Identical to Night Mode (Desktop & Mobile)
    ============================================================ */
+html[data-theme="day"] #slide-1,
+html.day-mode #slide-1 {
+  background-color: #050811 !important;
+  color: #ffffff !important;
+}
+
 html[data-theme="day"] #slide-1 .text-white,
 html.day-mode #slide-1 .text-white {
   color: #ffffff !important;
 }
 
+html[data-theme="day"] #slide-1 .text-slate-100,
 html[data-theme="day"] #slide-1 .text-slate-200,
-html[data-theme="day"] #slide-1 .text-slate-300,
-html.day-mode #slide-1 .text-slate-200,
-html.day-mode #slide-1 .text-slate-300 {
+html.day-mode #slide-1 .text-slate-100,
+html.day-mode #slide-1 .text-slate-200 {
   color: #e2e8f0 !important;
 }
 
+html[data-theme="day"] #slide-1 .text-slate-300,
 html[data-theme="day"] #slide-1 .text-slate-400,
+html.day-mode #slide-1 .text-slate-300,
 html.day-mode #slide-1 .text-slate-400 {
-  color: #94a3b8 !important;
+  color: #cbd5e1 !important;
 }
 
 html[data-theme="day"] #slide-1 .text-\[\#72e055\],
@@ -578,10 +628,52 @@ html.day-mode #slide-1 .text-\[\#72e055\] {
   color: #72e055 !important;
 }
 
+html[data-theme="day"] #slide-1 .text-\[\#55c538\],
+html.day-mode #slide-1 .text-\[\#55c538\] {
+  color: #55c538 !important;
+}
+
+html[data-theme="day"] #slide-1 .bg-\[\#050811\]\/70,
+html.day-mode #slide-1 .bg-\[\#050811\]\/70 {
+  background-color: rgba(5, 8, 17, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme="day"] #slide-1 .bg-\[\#050811\]\/85,
+html.day-mode #slide-1 .bg-\[\#050811\]\/85 {
+  background-color: rgba(5, 8, 17, 0.85) !important;
+  border-color: rgba(85, 197, 56, 0.5) !important;
+}
+
+html[data-theme="day"] #slide-1 .cyber-pill,
+html.day-mode #slide-1 .cyber-pill {
+  background-color: rgba(5, 8, 17, 0.85) !important;
+  border-color: rgba(85, 197, 56, 0.5) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="day"] #slide-1 .bg-white\/\[0\.04\],
+html.day-mode #slide-1 .bg-white\/\[0\.04\] {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
 html[data-theme="day"] #slide-1 .anim-stroke-button,
 html.day-mode #slide-1 .anim-stroke-button {
   color: #72e055 !important;
   border-color: rgba(85, 197, 56, 0.5) !important;
+}
+
+/* ============================================================
+   DESKTOP STRAIGHT SECTION DIVIDERS (Left to Right Separation)
+   ============================================================ */
+.desktop-divider-line {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 10%, rgba(85, 197, 56, 0.35) 50%, rgba(255, 255, 255, 0.08) 90%, transparent 100%);
+}
+
+html[data-theme="day"] .desktop-divider-line,
+html.day-mode .desktop-divider-line {
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.06) 10%, rgba(37, 99, 235, 0.35) 50%, rgba(0, 0, 0, 0.06) 90%, transparent 100%) !important;
 }
 
 /* ============================================================
