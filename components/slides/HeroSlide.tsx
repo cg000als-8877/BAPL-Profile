@@ -72,29 +72,8 @@ export const HeroSlide: React.FC<SlideProps> = () => {
       {/* 2. Main Slide Interface */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full min-h-[100dvh] md:min-h-0 max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between"
+        className="relative z-10 w-full h-full max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center"
       >
-        {/* Top Bar: Established 1995 Modern Heritage Badge (Desktop Only) */}
-        <div className="hidden md:flex shrink-0 items-center justify-end w-full">
-          <div
-            ref={badgeRef}
-            className="inline-flex items-center gap-2.5 sm:gap-3.5 px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl cyber-pill border border-[#55c538]/50 shadow-2xl shadow-[#55c538]/20 bg-[#050811]/85 backdrop-blur-xl group hover:border-[#55c538] transition-all"
-          >
-            <div className="p-1.5 rounded-xl bg-[#55c538]/20 text-[#72e055] shrink-0">
-              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-[#55c538]" />
-            </div>
-            <div className="flex items-center gap-2 sm:gap-3">
-              <span className="text-sm sm:text-base md:text-lg font-black tracking-wider text-white uppercase">
-                SINCE 1995
-              </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#55c538] animate-pulse shrink-0" />
-              <span className="text-xs sm:text-sm md:text-base font-bold text-[#72e055] tracking-wide">
-                30+ Years of Excellence
-              </span>
-            </div>
-          </div>
-        </div>
-
         {/* Mobile View: Large Architectural Blend Watermark "SINCE 1995" */}
         <div className="block md:hidden shrink-0 pt-1 pl-0.5 select-none pointer-events-none">
           <div className="text-[11px] font-black uppercase tracking-[0.25em] text-white/40 mix-blend-overlay">
@@ -106,15 +85,23 @@ export const HeroSlide: React.FC<SlideProps> = () => {
         </div>
 
         {/* DESKTOP VIEW: Right-Aligned Hero Text Layout */}
-        <div className="hidden md:flex flex-1 items-center justify-end my-auto">
+        <div className="hidden md:flex w-full items-center justify-end my-auto">
           <div
             ref={rightContentRef}
-            className="w-full md:max-w-[48%] lg:max-w-[44%] xl:max-w-[42%] flex flex-col gap-3.5 lg:gap-4.5 p-6 lg:p-8 rounded-3xl bg-[#050811]/70 backdrop-blur-xl border border-white/10 shadow-2xl"
+            className="w-full md:max-w-[50%] lg:max-w-[46%] xl:max-w-[44%] flex flex-col gap-3.5 lg:gap-4.5 p-6 lg:p-8 rounded-3xl bg-[#050811]/75 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/80"
           >
-            {/* A. Eyebrow */}
-            <div className="inline-flex items-center gap-2 text-xs lg:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
-              <Sparkles className="w-4 h-4 text-[#55c538]" />
-              <span>BYZID APPARELS (PVT.) LTD</span>
+            {/* A. Integrated Header: Eyebrow + Heritage Pill */}
+            <div className="flex items-center justify-between gap-2">
+              <div className="inline-flex items-center gap-1.5 text-xs lg:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+                <Sparkles className="w-4 h-4 text-[#55c538]" />
+                <span>BYZID APPARELS (PVT.) LTD</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#55c538]/15 border border-[#55c538]/40 shadow-sm shrink-0">
+                <Award className="w-3.5 h-3.5 text-[#55c538]" />
+                <span className="text-[11px] font-black uppercase tracking-wider text-white">
+                  SINCE 1995
+                </span>
+              </div>
             </div>
 
             {/* B. Master Hero Title */}

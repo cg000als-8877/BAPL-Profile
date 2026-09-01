@@ -141,8 +141,6 @@ const MobileSectionDivider: React.FC = () => (
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>
 
-      <DesktopSectionDivider />
-
       {/* 2. Instant Trust: Certifications (BSCI, OEKO-TEX) */}
       <section
         ref={(el) => { slideRefs.current[1] = el; }}
