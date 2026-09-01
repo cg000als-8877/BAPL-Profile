@@ -13,6 +13,7 @@ import {
   Building2,
   Navigation,
   ExternalLink,
+  ArrowUp,
 } from "lucide-react";
 
 interface SlideProps {
@@ -401,6 +402,24 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Mobile View Only: Scroll to Top Button at the End of the Page */}
+        <div className="flex md:hidden flex-col items-center justify-center pt-8 pb-6 w-full select-none">
+          <button
+            type="button"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="group flex flex-col items-center gap-2 p-2 text-slate-400 hover:text-white transition-all active:scale-95"
+          >
+            <div className="w-11 h-11 rounded-full bg-slate-900/90 border border-slate-700/80 group-hover:border-[#55c538] flex items-center justify-center text-[#72e055] shadow-lg shadow-[#55c538]/15 transition-all">
+              <ArrowUp className="w-5 h-5 animate-bounce" />
+            </div>
+            <span className="text-[11px] font-black uppercase tracking-widest text-slate-400 group-hover:text-[#72e055] transition-colors">
+              GO BACK TO TOP
+            </span>
+          </button>
         </div>
       </div>
     </AspectWrapper>
