@@ -74,16 +74,6 @@ export const HeroSlide: React.FC<SlideProps> = () => {
         ref={containerRef}
         className="relative z-10 w-full h-full max-w-7xl md:max-w-[1700px] mx-auto p-4 sm:p-6 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-between overflow-hidden md:overflow-visible"
       >
-        {/* Mobile View: Large Architectural Blend Watermark "SINCE 1995" */}
-        <div className="block md:hidden shrink-0 pt-1 pl-0.5 select-none pointer-events-none">
-          <div className="text-[11px] font-black uppercase tracking-[0.25em] text-white/40 mix-blend-overlay">
-            SINCE
-          </div>
-          <div className="text-6xl sm:text-7xl font-black uppercase tracking-tight text-white/25 mix-blend-overlay leading-none -mt-0.5">
-            1995
-          </div>
-        </div>
-
         {/* DESKTOP VIEW: Right-Aligned Hero Text Layout (Anchored to Far Right) */}
         <div className="hidden md:flex w-full items-center justify-end my-auto">
           <div
