@@ -161,39 +161,39 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW: Vertically Middle-Aligned Stack with Standard Gap */}
+        {/* 2. MOBILE VIEW: Auto-Expanding Cards Stack (Full text wrapping, auto height) */}
         <div
           ref={mobileStackRef}
-          className="flex-1 flex flex-col md:hidden gap-2.5 min-h-0"
+          className="w-full flex flex-col md:hidden gap-3"
         >
           {strategyPillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.id}
-                className={`flex-1 p-3 rounded-xl cyber-card border ${pillar.border} bg-[#091426]/95 flex flex-col justify-center shadow-lg min-h-0`}
+                className={`w-full p-4 rounded-xl cyber-card border ${pillar.border} bg-[#091426]/95 flex flex-col justify-between shadow-lg h-auto`}
               >
                 {/* Header Row: Index & Glowing Icon */}
-                <div className="flex items-center justify-between mb-1">
+                <div className="flex items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-black text-slate-300">
                       {pillar.id}
                     </span>
-                    <div className={`p-1 rounded-md ${pillar.bg} ${pillar.color} shrink-0`}>
-                      <Icon className="w-3.5 h-3.5" />
+                    <div className={`p-1.5 rounded-md ${pillar.bg} ${pillar.color} shrink-0`}>
+                      <Icon className="w-4 h-4" />
                     </div>
                   </div>
-                  <span className="text-[11.5px] font-bold px-2 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white/5 text-slate-300 border border-white/10 shrink-0">
                     {pillar.tag}
                   </span>
                 </div>
 
-                {/* Middle Content */}
-                <div>
-                  <h3 className="text-sm font-black text-white leading-tight mb-0.5">
+                {/* Content with Full Text Wrapping */}
+                <div className="space-y-1">
+                  <h3 className="text-sm sm:text-base font-black text-white leading-snug break-words">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs text-slate-300 font-normal leading-tight line-clamp-2">
+                  <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed break-words">
                     {pillar.desc}
                   </p>
                 </div>
