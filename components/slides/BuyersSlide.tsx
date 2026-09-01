@@ -283,22 +283,24 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
         </div>
 
         {/* 3. Engaging & Convincing Sourcing Paragraph Under Buyer Cards */}
+        {/* Mobile View: Clean Centered Plain Text (No card, No icon) */}
+        <div className="block md:hidden text-center py-2 px-2 w-full">
+          <p className="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-medium max-w-sm mx-auto">
+            <span className="font-extrabold text-white">30+ Years Global Trust:</span> Trusted by iconic retail brands across USA & Europe for precision knit & woven manufacturing, strict compliance, and on-time shipments.
+          </p>
+        </div>
+
+        {/* Desktop View: Styled Glassmorphic Card with Sparkles Icon */}
         <div
           ref={paraRef}
-          className="shrink-0 p-2.5 sm:p-3 md:p-3.5 rounded-xl sm:rounded-2xl bg-[#081122]/90 border border-slate-700/60 backdrop-blur-md flex items-center gap-2.5 sm:gap-3.5 shadow-xl"
+          className="hidden md:flex shrink-0 p-3 md:p-3.5 rounded-2xl bg-[#081122]/90 border border-slate-700/60 backdrop-blur-md items-center gap-3.5 shadow-xl"
         >
-          <div className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-[#55c538]/20 text-[#72e055] shrink-0">
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+          <div className="p-2 rounded-xl bg-[#55c538]/20 text-[#72e055] shrink-0">
+            <Sparkles className="w-5 h-5" />
           </div>
           <div className="flex-1 min-w-0">
-            {/* Desktop Paragraph */}
-            <p className="hidden md:block text-xs lg:text-sm text-slate-200 leading-relaxed font-medium">
+            <p className="text-xs lg:text-sm text-slate-200 leading-relaxed font-medium">
               <span className="font-extrabold text-white">Three Decades of Global Export Mastery:</span> Trusted by premier fashion houses and leading retail brands across North America and Europe. From precision fabric sourcing to full container shipments, we deliver uncompromised quality, strict compliance (amfori BSCI & OEKO-TEX), and guaranteed on-time execution.
-            </p>
-
-            {/* Mobile Paragraph */}
-            <p className="block md:hidden text-[11px] sm:text-xs text-slate-200 leading-snug font-medium">
-              <span className="font-extrabold text-white">30+ Years Global Trust:</span> Trusted by iconic retail brands across USA & Europe for precision knit & woven manufacturing, strict compliance, and on-time shipments.
             </p>
           </div>
         </div>
