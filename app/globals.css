@@ -451,3 +451,68 @@ html[data-theme="day"] .hover\:bg-slate-800:hover,
 html.day-mode .hover\:bg-slate-800:hover {
   background-color: #f1f5f9 !important;
 }
+
+/* ============================================================
+   SEAMLESS SINGLE CONTINUOUS BACKGROUND (Night & Day Modes)
+   ============================================================ */
+.slide {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.slide-content-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.aspect-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Remove separate inner box gradient backgrounds on each section */
+.slide > div > div[class*="bg-gradient-to-br from-[#080d1a]"] {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* ============================================================
+   DAY MODE: Preserve White & Green Text on Mobile Hero
+   ============================================================ */
+html[data-theme="day"] #slide-1 .text-white,
+html.day-mode #slide-1 .text-white {
+  color: #ffffff !important;
+}
+
+html[data-theme="day"] #slide-1 .text-slate-200,
+html[data-theme="day"] #slide-1 .text-slate-300,
+html.day-mode #slide-1 .text-slate-200,
+html.day-mode #slide-1 .text-slate-300 {
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="day"] #slide-1 .text-slate-400,
+html.day-mode #slide-1 .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+html[data-theme="day"] #slide-1 .text-\[\#72e055\],
+html.day-mode #slide-1 .text-\[\#72e055\] {
+  color: #72e055 !important;
+}
+
+html[data-theme="day"] #slide-1 .anim-stroke-button,
+html.day-mode #slide-1 .anim-stroke-button {
+  color: #72e055 !important;
+  border-color: rgba(85, 197, 56, 0.5) !important;
+}
+
+/* ============================================================
+   DAY MODE: Curvy Divider Color Switch
+   ============================================================ */
+html[data-theme="day"] .mobile-divider-path,
+html.day-mode .mobile-divider-path {
+  stroke: url(#mobile-divider-gradient-day) !important;
+  filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.45)) !important;
+}
+
