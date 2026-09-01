@@ -29,7 +29,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
   const mobileContentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden">
+    <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden w-full md:aspect-[16/9] md:min-h-[56.25vw]">
       {/* 1. Dynamic Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Mobile View Hero Image: Aspect-Locked & Top-Anchored */}
@@ -48,7 +48,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
           />
         </div>
 
-        {/* Desktop View Hero Image */}
+        {/* Desktop View Hero Image: Fixed to 16:9 Native Aspect Ratio */}
         <div className="hidden md:block absolute inset-0 w-full h-full">
           <Image
             src="/baplprofile.webp"
@@ -57,7 +57,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
             priority
             unoptimized
             sizes="100vw"
-            className="object-cover object-left lg:object-center brightness-[1.02] contrast-105"
+            className="object-cover object-center brightness-[1.02] contrast-105"
           />
         </div>
 
@@ -72,7 +72,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
       {/* 2. Main Slide Interface */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full min-h-[100dvh] md:min-h-screen max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between"
+        className="relative z-10 w-full h-full min-h-[100dvh] md:min-h-0 max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between"
       >
         {/* Top Bar: Established 1995 Modern Heritage Badge (Desktop Only) */}
         <div className="hidden md:flex shrink-0 items-center justify-end w-full">

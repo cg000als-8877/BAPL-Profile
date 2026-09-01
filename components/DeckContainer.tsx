@@ -71,8 +71,8 @@ export const DeckContainer: React.FC = () => {
   }, []);
 
 const DesktopSectionDivider: React.FC = () => (
-  <div className="hidden md:block w-full max-w-7xl mx-auto px-6 lg:px-12 select-none pointer-events-none my-1">
-    <div className="w-full h-[1px] desktop-divider-line" />
+  <div className="hidden md:block w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-14 select-none pointer-events-none my-2">
+    <div className="w-full h-[1.5px] desktop-divider-line rounded-full" />
   </div>
 );
 
