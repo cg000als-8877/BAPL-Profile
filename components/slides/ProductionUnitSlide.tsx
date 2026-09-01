@@ -70,7 +70,7 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-4 sm:p-8 md:p-12 lg:p-14 flex flex-col justify-between gap-3 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-4 sm:p-6 md:p-10 lg:p-12 xl:p-14 flex flex-col justify-between gap-3.5 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -94,13 +94,13 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. CENTER-UPPER: Blueprint Image (Expanded Width on Mobile & Desktop) */}
+        {/* 2. CENTER-UPPER: Blueprint Image */}
         <div
           ref={blueprintRef}
           className="shrink-0 w-full flex items-center justify-center my-0"
         >
-          {/* Mobile Image: Expanded -mx-4 to bleed edge-to-edge horizontally */}
-          <div className="block md:hidden relative -mx-4 w-[calc(100%+2rem)] aspect-[738/352] max-h-[220px]">
+          {/* Mobile Image */}
+          <div className="block md:hidden relative w-full aspect-[738/352] max-h-[220px]">
             <Image
               src="/mobile-bp.png"
               alt="Byzid Apparels Architectural Blueprint Mobile View"
@@ -108,11 +108,11 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
               priority
               unoptimized
               sizes="100vw"
-              className="object-contain object-center scale-105"
+              className="object-contain object-center scale-100"
             />
           </div>
 
-          {/* Desktop Image: Expanded -mx-8 lg:-mx-10 taking more space from left and right */}
+          {/* Desktop Image */}
           <div className="hidden md:block relative -mx-6 md:-mx-8 lg:-mx-10 w-[calc(100%+3rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+5rem)] aspect-[1630/396] max-h-[320px] lg:max-h-[350px]">
             <Image
               src="/desktop-bp.png"
@@ -126,79 +126,79 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 3. CENTER-LOWER: 4 Capacity Metric Cards */}
+        {/* 3. CENTER-LOWER: 4 Capacity Metric Cards (2x2 on Mobile, 4x1 on Desktop) */}
         <div
           ref={specsRef}
-          className="shrink-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-5"
+          className="shrink-0 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5"
         >
           {/* 1. Production Capacity */}
-          <div className="p-3 sm:p-5 md:p-6 rounded-2xl cyber-card flex items-center sm:flex-col justify-between sm:justify-between border-blue-500/30 bg-[#091426]/95 shadow-xl hover:border-blue-400 transition-all">
-            <div className="flex items-center gap-2 sm:w-full sm:justify-between">
-              <span className="text-xs sm:text-sm font-extrabold text-blue-400 uppercase tracking-wider">
-                Production Capacity
+          <div className="p-3.5 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-blue-500/30 bg-[#091426]/95 shadow-xl hover:border-blue-400 transition-all">
+            <div className="flex items-center justify-between gap-1 mb-1">
+              <span className="text-[11px] sm:text-sm font-extrabold text-blue-400 uppercase tracking-wider">
+                Capacity
               </span>
-              <Layers className="w-5 h-5 text-blue-400 shrink-0 hidden sm:block" />
+              <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 shrink-0" />
             </div>
-            <div className="text-right sm:text-left sm:w-full sm:my-1.5">
-              <div className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
+            <div>
+              <div className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
                 300,000
               </div>
-              <div className="text-xs sm:text-sm font-bold text-blue-300 mt-0.5">
-                Pieces Per Month
+              <div className="text-[10.5px] sm:text-sm font-bold text-blue-300 mt-1">
+                Pcs / Month
               </div>
             </div>
           </div>
 
           {/* 2. Factory Space */}
-          <div className="p-3 sm:p-5 md:p-6 rounded-2xl cyber-card flex items-center sm:flex-col justify-between sm:justify-between border-emerald-500/30 bg-[#091426]/95 shadow-xl hover:border-[#55c538] transition-all">
-            <div className="flex items-center gap-2 sm:w-full sm:justify-between">
-              <span className="text-xs sm:text-sm font-extrabold text-[#72e055] uppercase tracking-wider">
-                Factory Space
+          <div className="p-3.5 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-emerald-500/30 bg-[#091426]/95 shadow-xl hover:border-[#55c538] transition-all">
+            <div className="flex items-center justify-between gap-1 mb-1">
+              <span className="text-[11px] sm:text-sm font-extrabold text-[#72e055] uppercase tracking-wider">
+                Floor Space
               </span>
-              <Maximize2 className="w-5 h-5 text-[#55c538] shrink-0 hidden sm:block" />
+              <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#55c538] shrink-0" />
             </div>
-            <div className="text-right sm:text-left sm:w-full sm:my-1.5">
-              <div className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
-                38,000 <span className="text-xs sm:text-lg text-slate-300 font-bold">SQ. FT</span>
+            <div>
+              <div className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
+                38,000 <span className="text-[10px] sm:text-lg text-slate-300 font-bold">SQ.FT</span>
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#72e055] mt-0.5">
-                38,000 Sq. Feet Total Space
+              <div className="text-[10.5px] sm:text-sm font-bold text-[#72e055] mt-1">
+                Total Production Area
               </div>
             </div>
           </div>
 
           {/* 3. Annual Turnover */}
-          <div className="p-3 sm:p-5 md:p-6 rounded-2xl cyber-card flex items-center sm:flex-col justify-between sm:justify-between border-amber-500/30 bg-[#091426]/95 shadow-xl hover:border-amber-400 transition-all">
-            <div className="flex items-center gap-2 sm:w-full sm:justify-between">
-              <span className="text-xs sm:text-sm font-extrabold text-amber-400 uppercase tracking-wider">
-                Annual Turnover
+          <div className="p-3.5 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-amber-500/30 bg-[#091426]/95 shadow-xl hover:border-amber-400 transition-all">
+            <div className="flex items-center justify-between gap-1 mb-1">
+              <span className="text-[11px] sm:text-sm font-extrabold text-amber-400 uppercase tracking-wider">
+                Turnover
               </span>
-              <TrendingUp className="w-5 h-5 text-amber-400 shrink-0 hidden sm:block" />
+              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0" />
             </div>
-            <div className="text-right sm:text-left sm:w-full sm:my-1.5">
-              <div className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
+            <div>
+              <div className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
                 $10.00M
               </div>
-              <div className="text-xs sm:text-sm font-bold text-amber-300 mt-0.5">
+              <div className="text-[10.5px] sm:text-sm font-bold text-amber-300 mt-1">
                 Million USD / Year
               </div>
             </div>
           </div>
 
           {/* 4. Total Manpower */}
-          <div className="p-3 sm:p-5 md:p-6 rounded-2xl cyber-card flex items-center sm:flex-col justify-between sm:justify-between border-purple-500/30 bg-[#091426]/95 shadow-xl hover:border-purple-400 transition-all">
-            <div className="flex items-center gap-2 sm:w-full sm:justify-between">
-              <span className="text-xs sm:text-sm font-extrabold text-purple-400 uppercase tracking-wider">
-                Total Manpower
+          <div className="p-3.5 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-purple-500/30 bg-[#091426]/95 shadow-xl hover:border-purple-400 transition-all">
+            <div className="flex items-center justify-between gap-1 mb-1">
+              <span className="text-[11px] sm:text-sm font-extrabold text-purple-400 uppercase tracking-wider">
+                Manpower
               </span>
-              <Users className="w-5 h-5 text-purple-400 shrink-0 hidden sm:block" />
+              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 shrink-0" />
             </div>
-            <div className="text-right sm:text-left sm:w-full sm:my-1.5">
-              <div className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
-                700
+            <div>
+              <div className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
+                700+
               </div>
-              <div className="text-xs sm:text-sm font-bold text-purple-300 mt-0.5">
-                Personnel (+ 35 Key Staff)
+              <div className="text-[10.5px] sm:text-sm font-bold text-purple-300 mt-1">
+                Workforce (+ 35 Key Staff)
               </div>
             </div>
           </div>

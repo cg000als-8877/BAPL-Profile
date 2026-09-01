@@ -50,47 +50,60 @@
   }
 }
 
-/* Full-Page Deck Scroll-Snap Container */
-.snap-container {
-  height: 100vh;
-  height: 100dvh;
-  width: 100vw;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
-  -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
-}
-
-.slide {
-  height: 100vh;
-  height: 100dvh;
-  width: 100vw;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background-color: #050811;
-  overflow: hidden;
-  transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  perspective: 1000px;
-  will-change: transform;
-}
-
-.cyber-card {
-  transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-/* Mobile View: Completely Remove Standalone Product Image Slides on mobile (Merged into Our Products) */
+/* ============================================================
+   MOBILE VIEW: Fluid Continuous Vertical Scroll Layout (< 768px)
+   ============================================================ */
 @media (max-width: 767px) {
+  body {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .snap-container {
+    height: auto !important;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100% !important;
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
+    scroll-snap-type: none !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide {
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .slide:first-child {
+    padding-top: 0;
+  }
+
+  .slide-content-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Completely Remove Standalone Product Image Slides on mobile */
   #slide-5.slide-catalog-desktop,
   #slide-6.slide-catalog-desktop,
   #slide-7.slide-catalog-desktop,
@@ -104,7 +117,9 @@
   }
 }
 
-/* Desktop Horizontal Slide Configuration */
+/* ============================================================
+   DESKTOP VIEW: Fullscreen Horizontal Presentation Deck (>= 768px)
+   ============================================================ */
 @media (min-width: 768px) {
   .snap-container {
     display: flex;
@@ -112,8 +127,11 @@
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     width: 100vw;
     height: 100vh;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
   }
 
   .slide {
@@ -122,27 +140,35 @@
     height: 100vh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #050811;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 
   .slide-content-wrapper {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    border: none !important;
+    border-radius: 0 !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     overflow-y: hidden !important;
   }
 }
 
-/* 100% Full Bleed Viewport Content Wrapper */
-.slide-content-wrapper {
-  width: 100vw !important;
-  height: 100vh !important;
-  height: 100dvh !important;
-  max-width: 100vw !important;
-  max-height: 100vh !important;
-  border: none !important;
-  border-radius: 0 !important;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+.cyber-card {
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Luxury Cyber Glassmorphic Card Styles */

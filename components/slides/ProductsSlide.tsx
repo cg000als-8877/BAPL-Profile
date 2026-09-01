@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
 import gsap from "gsap";
-import { Sparkles, CheckCircle2, ImageIcon } from "lucide-react";
+import { Sparkles, CheckCircle2, ImageIcon, ChevronDown } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
@@ -71,6 +71,9 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
   const headerRef = useRef<HTMLDivElement>(null);
   const mobileStackRef = useRef<HTMLDivElement>(null);
   const desktopGridRef = useRef<HTMLDivElement>(null);
+
+  // Mobile Pagination State: Initial 12 images
+  const [visibleCount, setVisibleCount] = useState(12);
 
   useEffect(() => {
     if (!isActive) return;
@@ -159,11 +162,13 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     },
   ];
 
-  // 80 Frames lookbook
+  // 80 Frames lookbook (paginated on mobile)
   const catalogFrames = Array.from({ length: 80 }, (_, i) => ({
     id: i + 1,
     label: `Look ${String(i + 1).padStart(2, "0")}`,
   }));
+
+  const visibleFrames = catalogFrames.slice(0, visibleCount);
 
   const col1Aspects = [
     "aspect-[3/4.2]",
@@ -188,7 +193,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full min-h-full p-3.5 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between gap-3 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between gap-3 sm:gap-4 overflow-y-visible md:overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -212,17 +217,17 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW: 6 Categories + 3-Column Pinterest Masonry Lookbook Feed */}
+        {/* 2. MOBILE VIEW: 6 Categories + 3-Column Paginated Pinterest Masonry Lookbook Feed */}
         <div
           ref={mobileStackRef}
-          className="flex flex-col md:hidden gap-3.5 w-full pb-8"
+          className="flex flex-col md:hidden gap-4 w-full pb-8"
         >
           {/* A. 6 Product Category Cards (2-Column Grid on Mobile) */}
-          <div className="grid grid-cols-2 gap-2 w-full">
+          <div className="grid grid-cols-2 gap-2.5 w-full">
             {products.map((p) => (
               <div
                 key={p.id}
-                className={`p-2.5 rounded-xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col justify-between shadow-md`}
+                className={`p-3 rounded-2xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col justify-between shadow-md`}
               >
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-xs font-black text-slate-400 font-mono">
@@ -233,13 +238,13 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                   {p.title}
                 </h3>
 
-                <div className="space-y-0.5 pt-1 border-t border-slate-800/80">
+                <div className="space-y-1 pt-1.5 border-t border-slate-800/80">
                   {p.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-1 text-[11.5px] text-slate-200 font-medium truncate"
+                      className="flex items-center gap-1.5 text-[11.5px] text-slate-200 font-medium truncate"
                     >
-                      <CheckCircle2 className="w-2.5 h-2.5 text-[#55c538] shrink-0" />
+                      <CheckCircle2 className="w-3 h-3 text-[#55c538] shrink-0" />
                       <span className="truncate">{item}</span>
                     </div>
                   ))}
@@ -249,7 +254,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
 
           {/* B. Subtitle & Divider for Pinterest Lookbook */}
-          <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+          <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-4 bg-[#55c538] rounded-full glow-bar" />
               <h3 className="text-sm font-black text-white uppercase tracking-wider">
@@ -261,11 +266,11 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </span>
           </div>
 
-          {/* C. PINTEREST MASONRY GRID (3 Staggered Columns on Mobile) */}
-          <div className="w-full grid grid-cols-3 gap-1.5 sm:gap-2 items-start">
+          {/* C. PINTEREST MASONRY GRID (3 Staggered Columns on Mobile, Paginated) */}
+          <div className="w-full grid grid-cols-3 gap-2 items-start">
             {/* Column 1 (Left Stream) */}
-            <div className="flex flex-col gap-1.5 sm:gap-2">
-              {catalogFrames
+            <div className="flex flex-col gap-2">
+              {visibleFrames
                 .filter((_, idx) => idx % 3 === 0)
                 .map((frame, colIdx) => (
                   <MobilePinterestFrameItem
@@ -278,8 +283,8 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
 
             {/* Column 2 (Middle Stream) */}
-            <div className="flex flex-col gap-1.5 sm:gap-2">
-              {catalogFrames
+            <div className="flex flex-col gap-2">
+              {visibleFrames
                 .filter((_, idx) => idx % 3 === 1)
                 .map((frame, colIdx) => (
                   <MobilePinterestFrameItem
@@ -292,8 +297,8 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
             </div>
 
             {/* Column 3 (Right Stream) */}
-            <div className="flex flex-col gap-1.5 sm:gap-2">
-              {catalogFrames
+            <div className="flex flex-col gap-2">
+              {visibleFrames
                 .filter((_, idx) => idx % 3 === 2)
                 .map((frame, colIdx) => (
                   <MobilePinterestFrameItem
@@ -304,6 +309,25 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                   />
                 ))}
             </div>
+          </div>
+
+          {/* D. Mobile Pagination Control */}
+          <div className="pt-3 pb-2 flex flex-col items-center justify-center">
+            {visibleCount < 80 ? (
+              <button
+                type="button"
+                onClick={() => setVisibleCount((prev) => Math.min(prev + 12, 80))}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#55c538] hover:bg-[#72e055] text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-[#55c538]/25 active:scale-95 transition-all"
+              >
+                <span>Load More Looks ({visibleCount} / 80)</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            ) : (
+              <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-[11px] font-bold text-slate-400">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#55c538]" />
+                <span>All 80 Looks Loaded</span>
+              </div>
+            )}
           </div>
         </div>
 
