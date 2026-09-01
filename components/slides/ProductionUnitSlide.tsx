@@ -90,75 +90,75 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
         {/* 3. CENTER-LOWER: 4 Capacity Metric Cards (2x2 on Mobile, 4x1 on Desktop) */}
         <div
           ref={specsRef}
-          className="shrink-0 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5"
+          className="shrink-0 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 items-stretch"
         >
           {/* 1. Production Capacity */}
-          <div className="p-3.5 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-blue-500/30 bg-[#091426]/95 shadow-xl hover:border-blue-400 transition-all">
-            <div className="flex items-center justify-between gap-1 mb-1">
-              <span className="text-[11px] sm:text-sm font-extrabold text-blue-400 uppercase tracking-wider">
+          <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-blue-500/30 bg-[#091426]/95 shadow-xl hover:border-blue-400 transition-all min-h-[120px] sm:min-h-[145px] md:min-h-[155px]">
+            <div className="flex items-center justify-between gap-1 mb-2">
+              <span className="text-[11px] sm:text-xs md:text-sm font-extrabold text-blue-400 uppercase tracking-wider">
                 Capacity
               </span>
               <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 shrink-0" />
             </div>
             <div>
-              <div className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
+              <div className="text-xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[44px] font-black text-white tracking-tight leading-none">
                 300,000
               </div>
-              <div className="text-[10.5px] sm:text-sm font-bold text-blue-300 mt-1">
+              <div className="text-[10.5px] sm:text-xs md:text-sm font-bold text-blue-300 mt-2 truncate">
                 Pcs / Month
               </div>
             </div>
           </div>
 
           {/* 2. Factory Space */}
-          <div className="p-3.5 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-emerald-500/30 bg-[#091426]/95 shadow-xl hover:border-[#55c538] transition-all">
-            <div className="flex items-center justify-between gap-1 mb-1">
-              <span className="text-[11px] sm:text-sm font-extrabold text-[#72e055] uppercase tracking-wider">
+          <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-emerald-500/30 bg-[#091426]/95 shadow-xl hover:border-[#55c538] transition-all min-h-[120px] sm:min-h-[145px] md:min-h-[155px]">
+            <div className="flex items-center justify-between gap-1 mb-2">
+              <span className="text-[11px] sm:text-xs md:text-sm font-extrabold text-[#72e055] uppercase tracking-wider">
                 Floor Space
               </span>
               <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#55c538] shrink-0" />
             </div>
             <div>
-              <div className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
-                38,000 <span className="text-[10px] sm:text-lg text-slate-300 font-bold">SQ.FT</span>
+              <div className="text-xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[44px] font-black text-white tracking-tight leading-none">
+                38,000
               </div>
-              <div className="text-[10.5px] sm:text-sm font-bold text-[#72e055] mt-1">
-                Total Production Area
+              <div className="text-[10.5px] sm:text-xs md:text-sm font-bold text-[#72e055] mt-2 truncate">
+                Sq. Ft Production Area
               </div>
             </div>
           </div>
 
           {/* 3. Annual Turnover */}
-          <div className="p-3.5 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-amber-500/30 bg-[#091426]/95 shadow-xl hover:border-amber-400 transition-all">
-            <div className="flex items-center justify-between gap-1 mb-1">
-              <span className="text-[11px] sm:text-sm font-extrabold text-amber-400 uppercase tracking-wider">
+          <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-amber-500/30 bg-[#091426]/95 shadow-xl hover:border-amber-400 transition-all min-h-[120px] sm:min-h-[145px] md:min-h-[155px]">
+            <div className="flex items-center justify-between gap-1 mb-2">
+              <span className="text-[11px] sm:text-xs md:text-sm font-extrabold text-amber-400 uppercase tracking-wider">
                 Turnover
               </span>
               <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0" />
             </div>
             <div>
-              <div className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
+              <div className="text-xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[44px] font-black text-white tracking-tight leading-none">
                 $10.00M
               </div>
-              <div className="text-[10.5px] sm:text-sm font-bold text-amber-300 mt-1">
+              <div className="text-[10.5px] sm:text-xs md:text-sm font-bold text-amber-300 mt-2 truncate">
                 Million USD / Year
               </div>
             </div>
           </div>
 
           {/* 4. Total Manpower */}
-          <div className="p-3.5 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-purple-500/30 bg-[#091426]/95 shadow-xl hover:border-purple-400 transition-all">
-            <div className="flex items-center justify-between gap-1 mb-1">
-              <span className="text-[11px] sm:text-sm font-extrabold text-purple-400 uppercase tracking-wider">
+          <div className="p-4 sm:p-5 md:p-6 rounded-2xl cyber-card flex flex-col justify-between border-purple-500/30 bg-[#091426]/95 shadow-xl hover:border-purple-400 transition-all min-h-[120px] sm:min-h-[145px] md:min-h-[155px]">
+            <div className="flex items-center justify-between gap-1 mb-2">
+              <span className="text-[11px] sm:text-xs md:text-sm font-extrabold text-purple-400 uppercase tracking-wider">
                 Manpower
               </span>
               <Users className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 shrink-0" />
             </div>
             <div>
-              <div className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-none">
+              <div className="text-xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[44px] font-black text-white tracking-tight leading-none">
                 700+
               </div>
-              <div className="text-[10.5px] sm:text-sm font-bold text-purple-300 mt-1">
+              <div className="text-[10.5px] sm:text-xs md:text-sm font-bold text-purple-300 mt-2 truncate">
                 Workforce (+ 35 Key Staff)
               </div>
             </div>
