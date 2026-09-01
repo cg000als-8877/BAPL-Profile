@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Sun, Moon } from "lucide-react";
 
 export const ThemeToggle: React.FC = () => {
-  const [theme, setTheme] = useState<"night" | "day">("night");
+  const [theme, setTheme] = useState<"night" | "day">("day");
   const [mounted, setMounted] = useState(false);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
 
@@ -61,7 +61,7 @@ export const ThemeToggle: React.FC = () => {
 
   useEffect(() => {
     setMounted(true);
-    let initialTheme: "night" | "day" = "night";
+    let initialTheme: "night" | "day" = "day";
     try {
       const saved = localStorage.getItem("bapl-theme") as "night" | "day" | null;
       if (saved === "day" || saved === "night") {
@@ -73,17 +73,17 @@ export const ThemeToggle: React.FC = () => {
     setTheme(initialTheme);
     applyTheme(initialTheme);
 
-    // Initial position: Bottom-right side with safe margins
-    const initX = Math.max(12, window.innerWidth - 60);
-    const initY = Math.max(12, window.innerHeight - 90);
+    // Initial position: Bottom-right corner (16-20px from screen edges)
+    const initX = Math.max(16, window.innerWidth - 64);
+    const initY = Math.max(16, window.innerHeight - 76);
     setPosition({ x: initX, y: initY });
 
     const handleResize = () => {
       setPosition((prev) => {
-        if (!prev) return { x: window.innerWidth - 60, y: window.innerHeight - 90 };
+        if (!prev) return { x: window.innerWidth - 64, y: window.innerHeight - 76 };
         return {
-          x: Math.min(Math.max(8, prev.x), window.innerWidth - 56),
-          y: Math.min(Math.max(8, prev.y), window.innerHeight - 56),
+          x: Math.min(Math.max(12, prev.x), window.innerWidth - 60),
+          y: Math.min(Math.max(12, prev.y), window.innerHeight - 72),
         };
       });
     };

@@ -37,9 +37,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full w-full bg-[#050811] text-white ${plusJakartaSans.className}`}
+      data-theme="day"
+      className={`h-full w-full day-mode light bg-[#f8fafc] text-[#0f172a] ${plusJakartaSans.className}`}
     >
-      <body className="h-full w-full overflow-hidden bg-[#050811] select-none text-white">
+      <body className="h-full w-full overflow-hidden day-mode light bg-[#f8fafc] select-none text-[#0f172a]">
         {children}
       </body>
     </html>
