@@ -12,7 +12,6 @@ import { StrategySlide } from "./slides/StrategySlide";
 import { CompanyDetailsSlide } from "./slides/CompanyDetailsSlide";
 import { ContactSlide } from "./slides/ContactSlide";
 import { ThemeToggle } from "./ThemeToggle";
-import { NightThemeSwitcher } from "./NightThemeSwitcher";
 import { ArrowUp } from "lucide-react";
 
 const TOTAL_SLIDES = 11;
@@ -193,9 +192,6 @@ export const DeckContainer: React.FC = () => {
 
       {/* Floating Draggable Day / Night Mode Switcher */}
       <ThemeToggle />
-
-      {/* Floating Monochromatic Night Mode Selector */}
-      <NightThemeSwitcher />
     </main>
   );
 };

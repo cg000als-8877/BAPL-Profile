@@ -714,11 +714,7 @@ html.day-mode .ambient-blob-4 {
 }
 
 /* ============================================================
-   NIGHT MODE: QUIET LUXURY CORPORATE (Permanent Default)
-   ============================================================ */
-html:not([data-theme="day"]),
-/* ============================================================
-   MONOCHROMATIC NIGHT THEMES (NO GREEN, NO PITCH BLACK, NO PURE WHITE)
+   NIGHT MODE: TITANIUM GRAPHITE & COOL PEWTER (Permanent Default)
    ============================================================ */
 
 /* Universal Night Mode Monochromatic Overrides (Zero Green) */
@@ -739,8 +735,8 @@ html:not([data-theme="day"]) .bg-emerald-500,
 html.night-mode .bg-\[\#55c538\],
 html.night-mode .bg-\[\#72e055\],
 html.night-mode .bg-emerald-500 {
-  background-color: #e2e6eb !important;
-  color: #111418 !important;
+  background-color: #dbe2ea !important;
+  color: #141820 !important;
 }
 
 /* Ambient glow in night mode is soft neutral pearl mist */
@@ -748,257 +744,98 @@ html:not([data-theme="day"]) .ambient-blob-1,
 html:not([data-theme="day"]) .ambient-blob-2,
 html:not([data-theme="day"]) .ambient-blob-3,
 html:not([data-theme="day"]) .ambient-blob-4 {
-  background-color: rgba(226, 230, 235, 0.025) !important;
+  background-color: rgba(203, 213, 225, 0.025) !important;
 }
 
-/* ------------------------------------------------------------
-   OPTION 1: CHARCOAL & SATIN PLATINUM (Recommended)
-   ------------------------------------------------------------ */
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"],
-html:not([data-theme="day"]):not([data-mono-preset]) {
-  background-color: #0e1115 !important;
-}
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] body,
-html:not([data-theme="day"]):not([data-mono-preset]) body,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .snap-container,
-html:not([data-theme="day"]):not([data-mono-preset]) .snap-container {
-  background-color: #0e1115 !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .cyber-card,
-html:not([data-theme="day"]):not([data-mono-preset]) .cyber-card {
-  background-color: #15191f !important;
-  background-image: none !important;
-  border-color: rgba(226, 230, 235, 0.12) !important;
-  box-shadow: 0 14px 35px -10px rgba(0, 0, 0, 0.75) !important;
-}
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .cyber-card:hover,
-html:not([data-theme="day"]):not([data-mono-preset]) .cyber-card:hover {
-  background-color: #1a1f27 !important;
-  border-color: rgba(226, 230, 235, 0.22) !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .bg-slate-900\/60,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .bg-slate-900\/80,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .bg-slate-900\/90,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .bg-purple-500\/5,
-html:not([data-theme="day"]):not([data-mono-preset]) .bg-slate-900\/60,
-html:not([data-theme="day"]):not([data-mono-preset]) .bg-slate-900\/80,
-html:not([data-theme="day"]):not([data-mono-preset]) .bg-slate-900\/90,
-html:not([data-theme="day"]):not([data-mono-preset]) .bg-purple-500\/5 {
-  background-color: #1c212a !important;
-  border-color: rgba(226, 230, 235, 0.08) !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .w-11.h-11,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .w-10.h-10,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .w-9.h-9,
-html:not([data-theme="day"]):not([data-mono-preset]) .w-11.h-11,
-html:not([data-theme="day"]):not([data-mono-preset]) .w-10.h-10,
-html:not([data-theme="day"]):not([data-mono-preset]) .w-9.h-9 {
-  background-color: #1c212a !important;
-  background-image: none !important;
-  border-color: rgba(226, 230, 235, 0.15) !important;
-  color: #e2e6eb !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .bg-blue-500,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .bg-gradient-to-r,
-html:not([data-theme="day"]):not([data-mono-preset]) .bg-blue-500,
-html:not([data-theme="day"]):not([data-mono-preset]) .bg-gradient-to-r {
-  background-color: #e2e6eb !important;
-  background-image: none !important;
-  color: #111418 !important;
-  font-weight: 900 !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .glow-bar,
-html:not([data-theme="day"]):not([data-mono-preset]) .glow-bar {
-  background-color: #e2e6eb !important;
-  box-shadow: 0 0 12px rgba(226, 230, 235, 0.3) !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .text-blue-400,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .text-purple-300,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .text-purple-400,
-html:not([data-theme="day"])[data-mono-preset="charcoal-platinum"] .text-amber-400,
-html:not([data-theme="day"]):not([data-mono-preset]) .text-blue-400,
-html:not([data-theme="day"]):not([data-mono-preset]) .text-purple-300,
-html:not([data-theme="day"]):not([data-mono-preset]) .text-purple-400,
-html:not([data-theme="day"]):not([data-mono-preset]) .text-amber-400 {
-  color: #9aa2af !important;
-}
-
-/* ------------------------------------------------------------
-   OPTION 2: TITANIUM GRAPHITE & COOL PEWTER
-   ------------------------------------------------------------ */
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"],
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] body,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .snap-container {
+/* Base Canvas */
+html:not([data-theme="day"]),
+html.night-mode,
+html.dark {
   background-color: #111419 !important;
 }
 
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .cyber-card {
+html:not([data-theme="day"]) body,
+html.night-mode body,
+html.dark body,
+html:not([data-theme="day"]) .snap-container,
+html.night-mode .snap-container,
+html.dark .snap-container {
+  background-color: #111419 !important;
+}
+
+/* Titanium Glass Cards */
+html:not([data-theme="day"]) .cyber-card,
+html.night-mode .cyber-card,
+html.dark .cyber-card {
   background-color: #181c23 !important;
   background-image: none !important;
   border-color: rgba(203, 213, 225, 0.14) !important;
   box-shadow: 0 14px 35px -10px rgba(0, 0, 0, 0.75) !important;
 }
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .cyber-card:hover {
+
+html:not([data-theme="day"]) .cyber-card:hover,
+html.night-mode .cyber-card:hover,
+html.dark .cyber-card:hover {
   background-color: #1e242d !important;
   border-color: rgba(203, 213, 225, 0.25) !important;
 }
 
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .bg-slate-900\/60,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .bg-slate-900\/80,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .bg-slate-900\/90,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .bg-purple-500\/5 {
+/* Sub-containers & Inner Rows */
+html:not([data-theme="day"]) .bg-slate-900\/60,
+html:not([data-theme="day"]) .bg-slate-900\/80,
+html:not([data-theme="day"]) .bg-slate-900\/90,
+html:not([data-theme="day"]) .bg-purple-500\/5,
+html.night-mode .bg-slate-900\/60,
+html.night-mode .bg-slate-900\/80,
+html.night-mode .bg-slate-900\/90,
+html.night-mode .bg-purple-500\/5 {
   background-color: #202631 !important;
   border-color: rgba(203, 213, 225, 0.08) !important;
 }
 
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .w-11.h-11,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .w-10.h-10,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .w-9.h-9 {
+/* Monogram Badges */
+html:not([data-theme="day"]) .w-11.h-11,
+html:not([data-theme="day"]) .w-10.h-10,
+html:not([data-theme="day"]) .w-9.h-9,
+html.night-mode .w-11.h-11,
+html.night-mode .w-10.h-10,
+html.night-mode .w-9.h-9 {
   background-color: #202631 !important;
   background-image: none !important;
   border-color: rgba(203, 213, 225, 0.18) !important;
   color: #dbe2ea !important;
 }
 
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .bg-blue-500,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .bg-gradient-to-r {
+/* Frosted Steel Buttons */
+html:not([data-theme="day"]) .bg-blue-500,
+html:not([data-theme="day"]) .bg-gradient-to-r,
+html.night-mode .bg-blue-500,
+html.night-mode .bg-gradient-to-r {
   background-color: #dbe2ea !important;
   background-image: none !important;
   color: #141820 !important;
   font-weight: 900 !important;
 }
 
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .glow-bar {
+/* Glow Bar */
+html:not([data-theme="day"]) .glow-bar,
+html.night-mode .glow-bar {
   background-color: #dbe2ea !important;
   box-shadow: 0 0 12px rgba(203, 213, 225, 0.3) !important;
 }
 
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .text-blue-400,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .text-purple-300,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .text-purple-400,
-html:not([data-theme="day"])[data-mono-preset="titanium-graphite"] .text-amber-400 {
+/* Cool Pewter Secondary Tones */
+html:not([data-theme="day"]) .text-blue-400,
+html:not([data-theme="day"]) .text-purple-300,
+html:not([data-theme="day"]) .text-purple-400,
+html:not([data-theme="day"]) .text-amber-400,
+html.night-mode .text-blue-400,
+html.night-mode .text-purple-300,
+html.night-mode .text-purple-400,
+html.night-mode .text-amber-400 {
   color: #949ba8 !important;
 }
 
-/* ------------------------------------------------------------
-   OPTION 3: WARM ONYX & CASHMERE ALABASTER
-   ------------------------------------------------------------ */
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"],
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] body,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .snap-container {
-  background-color: #101012 !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .cyber-card {
-  background-color: #17171a !important;
-  background-image: none !important;
-  border-color: rgba(235, 232, 227, 0.11) !important;
-  box-shadow: 0 14px 35px -10px rgba(0, 0, 0, 0.75) !important;
-}
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .cyber-card:hover {
-  background-color: #1f1f23 !important;
-  border-color: rgba(235, 232, 227, 0.2) !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .bg-slate-900\/60,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .bg-slate-900\/80,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .bg-slate-900\/90,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .bg-purple-500\/5 {
-  background-color: #222226 !important;
-  border-color: rgba(235, 232, 227, 0.07) !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .w-11.h-11,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .w-10.h-10,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .w-9.h-9 {
-  background-color: #222226 !important;
-  background-image: none !important;
-  border-color: rgba(235, 232, 227, 0.16) !important;
-  color: #e8e4dc !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .bg-blue-500,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .bg-gradient-to-r {
-  background-color: #e8e4dc !important;
-  background-image: none !important;
-  color: #151517 !important;
-  font-weight: 900 !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .glow-bar {
-  background-color: #e8e4dc !important;
-  box-shadow: 0 0 12px rgba(235, 232, 227, 0.3) !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .text-blue-400,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .text-purple-300,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .text-purple-400,
-html:not([data-theme="day"])[data-mono-preset="warm-onyx"] .text-amber-400 {
-  color: #a3a099 !important;
-}
-
-/* ------------------------------------------------------------
-   OPTION 4: MATTE STEALTH & FROSTED PEARL
-   ------------------------------------------------------------ */
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"],
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] body,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .snap-container {
-  background-color: #13161c !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .cyber-card {
-  background-color: #1a1e26 !important;
-  background-image: none !important;
-  border-color: rgba(240, 242, 245, 0.1) !important;
-  box-shadow: 0 14px 35px -10px rgba(0, 0, 0, 0.75) !important;
-}
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .cyber-card:hover {
-  background-color: #212631 !important;
-  border-color: rgba(240, 242, 245, 0.2) !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .bg-slate-900\/60,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .bg-slate-900\/80,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .bg-slate-900\/90,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .bg-purple-500\/5 {
-  background-color: #232935 !important;
-  border-color: rgba(240, 242, 245, 0.06) !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .w-11.h-11,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .w-10.h-10,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .w-9.h-9 {
-  background-color: #232935 !important;
-  background-image: none !important;
-  border-color: rgba(240, 242, 245, 0.15) !important;
-  color: #e0e4eb !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .bg-blue-500,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .bg-gradient-to-r {
-  background-color: #e0e4eb !important;
-  background-image: none !important;
-  color: #101318 !important;
-  font-weight: 900 !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .glow-bar {
-  background-color: #e0e4eb !important;
-  box-shadow: 0 0 12px rgba(240, 242, 245, 0.25) !important;
-}
-
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .text-blue-400,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .text-purple-300,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .text-purple-400,
-html:not([data-theme="day"])[data-mono-preset="stealth-slate"] .text-amber-400 {
-  color: #98a0ad !important;
-}
 
 
 
