@@ -71,60 +71,6 @@ export const DeckContainer: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-const MobileSectionDivider: React.FC = () => (
-  <div className="block md:hidden w-full px-6 py-5 select-none pointer-events-none">
-    <div className="relative flex items-center justify-center w-full">
-      {/* Night Mode: Glowing Emerald Wave */}
-      <svg
-        className="w-full max-w-sm h-4 mobile-divider-night"
-        viewBox="0 0 360 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8"
-          stroke="url(#mobile-divider-grad-night)"
-          strokeWidth="3.5"
-          strokeLinecap="round"
-        />
-        <defs>
-          <linearGradient id="mobile-divider-grad-night" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#55c538" stopOpacity="0.2" />
-            <stop offset="20%" stopColor="#55c538" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#72e055" stopOpacity="1" />
-            <stop offset="80%" stopColor="#55c538" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#55c538" stopOpacity="0.2" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      {/* Day Mode: Bold High-Contrast Cobalt & Deep Emerald Wave */}
-      <svg
-        className="w-full max-w-sm h-4 mobile-divider-day"
-        viewBox="0 0 360 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8"
-          stroke="url(#mobile-divider-grad-day)"
-          strokeWidth="4"
-          strokeLinecap="round"
-        />
-        <defs>
-          <linearGradient id="mobile-divider-grad-day" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#2563eb" stopOpacity="0.3" />
-            <stop offset="20%" stopColor="#2563eb" stopOpacity="1" />
-            <stop offset="50%" stopColor="#059669" stopOpacity="1" />
-            <stop offset="80%" stopColor="#2563eb" stopOpacity="1" />
-            <stop offset="100%" stopColor="#2563eb" stopOpacity="0.3" />
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-  </div>
-);
-
   return (
     <main ref={containerRef} className="snap-container bg-[#050811] relative overflow-x-hidden">
       {/* Universal Seamless Background Glow Orbs (Fixed across entire website without any clipping or section borders) */}
@@ -157,8 +103,6 @@ const MobileSectionDivider: React.FC = () => (
         <CertificationsSlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
-      <MobileSectionDivider />
-
       {/* 3. Social Proof: Buyers We Handled (16 Global Brands) */}
       <section
         ref={(el) => { slideRefs.current[2] = el; }}
@@ -167,8 +111,6 @@ const MobileSectionDivider: React.FC = () => (
       >
         <BuyersSlide isActive={currentSlide === 2} onNext={handleNext} />
       </section>
-
-      <MobileSectionDivider />
 
       {/* 4. Manufacturing Scope: Our Products (6 Garment Verticals) */}
       <section
@@ -188,8 +130,6 @@ const MobileSectionDivider: React.FC = () => (
         <CatalogSlide isActive={currentSlide === 4} onNext={handleNext} />
       </section>
 
-      <MobileSectionDivider />
-
       {/* 6. Facility & Capacity: Production Unit (300K pcs/mo, 38K sq ft) */}
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
@@ -198,8 +138,6 @@ const MobileSectionDivider: React.FC = () => (
       >
         <ProductionUnitSlide isActive={currentSlide === 5} onNext={handleNext} />
       </section>
-
-      <MobileSectionDivider />
 
       {/* 7. Technical Fleet: Machinery Summary (380 Sets Plant Fleet) */}
       <section
@@ -210,8 +148,6 @@ const MobileSectionDivider: React.FC = () => (
         <MachinerySlide isActive={currentSlide === 6} onNext={handleNext} />
       </section>
 
-      <MobileSectionDivider />
-
       {/* 8. Operational Excellence: Strategic Pillars (6 Pillars) */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
@@ -221,8 +157,6 @@ const MobileSectionDivider: React.FC = () => (
         <StrategySlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
-      <MobileSectionDivider />
-
       {/* 9. Commercial Credentials: Company Details & Banking */}
       <section
         ref={(el) => { slideRefs.current[8] = el; }}
@@ -231,8 +165,6 @@ const MobileSectionDivider: React.FC = () => (
       >
         <CompanyDetailsSlide isActive={currentSlide === 8} onNext={handleNext} />
       </section>
-
-      <MobileSectionDivider />
 
       {/* 10. Call to Action: Contact Us (MD & Director Lines) */}
       <section
