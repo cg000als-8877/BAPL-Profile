@@ -29,7 +29,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
   const mobileContentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden w-full md:aspect-[16/9] md:min-h-[56.25vw]">
+    <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden w-full h-full md:aspect-[16/9] md:min-h-[56.25vw]">
       {/* 1. Dynamic Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Mobile View Hero Image: Aspect-Locked & Top-Anchored */}
@@ -72,7 +72,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
       {/* 2. Main Slide Interface */}
       <div
         ref={containerRef}
-        className="relative z-10 w-full h-full max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center"
+        className="relative z-10 w-full h-full min-h-[100dvh] max-h-[100dvh] md:min-h-0 md:max-h-none max-w-7xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between overflow-hidden md:overflow-visible"
       >
         {/* Mobile View: Large Architectural Blend Watermark "SINCE 1995" */}
         <div className="block md:hidden shrink-0 pt-1 pl-0.5 select-none pointer-events-none">
