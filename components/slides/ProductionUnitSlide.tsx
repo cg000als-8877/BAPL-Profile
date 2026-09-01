@@ -206,30 +206,44 @@ export const ProductionUnitSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 4. BOTTOM: Production Unit Address Card */}
+        {/* 4. BOTTOM: Production Unit Address */}
+        {/* Mobile View: Clean Centered Address (No Card, No Icon, No Phone) */}
+        <div className="block md:hidden text-center pt-2 pb-1 space-y-0.5 w-full">
+          <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#72e055]">
+            PRODUCTION UNIT ADDRESS
+          </div>
+          <h3 className="text-sm font-black text-white leading-tight">
+            Byzid Apparels (Pvt) Ltd
+          </h3>
+          <p className="text-xs text-slate-300 font-medium leading-snug max-w-xs mx-auto">
+            ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
+          </p>
+        </div>
+
+        {/* Desktop View: Full Card with Tel Button */}
         <div
           ref={addressRef}
-          className="shrink-0 p-4 sm:p-6 md:p-7 rounded-2xl cyber-card border border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-950/95 shadow-2xl"
+          className="hidden md:flex shrink-0 p-6 md:p-7 rounded-2xl cyber-card border border-slate-700/80 items-center justify-between gap-3 bg-slate-950/95 shadow-2xl"
         >
           <div>
             <div className="flex items-center gap-2 text-xs sm:text-sm font-extrabold text-[#72e055] uppercase tracking-wider mb-1">
               <MapPin className="w-4 h-4 text-[#55c538]" />
               <span>PRODUCTION UNIT ADDRESS</span>
             </div>
-            <h3 className="text-base sm:text-xl md:text-2xl font-black text-white leading-snug">
+            <h3 className="text-xl md:text-2xl font-black text-white leading-snug">
               Byzid Apparels (Pvt) Ltd
             </h3>
-            <p className="text-xs sm:text-base md:text-lg text-slate-200 font-medium leading-relaxed mt-0.5">
+            <p className="text-base md:text-lg text-slate-200 font-medium leading-relaxed mt-0.5">
               ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
             </p>
           </div>
 
-          <div className="shrink-0 pt-2.5 md:pt-0 border-t md:border-t-0 md:border-l border-slate-800 md:pl-6">
+          <div className="shrink-0 border-l border-slate-800 pl-6">
             <a
               href="tel:008802334451856"
-              className="inline-flex items-center gap-2.5 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-[#55c538] text-slate-950 font-black text-xs sm:text-base shadow-xl shadow-[#55c538]/30 hover:bg-[#72e055] hover:scale-105 transition-all"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-[#55c538] text-slate-950 font-black text-sm md:text-base shadow-xl shadow-[#55c538]/30 hover:bg-[#72e055] hover:scale-105 transition-all"
             >
-              <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-slate-950" />
+              <Phone className="w-4 h-4 md:w-5 md:h-5 text-slate-950" />
               <span>TEL # 0088-02334451856</span>
             </a>
           </div>
