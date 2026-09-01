@@ -150,6 +150,24 @@ export const DeckContainer: React.FC = () => {
         <HeroSlide isActive={currentSlide === 0} onNext={handleNext} />
       </section>
 
+      {/* Mobile Divider 1 -> 2 */}
+      <div className="block md:hidden w-full px-6 py-6 select-none pointer-events-none">
+        <div className="relative flex items-center justify-center w-full">
+          <svg className="w-full max-w-sm h-4 text-[#55c538] drop-shadow-[0_0_8px_rgba(85,197,56,0.5)]" viewBox="0 0 360 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8" stroke="url(#mobile-divider-gradient)" strokeWidth="3.5" strokeLinecap="round" />
+            <defs>
+              <linearGradient id="mobile-divider-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#55c538" stopOpacity="0" />
+                <stop offset="15%" stopColor="#55c538" stopOpacity="0.7" />
+                <stop offset="50%" stopColor="#72e055" stopOpacity="1" />
+                <stop offset="85%" stopColor="#55c538" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#55c538" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
       {/* 2. Instant Trust: Certifications (BSCI, OEKO-TEX) */}
       <section
         ref={(el) => { slideRefs.current[1] = el; }}
@@ -159,6 +177,15 @@ export const DeckContainer: React.FC = () => {
         <CertificationsSlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
+      {/* Mobile Divider 2 -> 3 */}
+      <div className="block md:hidden w-full px-6 py-6 select-none pointer-events-none">
+        <div className="relative flex items-center justify-center w-full">
+          <svg className="w-full max-w-sm h-4 text-[#55c538] drop-shadow-[0_0_8px_rgba(85,197,56,0.5)]" viewBox="0 0 360 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8" stroke="url(#mobile-divider-gradient)" strokeWidth="3.5" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
+
       {/* 3. Social Proof: Buyers We Handled (16 Global Brands) */}
       <section
         ref={(el) => { slideRefs.current[2] = el; }}
@@ -167,6 +194,15 @@ export const DeckContainer: React.FC = () => {
       >
         <BuyersSlide isActive={currentSlide === 2} onNext={handleNext} />
       </section>
+
+      {/* Mobile Divider 3 -> 4 */}
+      <div className="block md:hidden w-full px-6 py-6 select-none pointer-events-none">
+        <div className="relative flex items-center justify-center w-full">
+          <svg className="w-full max-w-sm h-4 text-[#55c538] drop-shadow-[0_0_8px_rgba(85,197,56,0.5)]" viewBox="0 0 360 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8" stroke="url(#mobile-divider-gradient)" strokeWidth="3.5" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
 
       {/* 4. Manufacturing Scope: Our Products (6 Garment Verticals) */}
       <section
@@ -209,6 +245,15 @@ export const DeckContainer: React.FC = () => {
         />
       </section>
 
+      {/* Mobile Divider 4 -> 7 */}
+      <div className="block md:hidden w-full px-6 py-6 select-none pointer-events-none">
+        <div className="relative flex items-center justify-center w-full">
+          <svg className="w-full max-w-sm h-4 text-[#55c538] drop-shadow-[0_0_8px_rgba(85,197,56,0.5)]" viewBox="0 0 360 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8" stroke="url(#mobile-divider-gradient)" strokeWidth="3.5" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
+
       {/* 7. Facility & Capacity: Production Unit (300K pcs/mo, 38K sq ft) */}
       <section
         ref={(el) => { slideRefs.current[6] = el; }}
@@ -217,6 +262,15 @@ export const DeckContainer: React.FC = () => {
       >
         <ProductionUnitSlide isActive={currentSlide === 6} onNext={handleNext} />
       </section>
+
+      {/* Mobile Divider 7 -> 8 */}
+      <div className="block md:hidden w-full px-6 py-6 select-none pointer-events-none">
+        <div className="relative flex items-center justify-center w-full">
+          <svg className="w-full max-w-sm h-4 text-[#55c538] drop-shadow-[0_0_8px_rgba(85,197,56,0.5)]" viewBox="0 0 360 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8" stroke="url(#mobile-divider-gradient)" strokeWidth="3.5" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
 
       {/* 8. Technical Fleet: Machinery Summary (250+ Plant Fleet) */}
       <section
@@ -227,6 +281,15 @@ export const DeckContainer: React.FC = () => {
         <MachinerySlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
+      {/* Mobile Divider 8 -> 9 */}
+      <div className="block md:hidden w-full px-6 py-6 select-none pointer-events-none">
+        <div className="relative flex items-center justify-center w-full">
+          <svg className="w-full max-w-sm h-4 text-[#55c538] drop-shadow-[0_0_8px_rgba(85,197,56,0.5)]" viewBox="0 0 360 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8" stroke="url(#mobile-divider-gradient)" strokeWidth="3.5" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
+
       {/* 9. Operational Excellence: Strategic Pillars (6 Pillars) */}
       <section
         ref={(el) => { slideRefs.current[8] = el; }}
@@ -236,6 +299,15 @@ export const DeckContainer: React.FC = () => {
         <StrategySlide isActive={currentSlide === 8} onNext={handleNext} />
       </section>
 
+      {/* Mobile Divider 9 -> 10 */}
+      <div className="block md:hidden w-full px-6 py-6 select-none pointer-events-none">
+        <div className="relative flex items-center justify-center w-full">
+          <svg className="w-full max-w-sm h-4 text-[#55c538] drop-shadow-[0_0_8px_rgba(85,197,56,0.5)]" viewBox="0 0 360 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8" stroke="url(#mobile-divider-gradient)" strokeWidth="3.5" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
+
       {/* 10. Commercial Credentials: Company Details & Banking */}
       <section
         ref={(el) => { slideRefs.current[9] = el; }}
@@ -244,6 +316,15 @@ export const DeckContainer: React.FC = () => {
       >
         <CompanyDetailsSlide isActive={currentSlide === 9} onNext={handleNext} />
       </section>
+
+      {/* Mobile Divider 10 -> 11 */}
+      <div className="block md:hidden w-full px-6 py-6 select-none pointer-events-none">
+        <div className="relative flex items-center justify-center w-full">
+          <svg className="w-full max-w-sm h-4 text-[#55c538] drop-shadow-[0_0_8px_rgba(85,197,56,0.5)]" viewBox="0 0 360 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 8 C 80 1, 130 15, 180 8 C 230 1, 280 15, 350 8" stroke="url(#mobile-divider-gradient)" strokeWidth="3.5" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
 
       {/* 11. Call to Action: Contact Us (MD & Director Lines) */}
       <section
