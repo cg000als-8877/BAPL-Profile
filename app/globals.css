@@ -103,11 +103,13 @@
     flex-direction: column;
   }
 
-  /* Completely Remove Standalone Product Image Slides on mobile */
+  /* Completely Remove Standalone Product Image Slides and Thank You Slide on mobile */
   #slide-5.slide-catalog-desktop,
   #slide-6.slide-catalog-desktop,
   #slide-7.slide-catalog-desktop,
-  .slide-catalog-desktop {
+  .slide-catalog-desktop,
+  #slide-12,
+  .slide-thankyou-desktop {
     display: none !important;
     height: 0 !important;
     width: 0 !important;

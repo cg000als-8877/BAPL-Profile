@@ -258,7 +258,7 @@ export const DeckContainer: React.FC = () => {
       <section
         ref={(el) => { slideRefs.current[11] = el; }}
         id="slide-12"
-        className="hidden md:flex slide slide-12"
+        className="hidden md:flex slide slide-12 slide-thankyou-desktop"
       >
         <ThankYouSlide
           isActive={currentSlide === 11}
