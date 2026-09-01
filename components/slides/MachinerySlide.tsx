@@ -128,9 +128,6 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
                   Primary Sewing
                 </h4>
               </div>
-              <span className="text-[10px] sm:text-xs font-black px-2.5 py-1 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
-                {primarySewing.length} Types
-              </span>
             </div>
 
             <div className="flex-1 grid grid-cols-2 md:grid-cols-1 gap-1.5 sm:gap-2 overflow-hidden content-center">
@@ -155,9 +152,6 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
                   Specialty Stitching
                 </h4>
               </div>
-              <span className="text-[10px] sm:text-xs font-black px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                {specialtyStitching.length} Types
-              </span>
             </div>
 
             <div className="flex-1 grid grid-cols-2 md:grid-cols-1 gap-1.5 sm:gap-2 overflow-hidden content-center">
@@ -182,9 +176,6 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
                   Finishing & Assembly
                 </h4>
               </div>
-              <span className="text-[10px] sm:text-xs font-black px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                {finishingAssembly.length} Types
-              </span>
             </div>
 
             <div className="flex-1 grid grid-cols-2 md:grid-cols-1 gap-1.5 sm:gap-2 overflow-hidden content-center">
