@@ -181,12 +181,8 @@ export const HeroSlide: React.FC<SlideProps> = () => {
           {/* 3. Subtle Accent Line */}
           <div className="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full my-1" />
 
-          {/* 4. Factory Address & Logistics as Plain Text View */}
+          {/* 4. Logistics & Google Map Button */}
           <div className="space-y-1.5 text-center max-w-sm mx-auto pt-0.5">
-            <p className="text-xs text-slate-200 font-medium leading-relaxed">
-              ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
-            </p>
-
             {/* Google Map : Get Direction Minimal Animated Stroke Line Button */}
             <div className="py-0.5">
               <a
