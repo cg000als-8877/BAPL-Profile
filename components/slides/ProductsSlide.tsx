@@ -256,14 +256,11 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
 
           {/* B. Subtitle & Divider for Pinterest Lookbook */}
-          <div className="pt-3 border-t border-slate-800/80 flex flex-col items-center justify-center gap-1.5">
+          <div className="pt-3 border-t border-slate-800/80 flex flex-col items-center justify-center gap-1">
             <h3 className="text-sm font-black text-white uppercase tracking-wider text-center">
               PRODUCT IMAGES
             </h3>
-            <span className="text-[11px] font-bold text-[#72e055] px-2.5 py-0.5 rounded-full bg-[#55c538]/10 border border-[#55c538]/30">
-              80 Looks
-            </span>
-            <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full mt-0.5" />
+            <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full mt-1" />
           </div>
 
           {/* C. PINTEREST MASONRY GRID (3 Staggered Columns on Mobile, Paginated) */}
@@ -319,7 +316,7 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
                 onClick={() => setVisibleCount((prev) => Math.min(prev + 12, 80))}
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#55c538] hover:bg-[#72e055] text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-[#55c538]/25 active:scale-95 transition-all"
               >
-                <span>Load More Looks ({visibleCount} / 80)</span>
+                <span>Load More</span>
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
             </div>
