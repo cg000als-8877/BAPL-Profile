@@ -70,12 +70,6 @@ export const DeckContainer: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-const DesktopSectionDivider: React.FC = () => (
-  <div className="hidden md:block w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-14 select-none pointer-events-none my-2">
-    <div className="w-full h-[1.5px] desktop-divider-line rounded-full" />
-  </div>
-);
-
 const MobileSectionDivider: React.FC = () => (
   <div className="block md:hidden w-full px-6 py-5 select-none pointer-events-none">
     <div className="relative flex items-center justify-center w-full">
@@ -150,7 +144,6 @@ const MobileSectionDivider: React.FC = () => (
         <CertificationsSlide isActive={currentSlide === 1} onNext={handleNext} />
       </section>
 
-      <DesktopSectionDivider />
       <MobileSectionDivider />
 
       {/* 3. Social Proof: Buyers We Handled (16 Global Brands) */}
@@ -162,7 +155,6 @@ const MobileSectionDivider: React.FC = () => (
         <BuyersSlide isActive={currentSlide === 2} onNext={handleNext} />
       </section>
 
-      <DesktopSectionDivider />
       <MobileSectionDivider />
 
       {/* 4. Manufacturing Scope: Our Products (6 Garment Verticals) */}
@@ -174,98 +166,68 @@ const MobileSectionDivider: React.FC = () => (
         <ProductsSlide isActive={currentSlide === 3} />
       </section>
 
-      {/* 5. Craftsmanship & Lookbook - Part 1: Looks 01 to 40 (Desktop dedicated) */}
-      <DesktopSectionDivider />
+      {/* 5. Craftsmanship & Lookbook: 9-Column Pinterest Lookbook (80 Looks with 27 Initial + Load More) */}
       <section
         ref={(el) => { slideRefs.current[4] = el; }}
         id="slide-5"
-        className="hidden md:flex slide slide-5 slide-catalog-desktop"
+        className="slide slide-5 slide-catalog"
       >
-        <CatalogSlide
-          isActive={currentSlide === 4}
-          startId={1}
-          endId={40}
-          title="PRODUCT IMAGES"
-          subtitle="Garment Lookbook & Portfolio"
-          onNext={handleNext}
-        />
+        <CatalogSlide isActive={currentSlide === 4} onNext={handleNext} />
       </section>
 
-      {/* 6. Craftsmanship & Lookbook - Part 2: Looks 41 to 80 (Desktop dedicated) */}
-      <DesktopSectionDivider />
+      <MobileSectionDivider />
+
+      {/* 6. Facility & Capacity: Production Unit (300K pcs/mo, 38K sq ft) */}
       <section
         ref={(el) => { slideRefs.current[5] = el; }}
         id="slide-6"
-        className="hidden md:flex slide slide-6 slide-catalog-desktop"
+        className="slide slide-6"
       >
-        <CatalogSlide
-          isActive={currentSlide === 5}
-          startId={41}
-          endId={80}
-          title="PRODUCT IMAGES"
-          subtitle="Garment Lookbook & Portfolio"
-          onNext={handleNext}
-        />
+        <ProductionUnitSlide isActive={currentSlide === 5} onNext={handleNext} />
       </section>
 
-      <DesktopSectionDivider />
       <MobileSectionDivider />
 
-      {/* 7. Facility & Capacity: Production Unit (300K pcs/mo, 38K sq ft) */}
+      {/* 7. Technical Fleet: Machinery Summary (380 Sets Plant Fleet) */}
       <section
         ref={(el) => { slideRefs.current[6] = el; }}
         id="slide-7"
         className="slide slide-7"
       >
-        <ProductionUnitSlide isActive={currentSlide === 6} onNext={handleNext} />
+        <MachinerySlide isActive={currentSlide === 6} onNext={handleNext} />
       </section>
 
-      <DesktopSectionDivider />
       <MobileSectionDivider />
 
-      {/* 8. Technical Fleet: Machinery Summary (380 Sets Plant Fleet) */}
+      {/* 8. Operational Excellence: Strategic Pillars (6 Pillars) */}
       <section
         ref={(el) => { slideRefs.current[7] = el; }}
         id="slide-8"
         className="slide slide-8"
       >
-        <MachinerySlide isActive={currentSlide === 7} onNext={handleNext} />
+        <StrategySlide isActive={currentSlide === 7} onNext={handleNext} />
       </section>
 
-      <DesktopSectionDivider />
       <MobileSectionDivider />
 
-      {/* 9. Operational Excellence: Strategic Pillars (6 Pillars) */}
+      {/* 9. Commercial Credentials: Company Details & Banking */}
       <section
         ref={(el) => { slideRefs.current[8] = el; }}
         id="slide-9"
         className="slide slide-9"
       >
-        <StrategySlide isActive={currentSlide === 8} onNext={handleNext} />
+        <CompanyDetailsSlide isActive={currentSlide === 8} onNext={handleNext} />
       </section>
 
-      <DesktopSectionDivider />
       <MobileSectionDivider />
 
-      {/* 10. Commercial Credentials: Company Details & Banking */}
+      {/* 10. Call to Action: Contact Us (MD & Director Lines) */}
       <section
         ref={(el) => { slideRefs.current[9] = el; }}
         id="slide-10"
         className="slide slide-10"
       >
-        <CompanyDetailsSlide isActive={currentSlide === 9} onNext={handleNext} />
-      </section>
-
-      <DesktopSectionDivider />
-      <MobileSectionDivider />
-
-      {/* 11. Call to Action: Contact Us (MD & Director Lines) */}
-      <section
-        ref={(el) => { slideRefs.current[10] = el; }}
-        id="slide-11"
-        className="slide slide-11"
-      >
-        <ContactSlide isActive={currentSlide === 10} />
+        <ContactSlide isActive={currentSlide === 9} />
       </section>
 
       {/* Floating Draggable Day / Night Mode Switcher */}

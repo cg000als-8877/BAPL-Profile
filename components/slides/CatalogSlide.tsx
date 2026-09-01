@@ -1,26 +1,26 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { AspectWrapper } from "../AspectWrapper";
-import gsap from "gsap";
-import { ImageIcon, Sparkles } from "lucide-react";
+import { Sparkles, ImageIcon, ChevronDown } from "lucide-react";
 
 interface SlideProps {
   isActive: boolean;
   onNext?: () => void;
-  startId?: number;
-  endId?: number;
-  title?: string;
-  subtitle?: string;
 }
 
 interface FrameProps {
   id: number;
   label: string;
+  aspectClass: string;
 }
 
-const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
+const PinterestFrameItem: React.FC<FrameProps> = ({
+  id,
+  label,
+  aspectClass,
+}) => {
   const [imgSrc, setImgSrc] = useState<string>(`/Product Images/${id}.webp`);
   const [hasError, setHasError] = useState(false);
 
@@ -35,38 +35,29 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   return (
     <div
       style={{
-        background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
+        background:
+          "radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f4f6 45%, #e2e2e8 100%)",
       }}
-      className="group relative w-full h-full aspect-[3/4] max-h-full mx-auto rounded-lg md:rounded-xl p-0.5 sm:p-1 shadow-md border border-white/80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.05] hover:shadow-[#55c538]/30 cursor-pointer"
+      className={`group relative w-full ${aspectClass} rounded-xl p-1 flex flex-col items-center justify-center overflow-hidden select-none border-none shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-200 cursor-pointer`}
     >
       {!hasError ? (
-        <div
-          style={{
-            background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
-          }}
-          className="relative w-full h-full rounded-md md:rounded-lg overflow-hidden flex items-center justify-center"
-        >
+        <div className="relative w-full h-full rounded-lg overflow-hidden flex items-center justify-center">
           <Image
             src={imgSrc}
             alt={label}
             fill
             unoptimized
             onError={handleError}
-            sizes="(max-width: 1024px) 15vw, 10vw"
-            className="object-contain object-center p-0.5"
+            sizes="(max-width: 768px) 33vw, 12vw"
+            className="object-contain object-center p-0.5 sm:p-1"
           />
         </div>
       ) : (
-        <div
-          style={{
-            background: "radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 40%, #cccccc 100%)",
-          }}
-          className="w-full h-full rounded-md md:rounded-lg border border-dashed border-slate-400 flex flex-col items-center justify-center text-center p-0.5 transition-colors group-hover:border-[#55c538]/60"
-        >
-          <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500 group-hover:text-[#55c538] group-hover:bg-[#55c538]/10 transition-all shadow-sm">
-            <ImageIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+        <div className="w-full h-full rounded-lg border border-dashed border-slate-400 flex flex-col items-center justify-center text-center p-1">
+          <div className="w-4 h-4 rounded-md bg-slate-300/80 flex items-center justify-center text-slate-500 mb-0.5">
+            <ImageIcon className="w-3 h-3" />
           </div>
-          <span className="text-[9.5px] sm:text-[10.5px] font-black text-slate-500 group-hover:text-slate-800 mt-0.5 uppercase tracking-wider">
+          <span className="text-[9px] sm:text-[10px] font-black text-slate-500 uppercase">
             {label}
           </span>
         </div>
@@ -75,66 +66,124 @@ const CatalogFrameItem: React.FC<FrameProps> = ({ id, label }) => {
   );
 };
 
-export const CatalogSlide: React.FC<SlideProps> = ({
-  isActive,
-  startId = 1,
-  endId = 40,
-  title = "PRODUCT IMAGES",
-  subtitle = "Garment Lookbook & Portfolio",
-}) => {
+export const CatalogSlide: React.FC<SlideProps> = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
 
-  const frameCount = endId - startId + 1;
-  const catalogFrames = Array.from({ length: frameCount }, (_, i) => ({
-    id: startId + i,
-    label: `Look ${String(startId + i).padStart(2, "0")}`,
+  // Desktop initially loads 27 items (3 rows of 9)
+  const [visibleCount, setVisibleCount] = useState(27);
+
+  const totalFrames = Array.from({ length: 80 }, (_, i) => ({
+    id: i + 1,
+    label: `Look ${String(i + 1).padStart(2, "0")}`,
   }));
+
+  const visibleFrames = totalFrames.slice(0, visibleCount);
+
+  // Varied Pinterest aspect patterns across 9 columns
+  const aspectPatterns = [
+    ["aspect-[3/4.2]", "aspect-[3/4]", "aspect-[2/3]", "aspect-[4/5]"],
+    ["aspect-[2/3]", "aspect-[4/5]", "aspect-[3/4.2]", "aspect-[3/4]"],
+    ["aspect-[3/4]", "aspect-[2/3]", "aspect-[4/5]", "aspect-[3/4.2]"],
+    ["aspect-[4/5]", "aspect-[3/4.2]", "aspect-[3/4]", "aspect-[2/3]"],
+    ["aspect-[3/4.2]", "aspect-[2/3]", "aspect-[3/4]", "aspect-[4/5]"],
+    ["aspect-[2/3]", "aspect-[3/4.2]", "aspect-[4/5]", "aspect-[3/4]"],
+    ["aspect-[3/4]", "aspect-[4/5]", "aspect-[2/3]", "aspect-[3/4.2]"],
+    ["aspect-[4/5]", "aspect-[3/4]", "aspect-[3/4.2]", "aspect-[2/3]"],
+    ["aspect-[3/4.2]", "aspect-[4/5]", "aspect-[2/3]", "aspect-[3/4]"],
+  ];
 
   return (
     <AspectWrapper className="bg-[#050811] text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-full p-3 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between gap-2 overflow-hidden bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
+        className="relative w-full min-h-full p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-between gap-4 overflow-y-visible bg-gradient-to-br from-[#080d1a] via-[#050811] to-[#04060d]"
       >
         <div className="absolute top-0 right-1/4 w-72 md:w-[500px] h-72 md:h-[500px] bg-[#55c538]/10 rounded-full blur-3xl pointer-events-none" />
 
-        {/* 1. Header: PRODUCT IMAGES */}
-        <div ref={headerRef} className="shrink-0 flex items-center justify-between">
-          <div className="flex items-center gap-2.5 sm:gap-4">
-            <div className="w-1.5 sm:w-2.5 h-5 sm:h-8 bg-[#55c538] rounded-full glow-bar" />
-            <div>
-              <div className="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#72e055]">
-                {subtitle}
+        {/* 1. Header */}
+        <div
+          ref={headerRef}
+          className="shrink-0 flex items-center justify-center md:justify-between w-full"
+        >
+          <div className="flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-2.5 sm:gap-4 w-full md:w-auto">
+            <div className="hidden md:block w-1.5 sm:w-2.5 h-6 sm:h-11 bg-[#55c538] rounded-full glow-bar" />
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="text-[11px] sm:text-sm font-extrabold uppercase tracking-widest text-[#72e055]">
+                Garment Lookbook & Portfolio
               </div>
-              <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-normal leading-tight">
-                {title}
+              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-normal">
+                PRODUCT IMAGES
               </h2>
+              <div className="block md:hidden w-20 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full mt-2" />
             </div>
           </div>
 
-          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
-            <Sparkles className="w-3.5 h-3.5 text-[#55c538]" />
-            <span>
-              Looks {String(startId).padStart(2, "0")}–{String(endId).padStart(2, "0")}
-            </span>
+          <div className="hidden sm:inline-flex items-center gap-2 px-4 py-2 cyber-pill rounded-full text-xs md:text-sm font-bold text-slate-200 shadow-md">
+            <Sparkles className="w-4 h-4 text-[#55c538]" />
+            <span>Showing {visibleFrames.length} of 80 Looks</span>
           </div>
         </div>
 
-        {/* 2. Grid: 10 Columns x 4 Rows perfectly fitted within the slide without overflow */}
-        <div
-          ref={gridRef}
-          className="flex-1 min-h-0 w-full grid grid-cols-4 sm:grid-cols-5 md:grid-cols-10 md:grid-rows-4 gap-1 sm:gap-1.5 md:gap-2 my-auto items-center justify-items-center"
-        >
-          {catalogFrames.map((frame) => (
-            <CatalogFrameItem
-              key={frame.id}
-              id={frame.id}
-              label={frame.label}
-            />
+        {/* 2. DESKTOP VIEW: 9-Column Pinterest Stream Grid */}
+        <div className="hidden md:grid md:grid-cols-9 gap-2.5 lg:gap-3 w-full my-auto items-start">
+          {Array.from({ length: 9 }, (_, colIdx) => (
+            <div key={colIdx} className="flex flex-col gap-2.5 lg:gap-3 w-full">
+              {visibleFrames
+                .filter((_, idx) => idx % 9 === colIdx)
+                .map((frame, itemIdx) => {
+                  const patterns = aspectPatterns[colIdx];
+                  const aspect = patterns[itemIdx % patterns.length];
+                  return (
+                    <PinterestFrameItem
+                      key={frame.id}
+                      id={frame.id}
+                      label={frame.label}
+                      aspectClass={aspect}
+                    />
+                  );
+                })}
+            </div>
           ))}
         </div>
+
+        {/* 3. MOBILE VIEW: 3-Column Pinterest Stream Grid */}
+        <div className="grid md:hidden grid-cols-3 gap-2 w-full my-auto items-start">
+          {Array.from({ length: 3 }, (_, colIdx) => (
+            <div key={colIdx} className="flex flex-col gap-2 w-full">
+              {visibleFrames
+                .filter((_, idx) => idx % 3 === colIdx)
+                .map((frame, itemIdx) => {
+                  const patterns = aspectPatterns[colIdx];
+                  const aspect = patterns[itemIdx % patterns.length];
+                  return (
+                    <PinterestFrameItem
+                      key={frame.id}
+                      id={frame.id}
+                      label={frame.label}
+                      aspectClass={aspect}
+                    />
+                  );
+                })}
+            </div>
+          ))}
+        </div>
+
+        {/* 4. Load More Button (Desktop + Mobile) */}
+        {visibleCount < 80 && (
+          <div className="shrink-0 pt-3 pb-2 flex flex-col items-center justify-center">
+            <button
+              type="button"
+              onClick={() =>
+                setVisibleCount((prev) => Math.min(prev + 27, 80))
+              }
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#55c538] hover:bg-[#72e055] text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-[#55c538]/25 active:scale-95 transition-all"
+            >
+              <span>Load More</span>
+              <ChevronDown className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </div>
     </AspectWrapper>
   );

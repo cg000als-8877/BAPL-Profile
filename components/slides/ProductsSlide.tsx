@@ -177,108 +177,38 @@ export const ProductsSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* 2. MOBILE VIEW: 6 Categories + 3-Column Paginated Pinterest Masonry Lookbook Feed */}
+        {/* 2. MOBILE VIEW: 6 Product Categories (2-Column Grid) */}
         <div
           ref={mobileStackRef}
-          className="flex flex-col md:hidden gap-4 w-full pb-8"
+          className="grid grid-cols-2 gap-2.5 md:hidden w-full"
         >
-          {/* A. 6 Product Category Cards (2-Column Grid on Mobile) */}
-          <div className="grid grid-cols-2 gap-2.5 w-full">
-            {products.map((p) => (
-              <div
-                key={p.id}
-                className={`p-3 rounded-2xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col justify-between shadow-md`}
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-black text-slate-400">
-                    {p.id}
-                  </span>
-                </div>
-                <h3 className="text-[13px] sm:text-sm font-black text-white leading-tight mb-1.5">
-                  {p.title}
-                </h3>
-
-                <div className="space-y-1 pt-1.5 border-t border-slate-800/80">
-                  {p.items.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-1.5 text-[11.5px] text-slate-200 font-medium truncate"
-                    >
-                      <CheckCircle2 className="w-3 h-3 text-[#55c538] shrink-0" />
-                      <span className="truncate">{item}</span>
-                    </div>
-                  ))}
-                </div>
+          {products.map((p) => (
+            <div
+              key={p.id}
+              className={`p-3 rounded-2xl cyber-card border ${p.border} bg-[#091426]/95 flex flex-col justify-between shadow-md`}
+            >
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-xs font-black text-slate-400">
+                  {p.id}
+                </span>
               </div>
-            ))}
-          </div>
+              <h3 className="text-[13px] sm:text-sm font-black text-white leading-tight mb-1.5">
+                {p.title}
+              </h3>
 
-          {/* B. Subtitle & Divider for Pinterest Lookbook */}
-          <div className="pt-3 border-t border-slate-800/80 flex flex-col items-center justify-center gap-1">
-            <h3 className="text-sm font-black text-white uppercase tracking-wider text-center">
-              PRODUCT IMAGES
-            </h3>
-            <div className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full mt-1" />
-          </div>
-
-          {/* C. PINTEREST MASONRY GRID (3 Staggered Columns on Mobile, Paginated) */}
-          <div className="w-full grid grid-cols-3 gap-2 items-start">
-            {/* Column 1 (Left Stream) */}
-            <div className="flex flex-col gap-2">
-              {visibleFrames
-                .filter((_, idx) => idx % 3 === 0)
-                .map((frame, colIdx) => (
-                  <MobilePinterestFrameItem
-                    key={frame.id}
-                    id={frame.id}
-                    label={frame.label}
-                    aspectClass={col1Aspects[colIdx % col1Aspects.length]}
-                  />
+              <div className="space-y-1 pt-1.5 border-t border-slate-800/80">
+                {p.items.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-1.5 text-[11.5px] text-slate-200 font-medium truncate"
+                  >
+                    <CheckCircle2 className="w-3 h-3 text-[#55c538] shrink-0" />
+                    <span className="truncate">{item}</span>
+                  </div>
                 ))}
+              </div>
             </div>
-
-            {/* Column 2 (Middle Stream) */}
-            <div className="flex flex-col gap-2">
-              {visibleFrames
-                .filter((_, idx) => idx % 3 === 1)
-                .map((frame, colIdx) => (
-                  <MobilePinterestFrameItem
-                    key={frame.id}
-                    id={frame.id}
-                    label={frame.label}
-                    aspectClass={col2Aspects[colIdx % col2Aspects.length]}
-                  />
-                ))}
-            </div>
-
-            {/* Column 3 (Right Stream) */}
-            <div className="flex flex-col gap-2">
-              {visibleFrames
-                .filter((_, idx) => idx % 3 === 2)
-                .map((frame, colIdx) => (
-                  <MobilePinterestFrameItem
-                    key={frame.id}
-                    id={frame.id}
-                    label={frame.label}
-                    aspectClass={col3Aspects[colIdx % col3Aspects.length]}
-                  />
-                ))}
-            </div>
-          </div>
-
-          {/* D. Mobile Pagination Control */}
-          {visibleCount < 80 && (
-            <div className="pt-3 pb-2 flex flex-col items-center justify-center">
-              <button
-                type="button"
-                onClick={() => setVisibleCount((prev) => Math.min(prev + 12, 80))}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#55c538] hover:bg-[#72e055] text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-[#55c538]/25 active:scale-95 transition-all"
-              >
-                <span>Load More</span>
-                <ChevronDown className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          )}
+          ))}
         </div>
 
         {/* 3. DESKTOP VIEW: Spacious 3x2 Bento Grid */}
