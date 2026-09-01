@@ -269,7 +269,7 @@ export const ContactSlide: React.FC<SlideProps> = ({ isActive }) => {
                       Account Number
                     </div>
                     <div className="text-xs sm:text-sm md:text-base font-extrabold text-[#72e055] font-mono mt-0.5">
-                      1271020012021
+                      1271020*****
                     </div>
                   </div>
 
