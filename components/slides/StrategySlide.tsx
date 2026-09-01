@@ -26,7 +26,7 @@ export const StrategySlide: React.FC<SlideProps> = ({ isActive }) => {
   const desktopGridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive || (typeof window !== "undefined" && window.innerWidth < 768)) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(

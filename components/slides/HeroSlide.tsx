@@ -28,7 +28,7 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
   const mobileContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive || (typeof window !== "undefined" && window.innerWidth < 768)) return;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
@@ -203,10 +203,10 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           </div>
         </div>
 
-        {/* MOBILE VIEW: Bottom-Pinned Responsive Layout */}
+        {/* MOBILE VIEW: Bottom-Pinned Responsive Layout (No cards, No icons, Clean Text View) */}
         <div
           ref={mobileContentRef}
-          className="flex md:hidden flex-col gap-1.5 w-full mt-auto pb-4 items-center text-center"
+          className="flex md:hidden flex-col w-full mt-auto pb-6 items-center text-center space-y-1.5 px-2"
         >
           {/* 1. Title (Center Aligned) */}
           <h1 className="text-2xl font-black tracking-normal text-white leading-tight drop-shadow-xl text-center w-full">
@@ -214,47 +214,21 @@ export const HeroSlide: React.FC<SlideProps> = ({ isActive }) => {
           </h1>
 
           {/* 2. Subtitle (Center Aligned, Regular Weight Font, Green Color) */}
-          <p className="text-sm sm:text-base font-normal text-[#72e055] text-center drop-shadow-md w-full">
+          <p className="text-sm font-normal text-[#72e055] text-center drop-shadow-md w-full">
             Exporting Quality. Delivering Trust.
           </p>
 
-          {/* 3. Replacement Card: Factory Address & Logistics Distance Badge Card */}
-          <div className="w-full mt-2 p-3 sm:p-3.5 rounded-2xl cyber-card border border-white/10 bg-[#070e1e]/95 backdrop-blur-xl flex flex-col gap-2 shadow-2xl text-left">
-            {/* Factory Address Header */}
-            <div className="flex items-start gap-2.5">
-              <div className="p-1.5 rounded-lg bg-[#55c538]/20 text-[#72e055] shrink-0 mt-0.5">
-                <MapPin className="w-4 h-4" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="text-[10px] uppercase font-extrabold text-[#72e055] tracking-wider">
-                  Factory Address
-                </div>
-                <div className="text-xs text-white font-bold leading-snug mt-0.5">
-                  ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh
-                </div>
-              </div>
-            </div>
+          {/* 3. Subtle Accent Line */}
+          <div className="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-[#55c538] to-transparent rounded-full my-1" />
 
-            {/* Port & Airport Logistics Distances */}
-            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80">
-              {/* Seaport Distance */}
-              <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-left">
-                <Ship className="w-4 h-4 text-blue-400 shrink-0" />
-                <div className="min-w-0">
-                  <div className="text-[10px] text-slate-400 font-medium">Sea Port</div>
-                  <div className="text-xs font-bold text-white font-mono">12 km Distance</div>
-                </div>
-              </div>
-
-              {/* Airport Distance */}
-              <div className="flex items-center gap-2 p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-left">
-                <Plane className="w-4 h-4 text-amber-400 shrink-0" />
-                <div className="min-w-0">
-                  <div className="text-[10px] text-slate-400 font-medium">Airport</div>
-                  <div className="text-xs font-bold text-white font-mono">18 km (Intl)</div>
-                </div>
-              </div>
-            </div>
+          {/* 4. Factory Address & Logistics as Plain Text View */}
+          <div className="space-y-1 text-center max-w-sm mx-auto pt-0.5">
+            <p className="text-xs text-slate-200 font-medium leading-relaxed">
+              ABM Tower, 671/1, Sholakbahar, Bahaddarhat, Chattogram, Bangladesh.
+            </p>
+            <p className="text-[11px] text-slate-400 font-medium pt-0.5">
+              Sea Port: <span className="text-slate-200 font-bold">12 km Distance</span> &nbsp;•&nbsp; Airport: <span className="text-slate-200 font-bold">18 km (Intl)</span>
+            </p>
           </div>
         </div>
       </div>

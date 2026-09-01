@@ -27,6 +27,10 @@ export const MachinerySlide: React.FC<SlideProps> = ({ isActive }) => {
 
   useEffect(() => {
     if (!isActive) return;
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setCounterMachines(250);
+      return;
+    }
 
     const ctx = gsap.context(() => {
       gsap.fromTo(

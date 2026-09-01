@@ -17,7 +17,7 @@ export const CertificationsSlide: React.FC<SlideProps> = ({ isActive }) => {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive || (typeof window !== "undefined" && window.innerWidth < 768)) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(

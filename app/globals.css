@@ -54,6 +54,11 @@
    MOBILE VIEW: Fluid Continuous Vertical Scroll Layout (< 768px)
    ============================================================ */
 @media (max-width: 767px) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
   body {
     overflow-y: auto !important;
     overflow-x: hidden !important;

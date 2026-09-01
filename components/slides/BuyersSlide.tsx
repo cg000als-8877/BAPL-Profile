@@ -20,7 +20,7 @@ export const BuyersSlide: React.FC<SlideProps> = ({ isActive }) => {
   const [activeBuyerId, setActiveBuyerId] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive || (typeof window !== "undefined" && window.innerWidth < 768)) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
