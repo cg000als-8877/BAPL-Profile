@@ -622,72 +622,103 @@ html.day-mode .hover\:bg-slate-800:hover {
 }
 
 /* ============================================================
-   DAY MODE: Keep Hero Section 100% Identical to Night Mode (Desktop & Mobile)
+   HERO GRADIENTS & ADAPTIVE DAY/NIGHT MOBILE TEXT
    ============================================================ */
+
+/* 1. Mobile Hero Bottom Gradient */
+html:not([data-theme="day"]) .hero-mobile-gradient,
+html.night-mode .hero-mobile-gradient,
+html.dark .hero-mobile-gradient {
+  background: linear-gradient(to top, #111419 0%, rgba(17, 20, 25, 0.92) 55%, rgba(17, 20, 25, 0) 100%) !important;
+}
+
+html[data-theme="day"] .hero-mobile-gradient,
+html.day-mode .hero-mobile-gradient {
+  background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.94) 55%, rgba(255, 255, 255, 0) 100%) !important;
+}
+
+/* 2. Desktop Hero Scrim Gradient (Crystal clear image visibility with gentle right scrim) */
+html:not([data-theme="day"]) .hero-desktop-scrim,
+html.night-mode .hero-desktop-scrim,
+html.dark .hero-desktop-scrim {
+  background: linear-gradient(to right, transparent 0%, rgba(17, 20, 25, 0.15) 40%, rgba(17, 20, 25, 0.85) 100%) !important;
+}
+
+html[data-theme="day"] .hero-desktop-scrim,
+html.day-mode .hero-desktop-scrim {
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0.8) 100%) !important;
+}
+
+/* 3. Day Mode: Mobile Hero Text Colors (Black & Grey as requested) */
+html[data-theme="day"] .hero-mobile-title,
+html.day-mode .hero-mobile-title {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+html[data-theme="day"] .hero-mobile-subtitle,
+html.day-mode .hero-mobile-subtitle {
+  color: #475569 !important;
+  text-shadow: none !important;
+}
+
+html[data-theme="day"] .hero-mobile-logistics-label,
+html.day-mode .hero-mobile-logistics-label {
+  color: #64748b !important;
+}
+
+html[data-theme="day"] .hero-mobile-logistics-val,
+html.day-mode .hero-mobile-logistics-val {
+  color: #0f172a !important;
+}
+
+/* 4. Day Mode: Desktop Hero Card Styling */
 html[data-theme="day"] #slide-1,
 html.day-mode #slide-1 {
-  background-color: #050811 !important;
-  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+html[data-theme="day"] #slide-1 .bg-\[\#111419\]\/85,
+html.day-mode #slide-1 .bg-\[\#111419\]\/85 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15) !important;
+}
+
+html[data-theme="day"] #slide-1 h1,
+html.day-mode #slide-1 h1 {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+html[data-theme="day"] #slide-1 p,
+html.day-mode #slide-1 p {
+  color: #475569 !important;
 }
 
 html[data-theme="day"] #slide-1 .text-white,
 html.day-mode #slide-1 .text-white {
-  color: #ffffff !important;
+  color: #0f172a !important;
 }
 
-html[data-theme="day"] #slide-1 .text-slate-100,
 html[data-theme="day"] #slide-1 .text-slate-200,
-html.day-mode #slide-1 .text-slate-100,
-html.day-mode #slide-1 .text-slate-200 {
-  color: #e2e8f0 !important;
-}
-
 html[data-theme="day"] #slide-1 .text-slate-300,
-html[data-theme="day"] #slide-1 .text-slate-400,
-html.day-mode #slide-1 .text-slate-300,
-html.day-mode #slide-1 .text-slate-400 {
-  color: #cbd5e1 !important;
-}
-
-html[data-theme="day"] #slide-1 .text-\[\#72e055\],
-html.day-mode #slide-1 .text-\[\#72e055\] {
-  color: #72e055 !important;
-}
-
-html[data-theme="day"] #slide-1 .text-\[\#55c538\],
-html.day-mode #slide-1 .text-\[\#55c538\] {
-  color: #55c538 !important;
-}
-
-html[data-theme="day"] #slide-1 .bg-\[\#050811\]\/70,
-html.day-mode #slide-1 .bg-\[\#050811\]\/70 {
-  background-color: rgba(5, 8, 17, 0.7) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-html[data-theme="day"] #slide-1 .bg-\[\#050811\]\/85,
-html.day-mode #slide-1 .bg-\[\#050811\]\/85 {
-  background-color: rgba(5, 8, 17, 0.85) !important;
-  border-color: rgba(85, 197, 56, 0.5) !important;
-}
-
-html[data-theme="day"] #slide-1 .cyber-pill,
-html.day-mode #slide-1 .cyber-pill {
-  background-color: rgba(5, 8, 17, 0.85) !important;
-  border-color: rgba(85, 197, 56, 0.5) !important;
-  color: #ffffff !important;
+html.day-mode #slide-1 .text-slate-200,
+html.day-mode #slide-1 .text-slate-300 {
+  color: #475569 !important;
 }
 
 html[data-theme="day"] #slide-1 .bg-white\/\[0\.04\],
 html.day-mode #slide-1 .bg-white\/\[0\.04\] {
-  background-color: rgba(255, 255, 255, 0.04) !important;
-  border-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
 }
 
-html[data-theme="day"] #slide-1 .anim-stroke-button,
-html.day-mode #slide-1 .anim-stroke-button {
-  color: #72e055 !important;
-  border-color: rgba(85, 197, 56, 0.5) !important;
+html[data-theme="day"] #slide-1 .text-\[\#d8dde6\],
+html[data-theme="day"] #slide-1 .text-\[\#dbe2ea\],
+html.day-mode #slide-1 .text-\[\#d8dde6\],
+html.day-mode #slide-1 .text-\[\#dbe2ea\] {
+  color: #2563eb !important;
 }
 
 /* ============================================================
