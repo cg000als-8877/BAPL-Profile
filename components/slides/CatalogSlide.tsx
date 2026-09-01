@@ -70,8 +70,24 @@ export const CatalogSlide: React.FC<SlideProps> = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
-  // Desktop initially loads 27 items (3 rows of 9)
+  // Desktop initially loads 27 items (3 rows of 9), mobile initially loads 12 items (4 rows of 3)
   const [visibleCount, setVisibleCount] = useState(27);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+    };
+
+    checkMobile();
+    if (window.innerWidth < 768) {
+      setVisibleCount(12);
+    }
+
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const totalFrames = Array.from({ length: 80 }, (_, i) => ({
     id: i + 1,
@@ -92,6 +108,11 @@ export const CatalogSlide: React.FC<SlideProps> = () => {
     ["aspect-[4/5]", "aspect-[3/4]", "aspect-[3/4.2]", "aspect-[2/3]"],
     ["aspect-[3/4.2]", "aspect-[4/5]", "aspect-[2/3]", "aspect-[3/4]"],
   ];
+
+  const handleLoadMore = () => {
+    const increment = isMobile ? 12 : 27;
+    setVisibleCount((prev) => Math.min(prev + increment, 80));
+  };
 
   return (
     <AspectWrapper className="bg-transparent text-white">
@@ -173,9 +194,7 @@ export const CatalogSlide: React.FC<SlideProps> = () => {
           <div className="shrink-0 pt-3 pb-2 flex flex-col items-center justify-center">
             <button
               type="button"
-              onClick={() =>
-                setVisibleCount((prev) => Math.min(prev + 27, 80))
-              }
+              onClick={handleLoadMore}
               className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#55c538] hover:bg-[#72e055] text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-[#55c538]/25 active:scale-95 transition-all"
             >
               <span>Load More</span>
