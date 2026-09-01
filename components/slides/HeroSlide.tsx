@@ -29,7 +29,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
   const mobileContentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden w-full h-full md:aspect-[16/9] md:min-h-[56.25vw]">
+    <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden w-full h-full md:aspect-[1915/821] md:min-h-[calc(100vw*821/1915)]">
       {/* 1. Dynamic Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Mobile View Hero Image: Aspect-Locked & Top-Anchored */}
@@ -48,7 +48,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
           />
         </div>
 
-        {/* Desktop View Hero Image: Fixed to 16:9 Native Aspect Ratio */}
+        {/* Desktop View Hero Image: Fixed to Original 1915x821 Native Aspect Ratio */}
         <div className="hidden md:block absolute inset-0 w-full h-full">
           <Image
             src="/baplprofile.webp"
