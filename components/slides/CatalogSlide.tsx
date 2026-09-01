@@ -195,7 +195,7 @@ export const CatalogSlide: React.FC<SlideProps> = () => {
             <button
               type="button"
               onClick={handleLoadMore}
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#55c538] hover:bg-[#72e055] text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-[#55c538]/25 active:scale-95 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#55c538] hover:bg-[#72e055] text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-md active:scale-95 transition-all"
             >
               <span>Load More</span>
               <ChevronDown className="w-4 h-4" />

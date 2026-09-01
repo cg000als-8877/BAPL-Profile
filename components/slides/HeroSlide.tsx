@@ -29,7 +29,7 @@ export const HeroSlide: React.FC<SlideProps> = () => {
   const mobileContentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <AspectWrapper className="relative bg-[#050811] text-white overflow-hidden w-full aspect-[9/16] md:aspect-[1915/821]">
+    <AspectWrapper className="relative text-white overflow-hidden w-full aspect-[9/16] md:aspect-[1915/821] hero-slide-wrapper">
       {/* 1. Dynamic Background Image Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Mobile View Hero Image: Aspect-Locked & Top-Anchored */}

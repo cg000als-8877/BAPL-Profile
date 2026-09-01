@@ -163,7 +163,7 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = () => {
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full md:w-auto py-2.5 sm:py-3.5 px-5 sm:px-6 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-[#55c538] hover:from-blue-500 hover:to-[#72e055] text-white font-black text-xs sm:text-sm shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all hover:scale-[1.02] cursor-pointer"
+                className="w-full md:w-auto py-2.5 sm:py-3.5 px-5 sm:px-6 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-[#55c538] hover:from-blue-500 hover:to-[#72e055] text-white font-black text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.02] cursor-pointer"
               >
                 <Navigation className="w-4 h-4" />
                 <span>Get Directions in Google Maps</span>

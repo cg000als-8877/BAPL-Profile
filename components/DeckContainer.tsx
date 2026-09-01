@@ -72,7 +72,7 @@ export const DeckContainer: React.FC = () => {
   }, []);
 
   return (
-    <main ref={containerRef} className="snap-container bg-[#050811] relative overflow-x-hidden">
+    <main ref={containerRef} className="snap-container relative overflow-x-hidden">
       {/* Universal Seamless Background Glow Orbs (Fixed across entire website without any clipping or section borders) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
         {/* Ambient Blob 1: Top-Right Glow */}

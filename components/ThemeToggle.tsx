@@ -201,13 +201,13 @@ export const ThemeToggle: React.FC = () => {
         className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-transform active:scale-95 pointer-events-auto shadow-2xl ${
           theme === "day"
             ? "bg-gradient-to-b from-white via-slate-100 to-slate-200 border-slate-300 shadow-[inset_0_1.5px_1px_rgba(255,255,255,1),_0_8px_18px_-2px_rgba(15,23,42,0.3)] hover:shadow-amber-500/25"
-            : "bg-gradient-to-b from-slate-800 via-[#0a1122] to-[#040710] border-[#55c538]/70 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.25),_0_8px_20px_-2px_rgba(0,0,0,0.9),_0_0_14px_rgba(85,197,56,0.5)] hover:shadow-[#55c538]/60"
+            : "bg-gradient-to-b from-[#202631] via-[#181c23] to-[#111419] border-slate-600/80 shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.15),_0_8px_20px_-2px_rgba(0,0,0,0.8)] hover:shadow-slate-500/20"
         }`}
       >
         {theme === "day" ? (
           <Sun className="w-5 h-5 text-amber-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)] pointer-events-none" />
         ) : (
-          <Moon className="w-5 h-5 text-[#72e055] drop-shadow-[0_0_8px_rgba(85,197,56,0.9)] pointer-events-none" />
+          <Moon className="w-5 h-5 text-[#dbe2ea] drop-shadow-[0_0_6px_rgba(219,226,234,0.4)] pointer-events-none" />
         )}
       </button>
     </div>

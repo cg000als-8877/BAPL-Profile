@@ -622,19 +622,31 @@ html.day-mode .hover\:bg-slate-800:hover {
 }
 
 /* ============================================================
-   HERO GRADIENTS & ADAPTIVE DAY/NIGHT MOBILE TEXT
+   HERO GRADIENTS & ADAPTIVE DAY/NIGHT MOBILE TEXT (100% SEAMLESS BLEND)
    ============================================================ */
 
-/* 1. Mobile Hero Bottom Gradient */
+/* Hero Slide Wrapper - Transparent / Inherits Dynamic Theme Canvas */
+html:not([data-theme="day"]) .hero-slide-wrapper,
+html.night-mode .hero-slide-wrapper,
+html.dark .hero-slide-wrapper {
+  background-color: #111419 !important;
+}
+
+html[data-theme="day"] .hero-slide-wrapper,
+html.day-mode .hero-slide-wrapper {
+  background-color: #f8fafc !important;
+}
+
+/* 1. Mobile Hero Bottom Seamless Gradient */
 html:not([data-theme="day"]) .hero-mobile-gradient,
 html.night-mode .hero-mobile-gradient,
 html.dark .hero-mobile-gradient {
-  background: linear-gradient(to top, #111419 0%, rgba(17, 20, 25, 0.92) 55%, rgba(17, 20, 25, 0) 100%) !important;
+  background: linear-gradient(to top, #111419 0%, #111419 25%, rgba(17, 20, 25, 0.95) 50%, rgba(17, 20, 25, 0.4) 75%, transparent 100%) !important;
 }
 
 html[data-theme="day"] .hero-mobile-gradient,
 html.day-mode .hero-mobile-gradient {
-  background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.94) 55%, rgba(255, 255, 255, 0) 100%) !important;
+  background: linear-gradient(to top, #f8fafc 0%, #f8fafc 25%, rgba(248, 250, 252, 0.95) 50%, rgba(248, 250, 252, 0.4) 75%, transparent 100%) !important;
 }
 
 /* 2. Desktop Hero Scrim Gradient (Crystal clear image visibility with gentle right scrim) */
@@ -646,7 +658,7 @@ html.dark .hero-desktop-scrim {
 
 html[data-theme="day"] .hero-desktop-scrim,
 html.day-mode .hero-desktop-scrim {
-  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0.8) 100%) !important;
+  background: linear-gradient(to right, transparent 0%, rgba(248, 250, 252, 0.1) 40%, rgba(248, 250, 252, 0.8) 100%) !important;
 }
 
 /* 3. Day Mode: Mobile Hero Text Colors (Black & Grey as requested) */
@@ -680,9 +692,9 @@ html.day-mode #slide-1 {
 
 html[data-theme="day"] #slide-1 .bg-\[\#111419\]\/85,
 html.day-mode #slide-1 .bg-\[\#111419\]\/85 {
-  background-color: rgba(255, 255, 255, 0.92) !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
   border-color: #e2e8f0 !important;
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08) !important;
 }
 
 html[data-theme="day"] #slide-1 h1,
@@ -768,6 +780,7 @@ html.night-mode .bg-\[\#72e055\],
 html.night-mode .bg-emerald-500 {
   background-color: #dbe2ea !important;
   color: #141820 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
 }
 
 /* Ambient glow in night mode is soft neutral pearl mist */
@@ -837,7 +850,7 @@ html.night-mode .w-9.h-9 {
   color: #dbe2ea !important;
 }
 
-/* Frosted Steel Buttons */
+/* Frosted Steel Buttons (No colored underglow) */
 html:not([data-theme="day"]) .bg-blue-500,
 html:not([data-theme="day"]) .bg-gradient-to-r,
 html.night-mode .bg-blue-500,
@@ -846,13 +859,14 @@ html.night-mode .bg-gradient-to-r {
   background-image: none !important;
   color: #141820 !important;
   font-weight: 900 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* Glow Bar */
+/* Glow Bar - Clean hairline divider without colored halos */
 html:not([data-theme="day"]) .glow-bar,
 html.night-mode .glow-bar {
   background-color: #dbe2ea !important;
-  box-shadow: 0 0 12px rgba(203, 213, 225, 0.3) !important;
+  box-shadow: none !important;
 }
 
 /* Cool Pewter Secondary Tones */

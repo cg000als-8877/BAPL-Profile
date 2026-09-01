@@ -107,7 +107,7 @@ export const ContactSlide: React.FC<SlideProps> = () => {
 
                 <a
                   href="mailto:info@byzidapparels.com?subject=Business%20Inquiry%20-%20Byzid%20Apparels"
-                  className="px-4 py-2 rounded-xl bg-[#55c538] hover:bg-[#72e055] text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md shadow-[#55c538]/25 flex items-center justify-center gap-1.5 shrink-0 active:scale-95"
+                  className="px-4 py-2 rounded-xl bg-[#55c538] hover:bg-[#72e055] text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0 active:scale-95"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Send Email</span>
@@ -161,7 +161,7 @@ export const ContactSlide: React.FC<SlideProps> = () => {
 
                 <a
                   href="mailto:susan@byzidapparels.com?subject=Operational%20Inquiry%20-%20Byzid%20Apparels"
-                  className="px-4 py-2 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md shadow-blue-500/25 flex items-center justify-center gap-1.5 shrink-0 active:scale-95"
+                  className="px-4 py-2 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 text-xs sm:text-sm font-black transition-all shadow-md flex items-center justify-center gap-1.5 shrink-0 active:scale-95"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Send Email</span>
@@ -335,7 +335,7 @@ export const ContactSlide: React.FC<SlideProps> = () => {
                   href="https://maps.app.goo.gl/rmAxTS1NAkbz3sLC7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-[#55c538] hover:from-blue-500 hover:to-[#72e055] text-white font-black text-xs shadow-md shadow-blue-500/25 transition-all active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-[#55c538] hover:from-blue-500 hover:to-[#72e055] text-white font-black text-xs shadow-md transition-all active:scale-95"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Google Maps</span>
