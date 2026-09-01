@@ -103,9 +103,9 @@ export const CompanyDetailsSlide: React.FC<SlideProps> = () => {
                   <span className="text-slate-400">BIN:</span>
                   <span className="font-bold text-white">001287924-0505</span>
                 </div>
-                <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-0.5 py-1.5 sm:py-2 border-b border-slate-800">
+                <div className="flex items-center justify-between gap-1 py-1.5 sm:py-2 border-b border-slate-800">
                   <span className="text-slate-400 shrink-0">IRC / ERC:</span>
-                  <span className="font-bold text-white text-[11px] sm:text-xs md:text-sm text-left xs:text-right break-all xs:break-normal">
+                  <span className="font-bold text-white text-[9.5px] sm:text-xs md:text-sm text-right tracking-tight">
                     260315120087920 | 260315210089519
                   </span>
                 </div>
