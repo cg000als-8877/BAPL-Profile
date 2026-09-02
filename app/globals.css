@@ -767,8 +767,48 @@ html:not([data-theme="day"]) .text-green-400,
 html.night-mode .text-\[\#72e055\],
 html.night-mode .text-\[\#55c538\],
 html.night-mode .text-emerald-400,
-html.night-mode .text-green-400 {
-  color: #d8dde6 !important;
+html.night-mode .text-green-400,
+html:not([data-theme="day"]) .hero-mobile-subtitle,
+html.night-mode .hero-mobile-subtitle,
+html.dark .hero-mobile-subtitle,
+html:not([data-theme="day"]) #slide-1 .uppercase.tracking-widest,
+html.night-mode #slide-1 .uppercase.tracking-widest,
+html.dark #slide-1 .uppercase.tracking-widest {
+  color: #94a3b8 !important;
+}
+
+/* Main Slide Titles in Dark Mode (Vibrant Blue Color) */
+html:not([data-theme="day"]) h2,
+html.night-mode h2,
+html.dark h2,
+html:not([data-theme="day"]) .hero-mobile-title,
+html.night-mode .hero-mobile-title,
+html.dark .hero-mobile-title,
+html:not([data-theme="day"]) #slide-1 h1,
+html.night-mode #slide-1 h1,
+html.dark #slide-1 h1 {
+  color: #3b82f6 !important;
+}
+
+/* Hero Accent Span in Dark Mode */
+html:not([data-theme="day"]) #slide-1 h1 span,
+html.night-mode #slide-1 h1 span,
+html.dark #slide-1 h1 span {
+  color: #60a5fa !important;
+}
+
+/* Header Vertical Pill Bar & Underline Accent in Dark Mode (Matching Blue) */
+html:not([data-theme="day"]) .glow-bar,
+html.night-mode .glow-bar,
+html.dark .glow-bar {
+  background-color: #3b82f6 !important;
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.4) !important;
+}
+
+html:not([data-theme="day"]) .via-\[\#55c538\],
+html.night-mode .via-\[\#55c538\],
+html.dark .via-\[\#55c538\] {
+  --tw-gradient-stops: var(--tw-gradient-from, transparent), #3b82f6, var(--tw-gradient-to, transparent) !important;
 }
 
 html:not([data-theme="day"]) .bg-\[\#55c538\],
