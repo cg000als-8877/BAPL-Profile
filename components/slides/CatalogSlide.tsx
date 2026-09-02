@@ -38,7 +38,7 @@ const PinterestFrameItem: React.FC<FrameProps> = ({
         background:
           "radial-gradient(circle at 50% 50%, #ffffff 0%, #f4f4f6 45%, #e2e2e8 100%)",
       }}
-      className={`group relative w-full ${aspectClass} rounded-xl p-1 flex flex-col items-center justify-center overflow-hidden select-none border-none shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-200 cursor-pointer`}
+      className={`group relative w-full ${aspectClass} rounded-xl p-1 flex flex-col items-center justify-center overflow-hidden select-none border-none shadow-none md:shadow-md md:hover:shadow-xl hover:scale-[1.03] transition-all duration-200 cursor-pointer`}
     >
       {!hasError ? (
         <div className="relative w-full h-full rounded-lg overflow-hidden flex items-center justify-center">
