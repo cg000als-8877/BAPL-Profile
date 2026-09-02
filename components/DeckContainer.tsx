@@ -175,8 +175,8 @@ export const DeckContainer: React.FC = () => {
         <ContactSlide isActive={currentSlide === 9} />
       </section>
 
-      {/* Mobile Bottom Footer & Back to Top (Ensures 100% accessible scroll past last card) */}
-      <footer className="block md:hidden w-full px-6 pt-2 pb-24 text-center select-none relative z-10">
+      {/* Mobile Bottom Footer & Back to Top */}
+      <footer className="block md:hidden w-full px-6 pt-2 pb-[6px] text-center select-none relative z-10">
         <button
           type="button"
           onClick={() => scrollToSlide(0)}
@@ -185,7 +185,7 @@ export const DeckContainer: React.FC = () => {
           <ArrowUp className="w-3.5 h-3.5 text-[#55c538]" />
           <span>Back to Top</span>
         </button>
-        <p className="text-[10px] text-slate-400 mt-3 font-medium">
+        <p className="text-[10px] text-slate-400 mt-2 mb-0 pb-0 leading-tight font-medium">
           © {new Date().getFullYear()} Byzid Apparels (Pvt.) Ltd. All rights reserved.
         </p>
       </footer>
