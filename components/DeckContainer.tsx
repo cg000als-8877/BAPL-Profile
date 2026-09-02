@@ -176,7 +176,7 @@ export const DeckContainer: React.FC = () => {
       </section>
 
       {/* Mobile Bottom Footer & Back to Top */}
-      <footer className="block md:hidden w-full px-6 pt-2 pb-[6px] text-center select-none relative z-10">
+      <footer className="block md:hidden w-full px-6 pt-[6px] pb-[6px] text-center select-none relative z-10">
         <button
           type="button"
           onClick={() => scrollToSlide(0)}

@@ -100,7 +100,7 @@
     scroll-snap-type: none !important;
     display: flex;
     flex-direction: column;
-    padding-bottom: 3rem;
+    padding-bottom: 0 !important;
   }
 
   .slide {
@@ -118,6 +118,11 @@
     transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+  }
+
+  .slide:last-of-type,
+  .slide#slide-10 {
+    padding-bottom: 0 !important;
   }
 
   .slide:first-child,

@@ -30,7 +30,7 @@ export const ContactSlide: React.FC<SlideProps> = () => {
     <AspectWrapper className="bg-transparent text-white">
       <div
         ref={containerRef}
-        className="relative w-full h-auto min-h-0 md:min-h-full p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-start md:justify-between gap-4 sm:gap-5 md:gap-6 overflow-visible pb-16 sm:pb-20 md:pb-6"
+        className="relative w-full h-auto min-h-0 md:min-h-full p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-start md:justify-between gap-4 sm:gap-5 md:gap-6 overflow-visible pb-0 md:pb-6"
       >
 
         {/* 1. Header */}
