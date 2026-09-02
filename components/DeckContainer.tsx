@@ -176,16 +176,16 @@ export const DeckContainer: React.FC = () => {
       </section>
 
       {/* Mobile Bottom Footer & Back to Top */}
-      <footer className="block md:hidden w-full px-6 pt-[6px] pb-[6px] text-center select-none relative z-10">
+      <footer className="block md:hidden w-full px-6 pt-[4px] pb-[6px] text-center select-none relative z-10">
         <button
           type="button"
           onClick={() => scrollToSlide(0)}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-slate-300 hover:text-white hover:border-[#55c538] text-xs font-bold transition-all shadow-md active:scale-95 cursor-pointer"
+          aria-label="Back to Top"
+          className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-900/90 border border-slate-700/80 text-[#3b82f6] hover:text-white hover:border-[#3b82f6] transition-all shadow-md active:scale-90 cursor-pointer mx-auto group"
         >
-          <ArrowUp className="w-3.5 h-3.5 text-[#55c538]" />
-          <span>Back to Top</span>
+          <ArrowUp className="w-4 h-4 text-[#3b82f6] animate-bounce" />
         </button>
-        <p className="text-[10px] text-slate-400 mt-2 mb-0 pb-0 leading-tight font-medium">
+        <p className="text-[10px] text-slate-400 mt-1 mb-0 pb-0 leading-tight font-medium">
           © {new Date().getFullYear()} Byzid Apparels (Pvt.) Ltd. All rights reserved.
         </p>
       </footer>
